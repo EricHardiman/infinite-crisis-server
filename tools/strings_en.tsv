@@ -1,0 +1,907 @@
+2b00000b	05c80043	The Doomsday Device Guardian slams the ground, damaging and knocking down all nearby enemies.
+2b00000b	0be3a9c1	Shockwave
+2b00000b	0dbacd31	Ground Pound
+2b00000b	065c37e3	Robo-boogie
+2b00000b	04f9b75b	Basic Attack
+2b000062	09b9dbc3	Gaslight Catwoman enters Stealth for a short time. If there are any enemy Champions with less than 50% Health nearby, then they will be Revealed, and she gains Move Speed.<br><br>When Gaslight Catwoman uses a Basic Attack or Shred from Stealth, she deals extra Attack Damage.
+2b000062	0d33ef55	A master of tracking, stealth, and assassination, Gaslight Catwoman excels at hunting down and finishing off enemies at low health.
+2b000062	089ba313	Gaslight Catwoman blinks to the target and deals Attack Damage. Deas;<br><br>If the target has the Predator's Mark effect, then Predator's Grace has a very short cooldown and the effect is removed from the target.
+2b000062	0c97acc5	Sharpened Claws
+2b000062	0b18946a	******STORE******
+2b000062	09243ec3	Stealth.<br>You Reveal nearby enemy Champions that have low health.
+2b000062	06d47545	Sharpened Claws
+2b000062	02a77591	Steampowered Claws
+2b000062	02a77592	Shred
+2b000062	0c7ad653	Gaslight Catwoman's Basic Attacks deal additional Attack Damage over time.
+2b000062	02a77593	Blood Hunt
+2b000062	02d430b5	Steampowered Claws
+2b000062	0280f885	Predator's Grace
+2b000062	0969dbc3	Gaslight Catwoman deals Attack Damage to her target, applying Hit Effects, and Sharpened Claws. If the target has less than 50% Health, Gaslight Catwoman will deal a percentage of the target's Max Health as additional Attack Damage.<br><br>When targeting creatures and drones, this damage bonus has a cap.
+2b000062	023430b5	Blood Hunt
+2b000049	09b9dbc3	Poison Ivy grants a Shield, to herself or an ally, for a few seconds. Attackers that use Basic Attacks against the Shielded ally lose Move Speed.
+2b000049	089ba313	Poison Ivy creates a field of poisonous plants that lasts several seconds. Enemies in the area lose Move Speed, and are dealt Power Damage over time.
+2b000049	0d480643	You have a Shield.<br>When someone uses a Basic Attack against you, they lose Move Speed.
+2b000049	0c97acc5	Healthy Glow
+2b000049	02a77591	Root Strike
+2b000049	02a77592	Blow Kiss
+2b000049	0c7ad653	After a certain number of skills are used, Poison Ivy grows a field of flowers at her location. Allies in the area regain Health over time.
+2b000049	02a77593	Thorn Shield
+2b000049	0def5df5	Poison Ivy aids her team with healing and Shields while disrupting enemies with her plants. Her ultimate ability can transform the location of a fight into an asset for her team and a danger to her foes.
+2b000049	0280f885	Deadly Flora
+2b000049	0d761a14	Pamela Isley was a biologist working under a professor who used her as a test subject. These experiments gave her various plant-based powers, such as immunity to poison and infection. In addition, the experiments gave her the ability to produce pheromones that can influence the minds of men, bending them to her will. Most significantly, she gained the ability to control and mutate plant-life. Yet the experiments had their downside, as they shattered her sanity, leading her to value the lives of plants over those of humans or other creatures. However, Poison Ivy has in the past saved the lives of endangered women and children.
+2b000049	05f12105	Healthy Glow
+2b000049	0969dbc3	Poison Ivy deals Power Damage and Blinds her target (their Basic Attacks deal reduced damage) for a short time.
+2b000049	02539595	Blow Kiss
+2b00006e	0ea6f765	Cyborg élimine ses ennemis de loin en infligeant des dégâts de manière soutenue. Il dispose également de compétences qui augmentent sa Vitesse d'attaque, ainsi que ses chances de critique contre les cibles sélectionnées.
+2b00006e	0d862804	Victor "Vic" Stone ne souhaitait qu'une chose : recevoir l'approbation de son père, un homme de science brillant qui était incapable d'apprécier à leur juste valeur les aptitudes physiques impressionnantes de son fils. Malheureusement, la tragédie frappa le quarterback vedette, le laissant mutilé, et son père lui implanta des prothèses expérimentales dans une tentative désespérée visant à sauver la vie de son fils. L'opération fut un succès, mais Vic se rendit vite compte qu'il ne pourrait retourner à son ancienne vie. Les implants cybernétiques lui conféraient cependant des capacités extraordinaires, qui attirèrent bientôt l'attention des plus grands super-héros, et il finit par trouver un certain réconfort lorsqu'il rejoignit la Ligue de Justice. Après de nombreuses aventures, Vic a enfin accepté sa situation, et il sert désormais de mentor à de jeunes héros.<br><br>Les prothèses de Vic lui confèrent une résistance phénoménale. De plus, au fil des années, les implants de Vic ont été améliorés au moyen de technologie extraterrestre, et il est désormais capable de modifier sa morphologie à volonté. Il peut par exemple transformer ses bras en canons ou en lames pour le combat.
+2b00006e	089ba313	Cyborg déclenche un tir puissant, infligeant des Dégâts d'attaque à tous les ennemis dans la zone, et repoussant Cyborg en arrière sur une courte distance.<br><br>Pendant quelques secondes après le tir, les Attaques de base de Cyborg transpercent les cibles, atteignant leur pleine portée et infligeant des dégâts à tous les ennemis se trouvant sur le passage.
+2b00006e	09243ec3	Votre Vitesse de déplacement et votre Vitesse d'attaque sont augmentées.
+2b00006e	02a77591	Tir traçant
+2b00006e	02a77592	Charge négative
+2b00006e	00bd3915	Dégâts de Tir traçant
+2b00006e	0c7ad653	Toutes les quelques Attaques de base, Cyborg inflige un pourcentage de la Santé max. de la cible en tant que Dégâts d'attaque supplémentaires.<br><br>Ce bonus de dégâts est plafonné contre les créatures et les drones.
+2b00006e	02a77593	Cascade
+2b00006e	02d430b5	Tir traçant
+2b00006e	0959dbc3	Cyborg fait feu d'une décharge d'énergie. Celle-ci inflige des Dégâts d'attaque et marque chaque ennemi touché.<br><br>Les Attaques de base de Cyborg infligent des Dégâts d'attaque supplémentaires aux ennemis portant la marque de Tir traçant.
+2b00006e	092a3ec3	Vos compétences et Attaques de base sont améliorées.
+2b00006e	01125845	Canon à plasma
+2b00006e	05f12105	Visée cybernétique
+2b00006e	026d3473	Votre Vitesse de déplacement est réduite.
+2b00006e	023430b5	Cascade
+2b00006e	06161943	Vos Attaques de base transpercent les ennemis et atteignent leur portée maximale.
+2b00006e	02580e33	Votre Visée cybernétique est en cours d'ajustement.
+2b000055	023c97c4	Zatanna Zatara est une magicienne de scène et la fille d'un autre magicien de scène célèbre, Giovanni Zatara. Tout comme son père, ses tours reposent non pas sur la dextérité et les tours de passe-passe, mais sur sa capacité naturelle et héréditaire à manipuler la magie. Elle se sert de ses talents de magicienne pour résoudre des crimes mystiques et déjouer les tentatives d'incursion de forces surnaturelles. De plus, elle est membre réserviste de la Ligue de Justice et les aide à combattre les menaces de nature magique.<br><br>Zatanna concentre ses pouvoirs magiques quasiment illimités en exprimant à voix haute et à l'envers ce qu'elle souhaite réaliser. Par exemple, si elle souhaitait ouvrir une porte fermée à clé, elle dirait "ervuo uorrev !" Du fait qu'ils ne sont pas toujours suffisamment spécifiques, ses sortilèges ont parfois des conséquences imprévues et désastreuses. C'est pour cette raison que Zatanna a passé de longues années à s'entraîner à utiliser ses pouvoirs avec discernement, afin d'éviter de causer accidentellement des torts plus graves que ceux qu'elle s'efforce de redresser.
+2b000055	0f332441	Embrochement
+2b000055	0103dd15	Présence scénique
+2b000055	0f332442	Sprint / Éblouissement
+2b000055	0f332443	Protection / Punition
+2b000055	0c2453d4	Bouclier de Protection
+2b000055	01c39143	Zatanna gagne de la Régén. de Volonté, et les alliés à proximité gagnent de l'Armure anti-pouvoir.
+2b000055	0e357165	Punition
+2b000055	0fd95823	Votre Vitesse de déplacement est réduite.
+2b000055	072012c3	Zatanna transforme un champion ennemi en lapin pendant un court laps de temps. La cible perd de l'Armure anti-pouvoir et de l'Armure anti-attaque, et son armure ne peut être altérée tant qu'elle n'a pas repris sa forme normale. Le lapin ne peut ni attaquer ni faire usage de compétences.
+2b000055	00abe585	Coup du lapin
+2b000055	04809ed3	<b>Cible alliée :</b> La cible gagne un bouclier qui bloque des dégâts. Après quelques secondes, la cible récupère en Santé un pourcentage de la valeur restante du bouclier, et les alliés à proximité récupèrent la moitié de cette quantité.<br><br><b>Cible ennemie :</b> Réduit les soins reçus par la cible. Après un court laps de temps, la cible explose et subit des Dégâts de pouvoir, infligeant également la même quantité de dégâts aux autres ennemis à proximité. Lorsque le déclenchement est provoqué par Embrochement, les dégâts sont doublés.
+2b000055	0afcecf3	Vous disposez d'un bouclier de Santé temporaire.<br>Lorsque le bouclier expire, vos alliés à proximité et vous recevez des soins.
+2b000055	0fbf0d85	Protection
+2b000055	089da595	Sprint
+2b000055	0b1e9e25	Dégâts de Punition
+2b000055	04e44b33	Vos soins reçus sont réduits.<br>Lorsque l'effet expire, vos alliés a proximité et vous subissez des Dégâts de pouvoir.
+2b000055	01b76e85	Les pouvoirs magiques de Zatanna lui donnent la faculté d'aider ses alliés ou d'infliger des dégâts à ses ennemis. Son ultime peut neutraliser toute menace provenant de l'équipe ennemie pendant un laps de temps important.
+2b000055	0b3be575	Coup du lapin
+2b000055	0eb4bcc5	Présence scénique
+2b000055	0a0da273	Votre <font color='#ff9900'>Armure anti-attaque</font> et votre <font color='#0088ff'>Armure anti-pouvoir</font> sont réduites.
+2b00006a	09243ec3	The next enemy Skill used on you will be blocked.
+2b00006a	09b9dbc3	Gaslight Joker gains a Skill Shield that prevents the damage and effects of the next enemy skill that hits him.<br><br>When a skill is blocked, Snack Time's cost is refunded and he gains Move Speed. His Move Speed fades back to normal over a short time.<br><br>If he has a Skill Shield from another source, both Skill Shields will be consumed when they block a skill.
+2b00006a	023430b5	Snack Time!
+2b00006a	075c8a64	In cities across Europe and America, tales have been told of an affable 'Laughing Butcher' who, with a joke and a smile, would lead unsuspecting street dwellers to their deaths - feeding them to his 'pets,' hordes of rats that lived beneath his shop. The police never investigated these tales, but when the Butcher moved to Gotham, the Batman discovered his shop and attempted to bring him to justice. The Butcher fled to a nearby tannery where he fell into a vat of chemicals. These chemicals bleached his skin white and distorted his face into a rictus grin. No longer able to hide in the shadows, the Butcher began calling himself 'The Joker' and set about committing more audacious and horrific crimes, all aimed at keeping his pets well fed.<br><br>Gaslight Joker typically acts as if he were performing for an audience, which in his warped mind, are his pet rats. To that end, his movements and attacks are both brutal and flamboyant.
+2b00006a	0c97acc5	Blood Money
+2b00006a	058e8250	Max Health Cap
+2b00006a	02a77591	Fetid Cleaver
+2b00006a	02a77592	Ham Toss
+2b00006a	0959dbc3	Gaslight Joker empowers his next Basic Attack to deal Power Damage, apply Filthy, and grants him Health equal to a percentage of his Max Health. This skill resets his Basic Attack cooldown.
+2b00006a	03ad8a75	Gaslight Joker is excellent at making his enemies come to him and then preventing them from escaping with his pet rats. He also uses his skill Shield to turns his opponent's crowd control into a burst of speed, allowing him to close on foes when they least desire it.
+2b00006a	02d430b5	Fetid Cleaver
+2b00006a	0969dbc3	Gaslight Joker tosses his ham at the ground, dealing Power Damage in the area. Damaged enemy Champions are Feared (forced to flee) for a short time. Drones and creatures are Stunned. All targets also receive the Filthy effect for a few seconds.
+2b00006a	0b1ab68a	******Store******
+2b00006a	02e430b5	Filthy
+2b00006a	0bf3266e	Cost Reduction
+2b00006a	09293ec3	Rat Swarm will greatly reduce your Move Speed.
+2b000067	09b9dbc3	Green Lantern fires a missile that explodes when it hits an enemy or reaches max range, dealing Power Damage in an area and applying the Missile Barrage mark. This mark can stack up to three times.<br><br>This skill be used up to 3 times within a short time.
+2b000067	089ba313	Green Lantern crashes a jet construct into the ground, dealing Power Damage to enemies in the area. Enemies in the center of the target area are Knocked Down.
+2b000067	02a77591	Slam
+2b000067	0c7ad653	Green Lantern regains a percent of his Max Will whenever he kills a drone or creature, or a larger percent of Max Will when he earns a Kill or an Assist against a Champion.<br><br><b>Trigger</b>: Green Lantern's Basic Attack deals a percent of his Total Will as Power Damage. Using skills reduces the cooldown by 1s.
+2b000067	02a77593	Missile Barrage
+2b000067	0959dbc3	Green Lantern drops a construct on the target, dealing Power Damage.<br><br>If the target is marked by Missile Barrage, Slam deals additional Power Damage per stack.
+2b000067	0280f885	Green Lantern's Light
+2b000067	0d7e5a63	<b>Will Regained (Champs)</b>
+2b000067	03e416fe	Damage Per Stack
+2b000067	0969dbc3	Green Lantern's target loses Move Speed and is dealt Power Damage over time.<br><br>While the effect is active, using Green Lantern's skills on the target reduces Constrict's cooldown.
+2b000067	040c0a75	Green Lantern Hal Jordan uses his power ring to create constructs to impede his foes and deal significant amounts of burst damage at range.
+2b000067	023430b5	Missile Barrage
+2b000006	09243ec3	You gain Attack Speed and Move Speed.
+2b000006	0b18946a	******STORE******
+2b000006	02580e33	Increased <font color='#ff4a4a'>Health</font> gained with each Basic Attack on the same target.
+2b000006	044efa15	Bat Swarm
+2b000006	09b9dbc3	Nightmare Batman gains Attack Speed and Move Speed for a short time. Every time he hits a target with a Basic Attack he gains Energy, and the duration is increased, up to a maximum.
+2b000006	06161943	You are taking damage over time.
+2b000006	05f12105	Eternal Hunger
+2b000006	02a77591	Silver Batarang
+2b000006	02a77592	Bat Swarm
+2b000006	02a77593	Savagery
+2b000006	0969dbc3	Nightmare Batman's next Basic Attack causes a bat swarm to attack his target. This swarm deals Attack Damage over time and Reveals all enemies in the area. Basic Attacks extend the duration of the swarm.
+2b000006	0c7ad653	Nightmare Batman gains Health with each Basic Attack. If he continues to attack the same target, the Health gained will increase, stacking several times.<br><br>These stacks remove after a short time without attacking, or if he attacks a different target.
+2b000006	0d908ea4	In his final, climatic fight with the vampiric Ra's al Ghul, Batman defeated the ancient master of the Guild of Assassins, but in the fight became a vampire himself. Initially, he was able to control the hunger and use his new abilities in his war on crime. Over time, though, his control began to slip and was shattered forever in a key battle with the Joker. In that battle he slew the Joker and drank his blood. Horrified, he asked to be staked through the heart. He was later revived, but unfortunately very little of the man who had once been Bruce Wayne remained in that resurrected creature.<br><br>Although Nightmare Batman received his curse from Ra's al Ghul, he never displays the veneer of refinement that Ra's displayed. Instead, he is a bloodthirsty creature at all times. He will strike like a wild animal, tearing and rending his prey, then feasting on what remains.
+2b000006	0280f885	Feral Embrace
+2b000006	0352e675	Nightmare Batman isolates his enemies with short-term Stealth and multi-target slows, and can lock vulnerable foes down for the kill with his ultimate.
+2b000006	089ba313	Nightmare Batman blinks to a target Enemy Champion deals Attack Damage and channels for a short time. During that time the target is Suppressed, and is dealt Attack Damage over time.  Nightmare Batman gains Attack Lifesteal for the duration. The duration of the effect is not reduced by Resilience.
+2b000059	056dc7c3	The Joker fires a modified rocket. The first enemy hit is dealt Power Damage and Stunned.
+2b000059	0b18946a	******STORE******
+2b000059	044f5784	A homicidal maniac. A brutal serial-killer. A sadistic super-villain. None of these labels seems sufficient to describe the Joker. His deathly white skin and macabre grin are the results of an accidental chemical bath. The Joker's history prior to that event remain a mystery. He has told many versions of his past, and it seems likely that even he doesn't know who he once was. In fact, the doctors at Arkham Asylum suggest that his mental illness allows him to redefine his personality as he sees fit.<br><br>Yet one thing about his personality always remains constant: His obsessive fixation on the Batman.<br><br>The Joker possesses a brilliant mind, which he uses to devise horrific crimes. He is also skilled at transforming non-lethal objects into vicious weapons. He is a brutal fighter and fights without compunction. He will beat his opponent to death, if he thinks it will be sufficiently amusing.
+2b000059	02974ff3	You have increased <font color='#0088ff'>Power Lifesteal</font>.
+2b000059	04a239de	Cooldown
+2b000059	0ed834b5	Surprise!
+2b000059	0664f4b5	Last Laugh
+2b000059	0cfbcc25	Bite Damage
+2b000059	09053d05	Sadism
+2b000059	05cdc7c3	The Joker blinks to the target location, leaving behind a punching bag that forces enemy drones and creatures to attack it for a short time or until it is destroyed.<br><br>If Mr. Punchy hits the punching bag, it will detonate, applying Mr. Punchy's Power Damage and Stun to all nearby enemies.
+2b000059	03e6b552	Surprise!
+2b000059	03e6b553	Vanish
+2b000059	0dd66c05	Sadist
+2b000059	0bd5e3d3	The Joker throws a doll. It explodes after a brief delay, dealing Power Damage to all nearby enemies and creating a cloud of laughing gas. The gas deals Power Damage over time to enemies in the area.
+2b00004e	02d71c15	Vengeance
+2b00004e	0d4825b5	Folie furieuse
+2b00004e	0ce7e541	Martèlement
+2b00004e	0ce7e542	Folie furieuse
+2b00004e	0ce7e543	Charge
+2b00004e	074cbff3	Bonus de Furie
+2b00004e	04bdd2c3	Doomsday se rue en avant et fracasse la zone ciblée, infligeant des Dégâts d'attaque à tous les ennemis touchés. Martèlement peut être utilisé jusqu'à 3 fois de suite si les attaques se succèdent rapidement. <br><br><b>Si Rage kryptonienne est active :</b> La 3e attaque Renverse toutes les cibles.
+2b00004e	0c1b535e	Absorption de dégâts
+2b00004e	0c32ee43	Votre Résistance et votre <font color='#ff9900'>Renvoi d'attaque</font> sont augmentés.
+2b00004e	0901b645	Cible de Vengeance
+2b00004e	0ad4d3f3	Doomsday gagne du Renvoi d'attaque et de la Résistance, et tous les champions ennemis qui infligent des dégâts à Doomsday deviennent ses cibles de Vengeance. Rage kryptonienne coûte 12,5 points de Furie par seconde, réduit de moitié la génération de Furie, dure jusqu'à ce que sa Furie soit épuisée et améliore ses autres compétences.<br><br><b>Passive :</b> Doomsday génère de la Furie à chaque fois qu'il exécute une compétence ou une Attaque de base. Lorsque Rage kryptonienne atteint son premier rang, Doomsday obtient le maximum de Furie.
+2b00004e	033b6ca4	Tué puis ramené à la vie encore et encore dans le cadre de l'expérience d'un savant fou visant à créer une arme capable de détruire des mondes entiers, Doomsday est une arme de destruction massive vivante et adaptable.<br><br>Une fois devenu suffisamment puissant pour tuer son créateur, Doomsday quitta la base du savant sur Krypton et parcourut l'univers en saccageant tout sur son passage. Des milliers d'années plus tard, il atterrit sur Terre, où il affronta Superman et l'abattit, perdant cependant lui aussi la vie lors du combat. Doomsday est depuis revenu à la vie et a cherché à se venger à de nombreuses reprises, se retrouvant vaincu de justesse à chaque fois.
+2b00004e	035f28e5	Rage kryptonienne
+2b00004e	05766d55	Doomsday s'efforce de se rendre aussi près que possible de son adversaire, et d'y rester jusqu'à ce qu'il ait éliminé ce dernier.
+2b00004e	045dd2c3	Doomsday charge un champion ennemi et le pousse vers l'avant. Lorsqu'il empoigne l'ennemi, il lui inflige des Dégâts d'attaque. Si Doomsday écrase son ennemi contre un mur, ce dernier subit des Dégâts d'attaque supplémentaires et est Renversé pendant un court laps de temps.<br><br><b>Si Rage kryptonienne est active :</b> Doomsday emporte sa cible 50% plus loin.
+2b00000a	0f3727b3	Superman fires a blast of Heat Vision at an enemy, dealing Power Damage, Knocking them back, and Revealing the target for a short time. Using Heat Vision again causes Superman to dash to the Revealed target, dealing Attack Damage.
+2b00000a	07195d88	Frost Breath
+2b00000a	08c7e403	Resets Basic Attack cooldown. Superman's next Basic Attack deals additional Attack Damage and consumes a charge.<br><br>A charge is generated periodically, up to a maximum.
+2b00000a	0b18946a	******STORE******
+2b00000a	02336474	The infant Kal-El escaped the destruction of his home planet of Krypton in a ship built by his father, and crashed on Earth, in Kansas. His ship was found by the Kents, a childless couple. They took Kal-El, and gave him the name Clark Kent. The Kents soon discovered that Clark's unique alien physiology granted him tremendous strength and other amazing abilities. Thanks to the guidance of his adoptive Earth parents, and through recordings made by his Kryptonian birth parents, the adult Clark desires nothing more than to use his powers to benefit and inspire others. Superman values honesty and openness and has little patience for schemers and manipulators.<br><br>Since he grew up without knowing pain and is nearly invulnerable, Superman can be an intimidating force on the battlefield. He is not above striking fear into his enemies with his abilities. However, if he must choose between winning a battle and compromising what he believes is right, he will always choose to do the right thing.
+2b00000a	0d5e6e45	Man Of Steel
+2b00000a	07448987	Kryptonian Might
+2b00000a	08bed125	Heat Vision
+2b00000a	0ad79913	<b>Trigger</b>: When Superman deals damage with a skill, he gains a Shield that blocks damage for short time.<BR><BR>When Superman deals damage with a skill while Man of Steel is active, his Shield grows.
+2b00000a	0d43589c	Man of Steel
+2b00000a	0148b2ee	Heat Vision
+2b000060	0b18946a	******STORE******
+2b000060	0e2aa143	you have increased <font color='#ff9900'>Attack</font> and <font color='#0088ff'>Power</font> Armor.
+2b000060	016630d5	Wonder Woman can reposition quickly in fights using her lasso or her Protect skill. She also excels at drawing the attention and fire of opponents, preventing enemies from fleeing or attacking her allies.
+2b000060	0ded6905	Child of Olympus
+2b000060	0fd925c5	Charge Regen
+2b000060	0cc46063	You are forced to attack the source of the Taunt with Basic Attacks.
+2b000060	02dbd8c5	Blocking Bracers
+2b000060	09a5fa43	How long until your next charge.
+2b000060	0163f511	Lasso Grab
+2b000060	0163f512	Protection
+2b000060	0785b4c4	Princess Diana is a demigod, daughter of Zeus and Queen Hippolyta of the Amazons. The Amazons lived in isolation for thousands of years until pilot Steve Trevor crashed on their island paradise. Fascinated by a world she never knew, Diana fought for the privilege to accompany Steve back to civilization as Wonder Woman. She expected to find a world of peace and prosperity, but instead discovered war and hate. Unfamiliar with technology and the ways of modern life, Diana's idealistic vow to lead humanity to fight corruption, end war, and unlock humanity's potential might suggest she is naive. But those who make the mistake of doubting Wonder Woman will find themselves at the point of her sword.<br><br>While taking no pleasure in its brutality, Diana sees conflict as necessary and is ruthlessly efficient in battle. Yet once her enemy is defeated, she will display mercy if at all possible.
+2b000060	0c37c6e5	Taunted
+2b000066	0b18946a	******STORE******
+2b000066	05dae1e3	Batman throws his Batarang, dealing Attack Damage to the first enemy it hits and applying a mark for a short time. Batman's damaging skills and Basic Attacks will consume this mark, dealing Attack Damage and restoring Energy.
+2b000066	0f5d12e2	You can dash to an enemy target or return from where launched after 2s.
+2b000066	06a14d84	As a child, Bruce's Wayne's parents were gunned down before his eyes. After that, he swore that he would do all he could to ensure that no other child would ever have to endure what he did. Bruce spent his remaining formative years honing his body and mind to represent the epitome of human ability. Once he took on the mantle of Batman, Bruce considered that to be his true identity, while Bruce became the mask he wore in the public eye. No matter the mask he is wearing or the persona he takes on, Batman will do all he can to save lives and reduce suffering.<br><br>Batman strikes quickly and brutally from the shadows. He will not engage in a fight until he is sure that he or an ally can come out the victor. Batman will never kill another intelligent creature, and due to how his parents were killed, will never use a gun.
+2b000066	0b2fd085	Batman deals most of his damage up close and increases his defenses as he fights, learning to counter his opponent's tricks.
+2b000066	0e19a2e3	Charge Delay
+2b000066	02fca595	The Dark Knight
+2b000066	02b9e655	Cape Sweep
+2b000066	05fac663	Batman gains Attack Damage when in Stealth or on a Stealth Pad.
+2b000066	0717f124	The Dark Knight
+2b000066	071bdb90	Cape Sweep
+2b000066	0f2fa1c5	Mark Damage
+2b000066	02f2d383	Batman creates a cloud that makes all enemies within the cloud Crippled (cannot Dash, Blink, or benefit from bonus Move Speed) and launches into the air.  While in the air, Batman is Invincible, nearby enemies are Revealed, and Batman can target them to swoop in and attack for Attack Damage.  If Batman doesn't attack he will drop back into the cloud.<br><br>After landing Batman gains Move Speed, increased Energy generation, and enables Watching, Waiting for several seconds.
+2b000066	02d5f1d5	Watching, Waiting
+2b000066	0a1d9263	Energy/Sec
+2b000066	0b7928f5	The Dark Knight
+2b000066	0f96af4c	Watching, Waiting
+2b000068	0eca9125	Champ foudroyant est actif.
+2b000068	0ae0ae15	Champ foudroyant
+2b000068	0aca1ce3	Shazam lance une boule de foudre, infligeant des Dégâts de pouvoir à la première cible et aux autres ennemis touchés. La foudre peut rebondir sur plusieurs ennemis supplémentaires. Si Shazam est imbu de la Puissance de Zeus, la première cible est Étourdie.
+2b000068	06e3e245	Multiplicateur d'Armure
+2b000068	01555963	Shazam génère un champ de foudre qui inflige des dégâts au fil du temps. Si Puissance de Zeus est actif, les ennemis à l'intérieur du champ sont également ralentis.
+2b000068	012fedd3	Gain d'armure
+2b000068	0829c665	Shazam aime se trouver au centre du combat pour perturber et infliger des dégâts à l'équipe ennemie avec son éclair.
+2b000068	02b72e84	Billy Batson était un adolescent orphelin relativement normal, qui essayait de trouver sa voie dans la vie malgré l'absence de ses parents. Il apprit à canaliser son sentiment de solitude en combattant l'oppression et les injustices dont il était le témoin. Puis, un jour, le Mage considéra qu'il était digne de recevoir un don formidable ; désormais, en prononçant un mot magique, il se transforme en puissant Shazam ! Il est maintenant le Mortel le plus Puissant du Monde, même s'il reste au fond un enfant à la recherche d'un foyer.<br><br>Il manie ses pouvoirs en agissant comme tout bon adolescent, avec imprudence et assurance, mais animé par la gentillesse. Ses pouvoirs lui permettent de canaliser des quantités phénoménales d'énergie magique sous la forme d'un éclair, qu'il peut utiliser de différentes manières. De ses mains et de son corps jaillissent de l'électricité qu'il est en mesure d'orienter vers ses ennemis. Il peut aussi l'utiliser pour former des boucliers afin de se protéger.
+2b000068	08de5593	Shazam charge jusqu'à l'endroit ciblé et foudroie la zone autour de lui, infligeant des Dégâts de pouvoir. Tous les ennemis pris dans la déflagration sont réduits au Silence pendant un court instant.<br><br>Pendant sa charge, Shazam est invincible.
+2b000068	0fdec203	Shazam gagne de l'Armure anti-attaque et de l'Armure anti-pouvoir pendant un court laps de temps. Défense mystique peut être activée même si Shazam est Étourdi ou Neutralisé. Si Puissance de Zeus est actif, l'Armure anti-attaque et l'Armure anti-pouvoir de Shazam sont augmentées.
+2b000068	0d6f5f14	Champ foudroyant
+2b00006c	0b18946a	******STORE******
+2b00006c	0d788e35	The Flash gains speed by using his powers, and deals more damage the faster he is moving. His style is centered around hitting hard and fast, securing a kill or dealing significant damage, and then getting out.
+2b00006c	00000002	 % Move Speed.  ꟱੶糥Ӻ  Speed Force   몛໇
+2b00006c	0affd733	The Flash rushes to target location, dealing Attack Damage to all enemies he touches.The cooldown of Flash Attack is reduced if he rushes less than Flash Attack's maximum range.<br><br>If Hyper Vibration is active, this skill changes to a dash and can pass through walls.
+2b00006c	0c0236b5	Speed Force
+2b00006c	0d54a004	Num. of attacks
+2b00006c	074abc4f	Attack Damage Ratio
+2b00006c	0c1a959e	Hyper Vibration
+2b00006c	074eac13	Damage per .5s
+2b00006c	0f14585c	Final Damage
+2b00006c	0b0205c3	For a short time Flash Attack changes to a dash and can pass through walls. Damaging or touching an enemy Champion grants him a stack of Speed Force, and his target loses Move Speed, which decays over time. Champions may only be affected once.
+2b00006c	024a8873	Resets Basic Attack cooldown. The Flash's Basic Attack speed is set to 3 per second for a short time or until he uses several Basic Attacks. During this time, the Flash's Basic Attacks deal reduced damage, but each hit deals additional Attack Damage.<br><br>F=MA's attacks apply Hit Effects, but the bonus Attack Damage does not apply to structures.
+2b00006c	05924e21	F=MA
+2b00006c	0a5b5ed4	Beloved by the people of Central City and gifted with a brilliant mind, the Flash uses super speed to dash from threat to threat.<br><br>A police scientist in Central City, Barry Allen was caught in a chemical explosion when a lightning bolt crashed through his laboratory windows. Now able to control the motion of every molecule in his body, Barry moves at extreme speeds, phases through solid matter, and whips up whirlwinds.
+2b00006c	0bc17365	F=MA
+2b000037	09b9dbc3	Gaslight Batman rushes forward, dealing Power Damage to every enemy he passes through.
+2b000037	0b614184	Although he resides in another universe, the origin of Earth-19's Batman is just as tragic as that of the Batman of Earth-0. Gaslight Batman saw his parents gunned down in front of him. This caused him to dedicate his life towards trying to change the world to a place where such tragedies could never exist. Like Batman, Gaslight Batman cares deeply about his fellow man and will do all he can to save lives and reduce suffering.<br><br>Unlike the playboy persona the Earth-0 Bruce Wayne takes on, Gaslight Bruce is the proper Edwardian gentleman. Gaslight Batman and Batman have similar personalities, and when 'on duty' can be both brusque and tactless.<br><br>Gaslight Batman incorporated sound into his war on crime after being haunted by the reverberating sound of the guns used to murder his parents. Living in an 'Age of Invention,' Gaslight Batman has complemented his formidable martial art skills with a number of sonic weapons.
+2b000037	089ba313	Gaslight Batman fires a sonic blast that travels the length of the battlefield, dealing Power Damage to every enemy it hits. It deals 10% less damage to each successive target, to a minimum of 50% damage.
+2b000037	02a77591	Sonic Batarang
+2b000037	0c7ad653	Gaslight Batman's Basic Attacks apply the Echoes effect for a short time. When he uses a skill to hit a target with Echoes, that skill deals additional damage, and Gaslight Batman gains a stack of Reverb.<br><br>Gaslight Batman gains Attack Speed per stack of Reverb.
+2b000037	02a77593	Bat Flight
+2b000037	0959dbc3	Gaslight Batman throws a batarang that deals Attack Damage to the first enemy it hits, then bounces several times, dealing 20% less damage with each bounce.<br><br>It bounces to enemies with Echoes first.
+2b000037	05f12105	Echoes
+2b000037	0b1ab68a	******Store******
+2b000037	0d97e373	Your Reverb is stacking up.
+2b000076	06d986b3	Your Rev is stacking up.
+2b000076	08a0baa3	Cooldown Reduction
+2b000076	06161943	You are charging towards your Reclaimer target!
+2b000076	0c97acc5	Rev
+2b000076	0dad44f4	With the world's superpowers threatening nuclear war, Wonder Woman was in training to come to 'Man's World' in hopes of brokering a peace between the parties. As she was preparing to leave, an object from space crashed into Kansas, destroying the town of Smallville. The United States, mistaking the impact for a first strike, retaliated for this perceived attack. Soon, both sides exchanged their full nuclear arsenal. No portion of the Earth was untouched and even Wonder Woman's home island of Themyscira was left in ruins. When the bombs stopped and a deathly silence covered the world, Wonder Woman saw that her mission of peace had become an errand of mercy and restoration. In the rubble of the world, she struggles to help the survivors build a new, and hopefully more harmonious, world.<br><br>Although she has seen terrible loss and destruction, Wonder Woman's will remains strong. She is confident the world can be rebuilt and that hope will return to the Earth.
+2b000076	02a77591	Vault
+2b000076	02a77592	Smite
+2b000076	02a77593	Savage Sweep
+2b000076	05071685	Revved Damage
+2b000076	02d430b5	Revved Vault
+2b000076	0969dbc3	Reset Basic Attack cooldown. Atomic Wonder Woman's next Basic Attack deals additional Attack Damage.<br><br><b>Revved:</b> Her next Basic Attack more additional Attack Damage.
+2b000076	0c7ad653	Atomic Wonder Woman gains 1 Rev when she deals damage with a skill. When she has 2 Rev, all her cooldowns are reduced and her next skill has additional effects, but resets her Rev to 0.<br><br>She loses a point of Rev every few seconds. Dealing damage with Skills or Basic Attacks resets this decay.
+2b000076	02e430b5	Smiting Strike
+2b000076	0280f885	Reclaimer
+2b000076	0a288636	No Cost or <font color='#fff000'>2 Rev</font>
+2b000076	0de9a945	Rev
+2b000076	0faa1495	Savage Sweep Bleed
+2b000076	089ba313	Atomic Wonder Woman runs to a targeted Champion, becoming immune to Disables for the duration. When she reaches her target she deals Attack Damage and fills her Rev meter.<br><br>During her charge, her target is Revealed in the fog of war and in Stealth Pads.
+2b000081	0f9fee35	Bad Kitty
+2b000081	0650fb8e	Knockdown
+2b000081	0f88dc05	Whip Strike
+2b000081	02fef3f7	Cat's Paw
+2b000081	090d03d4	Acrobat
+2b000081	0cc5abb5	Acrobat Damage
+2b000081	0f6e94d3	Your next <font color='#00CC00'>Whip Strike</font> or <font color='#00CC00'>Cat's Paw</font> has a Bonus Effect.
+2b000081	0e69ac53	When Catwoman damages an enemy, a coin is created, which can be collected by anyone on her team.
+2b000081	006b2153	Catwoman lashes her target, dealing Power Damage.
+2b000081	06141943	For the duration of Bad Kitty, Catwoman's skills and Basic Attacks make her victims bleed, dealing Power Damage over time.<br><br>In addition, Acrobat resets its cooldown and becomes Savage Acrobat, which deals Power Damage to enemies she rushes through, has a shorter cooldown, and costs half as much <font color='#8ccfff'>Will</font>.
+2b000081	06e1b364	Selina Kyle's young life was marred by tragedy. Her mother took her own life, and her violent father drank himself to death soon after. After being remanded to an abusive state home, Selina escaped and took her chances on the streets. She soon fell into petty theft, and eventually became a talented master thief. In recent years, she has reformed and now fights crime.<br><br>It was through her crimes that she first encountered the Batman. Although they were enemies, they both soon discovered an attraction toward each other. Due to their complicated situation, neither party has ever fully committed to a romantic relationship.<br>Years of training have made Catwoman stealthy and agile, and her mastery of the martial arts makes her a formidable physical opponent. She frequently wields a whip, which she uses as both a weapon and a grappling hook.
+2b000081	069a8fd5	Acrobat Buff
+2b000081	0d137ca3	Catwoman rushes in target direction and gains the Acrobat effect for a short time.<br><br>Acrobat improves her next skill:<br><br><b>Whip Strike:</b> Extra damage, and half damage in an area around the target.<br><b>Cat's Paw:</b> Knock Down the target.
+2b000081	052b31c4	Savage Acrobat
+2b000083	0a39f054	Sir Harold Jordan, de la Terre, est l'un des membres les plus éminents de l'Ordre de la Lanterne d'émeraude. Alors qu'il était enfant, la ligue des Assassins plongea son monde dans les ténèbres et y introduisit de démoniaques créatures de l'Ombre. Celles-ci massacrèrent sa famille, et Hal n'échappa à l'attaque que grâce à l'intervention du Chevalier d'émeraude, Alan Scott. Après la défaite de la ligue des Assassins, Sir Scott pris Hal, désormais orphelin, sous sa protection en tant qu'écuyer. Sous la tutelle du chevalier, les progrès de Hal furent rapides et lui valurent d'être admis dans l'Ordre. Désormais un membre respecté de l'Ordre, Hal porte toujours en lui une haine tenace de l'Ombre dont son mentor craint qu'elle ne conduise un jour à la catastrophe.<br><br>Sir Jordan est un noble et brave Chevalier qui se lance avec courage - d'aucuns diraient avec témérité - dans la bataille. Il est convaincu du bien-fondé de l'Ordre et de sa victoire ultime, totale et définitive sur l'Ombre. <br><br><b>Remarques au sujet de l'Ordre de la Lanterne d'émeraude :</b><br>Pour combattre l'Ombre qui menace de consumer toute forme de vie dans l'univers, les Gardiens de l'Univers - un groupe de puissants et éternels magiciens et sorciers - formèrent l'Ordre de la Lanterne d'émeraude. Les membres de l'Ordre reçoivent le titre de "Chevalier". Ces Chevaliers parcourent l'univers, se rendant d'un monde à l'autre, et possèdent un pouvoir extraordinaire qui leur est conféré par des artéfacts mystiques en forme de lanterne. L'anneau octroyé à chaque membre, sur lequel est gravé le Serment des Chevaliers d'Émeraude, est la clé qui permet de contrôler ce pouvoir.
+2b000083	077f2043	Votre <font color='#ff9900'>Armure anti-attaque</font> est augmentée.
+2b000083	09b9dbc3	Arcane Green Lantern jette sa lanterne, infligeant des Dégâts de pouvoir dans la zone ciblée. La lanterne demeure à cet endroit pendant plusieurs secondes et y confère de la vision.<br><br>Arcane Green Lantern récupère la lanterne s'il la touche, entraînant une réduction de la récupération de Lanterne d'émeraude.
+2b000083	089ba313	Arcane Green Lantern canalise pendant un court laps de temps puis se déplace instantanément jusqu'à l'allié ciblé. Dès le début de la canalisation, l'allié reçoit un bouclier bloquant des dégâts et le brouillard de guerre est dissipé dans une large zone autour de lui. Les ennemis dans cette zone reçoivent l'effet Lumière d'émeraude.
+2b000083	02a77591	Champion construct
+2b000083	02a77592	Enchaînement
+2b000083	0c7ad653	La lanterne d'Arcane Green Lantern confère de l'Armure anti-attaque aux alliés à proximité.<br><br><b>Déclenchement<b> : Blesser un ennemi avec une Attaque de base applique Lumière d'émeraude pendant un court laps de temps. Les champions alliés utilisant une Attaque de base contre la cible marquée regagnent de la Santé au fil du temps.
+2b000083	0959dbc3	Arcane Green Lantern projette un construct de chevalier qui s'avance pesamment, infligeant des Dégâts de pouvoir à toutes les cibles touchées et Renversant le premier champion ennemi sur son passage.<br><br>Si la compétence est activée une seconde fois, Arcane Green Lantern rejoint instantanément le chevalier, provoquant sa dissipation.
+2b000083	0a2d3fe5	Arcane Green Lantern protège ses alliés en perturbant l'équipe ennemie grâce à ses constructs, en soignant ses amis et en conférant de l'armure aux alliés à proximité.
+2b000083	0280f885	L'Ombre repoussée
+2b000083	0969dbc3	Les champions ennemis à proximité de la lanterne perdent en Vitesse de déplacement et sont Révélés tant qu'ils demeurent dans son rayon d'effet. S'ils y sont toujours lors de l'expiration de l'effet, ils sont alors Immobilisés (dans l'incapacité de se déplacer ou d'utiliser des capacités de déplacement) pendant un court laps de temps.
+2b000094	044e59d3	Atomic Green Lantern deals Power Damage to nearby enemies. This leaves a crater that explodes after a moment, dealing Power Damage again to all enemies in the area.
+2b000094	00000020	 鉜വ심ਯ㜌ཊ釜ด윌ೋ挵ೞ  Radiation Sickness  ꇞ୲ I Da
+2b000094	02f150a5	Pulses
+2b000094	0fc7eeb3	Atomic Green Lantern shoots his construct hand out to grab the first enemy hit. They are dealt Power Damage, pulled back to him, and Stunned for a short time.
+2b000094	0ca338d5	Meltdown
+2b000094	0ff53a23	Damaging an enemy with a skill applies a stack of Radiation Sickness. At 4 stacks, all stacks are consumed and the enemy loses Move Speed, is dealt Power Damage over time, and is immune to further stacks for a brief time.<br><br><b>Trigger</b>: Striking an enemy with a Basic Attack applies a stack of Radiation Sickness.
+2b000094	01c0243c	Shards of Will
+2b000094	0c4422f2	Grab
+2b000094	041faed3	Atomic Green Lantern gains a Shield that blocks damage. Nearby enemies with Radiation Sickness have an additional stack added, and the Shield is increased in strength for each enemy affected: Champions add more, drones and creatures add less.
+2b000094	0edf5448	Scorched Earth
+2b000096	09b9dbc3	Mecha Wonder Woman gains Attack Speed for several seconds. If a target reaches 3 stacks of Judgement during this time, Celerity's duration is increased, up to a maximum.
+2b000096	0fcad765	Mecha Wonder Woman is a quintessential Marksman, dealing sustained damage from afar and using Afterburn to escape from tricky situations.
+2b000096	089ba313	Mecha Wonder Woman channels for a moment, blasting the battlefield in a cone in front of her, dealing Attack Damage over time, and applying Judgement every .25s. During this time, Mecha Wonder Woman cannot move.<br><br>Using Tempest again will end the skill early.
+2b000096	0b18946a	******STORE******
+2b000096	02a77591	Glaive Storm
+2b000096	0c7ad653	Mecha Wonder Woman's Basic Attacks apply stacks of Judgement. Once a target reaches 3 stacks, they are dealt Attack Damage.
+2b000096	02a77593	Celerity
+2b000096	0280f885	Tempest
+2b000096	05f12105	Judgement
+2b000096	0969dbc3	Mecha Wonder Woman rushes to the target location. She leaves a trail of scorched earth in her wake that lasts for a short time. Enemies that enter the scorched area are dealt Power Damage per second.
+2b000096	039a2954	Mecha Wonder Woman began her life as D1A-NA, a diplomatic robot in service to Queen Hippolyta, ruler of the Amazon women of the island nation of Themyscira. Hippolyta had made it her life's work to forge a more peaceful world and was called 'the wonder woman' by the press. D1A-NA was ever present with the queen as she traveled the world and in time developed a personality that reflected the idealistic woman's feelings on justice and equality.<br><br>Sadly, while accompanying Hippolyta on an errand of mercy, D1A-NA witnessed the horrific assassination of her queen at the hands of Doom Legion assassin bots. At that moment, she was transformed. An iron resolve developed within her, and she vowed to both avenge the queen's death and continue her quest.<br><br>With the aid of the Justice Consortium, D1A-NA remade herself, far exceeding her creator's original design. With these upgrades and the knowledge of the Amazonian Warriors stored within her memory banks, she has taken on the mantle of the 'Wonder Woman' and sheds the light of truth on a corrupt, violent world.
+2b000096	02580e33	Your Judgement is stacking up.
+2b0000ba	0a6599d3	You have been shot by the Doomsday Guardian and are now in a debilitated state.<br><br><b>-50%</b> Incoming Healing from all sources.
+2b0000ba	0de30a17	Guardian's Debilitating Shot Info
+2b0000ba	062a5f85	Guardian's Debilitating Shot
+2b000069	0d1ac28b	Arme cataclysmique
+2b000069	2b000093	❵߼   Match nul   穡ƺ  Quadrupl
+2b00009b	0051d8f4	Meteor Fragment
+2b000093	0d87fcf4	The match has begun!
+2b000093	0f668447	Match: Initiating
+2b000093	02f66030	The match begins in 10 seconds.
+2b000093	017d6ab9	Victory!
+2b000093	0e15b5b1	Enemy Penta Kill
+2b000093	02a7bac5	Enemy Double Kill
+2b000093	09b79c69	Enemy team annihilated
+2b000093	05f40c41	Ally Quadra Kill!
+2b000093	0b75dfd9	Our team has been annihilated
+2b000093	02f66010	The match begins in 30 seconds.
+2b000093	0c5152d1	Ally Penta Kill!
+2b000093	0020006e	 ࢝෎狥׈  Ally Triple Kill!   ࣅ
+2b000093	07fc2775	Tie
+2b000093	01ba7a61	Enemy Quadra Kill
+2b000093	00000020	 ࢝ꭽ둄ų  Defeat  惠˶  The mat
+2b000093	04a977ed	Speed Emitter
+2b000093	01d51854	Haste Pad
+2b000093	04517e4e	Leviathan's Lockdown
+2b000093	019be374	Speed Emitter
+2b000093	02d060b4	Regen Pad
+2b000093	07c81c04	Heal/Sec
+2b000093	0aefd575	Pulse Emitter
+2b000093	003f2ce4	Leviathan's Shield
+2b000093	07c86d04	Will/Sec
+2b000093	00c74755	Leviathan's Core
+2b000093	07c81f04	Energy/Sec
+2b000093	052747bd	Regen Emitter
+2b000093	075d71d9	Our Bottom Turret is under attack!
+2b000093	0a9508be	1 minute remaining.
+2b000093	0097ce99	The enemy has defeated the Doomsday Guardian!
+2b000093	08045ef9	Our Power Core Turret has been destroyed!
+2b000093	0aca8f19	The enemy's Top Turret has been destroyed!
+2b0000f8	062a5f85	Tir affaiblissant du Léviathan
+2b0000f8	0a6599d3	Le Léviathan vous a tiré dessus et vous êtes maintenant dans un état affaibli.<br><br><b>-50%</b> aux soins reçus quelle qu'en soit la source
+2b0000f8	2b0000f9	待ت
+2b00009d	058198a3	You are Slowed.
+2b00009d	0a4063e3	Robin and his target gain Move Speed, Attack Lifesteal, and additional Will and Energy restoration from This Guy!<br><br>If he targets just himself, Robin gains a larger Attack Lifesteal bonus.
+2b00009d	0082a312	Emergent Leader
+2b00009d	073cf79f	Dynamic Duo
+2b00009d	0b18946a	******STORE******
+2b00009d	05afc033	You gain <font color='#ff9900'>Attack Damage Reflection</font> and your Basic Attacks now Slow.
+2b00009d	0888ca73	Every few seconds, Robin's next Basic Attack will mark his target. The next Champion to damage the marked target will consume the mark, dealing additional Attack Damage to the target and regaining Will or Energy.
+2b00009d	0a8dc175	Bo Master
+2b00009d	06f13993	Robin dashes forward. He applies This Guy, Knocks Back, and deals Attack Damage to the first enemy he hits, and then rebounds off of his target.
+2b00009d	08774e44	Unlike Batman or previous Robins, Tim Drake's path to becoming a hero didn't start with personal tragedy. Instead, he was born with the drive to make the world a better place. Following the death of the previous Robin, Tim resolved to convince Batman to take him on. A natural detective, Tim studied Batman and his associates, and discovered that Nightwing performed a unique move that he had seen performed once before by Dick Grayson of the Flying Graysons. With Nightwing's identity revealed, Tim put the pieces together and uncovered Batman's true identity. While initially resistant to taking on a new Robin, Batman finally agreed, largely thanks to the persuasion of Nightwing. <br><br>Tim is an expert computer hacker. As a detective, he is nearly Batman's equal. Also, years of gymnastic training have made him a dangerous, acrobatic fighter. While driven, Tim still possesses a sense of humor and will crack wise in a fight.
+2b00009d	0b3ba543	You are granted Bonus Will/Energy return from <font color='#00CC00'>This Guy</font>! You gain <font color='#ff9900'>Attack Lifesteal</font> and Move Speed.
+2b00009d	0a0271d5	Emergent Leader
+2b00009d	0b0eb57c	Lifesteal
+2b00009d	087b3a03	You are granted Bonus Will/Energy return from <font color='#00CC00'>This Guy</font>! You gain <font color='#ff9900'>Attack Lifesteal</font> and Move Speed.
+2b00009d	0efafa45	Robin is an aggressive team player, using his bo skills to stay mobile and defensive while leading the charge.  He can keep his allies healthy, increase their damage output, and knock enemies out of position.
+2b00009d	07c464a5	Dynamic Duo
+2b00009d	01033d65	This Guy!
+2b00009d	018b86a3	Robin spins his bo overhead, dealing Attack Damage and Knocking Back enemies in the area.<br><br>For a short time, which is increased for each enemy Champion struck, Robin grants Attack Damage and Power Damage to nearby allies.
+2b00009d	0fa71b33	You gain bonus <font color='#ff9900'>Attack</font> and <font color='#0088ff'>Power</font> Damage.
+2b00009d	03cb9895	Dynamic Duo
+2b00009d	0859a902	Bo Master
+2b00009d	0e29505b	Vault Kick
+2b0000a6	06b6fce3	.
+2b0000a6	09b9dbc3	Harley Quinn heals herself or an ally and they receive the BFFs effect.
+2b0000a6	089ba313	Harley Quinn smashes her hammer to the ground, dealing Power Damage in a cone. Enemies in the cone are Knocked Up.
+2b0000a6	0c97acc5	BFFs
+2b0000a6	02a77591	Pies!
+2b0000a6	02a77592	Back Off
+2b0000a6	0c7ad653	Using a skill grants Harley and her closest nearby ally Attack Speed and Decaying Move Speed for a short time.
+2b0000a6	0959dbc3	Harley Quinn throws pies at the three targets closest to her. Each pie deals Power Damage.
+2b0000a6	06b0f8d5	Stay close to Harley and her big hammer. Harley excels at helping her allies escape from tough situations.
+2b0000a6	0a47814c	Extra Pies
+2b0000a6	0969dbc3	Harley Quinn Knocks Back her target, deals Power Damage, and Slows them.
+2b0000a8	009d9163	Atomic Poison Ivy deals Power Damage to all enemies in an area around her.<br><br>Toxic Growth: Targets with Toxic Growth are dealt additional Power Damage.
+2b0000a8	00d02963	If Atomic Poison Ivy takes no damage for a short time, she will gain a Shield that blocks damage. While Shielded, enemies that Basic Attack her have Toxic Growth applied to them.<br><br>She applies Toxic Growth to any target she damages with a skill, or if the target already has Toxic Growth, her skills consume it for bonus effects.
+2b0000a8	0e8cb2a4	As the radioactive fallout of the nuclear war withered the world's plant life, Pamela Isley was overwhelmed by the screams of the dying plants and fell into a catatonic state. Upon awakening, she found herself transformed into something more plant than woman, surrounded by a strange forest of mutated vegetation that had adapted to the bleak radioactive landscape. She realized she now had a connection to the plants that had survived, almost as if she could feel their thoughts and will. This connection to the 'Green' brought about an epiphany in her. She was now the defender of what plants remained. Through her, man would learn to fear nature, and she would ensure that man would never threaten the Green again.<br><br>Although possessing a striking beauty, Atomic Poison Ivy does not wield seduction as a weapon. Instead, she uses her radioactively gifted powers to protect herself, obscure her allies, and entrap and or poison her foes.
+2b0000a8	0da67033	Atomic Poison Ivy deals Power Damage and Roots her target.<br><br>Toxic Growth: Using this skill against a target with Toxic Growth grants her Move Speed.
+2b0000a8	035dcad5	Bramble Rapture
+2b0000a8	0653adc5	Wall of Thorns
+2b0000a8	0dd85a93	After a short delay, Atomic Poison Ivy summons a wall. Enemies that touch the wall lose Move Speed.<br><br>Toxic Growth: Enemies with Toxic Growth are also dealt Power Damage over time.
+2b0000a8	050b9f95	Atomic Poison Ivy wants to be in the thick of it, using her skills to close distance or keep her prey close.
+2b0000a8	04bf60d3	Wall of Thorns
+2b0000a8	09907733	Atomic Poison Ivy shrouds an area around her in fog for a time. She and allies within the area gain Power Armor. Allies within the fog are Stealthed as if in a Stealth Pad, but she remains visible.<br><br>She applies Toxic Growth to enemies in the area every second.
+2b0000a8	095bde15	Toxic Growth
+2b0000a8	05e3df08	Poisoned Earth
+2b0000ab	0e6fc4f3	<font color='#00CC00'>Puissance d'Atlantis</font> peut maintenant être utilisée.
+2b0000ab	0d792315	Trident du Roi
+2b0000ab	0d3b91e4	Fils d'un gardien de phare et de la Reine des Atlantes, Arthur Curry eut dans un premier temps une vie tranquille et paisible aux côtés de son père, à la surface. Tout cela changea lorsque les médias apprirent l'existence d'un certain "Aquaman" d'Atlantis. Leurs comptes-rendus attirèrent l'attention de Black Manta, un chasseur de trésor dont l'obsession au sujet des trésors atlantes avait causé la mort du père d'Arthur. Après s'être enfui du monde de la surface, Arthur prit sa place légitime en tant que Roi d'Atlantis. Quelques années plus tard, lassé des intrigues de la cour, Arthur retourna à la surface accompagné de son aimée, Mera. Il monte désormais la garde le long des rivages de l'océan, protégeant les deux mondes mais ne se sentant à sa place dans aucun des deux.<br><br>Aquaman est doté d'une grande force et d'une bonne résistance au combat. Il se sert à bon escient du Trident du Roi des Atlantes, il est capable de respirer sous l'eau et il peut communiquer par télépathie avec la plupart des formes de vie aquatique.
+2b0000ab	0ff32863	Santé manquante d'Ire
+2b0000ab	0de6c255	Parade
+2b0000ab	0adb5db3	Aquaman se rue droit devant lui, infligeant des Dégâts d'attaque à tous ses ennemis. S'il touche au moins un ennemi, Aquaman bénéficie d'une courte période durant laquelle il peut utiliser Contre-courant une deuxième fois.
+2b0000ab	0ac27498	Dégâts max.
+2b0000ab	068f12d1	Trident du Roi
+2b0000ab	068f12d2	Puissance d'Atlantis
+2b0000ab	068f12a5	Contre-courant
+2b0000ab	09eb50de	Récupération
+2b0000ab	02ca2bc7	Dégâts de Déferlement
+2b0000ab	068f12d7	Croc-en-jambe
+2b0000ab	0f12d2c7	Ire
+2b0000ab	0d1b5db3	Aquaman lance son trident, infligeant des Dégâts d'attaque (qui augmentent avec la distance parcourue) au premier ennemi touché. La cible est également Révélée et marquée pendant quelques secondes.
+2b0000ab	0f687eba	******PASSIVE******
+2b0000ab	0b1ab68a	******Store******
+2b0000ab	02b62bc7	Dégâts de Chavirement
+2b0000ab	0bc51f13	Contre-courant peut être utilisé une deuxième fois !
+2b0000ab	0f12d2b5	Chavirement
+2b0000ab	01b3f5b3	Après chaque utilisation d'une compétence, Aquaman obtient Marée montante pendant quelques secondes. Son Attaque de base suivante consomme Marée montante, infligeant des Dégâts d'attaque à sa cible et restaurant de la Santé à Aquaman.
+2b0000ab	0a3a0725	Marée montante
+2b0000ae	006884f4	President of an aerospace company, Carol Ferris hired Hal Jordan as a test pilot, and a romance between the two soon blossomed. Their relationship became more complicated when a tribe of aliens called Zamarons crowned Carol as their new Star Sapphire. Initially, the Star Sapphire ring, which allowed her to channel love's power, transformed Carol's feelings for Hal into a murderous jealousy. The couple battled many times, and though each battle ended with Carol losing the ring, it always returned to her later. She eventually learned to temper the ring's influence, and now has such control that she acts as keeper for the Predator entity, the sentient manifestation of love.<br><br>The Star Sapphire ring gives Carol the ability to fly and create energy constructs. She can also encase enemies in crystalline constructs, trapping them. Finally, the ring gives her the power to reveal and manifest the desires of any person's heart.
+2b0000ae	04883e64	Violet Harvest
+2b0000ae	081c3a65	The Predator is currently manifest.
+2b0000ae	0e6eb374	Damage over Time
+2b0000ae	0aa8ce18	Extra Dash Damage
+2b0000ae	02eb7d13	You have bonus <font color='#0088ff'>Power Damage</font>
+2b0000ae	0bf6e485	The Predator
+2b0000ae	074a4733	Fire a heart that deals Power Damage to the first enemy hit and the second enemy the heart bonds to. The first and second target can be an enemy, the crystal, or the Predator. Bound enemies are Revealed.<br><br>The skill can be used again to Stun the enemy targets and pull them to each other.
+2b0000ae	099eba75	Bonds of Love
+2b0000ae	06eb6b14	Will Bonus
+2b0000ae	05f0b345	Glimpse of the Predator
+2b0000ae	02d93a75	Star Sapphire summons and controls the Predator, the Entity of Love, to devastate the battlefield and defeat her foes while threatening areas at a great distance.
+2b0000ae	0968db1c	Dash Damage
+2b0000ae	06eb2f73	Star Sapphire creates an area around the Predator that deals Power Damage over time.<br><br>This damage is capped against drones/creatures.
+2b0000ae	06eb1826	Violet Harvest
+2b0000ae	050ca7a3	Star Sapphire has the Predator as her companion, and she can control it with her skills. She gains Move Speed when it is attached to her. When it is dashing, it deals Power Damage to enemies it hits.<br><br>The Predator automatically blinks back to her if it is too far away.
+2b0000ae	088e0908	Predator Health
+2b0000ae	0ff36593	You have increased Move Speed.
+2b0000b3	0f4dfaf5	Fissure
+2b0000b3	05b03cf3	When Mecha Superman destroys an Environmental Object, he emits an aura for a short time that grants him and his allies Attack Armor, Power Armor, and Health per second.<br><br>If an allied Champion is nearby, Mecha Superman will gain double this healing for himself.
+2b0000b3	0b18946a	******STORE******
+2b0000b3	078d0d03	After a short delay, Mecha Superman deals Power Damage in targer area, and creates a Small Environmental Object that lasts for a short while. Any other Small Environmental Objects in this area are destroyed, causing nearby enemies to be Knocked up.
+2b0000b3	02909cd3	Mecha Superman deals Power Damage to all enemies in a line, and briefly Stuns them. Any Small Environmental Objects in the line explode, Silencing nearby Champions for a short time.
+2b0000b3	04ea196e	Sunstone Eruption
+2b0000b3	019e1d12	Terraformer
+2b0000b3	0bad5264	Mecha Superman is the result of the fusion of an Earth agro-industrial mechanoid with a damaged Kryptonian probe. The crashed probe was discovered by a young Clark Kent, who connected it to the farm's Agrobot to try to download its data. The probe quickly reconfigured the bot into a humanoid shape, and explained its origin and purpose to the amazed Clark. He dubbed the bot 'K.A.L.', for Kryptonian Artificial Life-form, and hid it from his parents. Eventually, they discovered K.A.L's existence, but seeing that the bot only wished to continue its mission of exploration, agreed to keep it hidden.<br><br>Clark took it upon himself to teach K.A.L. what it meant to be human. One of Clark's favorite methods was through playing the 'Superman' game. Superman was an imaginary, nearly invulnerable hero created by Clark. In the game, Clark - as Superman - would always save the day, righting wrongs and saving innocents from the evil 'Metallo,' an imaginary villain always played by K.A.L. However, no matter how many times they played the game, K.A.L. never quite understood its point.<br><br>One tragic day, returning home from school, Clark was killed at the hands of a drunk driver. Initially, K.A.L. couldn't process the idea that Clark was gone forever. However, as it saw Clark's parents struggle with their grief, K.A.L. finally understood the simple and terrible truth behind Clark's game: bad things happen, and the world needs a Superman to protect it.<br><br>Although his hulking robotic form would indicate otherwise, Mecha Superman possesses a curious and trusting nature. His remarkable intellect allows him to adapt quickly to any situation, although at times his natural curiosity may distract him from the matter at hand.
+2b0000b3	0fbcdb45	Mecha Superman moves the earth itself to keep his allies safe, throwing up walls of rock then destroying them to debilitate his foes.
+2b0000b3	05b60ba6	You have increased <font color='#ff9900'>Attack</font> and <font color='#0088ff'>Power</font> Armor, and <font color='#00CC00'>Heal</font> nearby allies
+2b0000b3	017a4d43	Mecha Superman shakes the earth around him for several seconds, dealing Power Damage per second to nearby enemies.<br><br>During this time Agent of Hope activates, and Mecha Superman's Basic Attacks create Small Environmental Objects.
+2b0000b6	050682e4	Son of a billionaire, Oliver Queen was once nothing more than a spoiled socialite, a disappointment to his family. He grew up quickly when an extravagant party he was hosting out in the Pacific was attacked by pirates. The pirates hoped to earn millions from their hostages, but Oliver eluded capture and fought back. He launched a sneak attack on the pirates with his bow, but Oliver hadn’t taken his lessons seriously and was a poor archer. His errant shot triggered the dead-man’s switch the pirate leader was holding. Dozens were killed in the explosion and Oliver was thrown into the ocean. Washed ashore on to a deserted island, he honed his bow skills to survive. Years later when he was rescued, Oliver dedicated his life to making things right, and became Green Arrow.<br><br>Green Arrow is a master archer, capable of pulling off amazing trick shots while performing acrobatic moves. His quiver is stocked with many specialized arrows, which he uses to gain the upper hand in combat.
+2b0000b6	0757b505	Green Arrow has three different modes he can toggle between that grant him different passive benefits and alter the effects of his ultimate skill. He also has access to his ultimate from Level 1. These combine to make him a versatile Champion with tools for a variety of situations, strong poke, and good sustained damage.
+2b0000b6	07797773	Green Arrow enters the Ballistic stance. His next Basic Attack has an Arrow Bonus that deals extra Attack Damage.<br><br><b>Stance Bonus:</b> While in Ballistic stance, Green Arrow gains Attack Penetration, and Bullseye can hit multiple Champions.
+2b0000b6	0975f3bd	Superfoam Arrows
+2b0000b6	08dd3df3	When Green Arrow uses Superfoam Arrows, Ballistic Arrows, or Thermite Arrows, he gains Attack Speed for a few seconds, and reduces the cooldown of Bullseye.<br><br>His ultimate skill, Bullseye, can be ranked at levels 1, 6, 11, and 16.
+2b0000b6	0e1529ac	Kill Damage
+2b0000b6	0cc4f3a3	Green Arrow rushes in the targeted direction and enters the Superfoam stance. His next Basic Attack has an Arrow Bonus that reduces the target's Move Speed for a short time.<br><br><b>Stance Bonus:</b> While in Superfoam Arrow stance, Green Arrow gains Move Speed. Taking damage suppresses this Move Speed bonus for a short time.
+2b0000b6	0c14a3ac	Bomb Damage
+2b0000b6	0a7d2843	<b>Aim:</b> Green Arrow begins channeling, increasing range and damage over time. While channeling he loses Move Speed, and cannot Basic Attack. If he waits too long the skill cancels.<br><br><b>Fire:</b> Fire an arrow that deals Attack Damage to all enemies struck. Upon hitting an enemy Champion, the arrow stops and applies the Arrow Bonus of the active stance.
+2b0000b6	0c50e3b3	Green Arrow enters the Thermite stance. His next Basic Attack has an Arrow Bonus that applies a bomb to the target. If another bomb is applied, or enough time passes, then it explodes and deals Attack Damage in an area<br><br><b>Stance Bonus:</b> While in Thermite stance, any target killed by Green Arrow's Basic Attacks will explode, dealing Attack Damage in an area.
+2b0000b6	05db1525	Thermite Bomb
+2b0000b6	0e34f2c5	Thermite Arrows
+2b0000b6	0eadbe73	Ballistic Arrows
+2b0000b9	053755c4	Bouclier de Siphon
+2b0000b9	023c4e5e	Possession
+2b0000b9	06206873	<b>Déclenchement</b> : Lorsqu'il est vaincu, Nightmare Superman prend possession du champion ennemi qui l'a tué, le révélant et lui ôtant de l'Armure anti-pouvoir et de l'Armure anti-attaque pendant un certain temps. Si l'ennemi est vaincu pendant que Possession est actif, Nightmare Superman ressuscite avec une quantité de Santé égale à un pourcentage de la Santé max. de la cible.
+2b0000b9	048b6a63	Votre <font color='#0088ff'> Armure anti-pouvoir</font> est augmentée.
+2b0000b9	0ab75963	Nightmare Superman invoque un fantôme à un endroit ciblé qui vole vers lui, infligeant au passage des Dégâts de pouvoir et volant de l'Armure anti-pouvoir aux champions ennemis.<br><br>Une fois que le fantôme se trouve auprès de Nightmare Superman, tous les champions alliés à proximité gagnent de l'Armure anti-pouvoir pour chaque champion ennemi touché pendant un court laps de temps.
+2b0000b9	0e82a4f4	Sans le moindre avertissement, des douzaines de portails émanant de la Zone fantôme s'ouvrirent dans Metropolis, et quelques instants plus tard, des centaines de "fantômes" en surgirent. Tous ceux touchés par ces fantômes furent rayés de l'univers réel et devinrent eux-mêmes des fantômes. Tentant désespérément d'endiguer l'invasion et redoutant le toucher des fantômes, Superman revêtit une "ecto-combinaison" mise au point par son père Jor-El, et s'élança dans un des portails.<br><br>Dans la Zone fantôme, Superman affronta Aethyr, un être insondable et incompréhensible. Tous ceux qui le contemplaient perdaient la raison. Aethyr avait sommeillé dans les profondeurs de la Zone fantôme des millénaires durant, mais l'arrivée de centaines de prisonniers kryptoniens l'avait peu à peu éveillé. Empli de rage, Aethyr prit le contrôle de leurs esprits et les envoya annihiler les responsables de son réveil : la Maison d'El. Lors du combat entre Superman et Aethyr, Aethyr se retrouva affaibli et finit par se réfugier dans un long sommeil pour se régénérer. Alors qu'il se repliait vers les profondeurs de la Zone fantôme, les portails qu'il avait créés disparurent. Le monde fut sauvé de l'invasion fantôme, et Superman réussit tout juste à ressortir de la Zone à travers l'un des portails avant qu'il ne se referme.<br><br>Mais la victoire de Superman fut vaine. Alors qu'il combattait Aethyr, tous les habitants de Metropolis avaient été transformés en fantômes. Hanté par les cris de leurs esprits torturés, Superman perdit complètement le sien, qui était déjà fort atteint. Il erre désormais dans sa bien-aimée Metropolis, consumé par la folie, "roi" d'une ville de fantômes.<br><br>Le combat que livra Nightmare Superman dans la Zone fantôme le transforma, faisant affluer en lui l'énergie de la Zone fantôme. Il est toujours dans son esprit malade le protecteur de Metropolis, et il confond innocents et ennemis vaincus jadis. Nombre de ceux qui croisèrent sa route périrent ainsi.
+2b0000b9	020f9835	Dégâts de Siphon
+2b0000b9	07f07d43	Vous ne pouvez ni bouger ni utiliser de compétences.
+2b0000b9	0d80b733	Votre <font color='#0088ff'>Armure anti-pouvoir</font> est réduite.
+2b0000b9	08c84f96	Gagnée
+2b0000b9	03c48f83	Nightmare Superman crée un vortex. Les ennemis dans la zone perdent de la Vitesse de déplacement. Après un court laps de temps, ou si la compétence est utilisée à nouveau, le vortex se referme.<br><br>Lorsqu'il se referme, il inflige des Dégâts de pouvoir, aspire tous les ennemis dans la zone en direction du centre, et les Etourdit brièvement.
+2b0000b9	014d3633	+1% par tranche de 100 de Bonus de Volonté
+2b0000b9	0d4f5fa2	Collecteur fantôme
+2b0000b9	00a460e5	Infusion
+2b0000b9	0a237b93	Votre <font color='#0088ff'>Armure anti-pouvoir</font> et votre <font color='#ff9900'>Armure anti-attaque</font> sont réduites, et vous êtes révélé.<br>Si vous êtes vaincu pendant que vous êtes possédé, Nightmare Superman ressuscitera.
+2b0000b9	0691e323	Nightmare Superman Neutralise un champion ennemi. Quand l'effet expire, la prison explose, réduisant la Vitesse de déplacement des ennemis à proximité pendant un court laps de temps.
+2b0000b9	04468595	Dégâts d'Infusion
+2b0000b9	01c8b7f5	Siphon/Infusion
+2b0000bb	047cafc3	After using a skill, Blue Beetle's next Basic Attack will deal True Damage. it deals the most True Damage if your target has no health. Each 1% of Max Health the target has reduces this damage by 1%.
+2b0000bb	0d5c4e13	Blue Beetle dashes to target enemy, dealing damage and applying Hit Effects.
+2b0000bb	04e4a2f4	Pulses
+2b0000bb	0d6ea4f3	Hypersonics
+2b0000bb	049802b5	Area Damage
+2b0000bb	0a9bc453	Blue Beetle converts to Infiltrator Mode. While in Infiltrator mode, his Basic Attacks become melee range, he has different skills, and he gains 20 Move Speed.<br><br>Ranks in Infiltrator Mode increase the potency of all skills in that form, except for the passive.
+2b0000bb	0cfe28d3	Lethal Measures
+2b0000bb	0730da63	Blue Beetle fires a shot of his Energy Cannon, dealing damage to the first enemy it hits and explodes dealing less damage to other nearby enemies.
+2b0000bb	01f93f52	Mandible Taser
+2b0000bb	02d7f33e	Blue Beetle converts to Infiltrator Mode. While in Infiltrator mode, his Basic Attacks become melee range, he has different skills, and he gains 20 Move Speed.<br><br>Ranks in Infiltrator Mode increase the potency of all skills in that form, except for the passive.
+2b0000bb	00c57ca5	Stick And Move
+2b0000bb	05463d63	After using a skill, Blue Beetle's next Basic Attack will deal True Damage. It deals the most True Damage if your target has full health. Each 1% of Max Health the target is missing reduces this damage by 1%.
+2b0000bb	0ccca4d4	Caught up in a fight between warring super-human gangs, Jaime Reyes ended up with the object they were battling over: a strange blue scarab-shaped object. The scarab bonded to his back and instantly covered his body in battle armor, allowing him to escape. However, once removed from the fight he was horrified to discover that while the armor could be removed, the scarab could not. Worse, the scarab began 'speaking' in his mind. It revealed it had been created by an alien empire bent on universal conquest. The scarab's programming was designed to control its wearer's mind, forcing them to pave the way for invasion. Fortunately, the scarab was damaged and Jaime retained his free will.<br><br>Although he possesses tremendous power, Jaime is an awkward teenager and a bit of a klutz. This is made worse by the fact that the scarab's original programming was intended for war, so the weapons it suggests are typically quite dangerous and Jaime must fight to control them.
+2b0000bb	0cf03545	Reach Directive: Execute
+2b0000bb	0ec78db2	Scarab Scanner
+2b0000bb	0bafd443	Blue Beetle launches a Scarab Scanner to the target location, where it grants vision.<br><br>The Scanner will explode and mark nearby enemies when the skill is used again, when enough time passes, or when Blue Beetle enters Infiltrator Mode. Using a skill or Basic Attack on a marked enemy will consume the mark to deal damage as if the enemy was struck by Reach Directive.
+2b0000bb	057e61e5	Forever bonded with an alien-created blue scarab device that grants him amazing powers, teenager Jaime Reyes struggles to control those powers and defend the Earth.
+2b0000bb	0d76bcc3	Blue Beetle deactivates Infiltrator Mode. His Basic Attacks become ranged again, his skills revert to their original form, and he loses 20 Move Speed.<br><br>Ranks in Infiltrator Mode increase the potency of all skills in that form, except for the passive.
+2b0000bb	057c3f63	Blue Beetle attacks with his Mandible Taser, dealing damage and reducing the target's Move Speed, which diminishes over time.
+2b0000bb	0080e433	Blue Beetle's Scarab grants vision!
+2b0000d0	06589fb3	Each of Sinestro's skills mark their target with Yellow Impurity, granting his skills bonuses when used on marked targets.
+2b0000d0	0f57f213	Sinestro hurls a saw-blade, dealing Power Damage to the first enemy it hits.<br><br>If the target has Yellow Impurity, they take additional Power Damage based on their Missing Health. This damage bonus has a cap against drones/creatures.
+2b0000d0	07730465	Fear Incarnate
+2b0000d0	0b18946a	******STORE******
+2b0000d0	0e45e8f5	Saw-blade
+2b0000d0	04702c03	You are Stunned. Allies near you are Feared.
+2b0000d0	01266565	Sinestro is an aggressive blaster who excels at quickly dispatching weak foes.
+2b0000d0	062a378b	Cull the Weak
+2b0000d0	029234c5	Yellow Impurity
+2b0000d0	0ab33269	Yellow Impurity
+2b0000d0	07137eb4	Thaal Sinestro was once a Green Lantern and close friend of his fellow Lantern, Abin Sur. After the monster Atrocitus murdered Abin, Sinestro became consumed with maintaining order in his sector, no matter the cost. Eventually, his sector became a police state, with the Green Lantern symbol being seen as a symbol of fear and oppression. When Sinestro’s actions were uncovered by Hal Jordan, Sinestro was put on trial by the Guardians.<br><br>During his trial, he told the Guardians they were fools to trust the power of Will to maintain order. Order could only come through fear. Found guilty, Sinestro was banished to the antimatter universe. There he met the Weaponers, who forged him a new yellow ring powered by fear. Sinestro swore to use this ring to bring order to the universe and gain revenge against the Guardians and Jordan. The powers of Sinestro’s ring are nearly identical to a Green Lantern ring, except the constructs are yellow in color. However, due to the ring being powered by fear, Sinestro has the ability to tap into and manifest the fears of his enemies.
+2b0000d0	095a0c25	Fear Incarnate
+2b0000e4	081b8b74	Like her cousin Kal-El, Kara Zor-El is a survivor of the destruction of Krypton, escaping in a spacecraft of her father's design. The craft put Kara into a state of suspended animation and followed the course set by her infant cousin's craft. However, instead of the trip taking a matter of seconds, like it had for her cousin, it took decades. Upon crash landing on Earth, Kara suffered a truly rude awakening as her powers manifested almost immediately. Wrestling with those powers, she was astonished to meet her cousin, now a grown man. The worst shock, though, was to come: Kal-El told her that they were the only survivors of Krypton. She was nearly overwhelmed by despair, and hated the alien world she was trapped on. Fortunately, Kara discovered a resilience she didn't know she possessed and dealt with her grief and learned to love her new home world.<br><br>As she is a Kryptonian, Supergirl possesses all the powers of Superman. Not having grown up with those powers, and having a more fiery disposition than her cousin, Supergirl's use of those powers tend to be more forceful than Superman. However, she still possesses the same moral code of Superman and avoids using lethal force.
+2b0000e4	003b8c43	Supergirl gains a shield that blocks damage and Move Speed for a short time.<br><br>While Determination is active, her first few Basic Attacks will each reduce the cooldown of Worldbreaker and Bounding Strike.
+2b0000e4	002720e3	<b>Your Basic Attacks deal True Damage</b>
+2b0000e4	0a3a7aa3	Supergirl grabs her target and dashes with them. She is immune to Disables for the duration. When the dash ends, her target is dealt Attack Damage and Knocked Down.<br><br>Any enemies struck by Supergirl, while dashing with an enemy, are dealt damage and Knocked Up.
+2b0000e4	017837d3	Supergirl rushes in the target direction. She deals Attack Damage to the first Champion she hits, and Knocks Down the target.
+2b0000e4	06b91633	Basic Attacks grant Supergirl Attack Speed for a short time. This can stack sevral times. When she has full stacks, her Basic Attacks and Worldbreaker deal additional True Damage, which bypasses armor.
+2b0000e4	0ab9b417	Bounding Strike
+2b0000e4	01820cfe	Determination
+2b0000e4	0d5273c3	Reset Basic Attack cooldown. Supergirl's next Basic Attack will deal additional Attack Damage to her target, and apply her Basic Attack to all enemies in a cone behind her target.<br><br>This does not apply Hit Effects in the cone.
+2b0000e4	08813c05	Supergirl is an agile and dangerous bruiser that excels at sticking to a target and building up to a powerful finishing attack.
+2b0000e4	019c1bd3	You have a Shield and Move Speed.
+2b0000e4	031df5d2	Worldbreaker
+2b0000e9	0000a762	The Hunger
+2b0000e9	0ff9e155	Blood Lust
+2b0000e9	064afc33	Nightmare Robin blinks behind a target and gains Attack Speed for a few seconds. When used on an enemy Champion, he enters the Bloodlust state.<br><br>If used on a Knocked Down enemy, his Attack Speed bonus is doubled.
+2b0000e9	0866fde3	Nightmare Robin hurls his blades in an arc. They deal Attack Damage to every enemy they hit. They deal 25% less damage with each additional target, to a minimum of 25% damage. Targets in the area where the blades intersect are Knocked Down.
+2b0000e9	0d551783	Arcing Blades
+2b0000e9	0fc10fa5	Unnatural Reflexes
+2b0000e9	0050f603	Nightmare Robin deals additional <font color='#ff9900'>Attack Damage</font> to you.
+2b0000e9	060c4d84	Feed the Beast
+2b0000e9	0683a6e3	Nightmare Robin takes reduced damage from Champion Basic Attacks, and gains Hunger when he uses a skill. Using Unnatural Reflexes on an enemy Champion triggers the Bloodlust state.<br><br><b>Bloodlust:</b> Nightmare Robin no longer gains Damage Reduction. Instead, he gains Move Speed, and Basic Attacks deal additional damage when attacking from behind. Hunger decays over time. When he reaches 0 Hunger, Bloodlust ends.
+2b0000e9	0b950a63	Unnatural Reflexes
+2b0000e9	0c5005b4	For millennia, the vampiric Ra's al Ghul has used his Guild of Assassins to manipulate the world from the shadows. Desiring his power for herself, his daughter Talia, who was also cursed with vampirism, continually struggled to depose her father. All of her efforts frustrated, she finally found the edge she needed, a man who was potent enough to challenge the Demon’s Head: Bruce Wayne.<br><br>Over many years she subtly drove Batman toward her ultimate goal; the destruction of her father. However, Talia’s hopes did not rest solely on the Batman. She created a child that was the union of her and Batman. She named the boy Damien, who was the perfect union of her father's vision and her love’s potential. Initially, she trained him in secret, but eventually allowed him to apprentice as Robin with her estranged lover and this is where her plans were frustrated once more.<br><br>Damien witnessed Batman’s final confrontation with his grandfather, and realized how deep his mother's manipulations went. Infected by his grandfather’s disease, Damien watched Batman, a man he had grown to love and respect, become a ravening monster. The ashes of his father’s humanity kindled a steely certainty that the blood within him could only birth monsters. A young man at war with himself, as he too feels the compulsions of the vampiric curse he gained from his mother, but is determined to purge the filth of vampirism from the world.
+2b0000e9	06435945	Nightmare Robin excels at harassing his opponent before going in for the kill.
+2b0000ea	0d273033	<font color='#00CC00'>Red Lantern's Rage</font> triggers more frequently. <br>You take reduced damage.
+2b0000ea	0b18946a	******STORE******
+2b0000ea	003d7433	Atrocitus deals Power Damage to nearby enemies each time he is damaged, up to once every few seconds.<br><br>He becomes Enraged when he has at least 50 rage. While Enraged, his skills are upgraded, but cost 50 Rage to use.<br><br>He gains Rage when he uses a Basic Attack or takes Damage from Champions. He gains half that amount when damaged by other sources. If a several seconds have passed since he's gained Rage, dealt Skill damage, or taken damage, he begins losing Rage over time.
+2b0000ea	0dea2d53	Reset Basic Attack cooldown. Atrocitus' next Basic Attack will deal additional Power Damage, and the target will lose Move Speed for a short time.<br><br>Enraged: The Power Damage and Move Speed penalty are applied in an area around the target.
+2b0000ea	0c75d233	Atrocitus spews a wave of plasma, increasing enemy's incoming damage and dealing Power Damage over a few seconds.  For each Champion hit, Atrocitus gains Rage.
+2b0000ea	0c67eac5	Plasma Wave
+2b0000ea	0cd71483	Atrocitus forces an enemy Champion to charge at him while he charges toward them, dealing Power Damage when they collide.<br><br>Enraged: Atrocitus and his target are Taunted to each other for a short while after colliding. During this time they Basic Attack 3 times per second, but deal reduced Basic Attack damage.
+2b0000ea	02899254	Millions of years ago, an insane Guardian introduced a flaw into the programming of the Manhunters, robotic peace keepers created by the Guardians of the Universe. This flaw led to the Manhunters slaughtering an entire sector of space before they were shut down. Of trillions of inhabitants, only Atrocitus and four other creatures survived this massacre. These survivors formed a terrorist cabal called the 'Five Inversions.' The Inversions went on to wage war against the Guardians, but were ultimately defeated and imprisoned. Imprisonment did not quench Atrocitus' rage. Eventually gaining his freedom, he butchered his fellow Inversions and used their blood and his rage to fashion the first Red Power Ring. So armed, his war on the Guardians began anew.<br><br>Unlike other Power Rings, Red Power Rings are typically unable to create constructs. Instead, they are able to summon forth and expel from their mouth a red-colored plasma that adheres to its target. In addition to the abilities granted to him by his Power Ring, Atrocitus is a brutal, unforgiving fighter who rarely shows mercy in combat.
+2b0000ea	064b81c5	Overwhelming Rage
+2b0000ea	0da9a195	Come At Me
+2b0000ea	09893683	For a short time, Atrocitus Taunts nearby drones and creatures, and all damage (excluding damage over time) he takes is reduced. He gains bonus damage reduction based on the percentage of health missing<br><br>Enraged: While Come At Me is active, Red Lantern's Rage can deal damage more often.
+2b0000ea	0185af15	Atrocitus is great at running head first into a team, transferring incoming damage into rage for empowering his skills. Use Plasma Wave on as many targets as possible to gain a significant boost in team damage output.
+2b0000ec	088ea693	Atomic Joker uses a charge to toss a peel to the ground. The first enemy Champion or creature to touch it is Knocked Down. Targets are immune to peels for a short time after being Knocked Down.<br><br>The peel lasts for a long time. A charge is granted periodically.
+2b0000ec	07e278a8	Jack in the Box
+2b0000ec	06d0a07c	Plutonium Peel
+2b0000ec	0bd94d08	The Punch Line
+2b0000ec	0abd8b13	Atomic Joker fires a salvo of rockets at the closest Champion every few seconds. Each rocket deals Attack Damage. Each Champion can only be hit by 1 rocket per salvo. <br><br><B>Passive:</b> Atomic Joker's Basic Attack and skills have increased range.
+2b0000ec	057636b3	You are immune to Plutonium Peel.
+2b0000ec	07ea12a3	Atomic Joker fires a potato at his target, dealing Attack Damage. If there are any enemies standing behind that target, it will bounce to one of them, dealing Attack Damage.
+2b0000ec	0a1474d5	Atomic Joker sows chaos on the battlefield with maniacal glee, using his banana peel and acid balloons to create opportunities for Basic Attacks, while besieging his enemies with his long range skills.
+2b0000ec	05e803ee	Acid Balloon
+2b0000ec	099be36f	Hot Potato
+2b0000ec	0284e753	Hot Potato is active.
+2b0000ec	0b464923	The Punch Line is active.
+2b0000ec	0f7d2ca3	Atomic Joker launches a balloon at the ground, dealing Attack Damage over time and revealing targets. Marked targets take additional Attack Damage from Atomic Joker's Basic Attacks and Hot Potato.
+2b0000ec	007e3843	When defeated, Atomic Joker detaches from Gaggy, becomes Invincible, and bounces around the battlefield for a few moments. Each bounce deals Attack Damage to nearby enemies.
+2b0000ec	015e91b9	Target Total Attack Damage
+2b0000ec	05b4e1f4	Total Damage Per Target
+2b0000ec	0fe1dcb4	When they broke into an abandoned military bunker, those blighted survivors of the nuclear war couldn't have realized what they were about to unleash on themselves. Within its derelict walls, they discovered a hibernating computer system. The system immediately sensed their movements and activated. Attached to the system, the survivors found the head of the Joker suspended in a preservation vessel. The Joker welcomed them with a cackle and told them it was time to build the future.<br><br>The Joker told them that the military had wanted to use his 'unique mind' to come up with nuclear war scenarios. Displaying a brutal pragmatism that the Joker appreciated, they put his head in a preservation vessel and got rid of the 'superfluous parts.' Now that the serious world was dead and gone, he told the survivors, it was time to build a new crazy one. So desperate were the survivors that they decided to listen to the Joker and began building a new community within the bunker.<br><br>As the community prospered, the survivors increasingly followed the Joker's orders without question, until they eventually had no will of their own. When the Joker commanded that his vessel be attached to the back of one of his minions so that he could better see the world he was building, many vied for the honor.<br><br>The gruesome combat that took place left but one survivor: a scarred, voiceless brute who the Joker named Gaggy. From his spot perched on Gaggy's back, the Joker now rides through the nuclear wasteland, always looking to expand the borders of Jokertown.
+2b0000ff	0b5bc163	Whenever Starro creates a Slave, he regains Health. For every active Slave, Starro gains some Resilience.
+2b0000ff	072d4af3	Starro channels to control an enemy Champion's mind for a few seconds, Revealing them, forcing them to move in sync with him and affecting them with Parasite.
+2b0000ff	00ee666c	Mind Control
+2b0000ff	0b18946a	******STORE******
+2b0000ff	087dd773	Starro controls your movements!
+2b0000ff	00200066	 巬࿏儌ث심ਯ尬࿢ᙜপ껼తƽ  Starro uses his telepathic
+2b0000ff	0c86dfb3	The Conqueror Comes
+2b0000ff	04d2b1c3	You control your Enemies' movement!
+2b0000ff	08831714	Star Conquerors are a nomadic race of parasitic creatures. They are made up of motherstars and probes. Motherstars are sentient, while probes are extensions of the motherstar's consciousness. These probes attach themselves to sentient creatures, allowing the motherstar to control that creature's mind. Once controlled, the victims work toward growing more motherstars that will go out and bring order to other planets by conquering them. Little did the Star Conqueror who came to be known as 'Starro' know how difficult carrying that plan out on Earth would be!<br><br>Starro has little concern for what happens to the individual creatures it controls. They are just an infinitesimally small part of the whole. When Starro speaks to creatures it doesn't control, it does so telepathically and urges them to join the harmony of the whole.
+2b0000ff	09908c93	Starro shoots a blast of energy that widens as it travels, dealing Power Damage to enemies it passes through. Enemies affected by Parasite are dealt an additional Power Damage.
+2b0000ff	0a4b9323	You are granted Resilience for each slave.
+2b0000ff	0d1df675	Parasite
+2b000103	0180f3a3	Arcane Supergirl summons a firebird that smashes into the ground after a brief delay, dealing Power Damage in an area. This skill can be used up to 3 times within a short time.
+2b000103	0035f311	Breath of Rao
+2b000103	0b18946a	******STORE******
+2b000103	0bf67443	When Arcane Supergirl uses a skill, her next Basic Attack will set her target on fire, dealing additional Power Damage over time.
+2b000103	0035f312	Rao's Wrath
+2b000103	045d8db5	Daughter of Rao
+2b000103	01d0f3a3	Arcane Supergirl creates a wall of fire at the target location. Enemies within the wall take Power Damage over time and lose Move Speed.<br><br>If Pyrolyze or Breath of Rao pass through the Firewall, Firewall's cooldown is reduced.
+2b000103	0035f317	Firewall
+2b000103	00000020	 심ਯ巬࿏㜌ཊ° Ã Arcane Supergirl launches a fire
+2b000103	0035f305	Pyrolyze
+2b000103	0170f3a3	Arcane Supergirl places a fireball that increases in range and speed over time. It then releases, dealing Power Damage to all enemies hit. Use the skill again to fire early.<br><br>If the breath passes through a Firewall, then its damage is increased.
+2b000083	0783c855	Emerald Armor
+2b000083	02a77593	Emerald Lantern
+2b000083	0785aa45	Deny the Black
+2b000083	05f12105	Emerald Light
+2b0000ab	0d2b5db3	Might of Atlantis becomes a unique follow-up skill for a few seconds when Aquaman deals damage with another skill.<br><br><b>Trident of the King:</b><br>Dash to the marked target and deal  Attack Damage.<br><br><b>Stagger:</b><br>Deal Attack Damage, and a percent of the target's Missing Health as additional Attack Damage.<br><br><b>Undertow:</b><br>Rush in target direction. Deal Attack Damage to the first Champion hit, and throw them behind Aquaman.<br>
+2b0000ab	0f12d2c1	Surge
+2b0000ab	0c223395	Undertow
+2b0000ab	0dbb5db3	Aquaman swipes his opponent's feet. He deals Attack Damage and Knocks Down the target for a short time.
+2b0000ab	00059215	Rising Tide
+2b0000ab	0ac274ee	Min Damage
+2b0000ab	07f86f85	Aquaman harasses his foes with the Trident of the King from range, and then closes to fight when he is ready. Might of Atlantis changes based on his last used skill, allowing many different skill combinations.
+2b00004e	0677f6a5	Kryptonian Rage
+2b00004e	0d6d8025	Impact Damage
+2b00004e	06970763	Doomsday deals extra damage to you.<br>You deal reduced damage to Doomsday.
+2b00004e	0aec7135	Revenge
+2b00004e	0cddf90c	Damage
+2b000055	0b18946a	******STORE******
+2b000055	0eec3783	You have increased <font color='#0088ff'>Power Armor.</font>
+2b000055	09fb51dc	Protect Heal
+2b000055	04a09ed3	Zatanna summons magical swords, and after a short delay they deal Power Damage to enemies in an area.<br><br>If Skewer hits a target with the Punish or Protect on them, the effect will detonate early.
+2b000055	0de642d5	Dazzle
+2b000055	0b8ec673	You have increased Move Speed.
+2b000068	0d50bbd3	Your next Skill is empowered.
+2b000068	0cf18c83	After every several skill uses Shazam will gain the Power of Zeus.  In this state his next primary skill will be empowered and cost no Energy.
+2b000068	0c9b07a2	Mystic Power
+2b000068	06d6e9f5	Mystic Defense
+2b00006e	0b18946a	******STORE******
+2b00006e	09b9dbc3	Cyborg gains Move Speed and Attack Speed for a short time.<br><br>While this skill is active, Basic Attacks against marked targets increase the duration of Cascade by 1 second, up to a maximum.
+2b00006e	0c97acc5	Cybernetic Targeting
+2b00006e	0969dbc3	Nearby enemies are Knocked Back.<br><br>Targets marked by Tracer Shot are dealt Attack Damage and the Tracer Shot mark duration is refreshed.
+2b00006e	0280f885	Plasma Cannon
+2b0000b9	06723138	Vortex
+2b0000b9	0fcf27e3	<b>Siphon (Enemy):</b> Deal Power Damage and then grant a Shield to two allies near the target.<br><br><b>Infuse (Ally):</b> Grant a Shield, and then deal Power Damage to two enemies near the target.
+2b0000b9	087fc306	Stolen
+2b0000b9	0ae0b2b4	Armor Rend
+2b0000b9	0f381855	Condemn
+2b0000b9	083cb1f5	Phantom Collector
+2b0000b9	0255f345	Nightmare Superman's control of the Phantom Zone allows him to weaken and disable his foes, dictating the flow of battle.
+2b0000b9	037c4a64	Infuse Shield
+2b0000b9	02087b85	Possession
+2b000107	0e1472b3	Stargirl charges her cosmic staff, then unleashes a line of cosmic energy, dealing Power Damage to all enemies struck.
+2b000107	01febeb3	You have a Shield from Energy Conversion.
+2b000107	097de2e4	Cosmic Blast
+2b000107	02b015d3	Stargirl resets the cooldown of Family Heirlooms and channels at an enemy Champion. She can move while channeling, but the skill will end if she goes too far. The target is Crippled (cannot use movement skills) and is dealt Power Damage over time.  Stargirl converts some of the damage (before armor) into a Shield, that lasts for for a few seconds after the channel ends.
+2b000107	0a71a125	Stargirl harasses her foes with her Cosmic Staff, relying on her mobility and gravity manipulation to stay safe.
+2b000107	0848fe93	You have increased Move Speed.
+2b000107	0b1ab68a	******Store******
+2b000107	0bff8885	Energy Conversion!
+2b000107	06d735a4	Unlike other heroes, the event that led to Courtney Whitmore becoming a hero wasn't tragedy. Instead, it was the breakup of her parent's marriage and her mother's remarriage to a man named Pat Dugan. She was miserable in her new life and blamed her stepfather. In Pat's belongings, she stumbled across the gear of the hero, 'The Star-Spangled Kid' and realized that Pat had once been the adult sidekick of a teenage hero. To make a mockery of Pat, she decided to wear that gear to a school dance. However, detecting someone wearing the Kid's gear, one of Kid's old enemies thought someone had taken up as the new Star-Spangled Kid and attacked the dance. Her stepfather came to Courtney's aid in a suit of mechanized battle armor he had been secretly working on and the two defeated this old foe.<br><br>Exhilarated by the battle, Courtney decided she wanted to continue on as a hero. Seeing how well she'd handled herself and how it could help them grow closer as father and daughter, Pat agreed. However, there was one condition: He would have to fight alongside her as her guardian. Amused that he would now be her sidekick, Courtney agreed and took on the shorter heroic name, 'Stargirl.'<br><br>Courtney Whitmore is an attractive and cheerful teenage girl, adoring the life she leads as a hero. Due to her young age, it is unsurprising that she can sometimes be naive about how the world works. The Cosmic Staff she wields grants her the ability to fly and can manipulate energy on a large scale, creating energy blasts and defensive shields.
+2b000107	02e5b5c3	Shooting Stars
+2b000107	0aba6b73	Stargirl tosses a gravity well onto the ground. Enemies in the area lose Move Speed and take additional damage from all of Stargirl's skills. These effects linger briefly after exiting the well with the Slow decaying over the duration.
+2b000107	08cd7bc3	You are channeling Energy Conversion, gaining a Shield and damaging your target.
+2b000104	071d1105	Howling Eye
+2b000104	09bad5e3	Hawkgirl spreads her wings, breaking free from slowing effects and gaining increased movement speed. While Soar is active her next skill use is empowered.
+2b000104	03ec43c3	Hawkgirl focuses all of her energy into a single target, dealing bonus attack damage and silencing them.<br><br> When empowered by Soar, Hawkgirl enhances her next basic attack dealing damage equal to a percent of the target's max health and increasing the silence duration. 
+2b000104	08ffdee7	Mace Throw
+2b000104	0b240e23	You have increased Move Speed and bonus effects from skills.
+2b000104	0d979792	Soar
+2b000104	01d110f2	You have a Shield that blocks Power Damage.
+2b000104	064f4315	Thrill of Battle
+2b000104	0fa2d613	Each of Hawkgirl's Basic Attacks grant Power Armor. The buff resets if she has not attacked recently.
+2b000104	01d758a3	Hawkgirl's resolve hardens the longer she stays in battle, gaining increased power armor each time she basic attacks a target.
+2b00010a	07289d98	Vine Leash
+2b00010a	0b18946a	******STORE******
+2b00010a	007ba47f	Heal Ratio
+2b00010a	0dedb325	One of a long line of elementals summoned by the Green, Swamp Thing seeks to protect life on Earth from threats of all kinds, from humankind to the supernatural.
+2b00010a	0d416c13	Leash can be activated again!
+2b00010a	052033e5	Husk
+2b00010a	08029e73	<b>Trigger:</b> If a single blow deals damage over a percent of his Current Health, Swamp Thing will regenerate that damage back over time.
+2b00010a	00000002	  Move Speed. ⃜ଅ湄ༀ Ψ Alec Holland was a 
+2b00010a	0d14b973	Summon a Husk for a long time that travels to target location. The Husk grants vision and can withstand one Basic Attack. After it reaches the location, Swamp Thing can target a Husk to teleport to it after a brief channel, consuming it. While channeling, the Husk gains a Shield that blocks several Basic Attacks. Husks are stealthed, only able to be seen by nearby enemy Champions.<br><br>Swamp Thing can have several charges and active Husks, and generates an additional charge periodically.
+2b00010a	0d91a113	Swamp Thing transforms into the Warrior King for a time, gaining Health. While he is the Warrior King, he gains Attack Speed, is Immune to Slows, and his Basic Attacks deal additional Power Damage that splashes to nearby enemies.
+2b00010a	0420d8d7	Warrior King
+2b00010a	09132e71	Bio-regenerative Formula
+2b00010a	07b146a5	Earth Strike
+2b00010c	0b18946a	******STORE******
+2b00010c	092ddf83	When Lex Luthor creates a Sentry it will link with nearby Sentries creating energy beams. Each Sentry will deal Power Damage to enemies standing in the beams, and any beneficial effects from Lex's skills will apply to all linked Sentries.
+2b00010c	06619b15	Energy Beam Damage
+2b00010c	07085bc3	Lex Luthor fires a Critical Mass of energy that can hit enemy Champions or his Sentries.<br><br><b>Enemy:</b> Critical Mass deals Power Damage to the first enemy it hits.<br><br><b>Sentry:</b> Empowers the Sentry's next 3 attacks to fire 100% faster and deal additional damage.
+2b00010c	0b0ff112	Orbital Remediation
+2b00010c	03dde713	Lex Luthor fires an energy blast at the ground that can hit enemies and his Sentries.<br><br><b>Enemy:</b> Tactical Disruption stuns enemies it hits for 1s, and deals Power Damage over 3s.<br><br><b>Sentry:</b> Reset the Sentry's duration, health, and empowers the Sentry's next 3 attacks to slow the target for 1s
+2b00010c	0369d6d4	Sentry Shot Damage
+2b00010c	0083b085	Neural Networking
+2b00010c	0c980725	Lex Luthor wins by outsmarting his enemy. He uses his Sentry devices to outflank an opponent and secure advantageous positions, and commands orbital strikes to devastate his foes.
+2b00010c	01d35383	Lex Luthor orders his Orbital satellite to blast an area. It charges for a short time, and then fires in a line, dealing Power Damage to all enemies it hits.
+2b00010c	05f20085	LexCorp Sentry
+2b00010c	08e73194	Neural Networking
+2b00010c	0ee117e3	Lex Luthor deploys a Sentry, granting vision. The Sentry can be destroyed by three  attacks or a Turret attack. The Sentry will fire at the nearest enemy in range, dealing Power Damage and applying Skill Hit Effects with each shot.<br><br>Using Sentry consumes a charge. A charge is generated periodically. A maximum of 3 Sentries can be active at a time.
+2b00010c	0abf7560	Critical Mass
+2b00010c	0249e3a3	How long until your next Sentry charge.
+2b00010d	09887104	Damage Per Second:</b> Additional damage extends duration from 3 to 6s</b>
+2b00010d	0d485793	Katana stores her last two uses of Slash and Cross Step. For each stored Slash she gains Attack Damage and for each stored Cross Step she gains Attack Lifesteal.
+2b00010d	02e8ea20	Cross Step
+2b00010d	074be003	Thousand Cuts
+2b00010d	09d699d3	Katana projects a wave of spirits that deals Attack Damage to each enemy it passes through.
+2b00010d	0e2b32b3	Katana empowers her next Basic Attack to deal an extra Attack Damage,  and reduces the target's Move Speed for a couple seconds.
+2b00010d	08b71573	You have bonus <font color='#ff9900'>Attack Lifesteal</font> per stack.
+2b00010d	0b0295a5	Cross Step
+2b00010d	028d2233	Katana rushes a short distance and reduces the damage from the next Champion Basic Attack. This effect can stack up to 3 times.
+2b00010d	0625d583	Katana dashes a fixed distance. Katana is immune to disables while rushing.
+2b00010d	04bfb0d2	Soultaker
+2b00010d	04679160	Shadow Step
+2b00010d	032c2153	Kendo becomes a different skill based on the combination of Slash and Cross Step she has stored.
+2b00010d	05d15018	Slash
+2b00010d	0789e2e1	Vendetta
+2b00010d	083146c4	Tatsu Toro’s idyllic, but brief, marriage to her husband, Maseo, came to a sudden end in a single, tragic night. Her husband and his twin brother, Takeo, were both members of the Sword Clan, one of the clans in the Yakuza criminal organization. Takeo confronted his brother over a matter involving the clan, and in the struggle, Maseo was killed by his own sword, the Soultaker. This ancient Katana, one of the clan’s relics, was said to contain the souls of those it killed, as well as possess other mystical qualities. Tatsu witnessed her husband’s murder and collapsed by his body, overcome with grief. Takeo ran off into the night, and when Tatsu finally came to her senses, she took up the Soultaker and swore revenge against not just Takeo, but the Yakuza and all crime everywhere.<br><br>Tatsu is a woman wracked by grief and guilt. She goes by the name of Katana in honor of the sword she wields, which she is convinced contains her dead husband’s soul. Due to this fact, she regularly has conversations with the sword, which is quite disconcerting to others. While she is a gifted swordswoman and martial artist, the sword can, at times, enhance her abilities in combat. When the sword is empowering her, the hilt of the sword glows with an unearthly light, burning Tatsu’s hand.
+2b00010d	006cc075	Katana uses her agilty and master of the Soultaker to strike down her foes.
+2b00010d	09225f84	Soul Rend
+2b00010d	0eac68e3	You have bonus <font color='#ff9900'>Attack Damage</font> per stack.
+2b00010d	01071293	Katana becomes invulnerable and untargetable while she blinks from enemy Champion to enemy Champion, up to 5 times, dealing Attack Damage to each enemy she hits. Thousand Cuts deals 25% damage to enemies it has already hit. The first and last strike will be against the same target.
+2b000093	0ea26b49	Our team has captured the Subway!
+2b000093	0cebf2a2	Our team has captured Wayne Tower!
+2b000093	0c7f4825	We have lost the Bridge!
+2b000093	0f6cdd13	Our team has captured the Gas Station!
+2b000093	09fa63b5	Orbital Cannon: Charge Online
+2b000093	033dfc35	Orbital Cannon power signature detected
+2b000093	05d0c62e	The enemy has fired the Orbital Cannon!
+2b000093	0f4c2f79	We have lost the Subway!
+2b000093	023876f3	Our team has captured the Townhouses!
+2b000093	0e8807b0	Our Power Core is at 50% health.
+2b000093	097afdd5	Lost Sector:\nGotham Heights
+2b000093	01c2db75	Orbital Cannon: Massive Charge Online
+2b000093	024020b5	The enemy Power Core is at 25% health!
+2b000093	0f175803	The enemy has captured the Gas Station!
+2b000093	06f36cf9	The enemy has captured the Subway!
+2b000093	0d910c15	Our team has captured the Bridge!
+2b000093	02402060	The enemy Power Core is at 50% health.
+2b00009a	04a977ed	Speed Emitter
+2b00009a	01d51854	Haste Pad
+2b00009a	04517e4e	Leviathan's Lockdown
+2b00009a	019be374	Speed Emitter
+2b00009a	02d060b4	Regen Pad
+2b00009a	07c81c04	Heal/Sec
+2b00009a	0aefd575	Pulse Emitter
+2b00009a	003f2ce4	Leviathan's Shield
+2b00009a	07c86d04	Will/Sec
+2b00009a	00c74755	Leviathan's Core
+2b00009a	07c81f04	Energy/Sec
+2b00009a	052747bd	Regen Emitter
+2b00009a	0a6599d3	Your movement speed has been enhanced by <font color='#FFFF00'>35%</font>.
+2b00009a	062a5f85	Speed Boost
+2b00009a	05c80043	The Doomsday Device Guardian slams the ground, damaging and knocking down all nearby enemies.
+2b00009a	0be3a9c1	Shockwave
+2b00009a	0dbacd31	Ground Pound
+2b00009a	065c37e3	Robo-boogie
+2b00009a	04f9b75b	Basic Attack
+2b000114	05fe9bf4	Vigilance
+2b000114	060f9934	Although from the planet Krypton, Krypto's planet of origin is not the only thing that makes him truly unique. Soon after the birth of his son, Jor-El genetically altered a Kryptonian hound to increase its intelligence and loyalty so that it would serve as a companion and guardian for his son. Later, as the planet Krypton neared its destruction, Jor-El tried to save his family by escaping into the Phantom Zone. The prisoners trapped within the Zone saw this as an opportunity to escape.<br><br>Krypto fiercely defended his family and threw himself at the Phantom Zone portal, driving the prisoners back. Unfortunately, his attack damaged the portal and he was trapped within the Zone. As Krypton entered its death throes, the desperate Jor-El was only able to save his son Kal-El, whom he sent to Earth. Thanks to the unusual qualities of the Phantom Zone, Krypto was able to follow Kal-El to Earth and kept watch over him there. When the prisoners of the Zone once again tried to escape, Krypto came to Kal-El's aid. This time, though, Kal-El was able to save Krypto from the Phantom Zone. Now finally reunited with his beloved master, Krypto fights alongside Superman as he protects the Earth.
+2b000114	09580b84	On The Hunt
+2b000114	0fdc4523	After Dashing with Fetch!, Krypto's next Basic Attack or Skill will have a Bonus effect.
+2b000114	08162c23	Krypto howls, demoralizing nearby enemies causing them to lose attack speed. Attacking demoralized targets increases the attack speed debuff and deals bonus power damage.
+2b000114	07d51de8	Fetch!
+2b000114	0bfe28fc	Piercing Howl
+2b000114	01479fd3	Your skills are temporarily boosted by your passive!
+2b000114	0b1af683	Krypto rushes a fixed distance, Shielding himself and allies he passes through. Krypto can Shield himself without rushing.
+2b000114	0f9d70d5	Krypto is an agile Controller who dashes in and out of the battlefield, locking down foes and protecting his allies.
+2b000114	0d904ffe	<b>Hunt Duration</b>
+2b0001a8	078c5bd3	How long you have to activate your Runic Gate.
+2b0001a8	0db05595	Mystic Feedback
+2b0001a8	08f67f55	Runic Gate Active
+2b0001a8	06678533	Arcane Zatanna slashes in an arc, and also fires off a spectral wave of energy, doing power damage.
+2b0001a8	05562724	Merels has marked a target.
+2b0001a8	01ca3a05	With Merels, her talking owl familiar, on her shoulder and a blood-runed scythe in her hands, Zatanna Zatarra is known as the Silent Sorceress, travelling the land hunting mages who would abuse their power and imperil her world
+2b0001a8	06949cb4	At all times, Merels is watching nearby enemies.<br>Enemies that use skills will be marked by Merels, if he has not recently marked another enemy.
+2b0001a8	06c11443	Arcane Zatanna's Basic Attacks scale off of 50% of Power Damage instead of Bonus Attack Damage. At all times, Merels is watching nearby enemies. If they use skills, he marks them with Merels' Mark, if he has not recently marked another enemy.  The mark Reveals targets and if Zatanna attacks a marked target they are dealt Power Damage and Silenced.
+2b0001a8	02c85673	Silent Sorceress
+2b0001a8	015f5625	Mage Hunter
+2b0001a8	08429a68	Spectral Slash
+2b0001a8	012b8d65	Mage Hunter
+2b0001a8	0835ba5b	Mystic Feedback
+2b0001a8	055c2e52	Runic Gate
+2b0001a8	07bf29f3	Arcane Zatanna deals <font color='#0088ff'>Power Damage</font> to nearby enemies over time and gains Power Armor.  While this is active she can activate the skill a second time to fire a missile which will deal <font color='#0088ff'>Power Damage</font> to all enemies it passes through.  While the skill is active every nearby enemy that uses a skill will increase the damage of the missile.  Firing the missile will end the damage over time and the Power Armor buff.
+2b0001a8	0154a735	Silent Sorceress
+2b0001ab	0a6f6153	Dead Store Text for deathstroke E
+2b0001ab	0ba4a215	Battle Fury
+2b0001ab	0cbafce4	Terminate
+2b0001ab	02f178f4	An idealistic young man who wanted to make a difference, Slade Wilson joined the United States Army and in time became part of an elite Army unit. After an operation he led resulted in the death of dozens of war orphans, a risk that the military leadership knew was present, he resigned. He was convinced to come back into service when the government-sponsored 'Team 7' was formed. He was told that this team was formed to deal with the increasing global trend of metahuman threats. In reality, though, the team had been formed for the express goal of establishing an American dominance in the field of 'weaponizing' humans. To that end, the team was exposed to exotic agents which brought out their latent metahuman abilities. Once this betrayal was revealed, the team dissolved and Slade committed himself to the only thing he still believed in: his family. His mission became to protect and provide for his family and in his experience only money, and a lot of it, could accomplish that.<br><br>Using his skills and metahuman abilities, Slade quickly established a name for himself as a mercenary and he became known for taking just about any mission, no questions asked. Over the years, Slade's children have become involved in his line of work, either joining him on missions or opposing him. In either case, as long as they fight well Slade is proud of them. After all, it's just business. Due to the exotic agents he was exposed to, Deathstroke possesses heightened speed, agility, reflexes and stamina. His mental abilities were enhanced as well, so that he is able to assess a situation and develop a response within a fraction of a second. There isn't a weapon that Deathstroke cannot use, but he prefers bladed weapons, especially his trademark claymore.
+2b0001ab	0129e6b3	Dead Store Text for deathstroke Passive
+2b0001ab	0b9f6153	Dead Store Text for deathstroke R
+2b0001ab	0ca6fce4	Detonate
+2b0001ab	0baf6153	Dead Store Text for deathstroke Q
+2b0001ab	09504235	Deathstroke is an aggressive Bruiser who pushes the pace with the secondary activations of his skills.
+2b0001ab	00000002	  Attack Speed  馜ȇﱾಧ = Deathstroke fires
+2b0001ab	0a15d883	Deathstroke could blow you up at any moment.
+2b0001ab	0b4f6153	Dead Store Text for deathstroke W
+2b0001ab	0fccdcb1	Blade Rush
+2b0001ab	0cb4fce4	Eye for an Eye
+2b0001f1	07705981	You are now able to view all the unique versions of Super Strength.
+2b0001f1	07705982	You can unlock a Champion's unique Stolen Power by completing missions with that Champion.
+2b0001f1	07705984	For now, select the <font color='#FFFF00'>basic Super Strength</font> power.
+2b0001f1	05868b51	Allow me to guide you through the process of selecting and preparing your Champion for the upcoming mission.
+2b0001f1	065988f1	Champions selected by your allies appear in the other slots.
+2b0001f1	05869dc1	Earth-19 awaits us, Protector. Take a moment to review your final selections.
+2b0001f1	065988f2	This sector is currently too unstable to allow multiple Protectors, so these slots will remain empty.
+2b0001f1	05869dc2	When you are ready, click continue and I will begin the countdown to deploy your Champion.
+2b0001f1	0b673942	You may use the <font color='#58D3F7'>chat box</font> to discuss Champion selection with your allies.
+2b0001f1	0b673943	Determine strategies and roles to create the most effective team composition.
+2b0001f1	0b673944	Discussions in the chat box are not visible to your opponents.
+2b0001f1	011eb4f1	Welcome, Protector.
+2b0001f1	011eb4f2	I am the Construct, an artificial intelligence developed by the Monitors.
+2b0001f1	07659882	Information about the selected Champion is displayed in the details panel, such as their skills, role, and combat range.
+2b0001f1	07659885	Information about your enemy is hidden during the selection process.
+2b0001f1	06598801	The portrait for your selected Champion appears in the side bar along with your Protector name.
+2b0001f1	06598802	This information will be visible to allied Protectors who are joining you in the mission.
+2b0001f1	07705951	After selecting a Champion, Protectors can choose which <font color='#58D3F7'>Stolen Powers</font> will be infused for the mission.
+2b0001f1	04e380e1	I made my parents a promise... and I will keep it.
+2b0001f1	0cd07b2e	Superman
+2b0001f1	07705962	Left-click on <font color='#FFFF00'>Gaslight Batman's Surveillance Camera</font>.
+2b0001f1	0f0a7d51	After that collision, we lost connection to Gaslight Batman.
+2b0001f1	0f0a7d54	Thank you, Construct.
+2b0001f1	0f0a7d55	I think you're ready to head out, Protector.
+2b0001f1	0f0a7d57	Construct: Begin the countdown.
+2b0001f1	06598821	The <font color='#58D3F7'>Champion Roster</font> allows you to choose a Champion to deploy with.
+2b0001f1	07705971	All Stolen Powers available are now displayed.
+2b0001f1	0b991711	Once you have confirmed your Champion selection, you may also choose an alternate <font color='#58D3F7'>costume</font> for them.
+2b0001f1	07705972	Left-click the highlighted icon to select <font color='#FFFF00'>Super Strength</font>.
+2b0001f1	0b991713	Costumes do not affect the power or skills of your Champion. They are purely cosmetic.
+2b0001f1	0d37f1d1	The standard time limit for making selections has been disabled.
+2b0001f1	0a29a0e4	Construct
+2b0001be	00000002	@  of max health as bonus health regen for 
+2b0001be	0880d5a4	Late in the 19th century a man named Cyrus Gold was murdered and his body was dumped in the waters of the Slaughter Swamp, located near Gotham City. While rumors of sacrificial rituals being performed in the swamp by early Gothamites persist to this day, it wasn't until a nearby slaughterhouse started dumping offal into its waters that it earned the name 'Slaughter Swamp.' This history of ritual and death led to the swamp becoming a haven for the malicious elemental force called, 'The Rot.' The Rot feeds off of death and it reanimated Gold 100 years after his murder to become one of its avatars.<br><br>The shambling creature that lurched from the swamp bore almost no resemblance to Cyrus Gold nor did he possess his mind or memories. The only thing he was able to speak were lines from the 19th century English nursery rhyme, 'Solomon Grundy,' which is how he earned the name he now goes by.  Since his reanimation, Grundy has been killed a number of times, only to rise again later from Slaughter Swamp. Interestingly, over successive reincarnations, Grundy has displayed varying personalities. Sometimes he has returned as a mindless brute. At other times he returned with some of the memories and intellect of Cyrus Gold and has been able to resist the Rot's directives to a degree.
+2b0001be	089a90a3	Solomon Grundy's next Clobber will Slow the Champion he hits!
+2b0001be	007585e9	Born on a Monday
+2b0001be	0c2d2473	Solomon Grundy crushes the ground beneath him dealing damage to all enemies hit. The March: Grundy will knock the target up with him and pile drives them into the ground, dealing damage and knocking them down.
+2b0001be	005c3b53	Solomon Grundy infects all targets he comes into contact with dealing damage to them and healing himself for all infected. Targets who are infected also can pass the contagion to other allies.
+2b0001be	0af97c09	Buried on Sunday
+2b0001be	03e88ebd	Crush
+2b0001be	08f9b672	Clobber
+2b0001be	023588ca	******Clobber******
+2b0001be	077d0cb8	The March
+2b0001be	0970ec53	Grundy's non-ultimate skill cooldowns have reset and he isn't quite dead yet!
+2b0001be	0bb47c53	Solomon Grundy gains movement speed and his next Basic Attack will suppress a target and deal damage. Grundy cannot be slowed and will run faster when running at an enemy. Clobber and Crush can be used in combo with The March when he's suppressing the target.
+2b0001be	080c37f3	Solomon Grundy rushses forward stopping at the first enemy hit, slowing them, and dealing damage. The March: Grundy punches the target in a direction, dealing damage to them if they hit a wall, and everyone the target passes through.
+2b0001be	04d417c5	Solomon Grundy is a single target lock down Enforcer, who uses his brute strength to march to his target and toss them around like a rag-doll.
+2b0001c1	002470f3	Blessing of Darkness
+2b0001c1	0080c58d	Gloom
+2b0001c1	096dd903	When Raven uses her next skill she will be healed.
+2b0001c1	0f91eb93	As she loses health she gains additional Power Lifesteal. All healing from <font color='#0088ff'>Power Lifesteal</font> is granted to Raven's emphatically linked ally as well.
+2b0001c1	04593893	When Raven uses her next skill you will be damaged.
+2b0001c1	05f82e4e	Isolation
+2b0001c1	056376db	Empathic Link
+2b0001c1	0d108225	Raven's Astral Projection
+2b0001c1	0e4cae63	Health Shield from Raven's Astral Projection
+2b0001c1	0b412a73	Raven has caused your vision range to decrease.
+2b0001c1	05cfc243	Raven places an Astral Projection at a target location and begins channelling. On second activation or after the channel, she and all nearby allied champions dash to the location of the Astral Projection. During the dash, Raven and all allies cannot be targeted and are immune to damage. All allies at the destination gain Move Speed and a Shield that blocks damage.
+2b0001c1	093adb95	raven Playstyle
+2b0001c1	0958a5b3	You are being dealt Power Damage over time.
+2b0001c1	0e6e4213	When Raven uses her next skill you will be healed.
+2b0001c1	057c2e73	Raven unleashes a blast of pure darkness, dealing Power Damage, reducing the target's vision range, and disable all vision granted by allies and devices. After a couple seconds, the target will be Stunned.
+2b0001c1	0e659bf3	Raven tethers herself to an ally and/or enemy.<br>Ally Champion: Raven and her ally gain increased Move Speed, a percent of damage dealt to her linked ally is redirected to Raven, and Empathic Link's cast range is increased.<br>Enemy Champion: The target suffers reduced Move Speed and takes increased damage from Raven and her linked ally. Using this on an enemy puts the skill on cooldown.
+2b0001c1	08c6ed4e	Astral Projection
+2b0001c1	0dba5273	Raven tethered to an ally does stuff for them
+2b0001c1	0ab9a963	Raven tethered to an ally does stuff for her
+2b0001c3	085c6cf5	Sniper's Eye
+2b0001c3	0274e773	Dead Store Text for deadshot Q
+2b0001c3	051b2103	Shadowy Employers
+2b0001c3	03360744	Rapid Sniping
+2b0001c3	0f366a53	Dead Store Text for deadshot W
+2b0001c3	088e5265	deadshot Playstyle
+2b0001c3	05a57183	Dead Store Text for deadshot R
+2b0001c3	0f74be24	Called Shot
+2b0001c3	00e21e83	Dead Store Text for deadshot Passive
+2b0001c3	063aeec3	Dead Store Text for deadshot E
+2b0001c5	01053025	Lacerate
+2b0001c5	00000002	  Attack Armor per stack. ⧜Ʌ鰳ف  +   At
+2b0001c5	0c4f4254	Shred The World
+2b0001c5	0d680ec3	Dead Store Text for dexstarr E
+2b0001c5	02c3ff93	Dead Store Text for dexstarr Q
+2b0001c5	046310e3	Dead Store Text for dexstarr Passive
+2b0001c5	056758b3	Dead Store Text for dexstarr R
+2b0001c5	04d03d25	Pounce
+2b0001c5	0234bab4	Percent of Total Attack Damage
+2b0001c5	0cba25d4	Caustic Flood
+2b0001f8	03175cf3	Tech Bolts
+2b0001f8	00e0d6dc	Hunter's Quarrel
+2b0001f8	0eb47183	Max Bolts
+2b0001f8	05b27e64	Snap Shot
+2b0001f8	08b8a594	Rapid Deployment
+2b0001f8	0fc2d953	Dead Store Text for huntress tech_bolts
+2b0001f8	051e7245	huntress Playstyle
+2b0001f8	0009ee74	Grapple Bolt
+2b0001f8	0e2da1f3	Dead Store Text for huntress hunters_quarrel
+2b0001f8	0bf128be	Huntress fires a bolt that attaches to the first enemy, ally or wall it hits, then pulls Huntress to it.  If the target was an enemy, Huntress knocks them back on arrival.
+2b0001f8	06d88b73	Dead Store Text for huntress SKILLQ
+2b0001f8	0f045ae4	huntress About
+2b0001fd	014125f5	nightmare_catwoman Playstyle
+2b0001fd	09e01a23	Dead Store Text for nightmare_catwoman R
+2b0001fd	05d273d3	Dead Store Text for nightmare_catwoman Q
+2b0001fd	08dc801a	******Inevitability******
+2b0001fd	0bd5cb54	Scar the Land
+2b0001fd	0d36fe9e	Soul Siphon
+2b0001fd	094c3113	Dead Store Text for nightmare_catwoman Passive
+2b0001fd	09f9d895	Mangle
+2b0001fd	053ef023	Dead Store Text for nightmare_catwoman E
+2b000201	00c0b255	Born in Battle
+2b000201	05bfa7b3	After using a skill, Zod's next Basic Attack becomes a short Rush. For each nearby enemy Champion, Zod gains Attack and Power Armor.
+2b000201	03aff535	Zod pummels his enemies into submission, by relentlessly gap closing and powerful melee attacks.
+2b000201	04dc01c2	Shield Breaker
+2b000201	0c4e6c83	Resets Basic Attack cooldown. Zod's next Basic Attack deals additional Attack Damage. If the target has a Health Shield, the Health Shield is completely destroyed.
+2b000201	000d6503	Relentless
+2b000201	00554b83	Zod channels, and then launches into the air, becoming untargetable. After a short time, he smashes into the ground at a target location. Enemies are Knocked Down and dealt Attack Damage.
+2b000201	00937ac3	Zod unleashes a powerful war cry, freeing himself from Disables and Slows and activating the full buff from Born in Battle.  If Relentless is used to clear a Disable or a Slow then the Rush range for his Basic Attack is increased.<br><br>Each time Zod is hit by a Disable or Slow, the cooldown is reduced.
+2b00021b	07b6cff3	Dead Store Text for arcane_harley_quinn Passive
+2b00021b	0f31b805	Pirouette
+2b00021b	0616ffd3	Dead Store Text for arcane_harley_quinn R
+2b00021b	08eb8b53	Dead Store Text for arcane_harley_quinn E
+2b00021b	00000003	h  <font color='#ff9900'>Attack Lifesteal</
+2b00021b	0060b713	Dead Store Text for arcane_harley_quinn Q
+2b00021b	05a49964	Flit
+2b00021b	0255345d	Delirium
+2b00021b	0dac3043	You have reduced vision range, and can't see what your allies see.
+2b00021b	00000002	  Attack Speed  馜ȇ㯞ཏ & Harley's target b
+2b00021b	07bdb884	arcane_harley_quinn About
+2b00021b	06d9e503	Dead Store Text for arcane_harley_quinn W
+2b00021b	0a827c82	Glamour
+2b00021b	00563675	Spiteful Sprite
+2b000227	0a470ef5	nightwing Playstyle
+2b000227	0228c68e	Static Burn
+2b000227	0df6f693	Dead Store Text for nightwing W
+2b000227	0d644793	You are taking extra damage from Nightwing.
+2b000227	01d436e3	Dead Store Text for nightwing E
+2b000227	00b7a853	You are Stun immune while on your motorcycle.
+2b000227	03a2883a	******Eskrima******
+2b000227	092120f3	Dead Store Text for nightwing Passive
+2b000227	02285b94	nightwing About
+2b000227	0755a0d4	Thunderbolt
+2b000227	09e4aea3	Dead Store Text for nightwing Q
+2b000227	0b702391	Eskrima
+2b000227	093b3a95	Let's Ride
+2b000227	00d2027a	******Thunderbolt******
+2b000227	0b79a712	Rolling Thunder
+2b000227	09401f33	Dead Store Text for nightwing R
+2b000228	02ed8e93	Dead Store Text for john_stewart R
+2b000228	0ea9696e	john_stewart uses E
+2b000228	0b04efc3	Dead Store Text for john_stewart Passive
+2b000228	0f37c99f	full_auto
+2b000228	044ceece	john_stewart Passive
+2b000228	0a22ee65	claymore_mine
+2b000228	0e74359c	architects_will
+2b000228	037e01f3	Dead Store Text for john_stewart E
+2b000228	0cdad635	forward_base
+2b000228	04e22024	omni_turret
+2b000228	06f13b9e	john_stewart uses W
+2b000228	0590f28e	john_stewart uses Q

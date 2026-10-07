@@ -1,0 +1,8 @@
+==== tag 59 (DoInitAction sprite 46) len 95
+0000 Push 'gameplay.login.ConnectingScreen'
+0024 GetVariable 
+0025 Push 'ConnectingScreen', 2, 'Object'
+0047 GetVariable 
+0048 Push 'registerClass'
+005a CallMethod 
+005b Pop 

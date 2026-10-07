@@ -1,0 +1,226 @@
+count 96
+conv key 0x1b9 participants 1 lines 2 @db8b16
+   spk 1 name 0cd07b2e:'Superman' snd 90d4f751 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06dd4811:'Gaslight Gotham is under attack.'
+   spk 1 name 0cd07b2e:'Superman' snd 90d4f752 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06dd4812:'Reality is being torn open to the Bleed between worlds.'
+conv key 0x22f participants 1 lines 3 @db8ba0
+   spk 1 name 0cd07b2e:'Superman' snd 90d4f753 dur 0.25 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06dd4813:'The Monitor has established a base.'
+   spk 1 name 0cd07b2e:'Superman' snd 90d4f754 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06dd4814:'That gives us a foothold to start fighting back.'
+   spk 1 name 0cd07b2e:'Superman' snd 90d4f755 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06dd4815:"The bad news: it's already under attack."
+conv key 0x22e participants 1 lines 2 @db8c69
+   spk 1 name 0cd07b2e:'Superman' snd 90d4f756 dur 0.25 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06dd4816:"This world's Batman is weak and disoriented from the effects of the Bleed."
+   spk 1 name 0cd07b2e:'Superman' snd 90d4f757 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06dd4817:'We need Batman or we will lose Gotham.'
+conv key 0x22d participants 1 lines 3 @db8cf3
+   spk 1 name 0cd07b2e:'Superman' snd 90d4f758 dur 0.25 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06dd4818:"You're a Protector: You can do what I can't."
+   spk 1 name 0cd07b2e:'Superman' snd 90d4f759 dur 0.25 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06dd4819:'You can survive the neural connection to Batman.'
+   spk 1 name 0cd07b2e:'Superman' snd 91d4f8c3 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06dd4860:'Use that to get him to the safety of the base.'
+conv key 0x22c participants 1 lines 1 @db8dbc
+   spk 1 name 0cd07b2e:'Superman' snd 91d4f8c2 dur 0.25 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06dd4861:'I wish there was more time to explain, but Gaslight Batman needs us right now.'
+conv key 0x1ba participants 1 lines 2 @db8e07
+   spk 1 name 0cd07b2e:'Superman' snd ff22db13 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 09e350a1:"Ok, you're connected."
+   spk 1 name 0cd07b2e:'Superman' snd ff22db10 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 09e350a2:'Quickly, move Gaslight Batman to safety!'
+conv key 0x193 participants 1 lines 1 @db8e91
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd 4726318f dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 021f1d93:'A narrow escape! Thank you, Protector.'
+conv key 0x19c participants 1 lines 3 @db8edc
+   spk 1 name 0cd07b2e:'Superman' snd 078bf49f dur 0.50 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06cf2e41:'We need to keep moving.'
+   spk 1 name 0cd07b2e:'Superman' snd 078bf49c dur 0.50 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06cf2e42:'You see what Batman sees.'
+   spk 1 name 0cd07b2e:'Superman' snd 078bf49d dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06cf2e43:"The fog of war hides what's far away or behind walls."
+conv key 0x1ac participants 1 lines 1 @db8fa5
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd ab3c102c dur 0.25 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 014ebb61:'What ARE these accursed machines?'
+conv key 0x1b8 participants 1 lines 1 @db8ff0
+   spk 1 name 0cd07b2e:'Superman' snd f0b58723 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06d86ac2:'A corrupted drone. Take it out!'
+conv key 0x38c participants 1 lines 1 @db903b
+   spk 1 name 0cd07b2e:'Superman' snd f0b58722 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06d86ac3:"Once you start attacking a target, you'll keep attacking until you give Batman another command."
+conv key 0x1e1 participants 1 lines 1 @db9086
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd ab3c1029 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 014ebb64:'These metallic monsters are no match for my Sonic Blasters!'
+conv key 0x1e0 participants 1 lines 2 @db90d1
+   spk 1 name 0cd07b2e:'Superman' snd f0b58724 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06d86ac5:'Not so fast, Batman.'
+   spk 1 name 0cd07b2e:'Superman' snd f0b58727 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06d86ac6:'More drones are coming!'
+conv key 0x1df participants 1 lines 1 @db915b
+   spk 1 name 0cd07b2e:'Superman' snd f8b19478 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0cabf001:'Good job!'
+conv key 0x1d4 participants 1 lines 1 @db91a6
+   spk 1 name 0cd07b2e:'Superman' snd 5cc8b483 dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d859771:'Beyond his basic attack, Batman has five unique and powerful skills.'
+conv key 0x1be participants 1 lines 1 @db91f1
+   spk 1 name 0cd07b2e:'Superman' snd 5cc8b480 dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d859772:"Use a skill point to unlock Gaslight Batman's first skill."
+conv key 0x19b participants 1 lines 1 @db923c
+   spk 1 name 0cd07b2e:'Superman' snd 5cc8b481 dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d859773:'You can learn more about each skill by moving your cursor over its icon.'
+conv key 0x1ab participants 1 lines 1 @db9287
+   spk 1 name 0cd07b2e:'Superman' snd 81248337 dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d7a4771:'Construct: Can we have some target drones?'
+conv key 0x1b7 participants 1 lines 2 @db92d2
+   spk 1 name 0cd07b2e:'Superman' snd 81248334 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d7a4772:'Practice your new skill on these drones.'
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd 68dc3d03 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0bb060d3:'I have designed the Sonic Batarang to ricochet from its target to others nearby.'
+conv key 0x19a participants 1 lines 2 @db935c
+   spk 1 name 0cd07b2e:'Superman' snd 81248332 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d7a4774:"When you use a skill, it goes 'on cooldown'."
+   spk 1 name 0cd07b2e:'Superman' snd 81248333 dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d7a4775:'After the timer ends, you can use it again.'
+conv key 0x1e3 participants 1 lines 1 @db93e6
+   spk 1 name 0cd07b2e:'Superman' snd 81248330 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d7a4776:"Using that skill also consumed 'Will', a resource Gaslight Batman recovers over time."
+conv key 0x1af participants 1 lines 1 @db9431
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd ad132783 dur 0.50 flags 0x4800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0309c481:'It appears the path forward is blocked.'
+conv key 0x358 participants 1 lines 1 @db947c
+   spk 1 name 0a0d41f4:'Gaslight Catwoman' snd cc0762e5 dur 0.50 flags 0x4800 img 13000cc2 movie '' tail 0001000000000000000000000000000000 | 0209c482:'No walls can keep me out!'
+conv key 0x357 participants 1 lines 1 @db94c7
+   spk 1 name 0cd07b2e:'Superman' snd 883d82a3 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 08f43d33:'That was Gaslight Catwoman. How helpful...'
+conv key 0x1c9 participants 1 lines 1 @db9512
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd 1298aac4 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0be52031:'Or, Selina has left it to us to deal with her pursuers!'
+conv key 0x1e5 participants 1 lines 1 @db955d
+   spk 1 name 0cd07b2e:'Superman' snd 5487fdab dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0abf1421:'Good work defeating those drones.'
+conv key 0x1e4 participants 1 lines 1 @db95a8
+   spk 1 name 0cd07b2e:'Superman' snd 5487fda8 dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0abf1422:'Doing that gained you experience which increased the level of your neural connection to Gaslight Batman.'
+conv key 0x1c2 participants 1 lines 1 @db95f3
+   spk 1 name 0cd07b2e:'Superman' snd 5487fda9 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0abf1423:'Use your new skill point to unlock your next skill.'
+conv key 0x1b1 participants 1 lines 1 @db963e
+   spk 1 name 0cd07b2e:'Superman' snd f7b648dc dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d7a4071:"Why don't you try out your new skill?"
+conv key 0x192 participants 1 lines 1 @db9689
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd e44af9ab dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0bb010d2:'My Sonic Shell can be triggered a second time to detonate before it reaches its destination.'
+conv key 0x191 participants 1 lines 2 @db96d4
+   spk 1 name 0cd07b2e:'Superman' snd cb774d2a dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 052ad4c1:'More enemies!'
+   spk 1 name 0cd07b2e:'Superman' snd cb774d29 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 052ad4c2:"Use what you've learned so far to defeat them."
+conv key 0x199 participants 1 lines 1 @db975e
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd c1660ce4 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0ea75b53:'I will keep my promise to protect Gotham!'
+conv key 0x1d9 participants 1 lines 1 @db97a9
+   spk 1 name 0cd07b2e:'Superman' snd cc98bae0 dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0abf1b21:"Nice job, Protector. You've gained another level."
+conv key 0x1d3 participants 1 lines 1 @db97f4
+   spk 1 name 0cd07b2e:'Superman' snd cc98bae3 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0abf1b22:"Use the skill point to upgrade one of the skills you've already unlocked."
+conv key 0x1cc participants 1 lines 1 @db983f
+   spk 1 name 0cd07b2e:'Superman' snd a7506391 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 052adbc1:'Clear out those drones!'
+conv key 0x38d participants 1 lines 1 @db988a
+   spk 1 name 0cd07b2e:'Superman' snd 078bf49f dur 0.50 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 06cf2e41:'We need to keep moving.'
+conv key 0x22b participants 1 lines 3 @db98d5
+   spk 1 name 0cd07b2e:'Superman' snd 02b7c1fc dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d3324e1:'Working with the Monitor has given us a new way to fight this crisis: Stolen Powers.'
+   spk 1 name 0cd07b2e:'Superman' snd 02b7c1ff dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d3324e2:'Each Champion has a unique Stolen Power.'
+   spk 1 name 0cd07b2e:'Superman' snd 02b7c1fe dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d3324e3:'You can use them like skills.'
+conv key 0x22a participants 1 lines 1 @db999e
+   spk 1 name 0cd07b2e:'Superman' snd 02b7c1f9 dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d3324e4:"Gaslight Batman's power is a Surveillance Camera that lets you see places even when you're not there."
+conv key 0x196 participants 1 lines 1 @db99e9
+   spk 1 name 0cd07b2e:'Superman' snd 02b7c1f8 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d3324e5:'Place a camera here.'
+conv key 0x1bd participants 1 lines 2 @db9a34
+   spk 1 name 0cd07b2e:'Superman' snd 02b7c1fb dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d3324e6:'Perfect.'
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd 189e5ac1 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0f1a59d8:'Well placed surveillance cameras give us better knowledge of our surroundings.'
+conv key 0x1d2 participants 1 lines 1 @db9abe
+   spk 1 name 0cd07b2e:'Superman' snd 02b7c1fa dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d3324e7:'Keep fighting your way to the base.'
+conv key 0x1c6 participants 1 lines 1 @db9b09
+   spk 1 name 0cd07b2e:'Superman' snd edef6bbd dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d859d71:'Your connection is getting stronger. Keep it up.'
+conv key 0x1d1 participants 1 lines 1 @db9b54
+   spk 1 name 0cd07b2e:'Superman' snd edef6bbe dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d859d72:'Unlock your next skill.'
+conv key 0x190 participants 1 lines 1 @db9b9f
+   spk 1 name 0cd07b2e:'Superman' snd 94bf8231 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d7a4d71:'Practice the skill on the target drone.'
+conv key 0x1aa participants 1 lines 1 @db9bea
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd d5beba51 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0be60032:'We can use Bat Flight to quickly engage or flee from the enemy.'
+conv key 0x1ae participants 1 lines 1 @db9c35
+   spk 1 name 0cd07b2e:'Superman' snd e40f5f46 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 037ee171:'Our enemy is sending more drones!'
+conv key 0x1a1 participants 1 lines 1 @db9c80
+   spk 1 name 0cd07b2e:'Superman' snd b97ac4fa dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d859e71:"You've gained another skill point. This time, use it to upgrade Batman's 'Passive Skill'."
+conv key 0x18f participants 1 lines 1 @db9ccb
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd c91f6230 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0be63032:'Shots fired from my Sonic Blasters echo around my foe. This strengthens my skills against that opponent.'
+conv key 0x1e2 participants 1 lines 2 @db9d16
+   spk 1 name 0cd07b2e:'Superman' snd 54ce1031 dur 0.50 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 037ee271:"Let's go!"
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd d9dde13f dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0f9519c5:"Indeed. We've no time to waste!"
+conv key 0x1cb participants 1 lines 1 @db9da0
+   spk 1 name 0cd07b2e:'Superman' snd 6272bb67 dur 0.50 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d85e371:'This is a big deal: Connection Level 6.'
+conv key 0x1dc participants 1 lines 1 @db9deb
+   spk 1 name 0cd07b2e:'Superman' snd 6272bb64 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d85e372:"You can now unlock Gaslight Batman's Ultimate Skill: The Bat Scream."
+conv key 0x1a0 participants 1 lines 1 @db9e36
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd f995b66e dur 0.50 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 08da4b94:'Protector, it appears that my surveillance camera has spotted a group of corrupted drones.'
+conv key 0x1c8 participants 1 lines 1 @db9e81
+   spk 1 name 0cd07b2e:'Superman' snd 6cd19749 dur 0.50 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d257bf3:'You can see them as red dots on your mini-map.'
+conv key 0x1b6 participants 1 lines 1 @db9ecc
+   spk 1 name 0cd07b2e:'Superman' snd 6cd1974e dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d257bf4:'Your camera is currently locked to Batman.'
+conv key 0x1b0 participants 1 lines 1 @db9f17
+   spk 1 name 0cd07b2e:'Superman' snd 6cd1974f dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d257bf5:'To view other areas, unlock your camera.'
+conv key 0x1ca participants 1 lines 1 @db9f62
+   spk 1 name 0cd07b2e:'Superman' snd 0270c3c4 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0aa8fa41:'You can now move your camera around freely or use the mini-map to quickly change your view.'
+conv key 0x1b5 participants 1 lines 1 @db9fad
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd c3c95063 dur 0.75 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0645b3a2:'The shadows are my domain! With my cameras, our enemies cannot hide from us!'
+conv key 0x1d8 participants 1 lines 2 @db9ff8
+   spk 1 name 0cd07b2e:'Superman' snd 7ab42f53 dur 0.50 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d7a5371:'These drones are outside normal attack range, but Gaslight Batman has a solution.'
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd 1e8b7ace dur 0.50 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0baf20d2:'The Bat Scream is my greatest attack. It can travel for miles, damaging all enemies in its path.'
+conv key 0x1d0 participants 1 lines 1 @dba082
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd 1e8b7acf dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0baf20d3:"Use the Bat Scream to destroy those 'drones'."
+conv key 0x3ac participants 1 lines 1 @dba0cd
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd 1e8b7ac8 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0baf20d4:'A respectable first effort, Protector. Take a moment, aim, and then give it another try.'
+conv key 0x1a5 participants 1 lines 3 @dba118
+   spk 1 name 0cd07b2e:'Superman' snd be4c2e79 dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0b8cff81:'Good shot!'
+   spk 1 name 0cd07b2e:'Superman' snd be4c2e7a dur 0.50 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0b8cff82:'Just like bowling back in Smallville.'
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd da4dbaa9 dur 0.50 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0485efb3:'Bowling? You know, forget that I asked.'
+conv key 0x1ad participants 1 lines 1 @dba1e1
+   spk 1 name 0cd07b2e:'Superman' snd be4c2e7c dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0b8cff84:'Now, center your camera back on Batman.'
+conv key 0x1a8 participants 1 lines 1 @dba22c
+   spk 1 name 0cd07b2e:'Superman' snd ec25a59d dur 0.50 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 08f6ca41:'Remember, with the camera unlocked, your view will not follow Batman as he moves.'
+conv key 0x19f participants 1 lines 1 @dba277
+   spk 1 name 0cd07b2e:'Superman' snd 08f2310d dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 08257be1:'Lock the camera back on Batman.'
+conv key 0x1c5 participants 1 lines 4 @dba2c2
+   spk 1 name 0cd07b2e:'Superman' snd 4ccc941e dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0defc591:"We've got another car in our way. It may sound like a job for Superman, but I've got another idea."
+   spk 1 name 0cd07b2e:'Superman' snd 4ccc941d dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0defc592:"Some Stolen Powers come from specialized Monitor technology, others reflect the Champion's own abilities."
+   spk 1 name 0cd07b2e:'Superman' snd 4ccc941c dur 0.50 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0defc593:"We call them Stolen Powers because one Champion's power can be used by another Champion."
+   spk 1 name 0cd07b2e:'Superman' snd 4ccc941b dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0defc594:'Construct: Give Batman a copy of my Super Strength.'
+conv key 0x1c1 participants 1 lines 1 @dba3ca
+   spk 1 name 0cd07b2e:'Superman' snd 4ccc941a dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0defc595:'Protector, use Super Strength to clear the way.'
+conv key 0x1c0 participants 1 lines 1 @dba415
+   spk 1 name 0cd07b2e:'Superman' snd 4ccc9419 dur 0.25 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0defc596:'Look out, more drones!'
+conv key 0x1b4 participants 1 lines 1 @dba460
+   spk 1 name 0cd07b2e:'Superman' snd 4ccc9418 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0defc597:'Throw the car!'
+conv key 0x1cf participants 1 lines 5 @dba4ab
+   spk 1 name 0cd07b2e:'Superman' snd b8e5b77f dur 0.75 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 02751c01:"Looks like we've really got their attention now."
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd 3b3483a8 dur 0.75 flags 0x4800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0be66031:'Just who is responsible for this savagery?'
+   spk 1 name 0cd07b2e:'Superman' snd b7c4d6df dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 037ee772:"I don't know, and neither does the Monitor."
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd 3b3483af dur 0.50 flags 0x4800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0be66036:'A question for another day, then.'
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd 3b3483ae dur 0.00 flags 0x4800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0be66037:'Right now, that Destroyer is the final foe between us and our base.'
+conv key 0x1d7 participants 1 lines 1 @dba5f2
+   spk 1 name 0cd07b2e:'Superman' snd b7c4d6d9 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 037ee774:'You know what to do.'
+conv key 0x1c7 participants 1 lines 1 @dba63d
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd 3b3483ac dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 0be66035:'We will not allow this machine to stand in our way!'
+conv key 0x1bc participants 1 lines 6 @dba688
+   spk 1 name 0cd07b2e:'Superman' snd 2b3a5b16 dur 0.25 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0c4d4801:'You did it, Protector!'
+   spk 1 name 0cd07b2e:'Superman' snd 2b3a5b15 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0c4d4802:"You've rescued Gaslight Batman and reached the base."
+   spk 1 name 0cd07b2e:'Superman' snd 2b3a5b14 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0c4d4803:"We've recruited him to our cause, but we'll need many more allies for the battle ahead."
+   spk 1 name 0cd07b2e:'Superman' snd 2b3a5b13 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0c4d4804:'This crisis is only beginning.'
+   spk 1 name 0cd07b2e:'Superman' snd 2b3a5b12 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0c4d4805:'Getting this base up and running will teach you and Batman a lot.'
+   spk 1 name 0cd07b2e:'Superman' snd 2b3a5b11 dur 0.50 flags 0x4800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0c4d4806:"Let's get to it."
+conv key 0x1ce participants 1 lines 1 @dba80e
+   spk 1 name 0cd07b2e:'Superman' snd 17ea6a4b dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0e2e0891:"Be careful, Protector! Batman's health is low. The Construct is healing him, but won't always be able to."
+conv key 0x1b3 participants 1 lines 1 @dba859
+   spk 1 name 0cd07b2e:'Superman' snd 17ea6a48 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0e2e0892:'That target drone is only affected by basic attacks, not skills.'
+conv key 0x1cd participants 1 lines 1 @dba8a4
+   spk 1 name 0cd07b2e:'Superman' snd 17ea6a49 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0e2e0893:'That target drone is only affected by skills, not basic attacks.'
+conv key 0x1db participants 1 lines 1 @dba8ef
+   spk 1 name 0cd07b2e:'Superman' snd 17ea6a4f dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0e2e0895:'That attack is ineffective against this target.'
+conv key 0x1bb participants 1 lines 1 @dba93a
+   spk 1 name 0cd07b2e:'Superman' snd be01b13c dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d1c6ce1:'Follow the instructions on your screen.'
+conv key 0x1bf participants 1 lines 1 @dba985
+   spk 1 name 0cd07b2e:'Superman' snd be01b13f dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d1c6ce2:'Follow the directions in the objective tracker.'
+conv key 0x1c4 participants 1 lines 1 @dba9d0
+   spk 1 name 0cd07b2e:'Superman' snd be01b13e dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d1c6ce3:'Complete your current objective.'
+conv key 0x1b2 participants 1 lines 1 @dbaa1b
+   spk 1 name 0cd07b2e:'Superman' snd 17ea6a4e dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0e2e0894:'Try using the skill you just learned on that target drone.'
+conv key 0x195 participants 1 lines 1 @dbaa66
+   spk 1 name 0cd07b2e:'Superman' snd be01b139 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d1c6ce4:'Use your skill point.'
+conv key 0x1a4 participants 1 lines 1 @dbaab1
+   spk 1 name 0cd07b2e:'Superman' snd be01b138 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d1c6ce5:'Move to the marked location.'
+conv key 0x19e participants 1 lines 1 @dbaafc
+   spk 1 name 0cd07b2e:'Superman' snd be01b13b dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d1c6ce6:'Attack this target.'
+conv key 0x1a3 participants 1 lines 1 @dbab47
+   spk 1 name 0cd07b2e:'Superman' snd be01b13a dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d1c6ce7:'Attack these targets.'
+conv key 0x1a7 participants 1 lines 1 @dbab92
+   spk 1 name 0cd07b2e:'Superman' snd be01b135 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d1c6ce8:'Defeat all the enemies.'
+conv key 0x1de participants 1 lines 1 @dbabdd
+   spk 1 name 0cd07b2e:'Superman' snd be01b134 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0d1c6ce9:'Look at the highlighted area.'
+conv key 0x1d5 participants 1 lines 1 @dbac28
+   spk 1 name 0cd07b2e:'Superman' snd f8b19478 dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0cabf001:'Good job!'
+conv key 0x1d6 participants 1 lines 1 @dbac73
+   spk 1 name 0cd07b2e:'Superman' snd f8b1947b dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0cabf002:'Nice work!'
+conv key 0x1da participants 1 lines 1 @dbacbe
+   spk 1 name 0cd07b2e:'Superman' snd f8b1947a dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0cabf003:'Alright, Protector!'
+conv key 0x1dd participants 1 lines 1 @dbad09
+   spk 1 name 0cd07b2e:'Superman' snd f8b1947d dur 0.00 flags 0x800 img 13000120 movie '' tail 0001000000000000000000000000000000 | 0cabf004:'Good one, Protector!'
+conv key 0x198 participants 1 lines 1 @dbad54
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd acf90d50 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 069517c5:'Well done!'
+conv key 0x19d participants 1 lines 1 @dbad9f
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd acf90d53 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 069517c6:'Good show!'
+conv key 0x1a2 participants 1 lines 1 @dbadea
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd acf90d52 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 069517c7:'Nicely done, Protector!'
+conv key 0x1a6 participants 1 lines 1 @dbae35
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd acf90d5d dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 069517c8:'Excellent, Protector.'
+conv key 0x194 participants 1 lines 1 @dbae80
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd acf90d5c dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 069517c9:'Thank you, Protector.'
+conv key 0x197 participants 1 lines 1 @dbaecb
+   spk 1 name 0a0d40f4:'Gaslight Batman' snd abf90be2 dur 0.00 flags 0x800 img 130002e5 movie '' tail 0001000000000000000000000000000000 | 069517b0:'My thanks, Protector.'
+end dbaf16

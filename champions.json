@@ -1,0 +1,2359 @@
+[
+ {
+  "name": "Aquaman",
+  "id": 1207961877,
+  "costumes": [
+   1207962970,
+   1207963408
+  ],
+  "tex384": 318773628,
+  "tex799": 318773631,
+  "light_pack": 2684354960,
+  "variant": 1073743302,
+  "heavy_pack": 2684354962,
+  "parent_pack": 2684354961,
+  "costume_info": [
+   {
+    "light": 1207962970,
+    "light_pack": 2684355152,
+    "variant": 1073744280,
+    "heavy_pack": 2684355153,
+    "heavy_dbpc": 1224739224,
+    "wallpaper": 318776694,
+    "wallpaper_pack": 2684355151,
+    "pregame_heavy": 1207962969,
+    "grid_icon": 318773629
+   },
+   {
+    "light": 1207963408,
+    "light_pack": 2684355264,
+    "variant": 1073744658,
+    "heavy_pack": 2684355265,
+    "heavy_dbpc": 1224739602,
+    "wallpaper": 318778259,
+    "wallpaper_pack": 2684355263,
+    "pregame_heavy": 1207963407,
+    "grid_icon": 318773629
+   }
+  ],
+  "heavy_dbpc": 1224738246,
+  "powerset_candidates": [
+   1224738245,
+   1224738247,
+   1224738259
+  ],
+  "powerset_dbpc": 1224738259,
+  "wallpaper": 318773632,
+  "wallpaper_pack": 2684354959,
+  "pregame_heavy": 1207961876,
+  "skills_pack": 2684355209,
+  "skills_key": 1207961873,
+  "grid_icon": 318773629
+ },
+ {
+  "name": "Arcane Green Lantern",
+  "id": 1207961455,
+  "costumes": [
+   1207962267,
+   1207963522,
+   1207963679
+  ],
+  "tex384": 318772443,
+  "tex799": 318772479,
+  "light_pack": 2684354882,
+  "variant": 1073742907,
+  "heavy_pack": 2684354884,
+  "parent_pack": 2684354885,
+  "costume_info": [
+   {
+    "light": 1207962267,
+    "light_pack": 2684355076,
+    "variant": 1073744573,
+    "heavy_pack": 2684355077,
+    "heavy_dbpc": 1224739517,
+    "wallpaper": 318774774,
+    "wallpaper_pack": 2684355075,
+    "pregame_heavy": 1207962266,
+    "grid_icon": 318772442
+   },
+   {
+    "light": 1207963522,
+    "light_pack": 2684355311,
+    "variant": 1073744832,
+    "heavy_pack": 2684355312,
+    "heavy_dbpc": 1224739776,
+    "wallpaper": 318778628,
+    "wallpaper_pack": 2684355310,
+    "pregame_heavy": 1207963521,
+    "grid_icon": 318772442
+   },
+   {
+    "light": 1207963679,
+    "light_pack": 2684355337,
+    "variant": 1073744905,
+    "heavy_pack": 2684355338,
+    "heavy_dbpc": 1224739849,
+    "wallpaper": 318779001,
+    "wallpaper_pack": 2684355336,
+    "pregame_heavy": 1207963680,
+    "grid_icon": 318772442
+   }
+  ],
+  "heavy_dbpc": 1224737851,
+  "powerset_candidates": [
+   1224737887,
+   1224737901,
+   1224737913,
+   1224738220
+  ],
+  "powerset_dbpc": 1224737887,
+  "wallpaper": 318772457,
+  "wallpaper_pack": 2684354883,
+  "pregame_heavy": 1207961452,
+  "skills_pack": 2684355208,
+  "skills_key": 1207961450,
+  "grid_icon": 318772442
+ },
+ {
+  "name": "Arcane Supergirl",
+  "id": 1207963302,
+  "costumes": [
+   1207963520
+  ],
+  "tex384": 318777953,
+  "tex799": 318777954,
+  "light_pack": 2684355200,
+  "variant": 1073744562,
+  "heavy_pack": 2684355202,
+  "parent_pack": 2684355201,
+  "costume_info": [
+   {
+    "light": 1207963520,
+    "light_pack": 2684355308,
+    "variant": 1073744562,
+    "heavy_pack": 2684355309,
+    "heavy_dbpc": 1224739506,
+    "wallpaper": 318778620,
+    "wallpaper_pack": 2684355307,
+    "pregame_heavy": 1207963519,
+    "grid_icon": 318777956
+   }
+  ],
+  "heavy_dbpc": 1224739506,
+  "powerset_candidates": [
+   1224739505,
+   1224739551,
+   1224739557,
+   1224739754,
+   1224739823,
+   1224740007
+  ],
+  "powerset_dbpc": 1224739823,
+  "wallpaper": 318777955,
+  "wallpaper_pack": 2684355199,
+  "pregame_heavy": 1207963303,
+  "skills_pack": 2684355256,
+  "skills_key": 1207963304,
+  "grid_icon": 318777956
+ },
+ {
+  "name": "Atomic Green Lantern",
+  "id": 1207961504,
+  "costumes": [
+   1207962306,
+   1207963702
+  ],
+  "tex384": 318772816,
+  "tex799": 318772819,
+  "light_pack": 2684354895,
+  "variant": 1073742973,
+  "heavy_pack": 2684354897,
+  "parent_pack": 2684354896,
+  "costume_info": [
+   {
+    "light": 1207962306,
+    "light_pack": 2684355098,
+    "variant": 1073743884,
+    "heavy_pack": 2684355099,
+    "heavy_dbpc": 1224738828,
+    "wallpaper": 318775348,
+    "wallpaper_pack": 2684355097,
+    "pregame_heavy": 1207962305,
+    "grid_icon": 318772818
+   },
+   {
+    "light": 1207963702,
+    "light_pack": 2684355344,
+    "variant": 1073744923,
+    "heavy_pack": 2684355346,
+    "heavy_dbpc": 1224739867,
+    "wallpaper": 318779069,
+    "wallpaper_pack": 2684355345,
+    "pregame_heavy": 1207963701,
+    "grid_icon": 318772818
+   }
+  ],
+  "heavy_dbpc": 1224737917,
+  "powerset_candidates": [
+   1224737916,
+   1224737924,
+   1224737925,
+   1224737927,
+   1224738222
+  ],
+  "powerset_dbpc": 1224737924,
+  "wallpaper": 318772825,
+  "wallpaper_pack": 2684354894,
+  "pregame_heavy": 1207961505,
+  "skills_pack": 2684355207,
+  "skills_key": 1207961506,
+  "grid_icon": 318772818
+ },
+ {
+  "name": "Atomic Joker",
+  "id": 1207962933,
+  "costumes": [
+   1207964352,
+   1207963297
+  ],
+  "tex384": 318776514,
+  "tex799": 318776515,
+  "light_pack": 2684355145,
+  "variant": 1073744225,
+  "heavy_pack": 2684355147,
+  "parent_pack": 2684355146,
+  "costume_info": [
+   {
+    "light": 1207964352,
+    "light_pack": 2684355451,
+    "variant": 1073745230,
+    "heavy_pack": 2684355452,
+    "heavy_dbpc": 1224740174,
+    "wallpaper": 318780347,
+    "wallpaper_pack": 2684355450,
+    "pregame_heavy": 1207964351,
+    "grid_icon": 318776517
+   },
+   {
+    "light": 1207963297,
+    "light_pack": 2684355197,
+    "variant": 1073744814,
+    "heavy_pack": 2684355196,
+    "heavy_dbpc": 1224739758,
+    "wallpaper": 318777943,
+    "wallpaper_pack": 2684355198,
+    "pregame_heavy": 1207963296,
+    "grid_icon": 318776517
+   }
+  ],
+  "heavy_dbpc": 1224739169,
+  "powerset_candidates": [
+   1224739168,
+   1224739251,
+   1224739253,
+   1224739255,
+   1224739418,
+   1224739432,
+   1224739796,
+   1224739853
+  ],
+  "powerset_dbpc": 1224739432,
+  "wallpaper": 318776516,
+  "wallpaper_pack": 2684355144,
+  "pregame_heavy": 1207962934,
+  "skills_pack": 2684355237,
+  "skills_key": 1207962935,
+  "grid_icon": 318776517
+ },
+ {
+  "name": "Atomic Poison Ivy",
+  "id": 1207961736,
+  "costumes": [
+   1207962852,
+   1207964063
+  ],
+  "tex384": 318773410,
+  "tex799": 318773414,
+  "light_pack": 2684354956,
+  "variant": 1073743187,
+  "heavy_pack": 2684354958,
+  "parent_pack": 2684354957,
+  "costume_info": [
+   {
+    "light": 1207962852,
+    "light_pack": 2684355124,
+    "variant": 1073744157,
+    "heavy_pack": 2684355125,
+    "heavy_dbpc": 1224739101,
+    "wallpaper": 318776231,
+    "wallpaper_pack": 2684355123,
+    "pregame_heavy": 1207962851,
+    "grid_icon": 318773409
+   },
+   {
+    "light": 1207964063,
+    "light_pack": 2684355428,
+    "variant": 1073745108,
+    "heavy_pack": 2684355429,
+    "heavy_dbpc": 1224740052,
+    "wallpaper": 318779917,
+    "wallpaper_pack": 2684355427,
+    "pregame_heavy": 1207964062,
+    "grid_icon": 318773409
+   }
+  ],
+  "heavy_dbpc": 1224738131,
+  "powerset_candidates": [
+   1224738212,
+   1224738224,
+   1224738359,
+   1224739470
+  ],
+  "powerset_dbpc": 1224738359,
+  "wallpaper": 318773412,
+  "wallpaper_pack": 2684354955,
+  "pregame_heavy": 1207961735,
+  "skills_pack": 2684355205,
+  "skills_key": 1207961731,
+  "grid_icon": 318773409
+ },
+ {
+  "name": "Atomic Wonder Woman",
+  "id": 1207961301,
+  "costumes": [
+   1207962274,
+   1207963629
+  ],
+  "tex384": 318771978,
+  "tex799": 318772114,
+  "light_pack": 2684354853,
+  "variant": 1073742828,
+  "heavy_pack": 2684354851,
+  "parent_pack": 2684354852,
+  "costume_info": [
+   {
+    "light": 1207962274,
+    "light_pack": 2684355078,
+    "variant": 1073743874,
+    "heavy_pack": 2684355080,
+    "heavy_dbpc": 1224738818,
+    "wallpaper": 318775084,
+    "wallpaper_pack": 2684355079,
+    "pregame_heavy": 1207962273,
+    "grid_icon": 318771979
+   },
+   {
+    "light": 1207963629,
+    "light_pack": 2684355322,
+    "variant": 1073744877,
+    "heavy_pack": 2684355321,
+    "heavy_dbpc": 1224739821,
+    "wallpaper": 318778863,
+    "wallpaper_pack": 2684355323,
+    "pregame_heavy": 1207963628,
+    "grid_icon": 318771979
+   }
+  ],
+  "heavy_dbpc": 1224737772,
+  "powerset_candidates": [
+   1224737895,
+   1224738223,
+   1224740054
+  ],
+  "powerset_dbpc": 1224740054,
+  "wallpaper": 318771976,
+  "wallpaper_pack": 2684354854,
+  "pregame_heavy": 1207961302,
+  "skills_pack": 2684355204,
+  "skills_key": 1207961300,
+  "grid_icon": 318771979
+ },
+ {
+  "name": "Atrocitus",
+  "id": 1207962879,
+  "costumes": [
+   1207964782,
+   1207963231
+  ],
+  "tex384": 318776378,
+  "tex799": 318776379,
+  "light_pack": 2684355133,
+  "variant": 1073744178,
+  "heavy_pack": 2684355135,
+  "parent_pack": 2684355134,
+  "costume_info": [
+   {
+    "light": 1207964782,
+    "light_pack": 2684355506,
+    "variant": 1073745526,
+    "heavy_pack": 2684355507,
+    "heavy_dbpc": 1224740470,
+    "wallpaper": 318779323,
+    "wallpaper_pack": 2684355505,
+    "pregame_heavy": 1207964781,
+    "grid_icon": 318776381
+   },
+   {
+    "light": 1207963231,
+    "light_pack": 2684355177,
+    "variant": 1073744530,
+    "heavy_pack": 2684355178,
+    "heavy_dbpc": 1224739474,
+    "wallpaper": 318777400,
+    "wallpaper_pack": 2684355176,
+    "pregame_heavy": 1207963230,
+    "grid_icon": 318776381
+   }
+  ],
+  "heavy_dbpc": 1224739122,
+  "powerset_candidates": [
+   1224739120,
+   1224739121,
+   1224740055
+  ],
+  "powerset_dbpc": 1224740055,
+  "wallpaper": 318776380,
+  "wallpaper_pack": 2684355132,
+  "pregame_heavy": 1207962880,
+  "skills_pack": 2684355203,
+  "skills_key": 1207962881,
+  "grid_icon": 318776381
+ },
+ {
+  "name": "Batman",
+  "id": 1207961035,
+  "costumes": [
+   1207961663,
+   1207962093,
+   1207964023
+  ],
+  "tex384": 318770799,
+  "tex799": 318772095,
+  "light_pack": 2684354780,
+  "variant": 1073742464,
+  "heavy_pack": 2684354781,
+  "parent_pack": 2684354847,
+  "costume_info": [
+   {
+    "light": 1207961663,
+    "light_pack": 2684354943,
+    "variant": 1073743174,
+    "heavy_pack": 2684354944,
+    "heavy_dbpc": 1224738118,
+    "wallpaper": 318773193,
+    "wallpaper_pack": 2684354942,
+    "pregame_heavy": 1207961664,
+    "grid_icon": 318770798
+   },
+   {
+    "light": 1207962093,
+    "light_pack": 2684355044,
+    "variant": 1073743418,
+    "heavy_pack": 2684355045,
+    "heavy_dbpc": 1224738362,
+    "wallpaper": 318774316,
+    "wallpaper_pack": 2684355043,
+    "pregame_heavy": 1207962092,
+    "grid_icon": 318770798
+   },
+   {
+    "light": 1207964023,
+    "light_pack": 2684355414,
+    "variant": 1073745088,
+    "heavy_pack": 2684355415,
+    "heavy_dbpc": 1224740032,
+    "wallpaper": 318779809,
+    "wallpaper_pack": 2684355413,
+    "pregame_heavy": 1207964022,
+    "grid_icon": 318770798
+   }
+  ],
+  "heavy_dbpc": 1224737408,
+  "powerset_candidates": [
+   1224737771,
+   1224737894,
+   1224738227,
+   1224738846
+  ],
+  "powerset_dbpc": 1224738846,
+  "wallpaper": 318770827,
+  "wallpaper_pack": 2684354779,
+  "pregame_heavy": 1207961034,
+  "skills_pack": 2684355210,
+  "skills_key": 1207961033,
+  "grid_icon": 318770798
+ },
+ {
+  "name": "Blue Beetle",
+  "id": 1207962249,
+  "costumes": [
+   1207962972,
+   1207963990
+  ],
+  "tex384": 318774722,
+  "tex799": 318774721,
+  "light_pack": 2684355071,
+  "variant": 1073743866,
+  "heavy_pack": 2684355073,
+  "parent_pack": 2684355074,
+  "costume_info": [
+   {
+    "light": 1207962972,
+    "light_pack": 2684355155,
+    "variant": 1073744281,
+    "heavy_pack": 2684355156,
+    "heavy_dbpc": 1224739225,
+    "wallpaper": 318776705,
+    "wallpaper_pack": 2684355154,
+    "pregame_heavy": 1207962971,
+    "grid_icon": 318774724
+   },
+   {
+    "light": 1207963990,
+    "light_pack": 2684355403,
+    "variant": 1073745064,
+    "heavy_pack": 2684355404,
+    "heavy_dbpc": 1224740008,
+    "wallpaper": 318779739,
+    "wallpaper_pack": 2684355402,
+    "pregame_heavy": 1207963991,
+    "grid_icon": 318774724
+   }
+  ],
+  "heavy_dbpc": 1224738810,
+  "powerset_candidates": [
+   1224738808,
+   1224738809,
+   1224738837,
+   1224739007,
+   1224739012,
+   1224740056
+  ],
+  "powerset_dbpc": 1224739007,
+  "wallpaper": 318774720,
+  "wallpaper_pack": 2684355072,
+  "pregame_heavy": 1207962250,
+  "skills_pack": 2684355233,
+  "skills_key": 1207962251,
+  "grid_icon": 318774724
+ },
+ {
+  "name": "Catwoman",
+  "id": 1207961387,
+  "costumes": [
+   1207962304,
+   1207963414
+  ],
+  "tex384": 318772331,
+  "tex799": 318772332,
+  "light_pack": 2684354859,
+  "variant": 1073742876,
+  "heavy_pack": 2684354861,
+  "parent_pack": 2684354860,
+  "costume_info": [
+   {
+    "light": 1207962304,
+    "light_pack": 2684355095,
+    "variant": 1073743882,
+    "heavy_pack": 2684355096,
+    "heavy_dbpc": 1224738826,
+    "wallpaper": 318775319,
+    "wallpaper_pack": 2684355094,
+    "pregame_heavy": 1207962303,
+    "grid_icon": 318772334
+   },
+   {
+    "light": 1207963414,
+    "light_pack": 2684355273,
+    "variant": 1073744661,
+    "heavy_pack": 2684355274,
+    "heavy_dbpc": 1224739605,
+    "wallpaper": 318778282,
+    "wallpaper_pack": 2684355272,
+    "pregame_heavy": 1207963413,
+    "grid_icon": 318772334
+   }
+  ],
+  "heavy_dbpc": 1224737820,
+  "powerset_candidates": [
+   1224737853,
+   1224737891,
+   1224738226
+  ],
+  "powerset_dbpc": 1224737853,
+  "wallpaper": 318772333,
+  "wallpaper_pack": 2684354858,
+  "pregame_heavy": 1207961388,
+  "skills_pack": 2684355225,
+  "skills_key": 1207961386,
+  "grid_icon": 318772334
+ },
+ {
+  "name": "Cyborg",
+  "id": 1207961253,
+  "costumes": [
+   1207962624
+  ],
+  "tex384": 318771789,
+  "tex799": 318772090,
+  "light_pack": 2684354825,
+  "variant": 1073742770,
+  "heavy_pack": 2684354826,
+  "parent_pack": 2684354834,
+  "costume_info": [
+   {
+    "light": 1207962624,
+    "light_pack": 2684355114,
+    "variant": 1073743903,
+    "heavy_pack": 2684355115,
+    "heavy_dbpc": 1224738847,
+    "wallpaper": 318775908,
+    "wallpaper_pack": 2684355113,
+    "pregame_heavy": 1207962623,
+    "grid_icon": 318771791
+   }
+  ],
+  "heavy_dbpc": 1224737714,
+  "powerset_candidates": [
+   1224737738,
+   1224737892,
+   1224738225
+  ],
+  "powerset_dbpc": 1224737738,
+  "wallpaper": 318771788,
+  "wallpaper_pack": 2684354824,
+  "pregame_heavy": 1207961254,
+  "skills_pack": 2684355224,
+  "skills_key": 1207961252,
+  "grid_icon": 318771791
+ },
+ {
+  "name": "Doomsday",
+  "id": 1207961117,
+  "costumes": [
+   1207961218,
+   1207962849
+  ],
+  "tex384": 318769179,
+  "tex799": 318772071,
+  "light_pack": 2684354756,
+  "variant": 1073742170,
+  "heavy_pack": 2684354722,
+  "parent_pack": 2684354844,
+  "costume_info": [
+   {
+    "light": 1207961218,
+    "light_pack": 2684354815,
+    "variant": 1073742747,
+    "heavy_pack": 2684354816,
+    "heavy_dbpc": 1224737691,
+    "wallpaper": 318771632,
+    "wallpaper_pack": 2684354814,
+    "pregame_heavy": 1207961219,
+    "grid_icon": 318769186
+   },
+   {
+    "light": 1207962849,
+    "light_pack": 2684355121,
+    "variant": 1073744156,
+    "heavy_pack": 2684355122,
+    "heavy_dbpc": 1224739100,
+    "wallpaper": 318776212,
+    "wallpaper_pack": 2684355120,
+    "pregame_heavy": 1207962850,
+    "grid_icon": 318769186
+   }
+  ],
+  "heavy_dbpc": 1224737114,
+  "powerset_candidates": [
+   1224737893,
+   1224738230
+  ],
+  "powerset_dbpc": 1224738230,
+  "wallpaper": 318770177,
+  "wallpaper_pack": 2684354755,
+  "pregame_heavy": 1207961116,
+  "skills_pack": 2684355215,
+  "skills_key": 1207961115,
+  "grid_icon": 318769186
+ },
+ {
+  "name": "Flash",
+  "id": 1207961199,
+  "costumes": [
+   1207962105,
+   1207964005
+  ],
+  "tex384": 318771502,
+  "tex799": 318772088,
+  "light_pack": 2684354805,
+  "variant": 1073742742,
+  "heavy_pack": 2684354807,
+  "parent_pack": 2684354849,
+  "costume_info": [
+   {
+    "light": 1207962105,
+    "light_pack": 2684355051,
+    "variant": 1073743422,
+    "heavy_pack": 2684355052,
+    "heavy_dbpc": 1224738366,
+    "wallpaper": 318774332,
+    "wallpaper_pack": 2684355050,
+    "pregame_heavy": 1207962104,
+    "grid_icon": 318771501
+   },
+   {
+    "light": 1207964005,
+    "light_pack": 2684355406,
+    "variant": 1073745073,
+    "heavy_pack": 2684355407,
+    "heavy_dbpc": 1224740017,
+    "wallpaper": 318779779,
+    "wallpaper_pack": 2684355405,
+    "pregame_heavy": 1207964004,
+    "grid_icon": 318771501
+   }
+  ],
+  "heavy_dbpc": 1224737686,
+  "powerset_candidates": [
+   1224737902,
+   1224738242
+  ],
+  "powerset_dbpc": 1224738242,
+  "wallpaper": 318771503,
+  "wallpaper_pack": 2684354806,
+  "pregame_heavy": 1207961198,
+  "skills_pack": 2684355223,
+  "skills_key": 1207961200,
+  "grid_icon": 318771501
+ },
+ {
+  "name": "Gaslight Batman",
+  "id": 1207961111,
+  "costumes": [
+   1207961262,
+   1207961687,
+   1207963573
+  ],
+  "tex384": 318767845,
+  "tex799": 318772096,
+  "light_pack": 2684354744,
+  "variant": 1073741958,
+  "heavy_pack": 2684354678,
+  "parent_pack": 2684354850,
+  "costume_info": [
+   {
+    "light": 1207961262,
+    "light_pack": 2684354832,
+    "variant": 1073742791,
+    "heavy_pack": 2684354828,
+    "heavy_dbpc": 1224737735,
+    "wallpaper": 318771807,
+    "wallpaper_pack": 2684354831,
+    "pregame_heavy": 1207961261,
+    "grid_icon": 318767992
+   },
+   {
+    "light": 1207961687,
+    "light_pack": 2684354945,
+    "variant": 1073743177,
+    "heavy_pack": 2684354947,
+    "heavy_dbpc": 1224738121,
+    "wallpaper": 318773222,
+    "wallpaper_pack": 2684354946,
+    "pregame_heavy": 1207961688,
+    "grid_icon": 318767992
+   },
+   {
+    "light": 1207963573,
+    "light_pack": 2684355313,
+    "variant": 1073744851,
+    "heavy_pack": 2684355315,
+    "heavy_dbpc": 1224739795,
+    "wallpaper": 318778712,
+    "wallpaper_pack": 2684355314,
+    "pregame_heavy": 1207963572,
+    "grid_icon": 318767992
+   }
+  ],
+  "heavy_dbpc": 1224736902,
+  "powerset_candidates": [
+   1224736912,
+   1224736914,
+   1224736915,
+   1224737890,
+   1224738243
+  ],
+  "powerset_dbpc": 1224736914,
+  "wallpaper": 318770178,
+  "wallpaper_pack": 2684354743,
+  "pregame_heavy": 1207961110,
+  "skills_pack": 2684355213,
+  "skills_key": 1207961109,
+  "grid_icon": 318767992
+ },
+ {
+  "name": "Gaslight Catwoman",
+  "id": 1207961129,
+  "costumes": [
+   1207961203,
+   1207963274
+  ],
+  "tex384": 318770370,
+  "tex799": 318772091,
+  "light_pack": 2684354766,
+  "variant": 1073742434,
+  "heavy_pack": 2684354764,
+  "parent_pack": 2684354827,
+  "costume_info": [
+   {
+    "light": 1207961203,
+    "light_pack": 2684354808,
+    "variant": 1073742743,
+    "heavy_pack": 2684354810,
+    "heavy_dbpc": 1224737687,
+    "wallpaper": 318771511,
+    "wallpaper_pack": 2684354809,
+    "pregame_heavy": 1207961204,
+    "grid_icon": 318770372
+   },
+   {
+    "light": 1207963274,
+    "light_pack": 2684355187,
+    "variant": 1073744557,
+    "heavy_pack": 2684355189,
+    "heavy_dbpc": 1224739501,
+    "wallpaper": 318777842,
+    "wallpaper_pack": 2684355188,
+    "pregame_heavy": 1207963273,
+    "grid_icon": 318770372
+   }
+  ],
+  "heavy_dbpc": 1224737378,
+  "powerset_candidates": [
+   1224737390,
+   1224737903,
+   1224738117,
+   1224738229
+  ],
+  "powerset_dbpc": 1224737390,
+  "wallpaper": 318770373,
+  "wallpaper_pack": 2684354765,
+  "pregame_heavy": 1207961128,
+  "skills_pack": 2684355219,
+  "skills_key": 1207961127,
+  "grid_icon": 318770372
+ },
+ {
+  "name": "Gaslight Joker",
+  "id": 1207961173,
+  "costumes": [
+   1207962009,
+   1207962224,
+   1207963709
+  ],
+  "tex384": 318771245,
+  "tex799": 318772086,
+  "light_pack": 2684354793,
+  "variant": 1073742733,
+  "heavy_pack": 2684354795,
+  "parent_pack": 2684354836,
+  "costume_info": [
+   {
+    "light": 1207962009,
+    "light_pack": 2684355034,
+    "variant": 1073743376,
+    "heavy_pack": 2684355036,
+    "heavy_dbpc": 1224738320,
+    "wallpaper": 318773812,
+    "wallpaper_pack": 2684355035,
+    "pregame_heavy": 1207962008,
+    "grid_icon": 318771244
+   },
+   {
+    "light": 1207962224,
+    "light_pack": 2684355068,
+    "variant": 1073743859,
+    "heavy_pack": 2684355070,
+    "heavy_dbpc": 1224738803,
+    "wallpaper": 318774649,
+    "wallpaper_pack": 2684355069,
+    "pregame_heavy": 1207962223,
+    "grid_icon": 318771244
+   },
+   {
+    "light": 1207963709,
+    "light_pack": 2684355348,
+    "variant": 1073744925,
+    "heavy_pack": 2684355347,
+    "heavy_dbpc": 1224739869,
+    "wallpaper": 318779081,
+    "wallpaper_pack": 2684355349,
+    "pregame_heavy": 1207963708,
+    "grid_icon": 318771244
+   }
+  ],
+  "heavy_dbpc": 1224737677,
+  "powerset_candidates": [
+   1224737690,
+   1224737904,
+   1224738232
+  ],
+  "powerset_dbpc": 1224737690,
+  "wallpaper": 318771252,
+  "wallpaper_pack": 2684354794,
+  "pregame_heavy": 1207961174,
+  "skills_pack": 2684355222,
+  "skills_key": 1207961170,
+  "grid_icon": 318771244
+ },
+ {
+  "name": "Green Arrow",
+  "id": 1207962150,
+  "costumes": [
+   1207963186,
+   1207963927,
+   1207964016
+  ],
+  "tex384": 318774458,
+  "tex799": 318774459,
+  "light_pack": 2684355057,
+  "variant": 1073743609,
+  "heavy_pack": 2684355058,
+  "parent_pack": 2684355059,
+  "costume_info": [
+   {
+    "light": 1207963186,
+    "light_pack": 2684355169,
+    "variant": 1073744506,
+    "heavy_pack": 2684355170,
+    "heavy_dbpc": 1224739450,
+    "wallpaper": 318777104,
+    "wallpaper_pack": 2684355168,
+    "pregame_heavy": 1207963185,
+    "grid_icon": 318774483
+   },
+   {
+    "light": 1207963927,
+    "light_pack": 2684355394,
+    "variant": 1073745025,
+    "heavy_pack": 2684355395,
+    "heavy_dbpc": 1224739969,
+    "wallpaper": 318779639,
+    "wallpaper_pack": 2684355393,
+    "pregame_heavy": 1207963928,
+    "grid_icon": 318774483
+   },
+   {
+    "light": 1207964016,
+    "light_pack": 2684355411,
+    "variant": 1073745078,
+    "heavy_pack": 2684355412,
+    "heavy_dbpc": 1224740022,
+    "wallpaper": 318779790,
+    "wallpaper_pack": 2684355410,
+    "pregame_heavy": 1207964015,
+    "grid_icon": 318774483
+   }
+  ],
+  "heavy_dbpc": 1224738553,
+  "powerset_candidates": [
+   1224738554,
+   1224738555,
+   1224738799,
+   1224738800,
+   1224738801,
+   1224738802
+  ],
+  "powerset_dbpc": 1224738799,
+  "wallpaper": 318774466,
+  "wallpaper_pack": 2684355056,
+  "pregame_heavy": 1207962155,
+  "skills_pack": 2684355231,
+  "skills_key": 1207962151,
+  "grid_icon": 318774483
+ },
+ {
+  "name": "Green Lantern",
+  "id": 1207961136,
+  "costumes": [
+   1207962126,
+   1207963669
+  ],
+  "tex384": 318771002,
+  "tex799": 318772087,
+  "light_pack": 2684354785,
+  "variant": 1073742669,
+  "heavy_pack": 2684354784,
+  "parent_pack": 2684354837,
+  "costume_info": [
+   {
+    "light": 1207962126,
+    "light_pack": 2684355053,
+    "variant": 1073743595,
+    "heavy_pack": 2684355055,
+    "heavy_dbpc": 1224738539,
+    "wallpaper": 318774364,
+    "wallpaper_pack": 2684355054,
+    "pregame_heavy": 1207962125,
+    "grid_icon": 318771004
+   },
+   {
+    "light": 1207963669,
+    "light_pack": 2684355334,
+    "variant": 1073744903,
+    "heavy_pack": 2684355335,
+    "heavy_dbpc": 1224739847,
+    "wallpaper": 318778965,
+    "wallpaper_pack": 2684355333,
+    "pregame_heavy": 1207963668,
+    "grid_icon": 318771004
+   }
+  ],
+  "heavy_dbpc": 1224737613,
+  "powerset_candidates": [
+   1224737616,
+   1224737625,
+   1224737905,
+   1224738235,
+   1224738812,
+   1224740040
+  ],
+  "powerset_dbpc": 1224737616,
+  "wallpaper": 318771003,
+  "wallpaper_pack": 2684354786,
+  "pregame_heavy": 1207961135,
+  "skills_pack": 2684355220,
+  "skills_key": 1207961134,
+  "grid_icon": 318771004
+ },
+ {
+  "name": "Harley Quinn",
+  "id": 1207961715,
+  "costumes": [
+   1207964350,
+   1207962299,
+   1207962308
+  ],
+  "tex384": 318773303,
+  "tex799": 318773311,
+  "light_pack": 2684354949,
+  "variant": 1073743178,
+  "heavy_pack": 2684354951,
+  "parent_pack": 2684354950,
+  "costume_info": [
+   {
+    "light": 1207964350,
+    "light_pack": 2684355454,
+    "variant": 1073745198,
+    "heavy_pack": 2684355455,
+    "heavy_dbpc": 1224740142,
+    "wallpaper": 318780345,
+    "wallpaper_pack": 2684355453,
+    "pregame_heavy": 1207964349,
+    "grid_icon": 318773302
+   },
+   {
+    "light": 1207962299,
+    "light_pack": 2684355091,
+    "variant": 1073743879,
+    "heavy_pack": 2684355093,
+    "heavy_dbpc": 1224738823,
+    "wallpaper": 318775304,
+    "wallpaper_pack": 2684355092,
+    "pregame_heavy": 1207962298,
+    "grid_icon": 318773302
+   },
+   {
+    "light": 1207962308,
+    "light_pack": 2684355101,
+    "variant": 1073743885,
+    "heavy_pack": 2684355102,
+    "heavy_dbpc": 1224738829,
+    "wallpaper": 318775373,
+    "wallpaper_pack": 2684355100,
+    "pregame_heavy": 1207962309,
+    "grid_icon": 318773302
+   }
+  ],
+  "heavy_dbpc": 1224738122,
+  "powerset_candidates": [
+   1224738124,
+   1224738205,
+   1224738239
+  ],
+  "powerset_dbpc": 1224738205,
+  "wallpaper": 318773304,
+  "wallpaper_pack": 2684354948,
+  "pregame_heavy": 1207961712,
+  "skills_pack": 2684355228,
+  "skills_key": 1207961713,
+  "grid_icon": 318773302
+ },
+ {
+  "name": "Hawkgirl",
+  "id": 1207963368,
+  "costumes": [
+   1207964773,
+   1207963485
+  ],
+  "tex384": 318778111,
+  "tex799": 318778112,
+  "light_pack": 2684355254,
+  "variant": 1073744610,
+  "heavy_pack": 2684355253,
+  "parent_pack": 2684355252,
+  "costume_info": [
+   {
+    "light": 1207964773,
+    "light_pack": 2684355519,
+    "variant": 1073745520,
+    "heavy_pack": 2684355520,
+    "heavy_dbpc": 1224740464,
+    "wallpaper": 318781050,
+    "wallpaper_pack": 2684355518,
+    "pregame_heavy": 1207964772,
+    "grid_icon": 318778175
+   },
+   {
+    "light": 1207963485,
+    "light_pack": 2684355289,
+    "variant": 1073744750,
+    "heavy_pack": 2684355290,
+    "heavy_dbpc": 1224739694,
+    "wallpaper": 318778483,
+    "wallpaper_pack": 2684355288,
+    "pregame_heavy": 1207963484,
+    "grid_icon": 318778175
+   }
+  ],
+  "heavy_dbpc": 1224739554,
+  "powerset_candidates": [
+   1224739552,
+   1224739553,
+   1224739617
+  ],
+  "powerset_dbpc": 1224739617,
+  "wallpaper": 318778113,
+  "wallpaper_pack": 2684355251,
+  "pregame_heavy": 1207963369,
+  "skills_pack": 2684355255,
+  "skills_key": 1207963370,
+  "grid_icon": 318778175
+ },
+ {
+  "name": "Katana",
+  "id": 1207963497,
+  "costumes": [
+   1207963766,
+   1207964416
+  ],
+  "tex384": 318778520,
+  "tex799": 318778521,
+  "light_pack": 2684355297,
+  "variant": 1073744806,
+  "heavy_pack": 2684355300,
+  "parent_pack": 2684355299,
+  "costume_info": [
+   {
+    "light": 1207963766,
+    "light_pack": 2684355358,
+    "variant": 1073744934,
+    "heavy_pack": 2684355359,
+    "heavy_dbpc": 1224739878,
+    "wallpaper": 318779157,
+    "wallpaper_pack": 2684355357,
+    "pregame_heavy": 1207963765,
+    "grid_icon": 318778523
+   },
+   {
+    "light": 1207964416,
+    "light_pack": 2684355465,
+    "variant": 1073745242,
+    "heavy_pack": 2684355466,
+    "heavy_dbpc": 1224740186,
+    "wallpaper": 318780563,
+    "wallpaper_pack": 2684355464,
+    "pregame_heavy": 1207964415,
+    "grid_icon": 318778523
+   }
+  ],
+  "heavy_dbpc": 1224739750,
+  "powerset_candidates": [
+   1224739748,
+   1224739749,
+   1224739947
+  ],
+  "powerset_dbpc": 1224739947,
+  "wallpaper": 318778522,
+  "wallpaper_pack": 2684355296,
+  "pregame_heavy": 1207963498,
+  "skills_pack": 2684355298,
+  "skills_key": 1207963499,
+  "grid_icon": 318778523
+ },
+ {
+  "name": "Krypto",
+  "id": 1207963597,
+  "costumes": [
+   1207964026,
+   1207964784,
+   1207964975
+  ],
+  "tex384": 318778773,
+  "tex799": 318778774,
+  "light_pack": 2684355317,
+  "variant": 1073744868,
+  "heavy_pack": 2684355320,
+  "parent_pack": 2684355319,
+  "costume_info": [
+   {
+    "light": 1207964026,
+    "light_pack": 2684355417,
+    "variant": 1073745089,
+    "heavy_pack": 2684355418,
+    "heavy_dbpc": 1224740033,
+    "wallpaper": 318779818,
+    "wallpaper_pack": 2684355416,
+    "pregame_heavy": 1207964025,
+    "grid_icon": 318778776
+   },
+   {
+    "light": 1207964784,
+    "light_pack": 2684355509,
+    "variant": 1073745527,
+    "heavy_pack": 2684355510,
+    "heavy_dbpc": 1224740471,
+    "wallpaper": 318781085,
+    "wallpaper_pack": 2684355508,
+    "pregame_heavy": 1207964783,
+    "grid_icon": 318778776
+   },
+   {
+    "light": 1207964975,
+    "light_pack": 2684355535,
+    "variant": 1073745620,
+    "heavy_pack": 2684355536,
+    "heavy_dbpc": 1224740564,
+    "wallpaper": 318781651,
+    "wallpaper_pack": 2684355534,
+    "pregame_heavy": 1207964976,
+    "grid_icon": 318778776
+   }
+  ],
+  "heavy_dbpc": 1224739812,
+  "powerset_candidates": [
+   1224739810,
+   1224739811,
+   1224739826
+  ],
+  "powerset_dbpc": 1224739826,
+  "wallpaper": 318778775,
+  "wallpaper_pack": 2684355316,
+  "pregame_heavy": 1207963598,
+  "skills_pack": 2684355318,
+  "skills_key": 1207963599,
+  "grid_icon": 318778776
+ },
+ {
+  "name": "Lex Luthor",
+  "id": 1207963486,
+  "costumes": [
+   1207963934
+  ],
+  "tex384": 318778511,
+  "tex799": 318778504,
+  "light_pack": 2684355292,
+  "variant": 1073744752,
+  "heavy_pack": 2684355295,
+  "parent_pack": 2684355294,
+  "costume_info": [
+   {
+    "light": 1207963934,
+    "light_pack": 2684355397,
+    "variant": 1073745028,
+    "heavy_pack": 2684355396,
+    "heavy_dbpc": 1224739972,
+    "wallpaper": 318779652,
+    "wallpaper_pack": 2684355398,
+    "pregame_heavy": 1207963935,
+    "grid_icon": 318778512
+   }
+  ],
+  "heavy_dbpc": 1224739696,
+  "powerset_candidates": [
+   1224739695,
+   1224739791,
+   1224739793,
+   1224739803,
+   1224739813,
+   1224740524
+  ],
+  "powerset_dbpc": 1224739791,
+  "wallpaper": 318778503,
+  "wallpaper_pack": 2684355291,
+  "pregame_heavy": 1207963492,
+  "skills_pack": 2684355293,
+  "skills_key": 1207963487,
+  "grid_icon": 318778512
+ },
+ {
+  "name": "Mecha Superman",
+  "id": 1207962101,
+  "costumes": [
+   1207964700,
+   1207963175
+  ],
+  "tex384": 318774327,
+  "tex799": 318774328,
+  "light_pack": 2684355047,
+  "variant": 1073743421,
+  "heavy_pack": 2684355049,
+  "parent_pack": 2684355048,
+  "costume_info": [
+   {
+    "light": 1207964700,
+    "light_pack": 2684355499,
+    "variant": 1073745504,
+    "heavy_pack": 2684355500,
+    "heavy_dbpc": 1224740448,
+    "wallpaper": 318780860,
+    "wallpaper_pack": 2684355498,
+    "pregame_heavy": 1207964699,
+    "grid_icon": 318774330
+   },
+   {
+    "light": 1207963175,
+    "light_pack": 2684355163,
+    "variant": 1073744498,
+    "heavy_pack": 2684355164,
+    "heavy_dbpc": 1224739442,
+    "wallpaper": 318777054,
+    "wallpaper_pack": 2684355162,
+    "pregame_heavy": 1207963174,
+    "grid_icon": 318774330
+   }
+  ],
+  "heavy_dbpc": 1224738365,
+  "powerset_candidates": [
+   1224738363,
+   1224738364,
+   1224738374,
+   1224738375
+  ],
+  "powerset_dbpc": 1224738374,
+  "wallpaper": 318774329,
+  "wallpaper_pack": 2684355046,
+  "pregame_heavy": 1207962102,
+  "skills_pack": 2684355230,
+  "skills_key": 1207962103,
+  "grid_icon": 318774330
+ },
+ {
+  "name": "Mecha Wonder Woman",
+  "id": 1207961535,
+  "costumes": [
+   1207962498,
+   1207964219
+  ],
+  "tex384": 318772914,
+  "tex799": 318772913,
+  "light_pack": 2684354904,
+  "variant": 1073742979,
+  "heavy_pack": 2684354902,
+  "parent_pack": 2684354903,
+  "costume_info": [
+   {
+    "light": 1207962498,
+    "light_pack": 2684355107,
+    "variant": 1073743896,
+    "heavy_pack": 2684355109,
+    "heavy_dbpc": 1224738840,
+    "wallpaper": 318775761,
+    "wallpaper_pack": 2684355108,
+    "pregame_heavy": 1207962497,
+    "grid_icon": 318772890
+   },
+   {
+    "light": 1207964219,
+    "light_pack": 2684355431,
+    "variant": 1073745115,
+    "heavy_pack": 2684355432,
+    "heavy_dbpc": 1224740059,
+    "wallpaper": 318779961,
+    "wallpaper_pack": 2684355430,
+    "pregame_heavy": 1207964218,
+    "grid_icon": 318772890
+   }
+  ],
+  "heavy_dbpc": 1224737923,
+  "powerset_candidates": [
+   1224737929,
+   1224738066,
+   1224738244
+  ],
+  "powerset_dbpc": 1224738066,
+  "wallpaper": 318772912,
+  "wallpaper_pack": 2684354901,
+  "pregame_heavy": 1207961536,
+  "skills_pack": 2684355226,
+  "skills_key": 1207961537,
+  "grid_icon": 318772890
+ },
+ {
+  "name": "Nightmare Batman",
+  "id": 1207961101,
+  "costumes": [
+   1207961451,
+   1207962090,
+   1207964306
+  ],
+  "tex384": 318767282,
+  "tex799": 318772093,
+  "light_pack": 2684354746,
+  "variant": 1073741833,
+  "heavy_pack": 2684354675,
+  "parent_pack": 2684354838,
+  "costume_info": [
+   {
+    "light": 1207961451,
+    "light_pack": 2684354887,
+    "variant": 1073742908,
+    "heavy_pack": 2684354888,
+    "heavy_dbpc": 1224737852,
+    "wallpaper": 318772458,
+    "wallpaper_pack": 2684354886,
+    "pregame_heavy": 1207961453,
+    "grid_icon": 318767281
+   },
+   {
+    "light": 1207962090,
+    "light_pack": 2684355040,
+    "variant": 1073743417,
+    "heavy_pack": 2684355042,
+    "heavy_dbpc": 1224738361,
+    "wallpaper": 318774294,
+    "wallpaper_pack": 2684355041,
+    "pregame_heavy": 1207962089,
+    "grid_icon": 318767281
+   },
+   {
+    "light": 1207964306,
+    "light_pack": 2684355443,
+    "variant": 1073745180,
+    "heavy_pack": 2684355444,
+    "heavy_dbpc": 1224740124,
+    "wallpaper": 318780200,
+    "wallpaper_pack": 2684355442,
+    "pregame_heavy": 1207964305,
+    "grid_icon": 318767281
+   }
+  ],
+  "heavy_dbpc": 1224736777,
+  "powerset_candidates": [
+   1224736778,
+   1224737910,
+   1224738241
+  ],
+  "powerset_dbpc": 1224736778,
+  "wallpaper": 318770171,
+  "wallpaper_pack": 2684354745,
+  "pregame_heavy": 1207961100,
+  "skills_pack": 2684355211,
+  "skills_key": 1207961099,
+  "grid_icon": 318767281
+ },
+ {
+  "name": "Nightmare Robin",
+  "id": 1207962846,
+  "costumes": [
+   1207963387
+  ],
+  "tex384": 318776202,
+  "tex799": 318776203,
+  "light_pack": 2684355117,
+  "variant": 1073744154,
+  "heavy_pack": 2684355119,
+  "parent_pack": 2684355118,
+  "costume_info": [
+   {
+    "light": 1207963387,
+    "light_pack": 2684355244,
+    "variant": 1073744614,
+    "heavy_pack": 2684355245,
+    "heavy_dbpc": 1224739558,
+    "wallpaper": 318778138,
+    "wallpaper_pack": 2684355243,
+    "pregame_heavy": 1207963386,
+    "grid_icon": 318776205
+   }
+  ],
+  "heavy_dbpc": 1224739098,
+  "powerset_candidates": [
+   1224739097,
+   1224739216,
+   1224740004
+  ],
+  "powerset_dbpc": 1224739216,
+  "wallpaper": 318776204,
+  "wallpaper_pack": 2684355116,
+  "pregame_heavy": 1207962847,
+  "skills_pack": 2684355236,
+  "skills_key": 1207962848,
+  "grid_icon": 318776205
+ },
+ {
+  "name": "Nightmare Superman",
+  "id": 1207962168,
+  "costumes": [
+   1207964422,
+   1207963518
+  ],
+  "tex384": 318774558,
+  "tex799": 318774559,
+  "light_pack": 2684355064,
+  "variant": 1073743808,
+  "heavy_pack": 2684355065,
+  "parent_pack": 2684355066,
+  "costume_info": [
+   {
+    "light": 1207964422,
+    "light_pack": 2684355468,
+    "variant": 1073745245,
+    "heavy_pack": 2684355469,
+    "heavy_dbpc": 1224740189,
+    "wallpaper": 318780586,
+    "wallpaper_pack": 2684355467,
+    "pregame_heavy": 1207964421,
+    "grid_icon": 318774573
+   },
+   {
+    "light": 1207963518,
+    "light_pack": 2684355305,
+    "variant": 1073744830,
+    "heavy_pack": 2684355306,
+    "heavy_dbpc": 1224739774,
+    "wallpaper": 318778612,
+    "wallpaper_pack": 2684355304,
+    "pregame_heavy": 1207963517,
+    "grid_icon": 318774573
+   }
+  ],
+  "heavy_dbpc": 1224738752,
+  "powerset_candidates": [
+   1224738750,
+   1224738751,
+   1224738806,
+   1224738807,
+   1224738833,
+   1224738839
+  ],
+  "powerset_dbpc": 1224738807,
+  "wallpaper": 318774560,
+  "wallpaper_pack": 2684355063,
+  "pregame_heavy": 1207962169,
+  "skills_pack": 2684355232,
+  "skills_key": 1207962170,
+  "grid_icon": 318774573
+ },
+ {
+  "name": "Poison Ivy",
+  "id": 1207961114,
+  "costumes": [
+   1207961133,
+   1207963265,
+   1207963287
+  ],
+  "tex384": 318769020,
+  "tex799": 318772082,
+  "light_pack": 2684354754,
+  "variant": 1073742149,
+  "heavy_pack": 2684354715,
+  "parent_pack": 2684354833,
+  "costume_info": [
+   {
+    "light": 1207961133,
+    "light_pack": 2684354776,
+    "variant": 1073742458,
+    "heavy_pack": 2684354777,
+    "heavy_dbpc": 1224737402,
+    "wallpaper": 318770783,
+    "wallpaper_pack": 2684354778,
+    "pregame_heavy": 1207961132,
+    "grid_icon": 318769021
+   },
+   {
+    "light": 1207963265,
+    "light_pack": 2684355184,
+    "variant": 1073744555,
+    "heavy_pack": 2684355186,
+    "heavy_dbpc": 1224739499,
+    "wallpaper": 318777818,
+    "wallpaper_pack": 2684355185,
+    "pregame_heavy": 1207963264,
+    "grid_icon": 318769021
+   },
+   {
+    "light": 1207963287,
+    "light_pack": 2684355190,
+    "variant": 1073744558,
+    "heavy_pack": 2684355192,
+    "heavy_dbpc": 1224739502,
+    "wallpaper": 318777918,
+    "wallpaper_pack": 2684355191,
+    "pregame_heavy": 1207963286,
+    "grid_icon": 318769021
+   }
+  ],
+  "heavy_dbpc": 1224737093,
+  "powerset_candidates": [
+   1224737094,
+   1224737907,
+   1224738231,
+   1224738816
+  ],
+  "powerset_dbpc": 1224737094,
+  "wallpaper": 318770175,
+  "wallpaper_pack": 2684354753,
+  "pregame_heavy": 1207961113,
+  "skills_pack": 2684355214,
+  "skills_key": 1207961112,
+  "grid_icon": 318769021
+ },
+ {
+  "name": "Robin",
+  "id": 1207961635,
+  "costumes": [
+   1207962915,
+   1207963410
+  ],
+  "tex384": 318773041,
+  "tex799": 318773067,
+  "light_pack": 2684354931,
+  "variant": 1073743284,
+  "heavy_pack": 2684354933,
+  "parent_pack": 2684354934,
+  "costume_info": [
+   {
+    "light": 1207962915,
+    "light_pack": 2684355139,
+    "variant": 1073743284,
+    "heavy_pack": 2684355140,
+    "heavy_dbpc": 1224738228,
+    "wallpaper": 318776418,
+    "wallpaper_pack": 2684355138,
+    "pregame_heavy": 1207962914,
+    "grid_icon": 318773040
+   },
+   {
+    "light": 1207963410,
+    "light_pack": 2684355267,
+    "variant": 1073744659,
+    "heavy_pack": 2684355268,
+    "heavy_dbpc": 1224739603,
+    "wallpaper": 318778267,
+    "wallpaper_pack": 2684355266,
+    "pregame_heavy": 1207963409,
+    "grid_icon": 318773040
+   }
+  ],
+  "heavy_dbpc": 1224738228,
+  "powerset_candidates": [],
+  "powerset_dbpc": 0,
+  "wallpaper": 318773068,
+  "wallpaper_pack": 2684354932,
+  "pregame_heavy": 1207961636,
+  "skills_pack": 2684355227,
+  "skills_key": 1207961623,
+  "grid_icon": 318773040
+ },
+ {
+  "name": "Shazam",
+  "id": 1207961155,
+  "costumes": [
+   1207961955,
+   1207963768
+  ],
+  "tex384": 318771167,
+  "tex799": 318772081,
+  "light_pack": 2684354788,
+  "variant": 1073742680,
+  "heavy_pack": 2684354789,
+  "parent_pack": 2684354848,
+  "costume_info": [
+   {
+    "light": 1207961955,
+    "light_pack": 2684355031,
+    "variant": 1073743373,
+    "heavy_pack": 2684355032,
+    "heavy_dbpc": 1224738317,
+    "wallpaper": 318773774,
+    "wallpaper_pack": 2684355030,
+    "pregame_heavy": 1207961954,
+    "grid_icon": 318771166
+   },
+   {
+    "light": 1207963768,
+    "light_pack": 2684355361,
+    "variant": 1073744935,
+    "heavy_pack": 2684355362,
+    "heavy_dbpc": 1224739879,
+    "wallpaper": 318779171,
+    "wallpaper_pack": 2684355360,
+    "pregame_heavy": 1207963767,
+    "grid_icon": 318771166
+   }
+  ],
+  "heavy_dbpc": 1224737624,
+  "powerset_candidates": [
+   1224737682,
+   1224737908,
+   1224738236,
+   1224740141
+  ],
+  "powerset_dbpc": 1224737682,
+  "wallpaper": 318771169,
+  "wallpaper_pack": 2684354787,
+  "pregame_heavy": 1207961154,
+  "skills_pack": 2684355221,
+  "skills_key": 1207961153,
+  "grid_icon": 318771166
+ },
+ {
+  "name": "Sinestro",
+  "id": 1207962282,
+  "costumes": [
+   1207964780,
+   1207964978,
+   1207963631
+  ],
+  "tex384": 318775151,
+  "tex799": 318775152,
+  "light_pack": 2684355085,
+  "variant": 1073743877,
+  "heavy_pack": 2684355087,
+  "parent_pack": 2684355086,
+  "costume_info": [
+   {
+    "light": 1207964780,
+    "light_pack": 2684355503,
+    "variant": 1073745525,
+    "heavy_pack": 2684355504,
+    "heavy_dbpc": 1224740469,
+    "wallpaper": 318781077,
+    "wallpaper_pack": 2684355502,
+    "pregame_heavy": 1207964779,
+    "grid_icon": 318775154
+   },
+   {
+    "light": 1207964978,
+    "light_pack": 2684355538,
+    "variant": 1073745621,
+    "heavy_pack": 2684355539,
+    "heavy_dbpc": 1224740565,
+    "wallpaper": 318781667,
+    "wallpaper_pack": 2684355537,
+    "pregame_heavy": 1207964977,
+    "grid_icon": 318775154
+   },
+   {
+    "light": 1207963631,
+    "light_pack": 2684355325,
+    "variant": 1073744878,
+    "heavy_pack": 2684355326,
+    "heavy_dbpc": 1224739822,
+    "wallpaper": 318778871,
+    "wallpaper_pack": 2684355324,
+    "pregame_heavy": 1207963630,
+    "grid_icon": 318775154
+   }
+  ],
+  "heavy_dbpc": 1224738821,
+  "powerset_candidates": [
+   1224738819,
+   1224738820,
+   1224738841,
+   1224739220,
+   1224739476
+  ],
+  "powerset_dbpc": 1224739476,
+  "wallpaper": 318775153,
+  "wallpaper_pack": 2684355084,
+  "pregame_heavy": 1207962283,
+  "skills_pack": 2684355234,
+  "skills_key": 1207962284,
+  "grid_icon": 318775154
+ },
+ {
+  "name": "Solomon Grundy",
+  "id": 1207963797,
+  "costumes": [
+   1207963815
+  ],
+  "tex384": 318779242,
+  "tex799": 318779243,
+  "light_pack": 2684355366,
+  "variant": 1073744964,
+  "heavy_pack": 2684355367,
+  "parent_pack": 2684355368,
+  "costume_info": [
+   {
+    "light": 1207963815,
+    "light_pack": 2684355373,
+    "variant": 1073744971,
+    "heavy_pack": 2684355374,
+    "heavy_dbpc": 1224739915,
+    "wallpaper": 318779308,
+    "wallpaper_pack": 2684355372,
+    "pregame_heavy": 1207963814,
+    "grid_icon": 318779257
+   }
+  ],
+  "heavy_dbpc": 1224739908,
+  "powerset_candidates": [
+   1224739906,
+   1224739907
+  ],
+  "powerset_dbpc": 1224739907,
+  "wallpaper": 318779244,
+  "wallpaper_pack": 2684355365,
+  "pregame_heavy": 1207963798,
+  "skills_pack": 2684355364,
+  "skills_key": 1207963799,
+  "grid_icon": 318779257
+ },
+ {
+  "name": "Star Sapphire",
+  "id": 1207961913,
+  "costumes": [
+   1207962874,
+   1207963813
+  ],
+  "tex384": 318773733,
+  "tex799": 318773734,
+  "light_pack": 2684355023,
+  "variant": 1073743311,
+  "heavy_pack": 2684355025,
+  "parent_pack": 2684355026,
+  "costume_info": [
+   {
+    "light": 1207962874,
+    "light_pack": 2684355130,
+    "variant": 1073743311,
+    "heavy_pack": 2684355131,
+    "heavy_dbpc": 1224738255,
+    "wallpaper": 318776364,
+    "wallpaper_pack": 2684355129,
+    "pregame_heavy": 1207962873,
+    "grid_icon": 318773742
+   },
+   {
+    "light": 1207963813,
+    "light_pack": 2684355370,
+    "variant": 1073743311,
+    "heavy_pack": 2684355371,
+    "heavy_dbpc": 1224738255,
+    "wallpaper": 318779304,
+    "wallpaper_pack": 2684355369,
+    "pregame_heavy": 1207963812,
+    "grid_icon": 318773742
+   }
+  ],
+  "heavy_dbpc": 1224738255,
+  "powerset_candidates": [
+   1224738253,
+   1224738258,
+   1224738356,
+   1224738357,
+   1224740018
+  ],
+  "powerset_dbpc": 1224738258,
+  "wallpaper": 318773735,
+  "wallpaper_pack": 2684355024,
+  "pregame_heavy": 1207961914,
+  "skills_pack": 2684355229,
+  "skills_key": 1207961915,
+  "grid_icon": 318773742
+ },
+ {
+  "name": "Stargirl",
+  "id": 1207963392,
+  "costumes": [
+   1207964798,
+   1207963406,
+   1207964245
+  ],
+  "tex384": 318778153,
+  "tex799": 318778154,
+  "light_pack": 2684355247,
+  "variant": 1073744618,
+  "heavy_pack": 2684355250,
+  "parent_pack": 2684355249,
+  "costume_info": [
+   {
+    "light": 1207964798,
+    "light_pack": 2684355513,
+    "variant": 1073745544,
+    "heavy_pack": 2684355514,
+    "heavy_dbpc": 1224740488,
+    "wallpaper": 318781219,
+    "wallpaper_pack": 2684355512,
+    "pregame_heavy": 1207964797,
+    "grid_icon": 318778156
+   },
+   {
+    "light": 1207963406,
+    "light_pack": 2684355261,
+    "variant": 1073744657,
+    "heavy_pack": 2684355262,
+    "heavy_dbpc": 1224739601,
+    "wallpaper": 318778251,
+    "wallpaper_pack": 2684355260,
+    "pregame_heavy": 1207963405,
+    "grid_icon": 318778156
+   },
+   {
+    "light": 1207964245,
+    "light_pack": 2684355440,
+    "variant": 1073745133,
+    "heavy_pack": 2684355441,
+    "heavy_dbpc": 1224740077,
+    "wallpaper": 318780064,
+    "wallpaper_pack": 2684355439,
+    "pregame_heavy": 1207964244,
+    "grid_icon": 318778156
+   }
+  ],
+  "heavy_dbpc": 1224739562,
+  "powerset_candidates": [
+   1224739560,
+   1224739561,
+   1224739607,
+   1224739608,
+   1224739610,
+   1224740181,
+   1224740562
+  ],
+  "powerset_dbpc": 1224740562,
+  "wallpaper": 318778155,
+  "wallpaper_pack": 2684355246,
+  "pregame_heavy": 1207963393,
+  "skills_pack": 2684355248,
+  "skills_key": 1207963394,
+  "grid_icon": 318778156
+ },
+ {
+  "name": "Starro",
+  "id": 1207963242,
+  "costumes": [
+   1207963412,
+   1207964037
+  ],
+  "tex384": 318777578,
+  "tex799": 318777579,
+  "light_pack": 2684355180,
+  "variant": 1073744534,
+  "heavy_pack": 2684355181,
+  "parent_pack": 2684355182,
+  "costume_info": [
+   {
+    "light": 1207963412,
+    "light_pack": 2684355270,
+    "variant": 1073744660,
+    "heavy_pack": 2684355271,
+    "heavy_dbpc": 1224739604,
+    "wallpaper": 318778268,
+    "wallpaper_pack": 2684355269,
+    "pregame_heavy": 1207963411,
+    "grid_icon": 318777580
+   },
+   {
+    "light": 1207964037,
+    "light_pack": 2684355420,
+    "variant": 1073745186,
+    "heavy_pack": 2684355421,
+    "heavy_dbpc": 1224740130,
+    "wallpaper": 318779834,
+    "wallpaper_pack": 2684355419,
+    "pregame_heavy": 1207964036,
+    "grid_icon": 318777580
+   }
+  ],
+  "heavy_dbpc": 1224739478,
+  "powerset_candidates": [
+   1224739479,
+   1224739481,
+   1224739493,
+   1224739494,
+   1224739496,
+   1224739550
+  ],
+  "powerset_dbpc": 1224739494,
+  "wallpaper": 318777577,
+  "wallpaper_pack": 2684355179,
+  "pregame_heavy": 1207963240,
+  "skills_pack": 2684355238,
+  "skills_key": 1207963241,
+  "grid_icon": 318777580
+ },
+ {
+  "name": "Supergirl",
+  "id": 1207962480,
+  "costumes": [
+   1207964796,
+   1207963436
+  ],
+  "tex384": 318775723,
+  "tex799": 318775724,
+  "light_pack": 2684355104,
+  "variant": 1073743888,
+  "heavy_pack": 2684355106,
+  "parent_pack": 2684355105,
+  "costume_info": [
+   {
+    "light": 1207964796,
+    "light_pack": 2684355515,
+    "variant": 1073745543,
+    "heavy_pack": 2684355517,
+    "heavy_dbpc": 1224740487,
+    "wallpaper": 318781216,
+    "wallpaper_pack": 2684355516,
+    "pregame_heavy": 1207964795,
+    "grid_icon": 318775726
+   },
+   {
+    "light": 1207963436,
+    "light_pack": 2684355284,
+    "variant": 1073744672,
+    "heavy_pack": 2684355285,
+    "heavy_dbpc": 1224739616,
+    "wallpaper": 318778363,
+    "wallpaper_pack": 2684355283,
+    "pregame_heavy": 1207963435,
+    "grid_icon": 318775726
+   }
+  ],
+  "heavy_dbpc": 1224738832,
+  "powerset_candidates": [
+   1224738830,
+   1224738831
+  ],
+  "powerset_dbpc": 1224738831,
+  "wallpaper": 318775725,
+  "wallpaper_pack": 2684355103,
+  "pregame_heavy": 1207962481,
+  "skills_pack": 2684355235,
+  "skills_key": 1207962482,
+  "grid_icon": 318775726
+ },
+ {
+  "name": "Superman",
+  "id": 1207961104,
+  "costumes": [
+   1207962292,
+   1207962870,
+   1207963294,
+   1207963404,
+   1207963849
+  ],
+  "tex384": 318767392,
+  "tex799": 318772079,
+  "light_pack": 2684354748,
+  "variant": 1073741867,
+  "heavy_pack": 2684354677,
+  "parent_pack": 2684354845,
+  "costume_info": [
+   {
+    "light": 1207962292,
+    "light_pack": 2684355089,
+    "variant": 1073743878,
+    "heavy_pack": 2684355090,
+    "heavy_dbpc": 1224738822,
+    "wallpaper": 318775286,
+    "wallpaper_pack": 2684355088,
+    "pregame_heavy": 1207962291,
+    "grid_icon": 318767391
+   },
+   {
+    "light": 1207962870,
+    "light_pack": 2684355127,
+    "variant": 1073744173,
+    "heavy_pack": 2684355128,
+    "heavy_dbpc": 1224739117,
+    "wallpaper": 318776316,
+    "wallpaper_pack": 2684355126,
+    "pregame_heavy": 1207962869,
+    "grid_icon": 318767391
+   },
+   {
+    "light": 1207963294,
+    "light_pack": 2684355194,
+    "variant": 1073744559,
+    "heavy_pack": 2684355195,
+    "heavy_dbpc": 1224739503,
+    "wallpaper": 318777930,
+    "wallpaper_pack": 2684355193,
+    "pregame_heavy": 1207963295,
+    "grid_icon": 318767391
+   },
+   {
+    "light": 1207963404,
+    "light_pack": 2684355258,
+    "variant": 1073744656,
+    "heavy_pack": 2684355259,
+    "heavy_dbpc": 1224739600,
+    "wallpaper": 318778234,
+    "wallpaper_pack": 2684355257,
+    "pregame_heavy": 1207963403,
+    "grid_icon": 318767391
+   },
+   {
+    "light": 1207963849,
+    "light_pack": 2684355386,
+    "variant": 1073745002,
+    "heavy_pack": 2684355387,
+    "heavy_dbpc": 1224739946,
+    "wallpaper": 318779419,
+    "wallpaper_pack": 2684355385,
+    "pregame_heavy": 1207963848,
+    "grid_icon": 318767391
+   }
+  ],
+  "heavy_dbpc": 1224736811,
+  "powerset_candidates": [
+   1224737909,
+   1224738233
+  ],
+  "powerset_dbpc": 1224738233,
+  "wallpaper": 318770173,
+  "wallpaper_pack": 2684354747,
+  "pregame_heavy": 1207961103,
+  "skills_pack": 2684355212,
+  "skills_key": 1207961102,
+  "grid_icon": 318767391
+ },
+ {
+  "name": "Swamp Thing",
+  "id": 1207963420,
+  "costumes": [
+   1207963430
+  ],
+  "tex384": 318778317,
+  "tex799": 318778318,
+  "light_pack": 2684355277,
+  "variant": 1073744662,
+  "heavy_pack": 2684355278,
+  "parent_pack": 2684355279,
+  "costume_info": [
+   {
+    "light": 1207963430,
+    "light_pack": 2684355281,
+    "variant": 1073744667,
+    "heavy_pack": 2684355282,
+    "heavy_dbpc": 1224739611,
+    "wallpaper": 318778331,
+    "wallpaper_pack": 2684355280,
+    "pregame_heavy": 1207963429,
+    "grid_icon": 318778295
+   }
+  ],
+  "heavy_dbpc": 1224739606,
+  "powerset_candidates": [
+   1224739609,
+   1224739768,
+   1224739786,
+   1224739787,
+   1224739788
+  ],
+  "powerset_dbpc": 1224739787,
+  "wallpaper": 318778316,
+  "wallpaper_pack": 2684355276,
+  "pregame_heavy": 1207963419,
+  "skills_pack": 2684355275,
+  "skills_key": 1207963418,
+  "grid_icon": 318778295
+ },
+ {
+  "name": "The Joker",
+  "id": 1207961123,
+  "costumes": [
+   1207961192,
+   1207962079,
+   1207962163,
+   1207963183
+  ],
+  "tex384": 318769926,
+  "tex799": 318772084,
+  "light_pack": 2684354760,
+  "variant": 1073742355,
+  "heavy_pack": 2684354740,
+  "parent_pack": 2684354843,
+  "costume_info": [
+   {
+    "light": 1207961192,
+    "light_pack": 2684354802,
+    "variant": 1073742741,
+    "heavy_pack": 2684354803,
+    "heavy_dbpc": 1224737685,
+    "wallpaper": 318771497,
+    "wallpaper_pack": 2684354801,
+    "pregame_heavy": 1207961193,
+    "grid_icon": 318769927
+   },
+   {
+    "light": 1207962079,
+    "light_pack": 2684355038,
+    "variant": 1073743414,
+    "heavy_pack": 2684355039,
+    "heavy_dbpc": 1224738358,
+    "wallpaper": 318774217,
+    "wallpaper_pack": 2684355037,
+    "pregame_heavy": 1207962078,
+    "grid_icon": 318769927
+   },
+   {
+    "light": 1207962163,
+    "light_pack": 2684355061,
+    "variant": 1073743617,
+    "heavy_pack": 2684355062,
+    "heavy_dbpc": 1224738561,
+    "wallpaper": 318774544,
+    "wallpaper_pack": 2684355060,
+    "pregame_heavy": 1207962162,
+    "grid_icon": 318769927
+   },
+   {
+    "light": 1207963183,
+    "light_pack": 2684355166,
+    "variant": 1073744502,
+    "heavy_pack": 2684355167,
+    "heavy_dbpc": 1224739446,
+    "wallpaper": 318777085,
+    "wallpaper_pack": 2684355165,
+    "pregame_heavy": 1207963182,
+    "grid_icon": 318769927
+   }
+  ],
+  "heavy_dbpc": 1224737299,
+  "powerset_candidates": [
+   1224737287,
+   1224737288,
+   1224737289,
+   1224737290,
+   1224737291,
+   1224737906,
+   1224738240
+  ],
+  "powerset_dbpc": 1224737288,
+  "wallpaper": 318770176,
+  "wallpaper_pack": 2684354759,
+  "pregame_heavy": 1207961122,
+  "skills_pack": 2684355217,
+  "skills_key": 1207961121,
+  "grid_icon": 318769927
+ },
+ {
+  "name": "Wonder Woman",
+  "id": 1207961125,
+  "costumes": [
+   1207961510,
+   1207962927
+  ],
+  "tex384": 318770288,
+  "tex799": 318772078,
+  "light_pack": 2684354763,
+  "variant": 1073742432,
+  "heavy_pack": 2684354761,
+  "parent_pack": 2684354846,
+  "costume_info": [
+   {
+    "light": 1207961510,
+    "light_pack": 2684354899,
+    "variant": 1073742975,
+    "heavy_pack": 2684354900,
+    "heavy_dbpc": 1224737919,
+    "wallpaper": 318772864,
+    "wallpaper_pack": 2684354898,
+    "pregame_heavy": 1207961511,
+    "grid_icon": 318770291
+   },
+   {
+    "light": 1207962927,
+    "light_pack": 2684355141,
+    "variant": 1073744223,
+    "heavy_pack": 2684355143,
+    "heavy_dbpc": 1224739167,
+    "wallpaper": 318776508,
+    "wallpaper_pack": 2684355142,
+    "pregame_heavy": 1207962928,
+    "grid_icon": 318770291
+   }
+  ],
+  "heavy_dbpc": 1224737376,
+  "powerset_candidates": [
+   1224737379,
+   1224737911,
+   1224738237
+  ],
+  "powerset_dbpc": 1224737379,
+  "wallpaper": 318770287,
+  "wallpaper_pack": 2684354762,
+  "pregame_heavy": 1207961126,
+  "skills_pack": 2684355218,
+  "skills_key": 1207961124,
+  "grid_icon": 318770291
+ },
+ {
+  "name": "Zatanna",
+  "id": 1207961120,
+  "costumes": [
+   1207961130,
+   1207963374
+  ],
+  "tex384": 318769331,
+  "tex799": 318772076,
+  "light_pack": 2684354758,
+  "variant": 1073742171,
+  "heavy_pack": 2684354723,
+  "parent_pack": 2684354835,
+  "costume_info": [
+   {
+    "light": 1207961130,
+    "light_pack": 2684354773,
+    "variant": 1073742453,
+    "heavy_pack": 2684354775,
+    "heavy_dbpc": 1224737397,
+    "wallpaper": 318770711,
+    "wallpaper_pack": 2684354774,
+    "pregame_heavy": 1207961131,
+    "grid_icon": 318769332
+   },
+   {
+    "light": 1207963374,
+    "light_pack": 2684355241,
+    "variant": 1073744612,
+    "heavy_pack": 2684355242,
+    "heavy_dbpc": 1224739556,
+    "wallpaper": 318778122,
+    "wallpaper_pack": 2684355240,
+    "pregame_heavy": 1207963373,
+    "grid_icon": 318769332
+   }
+  ],
+  "heavy_dbpc": 1224737115,
+  "powerset_candidates": [
+   1224737255,
+   1224737912,
+   1224738238,
+   1224738814,
+   1224738815
+  ],
+  "powerset_dbpc": 1224738814,
+  "wallpaper": 318770167,
+  "wallpaper_pack": 2684354757,
+  "pregame_heavy": 1207961119,
+  "skills_pack": 2684355216,
+  "skills_key": 1207961118,
+  "grid_icon": 318769332
+ }
+]

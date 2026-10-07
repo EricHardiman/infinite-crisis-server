@@ -1,0 +1,236 @@
+0xa0000037.rp	b3c6ac	49000011	ERROR - Unnamed Admin
+0xa0000037.rp	b69888	4900007c	ERROR - Unnamed Player
+0xa000009a.rp	2488330	40000000	ERROR - Unnamed Destructible
+0xa000009a.rp	24896e8	40000000	ERROR - Unnamed Destructible
+0xa000009a.rp	248c2b8	40000000	ERROR - Unnamed Destructible
+0xa000009a.rp	248c7f4	40000000	ERROR - Unnamed Destructible
+0xa000009a.rp	2490e34	40000000	ERROR - Unnamed Destructible
+0xa000009a.rp	2494900	40000000	ERROR - Unnamed Destructible
+0xa00000b3.rp	41aab0	49000a9c	Map Ping
+0xa00000b3.rp	567174	49000baf	ERROR - Unnamed Destructible
+0xa00000b3.rp	607dd8	49000bcd	ERROR - Unnamed Destructible
+0xa00000b3.rp	6286a0	00000000	ECM Burst
+0xa00000b3.rp	e63b90	4900025a	Map Ping
+0xa00000b3.rp	e63c44	4900025b	Map Ping
+0xa00000b3.rp	15b1670	00000000	Rock
+0xa00000b3.rp	162e97c	00000000	Trap
+0xa00000b3.rp	17670ac	00000000	Time Anchor
+0xa00000b3.rp	1767574	00000000	Bleed Tunnel
+0xa00000b3.rp	1767a10	00000000	Bleed Tunnel
+0xa00000b3.rp	1767e50	49000616	ERROR - Unnamed Destructible
+0xa00000d2.rp	2b9fc50	49000c1f	ERROR - Unnamed Destructible
+0xa00000d2.rp	51d932c	49000349	Obstacle
+0xa00000d2.rp	5e5563c	40000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	5e7656c	40000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	5e9e3d8	40000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	5ea8f9c	40000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	5ea9494	40000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	5ebbd34	40000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	5edaaa0	40000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	6ac9cd0	00000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	6aca930	00000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	6acbf40	00000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	6acdb50	00000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	6aceeb8	00000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	6b501a4	40000000	ERROR - Unnamed Destructible
+0xa00000d2.rp	6b527a8	40000000	ERROR - Unnamed Destructible
+0xa00000fc.rp	572b4b8	49000349	Obstacle
+0xa00000fc.rp	58853e0	4900039d	Hotspot Object
+0xa00000fc.rp	5e684c0	49000405	Hotspot Object
+0xa00000fc.rp	612b560	40000000	ERROR - Unnamed Destructible
+0xa00000fc.rp	612c0a0	40000000	ERROR - Unnamed Destructible
+0xa00000fc.rp	6131ef4	40000000	ERROR - Unnamed Destructible
+0xa00000fc.rp	6133b5c	40000000	ERROR - Unnamed Destructible
+0xa00000fc.rp	95bba0c	40000000	ERROR - Unnamed Destructible
+0xa000010b.rp	12f044	49000545	ERROR - Unnamed Destructible
+0xa000010b.rp	19af18	4900026e	ERROR - Unnamed Destructible
+0xa0000111.rp	b59c4	49000146	ERROR - Unnamed Destructible
+0xa0000111.rp	edab8	49000800	ERROR - Unnamed Destructible
+0xa0000112.rp	2397fc	490003ca	ERROR - Unnamed Destructible
+0xa0000113.rp	5b3ec	490007fe	ERROR - Unnamed Destructible
+0xa0000113.rp	5c3bc	490007ff	ERROR - Unnamed Destructible
+0xa0000113.rp	32fc50	490001e7	ERROR - Unnamed Destructible
+0xa0000114.rp	b4f14	4900039a	ERROR - Unnamed Destructible
+0xa0000115.rp	3d568	490007fc	ERROR - Unnamed Destructible
+0xa0000115.rp	413d20	49000cc8	ERROR - Unnamed Destructible
+0xa0000115.rp	571a3c	49000350	ERROR - Unnamed Destructible
+0xa0000115.rp	5d7fa8	49000359	ERROR - Unnamed Destructible
+0xa0000116.rp	28f0c4	4900000a	ERROR - Unnamed Destructible
+0xa000011b.rp	14ecc	49000207	ERROR - Unnamed Destructible
+0xa000011b.rp	19850	49000209	ERROR - Unnamed Destructible
+0xa000011b.rp	19d38	4900020a	ERROR - Unnamed Destructible
+0xa000011e.rp	189b08	49000263	ERROR - Unnamed Destructible
+0xa000011f.rp	7472c	00000000	Hotspot Object
+0xa000011f.rp	c8e70	490003eb	ERROR - Unnamed Destructible
+0xa0000120.rp	4e74	49000d2d	ERROR - Unnamed Destructible
+0xa0000122.rp	6fc5c	49000090	ERROR - Unnamed Destructible
+0xa0000122.rp	852ac	00000000	ERROR - Unnamed Destructible
+0xa0000122.rp	9b36c	49000093	ERROR - Unnamed Destructible
+0xa0000124.rp	23e7f4	49000cd6	ERROR - Unnamed Destructible
+0xa0000145.rp	296018	4900046d	ERROR - Unnamed Destructible
+0xa0000150.rp	1c252c	49000484	ERROR - Unnamed Destructible
+0xa0000150.rp	1c6d1c	49000485	ERROR - Unnamed Destructible
+0xa0000150.rp	1ce440	49000487	ERROR - Unnamed Destructible
+0xa0000157.rp	c85ec	49000512	ERROR - Unnamed Destructible
+0xa0000162.rp	47c04	4900059e	VFX Item
+0xa0000162.rp	604bc	00000000	Power Relay
+0xa0000162.rp	753b8	00000000	Rock
+0xa0000162.rp	12ddbc	49000eed	Environment
+0xa0000162.rp	143b24	49000621	Environment
+0xa0000162.rp	15dcb4	49000f26	Environment
+0xa0000162.rp	198e04	4900035d	Fuse
+0xa0000162.rp	387a88	4900039d	Hotspot Object
+0xa0000162.rp	710864	49000405	Hotspot Object
+0xa0000162.rp	7e2a48	00000000	Power Relay
+0xa0000162.rp	8ffa18	49000448	Environment
+0xa0000162.rp	f27cb8	49000557	Door
+0xa0000162.rp	f45f40	4900026d	Hotspot Object
+0xa0000162.rp	f46374	49000273	Obstacle
+0xa0000168.rp	125d98	490005c8	Environment
+0xa0000168.rp	12bb70	00000000	Rock
+0xa0000168.rp	14bda0	00000000	Health Emitter
+0xa0000168.rp	14c99c	00000000	Speed Emitter
+0xa0000168.rp	1d8e3c	49000621	Environment
+0xa0000168.rp	5508bc	49000cb4	Environment
+0xa0000168.rp	550ddc	49000cb5	Environment
+0xa0000168.rp	551294	49000cb8	Environment
+0xa0000168.rp	555c60	49000cb9	Environment
+0xa0000168.rp	5584c8	49000cba	Environment
+0xa0000168.rp	559498	49000cbb	Environment
+0xa0000168.rp	561630	49000cbe	Environment
+0xa0000168.rp	89db24	49000132	Hotspot Object
+0xa0000168.rp	936fe4	49000d4d	Environment
+0xa0000168.rp	93f340	49000d5b	Environment
+0xa0000168.rp	95de80	49000a6c	Generator - Pulse Pack
+0xa0000168.rp	ad88ec	49000aac	Hotspot Object
+0xa0000168.rp	1293f00	49000557	Door
+0xa0000168.rp	129f9b4	4900026d	Hotspot Object
+0xa000016b.rp	6b1d8	00000000	Rock
+0xa000016b.rp	186700	49000621	Environment
+0xa000016b.rp	302028	4900039d	Hotspot Object
+0xa000016b.rp	3590f8	490003ab	Hotspot Object
+0xa000016b.rp	60ddc0	490003f2	Environment
+0xa000016b.rp	682b84	49000132	Hotspot Object
+0xa000016b.rp	716814	49000180	Generator - Health Pack
+0xa000016b.rp	af2394	00000000	Orbital Cannon
+0xa000016b.rp	cee350	49000269	Door
+0xa000016b.rp	ceefdc	4900026b	Door
+0xa000016b.rp	cf2dc8	4900026d	Hotspot Object
+0xa000016b.rp	e66110	49000287	Environment
+0xa000016b.rp	e676dc	49000289	Environment
+0xa0000186.rp	2fd714	4900059d	ERROR - Unnamed Destructible
+0xa000018d.rp	308f48	49000a8e	ERROR - Unnamed Destructible
+0xa000018d.rp	4c9e5c	49000637	Hotspot Object
+0xa0000191.rp	e15f4	490005d3	ERROR - Unnamed Destructible
+0xa00001d2.rp	2cf55c	49000cb2	Hotspot Object
+0xa00001d2.rp	62569c	49000634	ERROR - Unnamed Destructible
+0xa00001d2.rp	625bbc	49000635	ERROR - Unnamed Destructible
+0xa00001e8.rp	34d804	00000000	Sunstone
+0xa00001e8.rp	351454	49000647	Obstacle
+0xa00001f3.rp	10d20	490007ef	ERROR - Unnamed Destructible
+0xa00001f3.rp	149d8	490007f0	ERROR - Unnamed Destructible
+0xa00001f3.rp	18310	490007f1	ERROR - Unnamed Destructible
+0xa00001f3.rp	1f030	490007f2	ERROR - Unnamed Destructible
+0xa00001fa.rp	18326c	490007f6	ERROR - Unnamed Destructible
+0xa00001fa.rp	183aac	490007f7	ERROR - Unnamed Destructible
+0xa00001fa.rp	1a48ec	49000811	ERROR - Unnamed Destructible
+0xa00001fa.rp	2444f8	49000817	ERROR - Unnamed Destructible
+0xa0000202.rp	3fd18	490008bf	ERROR - Unnamed Destructible
+0xa0000202.rp	40210	490008c4	ERROR - Unnamed Destructible
+0xa0000202.rp	40f70	49000815	ERROR - Unnamed Destructible
+0xa0000202.rp	1b0b08	49000cd8	ERROR - Unnamed Destructible
+0xa0000205.rp	a7de0	49000abd	ERROR - Unnamed Destructible
+0xa000020e.rp	101424	49000994	ERROR - Unnamed Destructible
+0xa000020e.rp	10bc2c	49000819	ERROR - Unnamed Destructible
+0xa000020e.rp	1c6d40	49000a94	Hotspot Object
+0xa000022e.rp	bec80	49000990	ERROR - Unnamed Destructible
+0xa000022e.rp	c99e4	49000ca4	VFX Item
+0xa000023e.rp	2097b0	49000cd7	ERROR - Unnamed Destructible
+0xa000024a.rp	b962c	49000bd4	ERROR - Unnamed Destructible
+0xa000024a.rp	ba1f4	49000a5a	ERROR - Unnamed Destructible
+0xa000024a.rp	ec8c0	490009b3	ERROR - Unnamed Destructible
+0xa000024a.rp	efc4c	490009b5	ERROR - Unnamed Destructible
+0xa000024a.rp	f5990	490009b7	ERROR - Unnamed Destructible
+0xa000024a.rp	199370	49000c0d	ERROR - Unnamed Destructible
+0xa000024c.rp	2889b68	49000c21	Environment
+0xa000024c.rp	28d8fc8	40000000	ERROR - Unnamed Destructible
+0xa000024c.rp	2b57b84	49000cab	Door
+0xa000024c.rp	2b580a0	40000000	ERROR - Unnamed Destructible
+0xa000024c.rp	30d7630	490001bd	ERROR - Unnamed Destructible
+0xa000024c.rp	30fa5bc	490001c5	ERROR - Unnamed Destructible
+0xa000024c.rp	310ffa4	490001c6	ERROR - Unnamed Destructible
+0xa000024c.rp	316598c	490001c7	ERROR - Unnamed Destructible
+0xa000024c.rp	31708cc	490001c8	ERROR - Unnamed Destructible
+0xa000024c.rp	317b80c	490001c9	ERROR - Unnamed Destructible
+0xa000024c.rp	317bc7c	490001ca	ERROR - Unnamed Destructible
+0xa000024c.rp	66ae60c	40000000	ERROR - Unnamed Destructible
+0xa000024c.rp	66aeb34	40000000	ERROR - Unnamed Destructible
+0xa0000256.rp	1de22c	49000c6e	Door
+0xa0000256.rp	1e9b0c	4900039d	Hotspot Object
+0xa0000256.rp	5cf67c	49000405	Hotspot Object
+0xa0000256.rp	c15154	49000b0a	Environment
+0xa0000256.rp	c1b1a8	49000b0f	Door
+0xa0000256.rp	dbaf60	49000557	Door
+0xa000026e.rp	2722a4	49000aa8	ERROR - Unnamed Destructible
+0xa000026e.rp	5467ec	49000ade	ERROR - Unnamed Destructible
+0xa0000281.rp	99d4	49000baa	ERROR - Unnamed Destructible
+0xa0000281.rp	230d78	49000ca7	ERROR - Unnamed Destructible
+0xa0000281.rp	253b24	49000bef	Hotspot Object
+0xa0000281.rp	702d30	49000adf	ERROR - Unnamed Destructible
+0xa0000281.rp	718700	49000ae5	ERROR - Unnamed Destructible
+0xa00002b1.rp	13c048	49000b17	ERROR - Unnamed Destructible
+0xa00002b1.rp	13c4a4	49000ed2	ERROR - Unnamed Destructible
+0xa00002b1.rp	13f2a4	49000b18	ERROR - Unnamed Destructible
+0xa00002b1.rp	13f6f4	49000d55	ERROR - Unnamed Destructible
+0xa00002b1.rp	157a30	49000b1a	ERROR - Unnamed Destructible
+0xa00002b4.rp	167b7c	49000b21	ERROR - Unnamed Destructible
+0xa00002c1.rp	9d094	49000b1c	ERROR - Unnamed Destructible
+0xa00002c7.rp	9204	49000bfc	ERROR - Unnamed Destructible
+0xa00002cf.rp	2f5d4	49000bb8	ERROR - Unnamed Destructible
+0xa00002cf.rp	139840	49000bca	ERROR - Unnamed Destructible
+0xa00002de.rp	1f10	49000eac	ERROR - Unnamed Destructible
+0xa00002de.rp	62f34	49000bdb	ERROR - Unnamed Destructible
+0xa00002de.rp	8e2cc	49000be5	ERROR - Unnamed Destructible
+0xa00002e3.rp	6fcb4	49000c6b	ERROR - Unnamed Destructible
+0xa00002e5.rp	2ea6b58	49000c21	Environment
+0xa00002e5.rp	2ea79b8	49000c2a	Door
+0xa00002e5.rp	2f91bd0	40000000	ERROR - Unnamed Destructible
+0xa00002e5.rp	623d3d0	40000000	ERROR - Unnamed Destructible
+0xa00002e5.rp	62975a0	40000000	ERROR - Unnamed Destructible
+0xa00002e5.rp	629c4cc	40000000	ERROR - Unnamed Destructible
+0xa00002e5.rp	7bdf0b0	40000000	ERROR - Unnamed Destructible
+0xa00002e5.rp	7bdf5bc	40000000	ERROR - Unnamed Destructible
+0xa00002e5.rp	7be06b8	40000000	ERROR - Unnamed Destructible
+0xa00002e6.rp	2b960	00000000	Power Relay
+0xa00002e6.rp	6d43c	00000000	Rock
+0xa00002e6.rp	1814fc	49000621	Environment
+0xa00002e6.rp	1fd50c	00000000	Speed Emitter
+0xa00002e6.rp	3e98a4	4900039d	Hotspot Object
+0xa00002e6.rp	4b8f68	49000cb5	Environment
+0xa00002e6.rp	7e0898	49000405	Hotspot Object
+0xa00002e6.rp	97b8a4	49000180	Generator - Health Pack
+0xa00002e6.rp	eacfcc	49000b0f	Door
+0xa00002e6.rp	1235b44	49000557	Door
+0xa00002e7.rp	461e9c	00000000	Speed Emitter
+0xa0000303.rp	8d7c	49000ea8	ERROR - Unnamed Destructible
+0xa0000303.rp	42105c	49000c1c	ERROR - Unnamed Destructible
+0xa0000303.rp	42ef70	49000c20	VFX Item
+0xa0000303.rp	43a4c8	49000c22	ERROR - Unnamed Destructible
+0xa000030e.rp	d2b14	49000ecc	Hotspot Object
+0xa000030e.rp	d7f08	49000ecd	ERROR - Unnamed Destructible
+0xa0000332.rp	9304	49000c70	ERROR - Unnamed Destructible
+0xa0000332.rp	2e8014	49000ca9	ERROR - Unnamed Destructible
+0xa0000337.rp	8a54	49000c73	ERROR - Unnamed Destructible
+0xa0000337.rp	b158	49000c80	VFX Item
+0xa0000337.rp	23248	49000ed1	ERROR - Unnamed Destructible
+0xa000033f.rp	1c4a0c	49000cec	ERROR - Unnamed Destructible
+0xa000035d.rp	502eb4	49000d22	ERROR - Unnamed Destructible
+0xa0000361.rp	56f0	49000d1d	ERROR - Unnamed Destructible
+0xa0000361.rp	5ba4	49000d1e	ERROR - Unnamed Destructible
+0xa0000361.rp	6118	49000d20	ERROR - Unnamed Destructible
+0xa000036d.rp	3e0	00000000	ERROR - Unnamed Destructible
+0xa000036d.rp	69ec0	49000d2b	Obstacle
+0xa0000378.rp	394cb0	49000e56	VFX Item
+0xa0000384.rp	2e1d7c	49000d61	VFX Item
+0xa000039a.rp	18c558	49000ee5	ERROR - Unnamed Destructible
+0xa000039a.rp	4f9554	49000e6f	ERROR - Unnamed Destructible
