@@ -23,17 +23,17 @@ and detailed notes. It does **not** contain any game files; you need the client 
 - In the world: intro cinematic with Superman's voiced conversation and captions, correct
   lighting, right-click movement at 60 Hz with walk animation and facing, guide arrows to
   scripted waypoints, the top-centre objective banner, tutorial hint panels, the champion's
-  overhead nameplate (name, health, level), minimap notes, and player pings (Alt+click).
+  overhead nameplate (name, health, level), the minimap image and notes, and player pings
+  (Alt+click).
 
 ## What is being worked on
 
 In rough order:
 
 1. The green ground marker at the guide-arrow target (the minimap note already shows).
-2. The minimap background image (the HUD loads it when asked; the native trigger is missing).
-3. The first drone and basic attacks, then the rest of the Tutorial 1 script
+2. The first drone and basic attacks, then the rest of the Tutorial 1 script
    (skills, level-up, Catwoman, the base).
-4. Tutorials 2 and 3, then real matches with AI.
+3. Tutorials 2 and 3, then real matches with AI.
 
 `HANDOFF.md` is the running engineering log: what was tried, what failed, exact addresses in
 the client, and the open questions. Read its top section first if you want to contribute.

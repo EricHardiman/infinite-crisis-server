@@ -733,7 +733,7 @@ class Tracer:
                 log(f"HACK place failed: {e}")
         name, fields = BREAKPOINTS[va - self.base]
         n = self.counts[va] = self.counts.get(va, 0) + 1
-        if n <= (4000 if name == 'SCRIPT CALL' else 3000 if name.startswith('HOT ') else 400 if name.startswith(('PACK LOAD', 'UI state')) else 100):
+        if n <= SLIM_LIMIT if SLIM_LIMIT else n <= (4000 if name == 'SCRIPT CALL' else 3000 if name.startswith('HOT ') else 400 if name.startswith(('PACK LOAD', 'UI state')) else 100):
             parts = []
             for label, expr in fields:
                 try:
@@ -787,6 +787,10 @@ class Tracer:
                         return
                     if os.path.exists(STOP_PATH):
                         self.stop_requested = True
+                if not got and armed:
+                    # idle (no breakpoint hits, e.g. slim --only runs): still pick up
+                    # tracer.inject; a queued call plants the per-frame hook itself
+                    self.poll_inject()
                 if not got:
                     continue
                 status = DBG_CONTINUE
@@ -863,8 +867,49 @@ class Tracer:
             k32.DebugActiveProcessStop(self.pid)
 
 
+# Slim mode: `tracer.py --only <rva hex>,<rva hex>...` arms just those
+# breakpoints (no watches, high hit limit). The full set traps thousands of
+# times a second while walking and makes the game stutter (2026-10-10).
+SLIM_LIMIT = None
+EXTRA_BREAKPOINTS = {
+    0x2097e0: ("replay module SMOOTH (animation vars)", [("module", "ecx")]),
+    0x20b5f0: ("replay module update", [("module", "ecx")]),
+    # after 0xc7a50: frame movement delta in the entity's local frame (f32 x, y, z)
+    0x20987e: ("smooth: local delta", [("ent", "ebx"), ("dt", "[ebp+c]"), ("dx", "[ebp+fffffff0]"), ("dy", "[ebp+fffffff4]"), ("dz", "[ebp+fffffff8]")]),
+    # motion sample queue (ring of 9 x 0x48 bytes at +0x40, head +0x30, count +0x38, f64 time at entry+0)
+    0x1525a0: ("queue push", [("q", "ecx"), ("count", "[ecx+38]"), ("t_new", "q[[esp+4]]"), ("seq", "[[esp+4]+8]")]
+               + [("o%x" % o, "[[esp+4]+%x]" % o) for o in range(0x1c, 0x48, 4)]),
+    # local player object appeared: charsys hooks the 0x100000cf listener (0x6256f0, gate: IID type 2);
+    # map manager hooks 0x100001d3 (0x60cbc0)
+    0x6256f0: ("charsys: player object appeared", [("iid_lo", "[esp+4]"), ("iid_hi", "[esp+8]")]),
+    0x60cbc0: ("map manager: local player appeared", [("this", "ecx"), ("lvt", "[ecx+8]"), ("s0", "[[ecx+8]]"), ("s1", "[[ecx+8]+4]"), ("s2", "[[ecx+8]+8]"), ("s3", "[[ecx+8]+c]"), ("s4", "[[ecx+8]+10]"), ("s5", "[[ecx+8]+14]"), ("s6", "[[ecx+8]+18]")]),
+    # VerifyAndLoadAllNeededRPS (0x6bc620) internals
+    0x6b93bc: ("needed RPs: local lobby slot index", [("idx", "eax")]),
+    0x6b93f6: ("needed RPs: champion from slot", [("slotval", "edi"), ("rec", "[ebp+fffffffc]")]),
+    0x6b9405: ("needed RPs: packs for champion", [("n", "[ebp+fffffff0]"), ("p0", "[[ebp+ffffffe8]]"), ("p1", "[[ebp+ffffffe8]+4]")]),
+    0x6bc70c: ("needed RPs: lists after slot pass", [("n_a", "[ebp+ffffff78]"), ("a0", "[[ebp+ffffff70]]"), ("n_b", "[ebp+ffffff9c]"), ("b0", "[[ebp+ffffff94]]")]),
+    0x6bc730: ("needed RPs: lists after encounter pass", [("n_c", "[ebp+ffffffb4]"), ("c0", "[[ebp+ffffffac]]"), ("n_d", "[ebp+ffffff88]"), ("d0", "[[ebp+ffffff80]]")]),
+    # per-entity notice subscription (entity, notice id, listener); listener vtable rva logged
+    0x292b90: ("entity notice subscribe", [("ent", "[esp+4]"), ("notice", "[esp+8]"), ("listener", "[esp+c]"), ("lvt", "[[esp+c]]")]),
+    # match participant roster: listener slot +0x98 (iface vtable 0x1205930) -> lobby mgr 0x6c49a0
+    0x6901f0: ("STACK roster listener 6901f0", [("list", "[esp+8]"), ("n", "[[esp+8]+8]")]),
+    0x6c49a0: ("STACK lobby participants fill 6c49a0", [("list", "[esp+4]"), ("n", "[[esp+4]+8]")]),
+    # replay playback time = server-clock estimate - 0.1 s delay ([base+1462938])
+    0x209a79: ("replay playback time", [("mod", "esi"), ("now", "q[edi]"), ("play", "q[ebp+fffffff4]")]),
+    0x1527d0: ("queue push REJECTED (older time / duplicate)", [("q", "ebx")]),
+    # before the anim-variable setters: velocity vector + forward-speed cap
+    0x20991f: ("smooth: anim vars", [("ent", "ebx"), ("v0", "[ebp+fffffff0]"), ("v1", "[ebp+fffffff4]"), ("v2", "[ebp+fffffff8]"), ("cap", "[[ebx+54]+2d0]")]),
+}
+
 if __name__ == "__main__":
     os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
+    if "--only" in sys.argv:
+        only = {int(x, 16) for x in sys.argv[sys.argv.index("--only") + 1].split(",")}
+        merged = {**BREAKPOINTS, **EXTRA_BREAKPOINTS}
+        BREAKPOINTS.clear()
+        BREAKPOINTS.update({r: merged.get(r, ("bp %x" % r, [("ecx", "ecx"), ("a1", "[esp+4]"), ("a2", "[esp+8]")])) for r in only})
+        WATCHES = []
+        SLIM_LIMIT = 200000
     pid = find_pid(PROCESS_NAME)
     if not pid:
         sys.exit(f"{PROCESS_NAME} is not running")

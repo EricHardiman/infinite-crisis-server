@@ -1,6 +1,6 @@
 """recdump.py <pack hex> <offset hex> <len hex> [strings] : dump bytes from a pack's payload."""
 import os, re, sys
-sys.path.insert(0, r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\_server\tools")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import rplib
 
 pack = sys.argv[1]

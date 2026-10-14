@@ -1,7 +1,8 @@
 """Usage: python dis.py <rva hex> [max_bytes]  -- disassemble function at RVA until int3 padding.
 All addresses printed as RVAs (call targets too)."""
+import os
 import sys, struct, pefile, capstone
-EXE = r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe"
+EXE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe"))
 pe = pefile.PE(EXE, fast_load=True)
 BASE = pe.OPTIONAL_HEADER.ImageBase
 data = pe.get_memory_mapped_image()
