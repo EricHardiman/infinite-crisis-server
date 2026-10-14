@@ -1,6 +1,7 @@
 """python evid.py <event id hex>... : find ctor, vtable, execute, serializer for event ids."""
+import os
 import sys, re, struct, pefile
-pe = pefile.PE(r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe", fast_load=True)
+pe = pefile.PE(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe")), fast_load=True)
 B = pe.OPTIONAL_HEADER.ImageBase; d = pe.get_memory_mapped_image()
 L = open("full.asm").read().split("\n")
 for a in sys.argv[1:]:

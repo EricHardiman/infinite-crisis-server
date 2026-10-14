@@ -1,6 +1,7 @@
 """python allevents.py : table of all event ids -> vtable/execute/serializer + handler calls (saved to events.tsv)."""
+import os
 import re, struct, pefile, capstone
-pe = pefile.PE(r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe", fast_load=True)
+pe = pefile.PE(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe")), fast_load=True)
 B = pe.OPTIONAL_HEADER.ImageBase; d = pe.get_memory_mapped_image()
 L = open("full.asm").read().split("\n")
 pat = re.compile(r"mov dword ptr \[e.. \+ 8\], (0x[0-9a-f]+|\d+)$")

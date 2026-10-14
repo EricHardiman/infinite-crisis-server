@@ -1,5 +1,6 @@
+import os
 import struct, pefile
-EXE = r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe"
+EXE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe"))
 pe = pefile.PE(EXE, fast_load=True); BASE = pe.OPTIONAL_HEADER.ImageBase
 data = pe.get_memory_mapped_image()
 p = struct.pack("<3I", BASE+0x6b4b40, BASE+0x6b4b40, BASE+0x6b4b40)

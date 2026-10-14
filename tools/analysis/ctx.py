@@ -1,6 +1,7 @@
 """python ctx.py <rva>... : disassemble from function start to rva+0x30 and show last 22 lines"""
+import os
 import sys, subprocess, pefile
-EXE = r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe"
+EXE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe"))
 pe = pefile.PE(EXE, fast_load=True); data = pe.get_memory_mapped_image()
 import capstone
 md = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_32)

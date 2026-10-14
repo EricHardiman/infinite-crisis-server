@@ -349,6 +349,29 @@ def client_event_replies(dest, event_id, body):
             send_user(build_match_objects(link_agent=False))
             log_line("--- sent create champion agent + player (delayed)")
             QUEUE_STATE["avatar_seq"] = 1   # game-server loop then streams position updates
+            if SEND_MATCH_START and MATCH_START_AFTER_OBJECTS:
+                threading.Timer(MATCH_START_AFTER_OBJECTS, send_match_start).start()
+        # The start (0x2053) must come AFTER the match objects: the charsys only
+        # subscribes to the local player's controlled-agent notice (0x60a510 ->
+        # 0x4836f0, handler 0x60a570 sets the "player ready" flag) while the match
+        # is NOT started (0x6bee50). Started first -> no subscription -> load
+        # stalls at 35% (2026-10-10). The launch warning 0x204B goes out with the
+        # lobby data (see the 0x20F2 answer). EXPERIMENT.
+        def send_match_start():
+            send_user(build_message(SVC_PLAYER_SYSTEM, 0x2053, b"\x00" + struct.pack("<III", 0, 0, 0)))
+            log_line("--- sent match start (0x2053)")
+            # The roster is only accepted once the match is started (0x6c49a0
+            # checks lobby+0xac), so it follows 0x2053.
+            send_user(build_match_roster())
+            log_line("--- sent match roster (notice 0x1000005b)")
+            # The UI graph only reaches the world-load screen (UI state 0x23 via
+            # CheckTransitionToWorldLoad 0x6b8ec0, from 0x2016) -> "player ready in
+            # world" -> script notice 0x1000015c -> flow+0x78. Without 0x2016 the
+            # native load ran but the UI never transitioned (stall at 55%). EXPERIMENT.
+            send_user(build_message(SVC_PLAYER_SYSTEM, 0x2016, b"\x00" + struct.pack("<I", ROOM_ID)))
+            log_line("--- sent end room check (0x2016)")
+            send_user(build_message(SVC_PLAYER_SYSTEM, 0x206D, b"\x00" + struct.pack("<I", ROOM_ID)))
+            log_line("--- sent all loaded? (0x206d)")
         threading.Timer(MATCH_OBJECTS_DELAY, create_match_objects).start()
         # ConnectToLobbyMessage (sent once the lobby UI is ready, rva 0x6bea40 ->
         # 0x698850). Answer with our player's lobby slot (0x2029) and then end
@@ -366,6 +389,19 @@ def client_event_replies(dest, event_id, body):
         # carries it (accepted while lobby+0x4bc is still 0), 0x204C stores it,
         # 0x2016 / 0x206D must then use the same id.
         room = struct.pack("<I", ROOM_ID)
+        if SEND_MATCH_START:
+            # EXPERIMENT 2026-10-10: the real flow is lobby -> launch warning
+            # (0x204B) -> start (0x2053), and the CLIENT then transitions to the
+            # world load itself (started-mode lobby tick 0x6bd8f0 ->
+            # LoadMatchDataAndLevel). Forcing the transition first (0x2016) and
+            # starting afterwards stalled the load (champion pack dropped), and a
+            # start sent during the load tore the world down (end-of-match stats
+            # 0x20be/0x20b4/0x214f, then a new 0x20F2).
+            return [("lobby player slot (0x2029)", build_message(SVC_PLAYER_SYSTEM, 0x2029, build_lobby_player())),
+                    ("lobby state (0x204c)", build_message(SVC_PLAYER_SYSTEM, 0x204C, build_lobby_state())),
+                    ("match launch warning (0x204b)", build_message(SVC_PLAYER_SYSTEM, 0x204B,
+                        b"\x00" + struct.pack("<ddI", time.time(), time.time() + 1.0, ROOM_ID)))]
+                    # 0x2053 + 0x206D follow from send_match_start() after the objects.
         return [("lobby player slot (0x2029)", build_message(SVC_PLAYER_SYSTEM, 0x2029, build_lobby_player())),
                 ("lobby state (0x204c)", build_message(SVC_PLAYER_SYSTEM, 0x204C, build_lobby_state())),
                 ("end room check (0x2016)", build_message(SVC_PLAYER_SYSTEM, 0x2016, b"\x00" + room)),
@@ -382,8 +418,16 @@ def client_event_replies(dest, event_id, body):
                 # so the intro cinematic's Superman lines stay queued (verified by
                 # poking the bit live). 0x2028 and 0x20AF reset the byte (0x6bc2c0),
                 # so this must come after them. Side effect: fires UI state 0x14.
-                *([] if not SEND_MATCH_START else [("match start (0x2053)", build_message(SVC_PLAYER_SYSTEM, 0x2053,
-                                                       b"\x00" + struct.pack("<III", 0, 0, 0)))]),
+                # 0x204B "DeliverMatchLaunchWarning" (serializer 0x438930: u8 base | f64
+                # (lobby+0x1b0) | f64 (+0x1b8) | u32 room id; handler 0x6bd420). Before
+                # the start it locks the local slot, resets the skin override lobby+0x230
+                # to 0 and runs VerifyAndLoadAllNeededRPS while the lobby still holds its
+                # pack references. Without it, the started-mode lobby tick (0x6bd8f0)
+                # treats override 0xffffffff as an unloaded skin pack, re-runs
+                # VerifyAndLoad, the champion twin 0x49000086 drops out of the cache and
+                # the variant fails ConstructStep3 (load stalls at 30%). EXPERIMENT.
+                # (0x204B launch warning + 0x2053 start: sent by send_match_start()
+                # once the match objects exist, see above.)
                 # (The first object creation, WITHOUT the agent link, follows from
                 # the timer above; the link is added by the game-server loop's
                 # resends, so the client sees the property change.)
@@ -576,6 +620,7 @@ SPAWN_POSITION = (1, 0x13, 0xCB, 0, 18.7, 60.4, 200.3)
 # (probably the tutorial's ending).
 CINEMATIC_DID = 0x35000026
 MATCH_OBJECTS_DELAY = 4.0   # seconds after the client's ConnectToLobby (0x20F2)
+MATCH_START_AFTER_OBJECTS = 1.0   # s after the match objects: 0x2053 + 0x206D (EXPERIMENT)
 CINEMATIC_DELAY = 5.0   # seconds after the client's load-complete notice (curtain-up time)
 MOVEMENT_MODULE_SEQ = 1    # 0xB0 flag 0x20 part, see build_create_object
 MOVEMENT_MODULE_TYPE = 1   # rigid-body character replay (server-driven)
@@ -596,7 +641,7 @@ CHAMPION_AGENT_ID = 0x0200000000000002
 #   2. then a NULL virtual call at rva 0x7dbf7e (fn 0x7dbef0, worker thread; stack
 #      1d9931 7dc5b2 7de0c7 5fefe0 838d10; looks like audio) -> NOT solved.
 # Sent in-world it throws the UI back into the world-load transition.
-SEND_MATCH_START = False
+SEND_MATCH_START = False   # works (loads) but shows the PvP HUD: scoreboard, no chat (2026-10-10)
 PROP_CONTROLLED_AGENT = 0x100000CF
 PROP_PLAYER_ENTITY_LINK_2 = 0x100005E8
 
@@ -689,7 +734,7 @@ def facing_yaw(heading):
 
 
 def build_create_object(object_id, class_id=0, unknown64=0, sequence=1, position=None, iid_properties=None,
-                        heading=0.0, speed=0.0, tele_seq=1, properties=None):
+                        heading=0.0, speed=0.0, tele_seq=1, properties=None, position_only=False):
     """Object creation bundle, sent as batch 0x4 addressed to the NEW object's
     id (router rva 0x24e070 -> 0x24ab70 -> 0x24bd30 -> 0x24d8a0 -> 0x24ca10 ->
     entity factory rva 0x207dc0). Needs the local player id to be set first
@@ -761,7 +806,11 @@ def build_create_object(object_id, class_id=0, unknown64=0, sequence=1, position
     properties = bytes([0]) + pack_compact(len(entries))
     for prop_id, kind, value in entries:
         properties += pack_property(prop_id, kind, value)
-    body = build_batch([(0xF2, descriptor), (0xB0, position), (0xBC, properties)])
+    # position_only: walk updates skip the property table. Re-sending every
+    # property 60x a second re-fires all client property listeners (freezes
+    # when clicking a lot, 2026-10-10).
+    parts = [(0xF2, descriptor), (0xB0, position)] + ([] if position_only else [(0xBC, properties)])
+    body = build_batch(parts)
     return build_message(object_id, 0x4, body)
 
 
@@ -831,8 +880,27 @@ def mover_order(body):
         return
     command = struct.unpack_from("<I", body, 0)[0]
     if command not in (3, 4):
+        # Command 2 = order on a target object, e.g. right-clicking an entity:
+        # u32 command | u32 | u64 target IID | u16 (seen: 02000000 00000000
+        # 0100000000000003 0000 on the drone). Logged while combat is worked out.
+        target_iid = struct.unpack_from("<Q", body, 8)[0]
+        log_line(f"    order {command}: target iid {target_iid:#018x} body {body.hex()}")
+        if command == 2:
+            attack_order(target_iid)
         return
+    COMBAT["target"] = None              # a plain move cancels the attack
     target = parse_client_position(body, 16)
+    # Right-clicking the drone from out of range arrives as a plain move to a
+    # point on the drone (the client only sends command 2 once in range), so a
+    # move that lands on the live drone counts as an attack order.
+    if target and COMBAT["drone_alive"]:
+        spawn = current_spawn()
+        tx = (target[1] - spawn[1]) * 160.0 + target[3]
+        ty = (target[2] - spawn[2]) * 160.0 + target[4]
+        if math.hypot(tx - DRONE_POSITION[4], ty - DRONE_POSITION[5]) < DRONE_CLICK_RADIUS:
+            log_line(f"    move order {command} onto the drone -> attack")
+            attack_order(DRONE_ID)
+            return
     spawn = current_spawn()
     if not target or target[0] != spawn[0]:
         return
@@ -874,13 +942,98 @@ def mover_thread():
         time.sleep(1.0 / MOVE_HZ)
         try:
             if QUEUE_STATE.get("avatar_seq") and mover_tick():
-                send_user(build_match_objects(sequence=QUEUE_STATE["avatar_seq"]))
+                send_user(build_match_objects(sequence=QUEUE_STATE["avatar_seq"], position_only=True))
                 if MOVER.pop("arrived", False) and at_tutorial_target():
                     for label, msg in tutorial_arrived():
                         log_line(f"--- sent {label}")
                         send_user(msg)
+            if QUEUE_STATE.get("avatar_seq"):
+                combat_tick()
         except OSError:
             pass
+
+
+# Server-side basic attack (EXPERIMENT 2026-10-10). Right-clicking an enemy
+# makes the client send move order command 2 with the target IID; the server
+# walks the champion into range, faces the target and applies damage on a
+# timer, updating the target's health bar with 0x42. No attack animation yet.
+ATTACK_RANGE = 2.5
+ATTACK_INTERVAL = 1.0
+BASIC_ATTACK_DAMAGE = 50
+COMBAT = {"target": None, "drone_hp": 0, "drone_alive": False, "next_hit": 0.0}
+
+
+def drone_xy():
+    return DRONE_POSITION[4], DRONE_POSITION[5]
+
+
+def attack_order(target_iid):
+    """Command 2 on an object: start attacking it if it is the live drone."""
+    if target_iid != DRONE_ID or not COMBAT["drone_alive"]:
+        COMBAT["target"] = None
+        return
+    dx_, dy_ = drone_xy()
+    with MOVER_LOCK:
+        if MOVER["pos"] is None:
+            return
+        px, py, pz = MOVER["pos"]
+        dx, dy = dx_ - px, dy_ - py
+        dist = math.hypot(dx, dy)
+        MOVER["heading"] = math.atan2(dy, dx)
+        if dist > ATTACK_RANGE:
+            k = (dist - (ATTACK_RANGE - 0.3)) / dist
+            MOVER["target"] = [px + dx * k, py + dy * k, pz]
+    COMBAT["target"] = target_iid
+    COMBAT["next_hit"] = 0.0
+    log_line(f"    attack order on drone (distance {dist:.1f})")
+
+
+def combat_tick():
+    if COMBAT["target"] is None:
+        return
+    now = time.time()
+    dx_, dy_ = drone_xy()
+    with MOVER_LOCK:
+        if MOVER["target"] is not None or MOVER["pos"] is None:
+            return                                   # still walking into range
+        px, py, _ = MOVER["pos"]
+        dist = math.hypot(dx_ - px, dy_ - py)
+        if dist > ATTACK_RANGE + 0.2:
+            return
+        turning = abs(MOVER["heading"] - math.atan2(dy_ - py, dx_ - px)) > 0.01
+        MOVER["heading"] = math.atan2(dy_ - py, dx_ - px)
+    if turning:
+        send_user(build_match_objects(sequence=QUEUE_STATE["avatar_seq"], position_only=True))
+    if now < COMBAT["next_hit"]:
+        return
+    COMBAT["next_hit"] = now + ATTACK_INTERVAL
+    COMBAT["drone_hp"] = max(0, COMBAT["drone_hp"] - BASIC_ATTACK_DAMAGE)
+    send_user(build_vitals(DRONE_ID, [(COMBAT["drone_hp"], DRONE_VITALS[0][1]), (0, 0)]))
+    log_line(f"--- basic attack: drone health {COMBAT['drone_hp']}")
+    if COMBAT["drone_hp"] == 0:
+        COMBAT.update(target=None, drone_alive=False)
+        drone_death()
+
+
+DRONE_DEATH_STEPS = [(0.0, 2), (3.0, 1)]   # (delay s, LifeState): Dead, then DeadAndFaded
+DRONE_REMOVE_DELAY = 6.0
+
+
+def drone_death():
+    """Let the client play the death: LifeState (0x100000fa; enum DeadAndFaded 1,
+    Dead 2, Incapacitated 3, Alive 4) goes Dead -> DeadAndFaded via object
+    resends, then the object is removed. EXPERIMENT."""
+    def set_state(seq, state):
+        props = [(pid, kind, state if pid == 0x100000FA else val) for pid, kind, val in DRONE_PROPERTIES]
+        send_user(build_create_object(DRONE_ID, class_id=DRONE_CLASS, position=DRONE_POSITION, sequence=seq,
+                                      heading=math.pi, tele_seq=1, properties=props))
+        log_line(f"--- drone LifeState {state}")
+    for i, (delay, state) in enumerate(DRONE_DEATH_STEPS):
+        threading.Timer(delay, set_state, (2 + i, state)).start()
+    def remove():
+        send_user(build_remove_object(DRONE_ID))
+        log_line("--- drone removed (0x3)")
+    threading.Timer(DRONE_REMOVE_DELAY, remove).start()
 
 
 # What the HUD script reads from the controlled agent with
@@ -903,6 +1056,11 @@ CHAMPION_PROPERTIES = [
     # (0x100000CF, 7, 0x0200000000000002)  -- self link: resolved the reference
     # entity but the component stays inert (it is only activated on the LOCAL
     # PLAYER's entity, gate at rva 0x6add80), so it was removed again.
+    # MAX MOVEMENT SPEED (2026-10-10, verified live): the movement module's
+    # property listener (rva 0x150160, vtable +8 subobject) copies f32 property
+    # 0x7ec into module+0x2d0. 0x2097e0 clamps the walk-animation forward speed
+    # to it, so without it the speed is 0 and the champion glides.
+    (0x000007EC, 9, MOVE_SPEED),
     (0x1000009C, 0x10, TEAM_NUMBER),         # PVP_Team
     # LIFE STATE (2026-10-05 night): the vitals component tracks property
     # 0x100000fa in its slot +0x20 (id +0x28, value +0x2c, "unset" byte +0x34).
@@ -932,6 +1090,7 @@ CHAMPION_PROPERTIES = [
 # 0x35000025 it was 0x10000016 and normally lit (snapshot diff, 2026-10-05).
 PLAYER_PROPERTIES = [
     (0x00000956, 8, 0x10000016),             # lighting environment type (EXPERIMENT)
+    (0x000007EC, 9, MOVE_SPEED),             # max movement speed (see CHAMPION_PROPERTIES)
     # MINIMAP IMAGE (disassembly 2026-10-05): the map manager attaches a property
     # listener for 0x100001d3 (= encounter DID, kind 0x15) to the LOCAL PLAYER
     # object (rva 0x60cbc0 -> 0x18ba40). On a change (listener 0x66a8e0) it
@@ -945,14 +1104,25 @@ PLAYER_PROPERTIES = [
 # create bundle's properties were applied, so the value must CHANGE afterwards.
 # The 2 s game-connection keepalive resends the bundle with a higher sequence.
 PLAYER_LATE_PROPERTIES = [
-    (0x100001D3, 0x15, 0x40000991),          # current encounter (Tutorial 1)
+    # EXE PATCH 5 (2026-10-10): 0x100001d3 (current encounter) is a storage-group-3
+    # property that the wire never writes. The map manager registers its listener
+    # object (this+8, vtable 0x12058bc) for it at rva 0x60cbc0 (push at 0x60cbe1);
+    # the change handler that actually runs is 0x680cd0 (cmp at 0x680eb4; NOT
+    # 0x66a8e0; the store calls listener slot +8 = adapter 0x6bf010 -> +0xc). Both
+    # constants now read 0x100001fc: kind 0x15, group 4 (normal property table),
+    # def flag 0x10000 (listeners notified; tools/live/propscan.py), and inside
+    # 0x680cd0's id range (0x100000fa, 0x100004ff]. Its other client uses only
+    # READ it from the controlled champion (0x45d670), not the player object.
+    # (Tried before: 0x10000287 has no notify flag; 0x100002eb has another
+    # listener, 0x6567f0, that rotated the camera; 0x100008ab is above the range.)
+    (0x100001FC, 0x15, 0x40000991),          # current encounter (Tutorial 1), patched listener id
 ]
 
 
 CHAMPION_AGENT_CLASS = 0x40000086   # Gaslight Batman variant (EXPERIMENT; was TUTORIAL_AVATAR 0x2E0001B2)
 
 
-def build_match_objects(sequence=1, link_agent=True):
+def build_match_objects(sequence=1, link_agent=True, position_only=False):
     """The champion agent and the player object (both Gaslight Batman's world
     state for now, co-located; STOPGAP until the real player entity is known)."""
     spawn, heading, speed, tele = mover_state()
@@ -962,11 +1132,12 @@ def build_match_objects(sequence=1, link_agent=True):
     # (rva 0x69d7a0) when the object's descriptor DID has data type 0x40 = a
     # champion VARIANT record (prefix 0x40), not a bare world state (0x2E).
     return (build_create_object(CHAMPION_AGENT_ID, class_id=CHAMPION_AGENT_CLASS, position=spawn, sequence=sequence,
-                                heading=heading, speed=speed, tele_seq=tele, properties=CHAMPION_PROPERTIES)
+                                heading=heading, speed=speed, tele_seq=tele, properties=CHAMPION_PROPERTIES,
+                                position_only=position_only)
             + build_create_object(LOCAL_PLAYER_ID, class_id=PLAYER_AVATAR, position=spawn,
                                   sequence=sequence, iid_properties=links,
                                   properties=PLAYER_PROPERTIES + (PLAYER_LATE_PROPERTIES if sequence >= 2 else []),
-                                  heading=heading, speed=speed, tele_seq=tele))
+                                  heading=heading, speed=speed, tele_seq=tele, position_only=position_only))
 
 
 # ---- Tutorial HUD / objectives -------------------------------------------
@@ -1110,6 +1281,24 @@ def build_tutorial_hint(hint_id, force_open=True):
 HINT_GUIDE_ARROWS, HINT_BASIC_ATTACK, HINT_WILL = 16, 17, 20
 
 
+def build_match_roster():
+    """EXPERIMENT 2026-10-10: match participant roster = generic notice 0x2
+    with notice 0x1000005b (reader 0x542a80 -> list reader 0x4c54d0, entry
+    0x467bf0; broadcast 0x517d90 -> listener slot +0x98 0x6901f0 -> lobby
+    manager 0x6c49a0 fills its participant map [0x1777138]+0x58). In "match
+    started" mode the UI's "player ready in world" (0x6b5200 -> 0x6c39f0) needs
+    every participant's entity (entry +0x30) to exist and be placed. Blob:
+    u32 n | n x entry. Entry (0x60 bytes in memory): StringInfo name | u64
+    (+0x28) | u64 (+0x30, the entity checked) | u64 (+0x38) | 7 x u32 (+0x40..)
+    | u8. Field meanings other than +0x30 are guesses."""
+    entry = (string_info("Player") + struct.pack("<QQQ", LOCAL_PLAYER_ID, CHAMPION_AGENT_ID, 0)
+             # u32s all 0: with (team, champion variant, 0...) the UI script crashed
+             # (rva 0xdaacf2, esi=0x40000087) right after the roster (2026-10-10).
+             + struct.pack("<7I", 0, 0, 0, 0, 0, 0, 0) + b"\x00")
+    blob = struct.pack("<I", 1) + entry
+    return build_message(LOCAL_PLAYER_ID, 0x2, bytes(1) + struct.pack("<II", 0x1000005B, len(blob)) + blob)
+
+
 def conversations(*keys):
     return [(f"conversation {k:#x} (0x2001)", build_start_conversation(k)) for k in keys]
 
@@ -1178,6 +1367,34 @@ def build_ping(step):
                                tele_seq=1, properties=PING_PROPERTIES)
 
 
+# First tutorial drone (EXPERIMENT 2026-10-10). Pack 0xa0000257 (loaded with
+# Tutorial 1) holds two "Soldier Drone" variants (name token 0x09da95b5):
+# 0x40000b24 (twin 0x49000b24, world state 0x2e000808) and 0x40000a5c (twin
+# 0x49000a5c, ws 0x2e001167); both world states have parent entity 0x2d00068a,
+# max speed 0x7ec = 2.8, scale 0x137 = 0.6. Variant records get the game
+# components (vitals etc., rva 0x69d7a0). IID type 3 instead of 2: the client
+# treats type-2 ids as players (charsys 0x6256f0, gate 0xdaf10).
+DRONE_CLASS = 0x40000B24
+DRONE_ID = 0x0300000000000001
+DRONE_TEAM = 2
+DRONE_POSITION = (1, 0x13, 0xCB, 0, 46.0, 58.8, 200.0)   # foot of the bank steps, just past guide target 2
+                                                         # ((52, 58) put it up on the steps, out of reach)
+DRONE_VITALS = [(200, 200), (0, 0)]
+DRONE_CLICK_RADIUS = 1.5   # a move order this close to the drone counts as attacking it
+SKILL_BAR_TEST_ELEMENTS = ()   # (14, 6, 9, 17, 25, 12, 7) = skill bar; Q/W/E greyed, no skill request sent (2026-10-10)
+DRONE_PROPERTIES = [
+    (0x100000FA, 8, 4),                      # LifeState = Alive (nameplate / targeting)
+    (0x1000009C, 0x10, DRONE_TEAM),          # PVP_Team: enemy
+    (0x000007EC, 9, 2.8),                    # max movement speed (as in its world state)
+    (0x10000167, 0x10, 1),                   # Level
+]
+
+
+def build_drone():
+    return build_create_object(DRONE_ID, class_id=DRONE_CLASS, position=DRONE_POSITION, sequence=1,
+                               heading=math.pi, tele_seq=1, properties=DRONE_PROPERTIES)
+
+
 def build_remove_object(object_id):
     """Event 0x3 addressed to the object = remove it (serializer 0x70d380: u8 base
     only; objmgr 0x24e070 -> 0x24dde0 hides it at once and frees it 30 s later).
@@ -1241,6 +1458,16 @@ def tutorial_arrived():
     if ping:
         msgs.append(("guide ping for the next target (object bundle)", ping))
     msgs += conversations(*keys)
+    if hint == HINT_BASIC_ATTACK:
+        COMBAT.update(drone_hp=DRONE_VITALS[0][0], drone_alive=True, target=None)
+        msgs.append(("first drone (object bundle)", build_drone()))
+        # EXPERIMENT 2026-10-10: reveal the skill bar so a Q/W/E/R press on the
+        # drone shows which client event requests a skill (to find the server's
+        # skill-execution reply). SkillsBar 14, Basic 6, Q 9, W 17, E 25, R 12,
+        # Passive 7 (gmUIHUDElementIDList getters).
+        msgs += [(f"HUD element {e} restored (0x213d)", build_hud_element(e, HUD_EVENT_FIRST_RESTORED))
+                 for e in SKILL_BAR_TEST_ELEMENTS]
+        msgs.append(("drone vitals (0x42)", build_vitals(DRONE_ID, DRONE_VITALS)))
     if hint:
         msgs.append((f"tutorial hint {hint} (0x2 / 0x1000027f)", build_tutorial_hint(hint)))
     if text:
@@ -1283,6 +1510,8 @@ def tutorial_start():
         send_user(build_match_objects(sequence=QUEUE_STATE["avatar_seq"]))
     msgs = [(f"HUD element {e} restored (0x213d)", build_hud_element(e, HUD_EVENT_FIRST_RESTORED))
             for e in TUTORIAL_START_ELEMENTS]
+    msgs += [(f"HUD element {e} hidden (0x213d)", build_hud_element(e, HUD_EVENT_HIDE))
+             for e in TUTORIAL_HIDDEN_ELEMENTS]
     msgs.append(("champion vitals (0x42)", build_vitals(CHAMPION_AGENT_ID, CHAMPION_VITALS)))
     msgs.append(("objective list (0x2034)", tutorial_objectives()))
     # [00:33] "Ok, you're connected." / "Quickly, move Gaslight Batman to safety!"
@@ -1314,6 +1543,10 @@ TUTORIAL_SHOW_TRACKER = False
 # minimap and the objective banner; vitals, skills bar and skill buttons
 # (elements 2, 14, 6, 9, 17, 25, 12, 7, 20, 31) are revealed in later steps.
 TUTORIAL_START_ELEMENTS = (HUD_PORTRAIT, HUD_MINIMAP, HUD_MISSION_OBJECTIVES, 32)   # 32 = HintManager
+# Match-started mode shows the PvP scoreboard (BLUE/RED, timer); the tutorial
+# does not. Ids from the HUD's gmUIHUDElementIDList getters (tools/gfx/
+# classes_all.txt): 8 TeamDisplay, 13 Timeline, 33 MatchDisplays. EXPERIMENT.
+TUTORIAL_HIDDEN_ELEMENTS = ()   # (8, 13, 33) did not hide the started-mode scoreboard
 
 
 def build_initial_events():
@@ -1603,7 +1836,8 @@ TUTORIAL_AVATAR = 0x2E0001B2     # his world state (heavy pack 0xa0000076, paren
 # EXPERIMENT: the player object itself = generic player world state (pack
 # 0xa0000037, parent entity 0x2D000002) instead of a second, gliding Batman.
 # If the match load stalls, set it back to TUTORIAL_AVATAR.
-PLAYER_AVATAR = 0x40000086
+PLAYER_AVATAR = 0x4000007C   # 2026-10-10 (verified): "Unnamed Player" (pack 0xa0000037, twin 0x4900007c,
+                             # no model): loads, one Batman, lighting/arrows/walk fine. Was 0x40000086.
 # ^ EXPERIMENT 2026-10-05 (darkness): the player object is now ALSO built from the
 # champion variant record, so that it gets the game components. The fog-of-war
 # component (vtable 0x12098e8) only activates on the entity that is the local
@@ -1662,53 +1896,63 @@ def game_server_client(conn, addr):
     # alive with the same time packet the client sends us on the login link
     # (frame header 0x01, packet bit 0x01000000, big-endian double time;
     # handled by the base packet dispatcher 0x703cc0).
-    conn.settimeout(2.0)
+    # The keepalive must run on a TIMER, not on "2 s without client data":
+    # while the player clicks, move orders keep the recv busy, no time packet
+    # goes out, and after 5 s of "no server update" (rva 0x69aae0, threshold
+    # [0x11a2ccc]) the client pauses all entity replay (flag 0x17697d0) --
+    # Batman froze after rapid clicking (2026-10-10).
+    KEEPALIVE_INTERVAL = 2.0
+    conn.settimeout(0.25)
+    last_keepalive = time.monotonic()
     with conn:
         while True:
             try:
                 data = conn.recv(65536)
             except socket.timeout:
-                if not first:
-                    conn.sendall(build_frame(0x01000000, struct.pack(">d", datetime.datetime.now().timestamp())))
-                    # EXPERIMENT: stream the avatar's position like a live server
-                    # would (the client's physics motion queue, rva 0x209c70,
-                    # interpolates time-stamped samples; one sample never applied).
-                    user = QUEUE_STATE.get("user_conn")
-                    if user is not None and QUEUE_STATE.get("avatar_seq"):
-                        QUEUE_STATE["avatar_seq"] += 1
-                        # Live experiments: logs/send.txt lines "<dest: player|svc|hex> <event hex> <body hex>"
-                        # are sent on the login connection.
-                        sendf = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "send.txt")
-                        if os.path.exists(sendf):
-                            try:
-                                lines = open(sendf).read().splitlines()
-                                os.remove(sendf)
-                                for ln in lines:
-                                    if ln.strip():
-                                        dest, ev, hx = ln.split(None, 2)
-                                        dest = LOCAL_PLAYER_ID if dest == "player" else SVC_PLAYER_SYSTEM if dest == "svc" else int(dest, 16)
-                                        user.sendall(build_message(dest, int(ev, 16), bytes.fromhex(hx)))
-                                        log_line(f"--- sent (send.txt) {ev} {hx}")
-                            except (OSError, ValueError) as e:
-                                log_line(f"--- send.txt failed: {e}")
-                        if False and QUEUE_STATE["avatar_seq"] == 3 and CINEMATIC_DID:   # now sent at load complete
-                            # EXPERIMENT: event 0x20F5 (serializer 0x43bdb0 -> struct
-                            # 0x478020: u32 flags | [bit10 u32] | [bit0 u32 DID of a
-                            # type-0x3e (prefix 0x35) camera/cinematic record] | ...;
-                            # handler 0x69d140 -> 0x69cff0 -> camera director
-                            # 0x2a6540 loads it; when loaded (state 3, 0x2a5f20) the
-                            # camera gets the LOCAL PLAYER as target -> SmartBox
-                            # viewer valid -> world renders.
-                            cin = b"\x00" + struct.pack("<II", 0x1, CINEMATIC_DID)
-                            try:
-                                send_user(build_message(LOCAL_PLAYER_ID, 0x20F5, cin))   # needs an entity recipient (QI 0x11a7a70)
-                                log_line(f"--- sent camera/cinematic 0x20f5 did {CINEMATIC_DID:#x}")
-                            except OSError:
-                                pass
+                data = None
+            if not first and time.monotonic() - last_keepalive >= KEEPALIVE_INTERVAL:
+                last_keepalive = time.monotonic()
+                conn.sendall(build_frame(0x01000000, struct.pack(">d", datetime.datetime.now().timestamp())))
+                # EXPERIMENT: stream the avatar's position like a live server
+                # would (the client's physics motion queue, rva 0x209c70,
+                # interpolates time-stamped samples; one sample never applied).
+                user = QUEUE_STATE.get("user_conn")
+                if user is not None and QUEUE_STATE.get("avatar_seq"):
+                    QUEUE_STATE["avatar_seq"] += 1
+                    # Live experiments: logs/send.txt lines "<dest: player|svc|hex> <event hex> <body hex>"
+                    # are sent on the login connection.
+                    sendf = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "send.txt")
+                    if os.path.exists(sendf):
                         try:
-                            send_user(build_match_objects(sequence=QUEUE_STATE["avatar_seq"]))
+                            lines = open(sendf).read().splitlines()
+                            os.remove(sendf)
+                            for ln in lines:
+                                if ln.strip():
+                                    dest, ev, hx = ln.split(None, 2)
+                                    dest = LOCAL_PLAYER_ID if dest == "player" else SVC_PLAYER_SYSTEM if dest == "svc" else int(dest, 16)
+                                    user.sendall(build_message(dest, int(ev, 16), bytes.fromhex(hx)))
+                                    log_line(f"--- sent (send.txt) {ev} {hx}")
+                        except (OSError, ValueError) as e:
+                            log_line(f"--- send.txt failed: {e}")
+                    if False and QUEUE_STATE["avatar_seq"] == 3 and CINEMATIC_DID:   # now sent at load complete
+                        # EXPERIMENT: event 0x20F5 (serializer 0x43bdb0 -> struct
+                        # 0x478020: u32 flags | [bit10 u32] | [bit0 u32 DID of a
+                        # type-0x3e (prefix 0x35) camera/cinematic record] | ...;
+                        # handler 0x69d140 -> 0x69cff0 -> camera director
+                        # 0x2a6540 loads it; when loaded (state 3, 0x2a5f20) the
+                        # camera gets the LOCAL PLAYER as target -> SmartBox
+                        # viewer valid -> world renders.
+                        cin = b"\x00" + struct.pack("<II", 0x1, CINEMATIC_DID)
+                        try:
+                            send_user(build_message(LOCAL_PLAYER_ID, 0x20F5, cin))   # needs an entity recipient (QI 0x11a7a70)
+                            log_line(f"--- sent camera/cinematic 0x20f5 did {CINEMATIC_DID:#x}")
                         except OSError:
                             pass
+                    try:
+                        send_user(build_match_objects(sequence=QUEUE_STATE["avatar_seq"]))
+                    except OSError:
+                        pass
+            if data is None:
                 continue
             if not data:
                 break
@@ -1756,6 +2000,8 @@ def run_game_server():
     print(f"Game server (experimental) listening on {HOST}:{GAME_SERVER_PORT}")
     while True:
         conn, addr = srv.accept()
+        # 60 Hz position updates are tiny writes; Nagle batches them (jerky walk).
+        conn.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
         threading.Thread(target=game_server_client, args=(conn, addr), daemon=True).start()
 
 
@@ -1764,6 +2010,8 @@ def run_user_server():
     print(f"User server (capture only) listening on {HOST}:{USER_SERVER_PORT}")
     while True:
         conn, addr = srv.accept()
+        # 60 Hz position updates are tiny writes; Nagle batches them (jerky walk).
+        conn.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
         threading.Thread(target=user_server_client, args=(conn, addr), daemon=True).start()
 
 

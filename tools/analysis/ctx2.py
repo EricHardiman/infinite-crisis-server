@@ -1,6 +1,7 @@
 """python ctx2.py <rva> [after_bytes] : linear disasm from func start; print lines from rva-? to rva+after"""
+import os
 import sys, pefile, capstone
-EXE = r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe"
+EXE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe"))
 pe = pefile.PE(EXE, fast_load=True); data = pe.get_memory_mapped_image()
 md = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_32); B = pe.OPTIONAL_HEADER.ImageBase
 t = int(sys.argv[1],16); after = int(sys.argv[2],16) if len(sys.argv)>2 else 0x40

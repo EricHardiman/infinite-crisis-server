@@ -1,6 +1,7 @@
 """python rtti.py <vtable rva>... -- print RTTI class name + base classes for MSVC vtables."""
+import os
 import sys, struct, pefile
-EXE = r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe"
+EXE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe"))
 pe = pefile.PE(EXE, fast_load=True); BASE = pe.OPTIONAL_HEADER.ImageBase
 data = pe.get_memory_mapped_image()
 u = lambda a: struct.unpack_from("<I", data, a)[0]

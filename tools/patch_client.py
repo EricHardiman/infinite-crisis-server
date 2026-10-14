@@ -24,6 +24,18 @@ PATCHES = [
      "dialog gate: conversations need gate bit 8 only, not 'match started' (rva 0x67fb34)"),
     (0x11DB16C, bytes.fromhex("00 00 20 40"), bytes.fromhex("cd cc 4c 3e"),
      "lighting environment re-evaluation interval 2.5 s -> 0.2 s (rva 0x11dcd6c)"),
+    # Minimap (2026-10-10): the current-encounter property 0x100001d3 lives in
+    # storage group 3, which the wire never writes. The map manager's listeners
+    # watch 0x100001fc instead (group 4, notify flag, inside both handlers' id
+    # ranges); the server sends the encounter DID there (PLAYER_LATE_PROPERTIES).
+    (0x65A548, bytes.fromhex("68 d3 01 00 10"), bytes.fromhex("68 fc 01 00 10"),
+     "minimap: map-image listener registers for 0x100001fc (rva 0x65b148)"),
+    (0x669D06, bytes.fromhex("3d d3 01 00 10"), bytes.fromhex("3d fc 01 00 10"),
+     "minimap: map-image handler 0x66a8e0 matches 0x100001fc (rva 0x66a906)"),
+    (0x60BFE1, bytes.fromhex("68 d3 01 00 10"), bytes.fromhex("68 fc 01 00 10"),
+     "minimap: map-manager listener registers for 0x100001fc (rva 0x60cbe1)"),
+    (0x6802B4, bytes.fromhex("3d d3 01 00 10"), bytes.fromhex("3d fc 01 00 10"),
+     "minimap: map-manager handler 0x680cd0 matches 0x100001fc (rva 0x680eb4)"),
 ]
 RSA_DER_OFFSET = 0x11A1F58            # PKCS#1 RSAPublicKey DER, 0x8c bytes
 RSA_DER_HEADER = bytes.fromhex("30 81 89 02 81 81 00")

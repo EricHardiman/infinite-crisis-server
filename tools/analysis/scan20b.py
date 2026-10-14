@@ -1,5 +1,6 @@
+import os
 import re, sys, pefile, capstone
-EXE = r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe"
+EXE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe"))
 pe = pefile.PE(EXE, fast_load=True); BASE = pe.OPTIONAL_HEADER.ImageBase
 data = pe.get_memory_mapped_image()
 text = [s for s in pe.sections if s.Name.startswith(b".text")][0]

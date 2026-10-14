@@ -1,6 +1,7 @@
 """python fstart.py <rva>... -- guess function start (scan back to int3 padding) for an address."""
+import os
 import sys, pefile
-EXE = r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe"
+EXE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe"))
 pe = pefile.PE(EXE, fast_load=True)
 data = pe.get_memory_mapped_image()
 for a in sys.argv[1:]:

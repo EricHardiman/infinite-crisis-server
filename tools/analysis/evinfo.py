@@ -1,6 +1,7 @@
 """python evinfo.py <execute-func rva>... : event id, serializer, name for an event class given its execute function."""
+import os
 import sys, struct, re, pefile, subprocess
-EXE = r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe"
+EXE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe"))
 pe = pefile.PE(EXE, fast_load=True); B = pe.OPTIONAL_HEADER.ImageBase
 d = pe.get_memory_mapped_image()
 asm = open("full.asm").read()

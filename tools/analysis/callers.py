@@ -1,6 +1,7 @@
 """python callers.py <func rva> [depth] : print the caller tree (function starts) up to depth."""
+import os
 import sys, struct, re, bisect, pefile
-pe = pefile.PE(r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe", fast_load=True)
+pe = pefile.PE(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe")), fast_load=True)
 B = pe.OPTIONAL_HEADER.ImageBase; d = pe.get_memory_mapped_image()
 text = [s for s in pe.sections if s.Name.startswith(b".text")][0]
 ts, te = text.VirtualAddress, text.VirtualAddress + text.Misc_VirtualSize

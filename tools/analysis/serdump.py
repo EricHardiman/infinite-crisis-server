@@ -1,6 +1,7 @@
 """python serdump.py <rva>... : list the read sequence of a serializer (sizes via 0x6fae80, sub-reader calls)."""
+import os
 import sys, pefile, capstone
-pe = pefile.PE(r"D:\SteamLibrary\steamapps\common\Infinite Crisis Steam\InfiniteCrisis.exe", fast_load=True)
+pe = pefile.PE(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "InfiniteCrisis.exe")), fast_load=True)
 B = pe.OPTIONAL_HEADER.ImageBase; d = pe.get_memory_mapped_image()
 md = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_32)
 NAMES = {0x6fae80: "bytes", 0x21430: "compact", 0x1a9580: "StringInfo", 0x1a7710: "StringInfo-prep",
