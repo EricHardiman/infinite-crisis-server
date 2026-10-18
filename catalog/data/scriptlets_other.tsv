@@ -1,0 +1,47 @@
+id	probable_name	entity	used_by_server	notes
+0x10000124	Robot_Minion_Melee_Attack	drones 0x40000A5C / 0x40000A5D; thug 0x40000C71	yes	Drone swing (with 0x100000EC) on Batman, the thug, gates and cars; the thug's swing back. Other name: Basic.
+0x100000EC	Vfx_Min_Basic_Melee	drones	yes	Other name: Combat_Special_Attack_1.
+0x10000128	Combat_Basic_Attack	drones	no	Rejected by the drones' table.
+0x10000008	Vfx_Min_Basic_Melee_Active	drones	no	Rejected. Other names a_EventHook, CinematicCamera.
+0x10000209	_HFSM_TargetHitAction_PhysicalReaction	drones, thug, target drones (also Batman)	yes	Hit reaction (flinch) with 0x10000223.
+0x10000223	VFX_CBT_Hit_Shared	drones, thug, target drones	yes	Hit effect.
+0x100001FA	_Defeat_OnDead	drones	yes	death_keys. CbtState_Death_Induce (0x100000AD) is not in the drones' table.
+0x10000032	Vfx_Spawn	drones, target drones, Destroyer	yes	Teleport-in; Destroyer opening.
+0x10000033	Vfx_Fade_In	drones, target drones	yes	Teleport-in.
+0x10000079	Vfx_OnExplode	paddy wagons; drones	yes	Accepted by the drones and (with 0x7D2) by the wagons.
+0x100005B4	Vfx_Stp_Detonate_Matter_Explosion_Hit	drones	yes	Accepted, no visible effect.
+0x100001A0	Vfx_Inf_Explode	drones	yes	Rejected.
+0x100007EB	Cinematic_Startup	Destroyer 0x40000EB2	yes	destroyer_start_keys.
+0x100009EB	Cinematic_Hidden	Destroyer 0x40000EB2	no	In its 6-group table.
+0x10000E5B	CinematicCharacter_State00	Destroyer; cinematic Gate / PowerCore actors	yes	Closed sphere.
+0x10000E5C	CinematicCharacter_State01	Destroyer; PowerCore actor	yes	destroyer_open_keys.
+0x10000063	Destructible_AdvanceState	street vehicle 0x2E000AAB	no	Rejected: the vehicle's table has 0 groups. Also tried as an int property (1, 2) on the cars: nothing; no client code reads it. In table 0x33000000 the number is Superman_Heat_Vision; in the patcher notes it is a GM_Advancement dispatcher id.
+0x10000010	Destructible_Damage	destructibles	no	Kind 1 in the property descriptors. Other names UIBasic_LSDown, CinematicCamera_NoSkip.
+0x100003A9	Destructible_OnBreak	paddy wagons	no	Rejected while the wagon had no 0x7D2; no longer sent.
+0x10000290	Destructible_OnCompletelyDestroyed	paddy wagons	no	As 0x100003A9.
+0x100001DD	_EventHook_OnCollision_RaiseBehaviorEvent	paddy wagons	no	Tried at landing (fase3-el); rejected.
+0x100001E3	_HFSM_BehaviorRaiseEventAction	Gaslight Batman (also tried on wagons)	yes	Raises the graph event in script variable 0x780 (enum); used for CarPickup 0x10000246.
+0x1000018E	Vfx_Startup	gate wall, meteor rock, crater, sphere, dust cloud	yes	Probe / gate key.
+0x10000347	Vfx_Spawn_Alt01	meteor rock, crater, sphere, dust cloud	yes	Probe key.
+0x10000076	Vfx_Event1	meteor rock, crater, sphere, dust cloud	yes	Probe key.
+0x100002F5	_Entity_OnEnterWorld_Default	crater	yes	Crater probe (0 groups). Graph name CbtState_Knockdown.
+0x10000078	Vfx_OnInit	gate light wall (tables 0x1D00073F / 0x1D00038B)	yes	gate_keys.
+0x1000034F	Object_Closed	gate light wall	yes	gate_keys. Object_Open is in the same tables.
+0x100000EB	Vfx_Active	gate light wall	yes	gate_keys.
+0x10000F86	Vfx_GuideArrow_Ping	guide ping 0x40000A9C (variant C)	yes	Normally in Batman's table.
+0x1000010F	CinematicCombatBasicAttack	cinematic drone / thug actors (0x35000033)	no	
+0x10000320	Fidgets_Disable	Batman actor of 0x35000034	no	
+0x34000037	Basic attack (scriptlet DID)	Gaslight Batman	no	Scriptlet records (0x34) are not accepted by 0x8D (0x80070057): the key names (0x10...) are.
+0x34000038	Bat Flight (scriptlet DID)	Gaslight Batman	no	
+0x34000039	The Bat Scream (scriptlet DID)	Gaslight Batman	no	
+0x3400003A	Untargeted skill (scriptlet DID)	Gaslight Batman	no	
+0x3400003B	Sonic Batarang (scriptlet DID)	Gaslight Batman	no	
+0x34000048	Passive with stacks (scriptlet DID)	Gaslight Batman	no	
+0x34000164	Super Strength server script	skill 0x48000A3B	no	With 0x34000161: InitObjectPickup 0x100007A2, PickupObject 0x100007A1 (also on the object), ThrowObject 0x100007A0 (also on the object), _Combat_GoToLocomotion. Skill property 0x10000328.
+0x34000161	Super Strength server script (2)	skill 0x48000A3B	no	
+0x3400019D	Surveillance Camera skill script	skill 0x48000808	no	Skill property 0x10000328.
+0x1E00055B	Guide script (AlertPingScriptlet / AlertArrowScriptlet)	guide ping	no	Plays Vfx_GuideArrow_Ping and Vfx_GuideArrow aimed at the ping; its parameters are unknown.
+0x39000001	GM_Advancement handler registration script	pack 0xA0000038	no	Uses natives 0xE70012 / 0xE70006 / 0xE70009; registers nothing in matches, hence the rank caves.
+0x1000092F	(unnamed; meteor event)	anchor with template 0x1D00019C	no	Rejected on the anchor (0x80070057, 20:08 diag: the template's group allows only 0x5). The only key of template 0x1D00019C's scriptlet map (property 0x78). Its tracks create the warning 0x2E0004E5, the rock 0x2E0005F7 / 0x2E000BB3, 8 x 0x2E0006DA, 0x2E0004E7 / 0x2E0004ED / 0x2E0006DE, the dust 0x2E0007D4 and play mse_Meteor sounds (fase3-gh, untested in game).
+0x00000005	(small key in every template group)	meteor event anchor (template 0x1D00019C); paddy wagons	yes	The only key the meteor template 0x1D00019C adds (20:08 diag); also allowed on the paddy wagons. Tried as the meteor event's start in fase3-gi.
+0x10000039	(unnamed; explosion start in the event)	meteor event explosion 0x2E0004E7	no	The key template 0x1D00019C runs on 0x2E0004E7 at the big impact. Rejected (0x80070057) on our carrier-built copy (diag 2026-10-16 23:27); not sent since fase3-gt.

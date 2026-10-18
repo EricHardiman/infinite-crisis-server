@@ -1,0 +1,47 @@
+hud2_re notes (static, 2026-10-16). Tools: hud2_re/img.py (0x13 DXT image -> png), tree.py (gfx PlaceObject tree),
+dump.py <hexDID..> (pretty record dump with names). Outputs: imgs.png, ss_base.txt, ss_subs.txt.
+
+== Q1 mouse icon left of the basic attack ==
+gfx 0x20000056 (SkillsPanel movie). Sprite 214 = SkillsPanel, depth 491 (PlaceObject2 26 eb01 c800 1a11846a00
+"m_mcMouseButton"): char 200 = 10-frame sprite, frame label "right" (frame 1, stop()) shows shape 198 = image
+0x13000E68 "right_mouse_button_png" (20x28 DXT3: mouse, right button green + green rays), label "left" = shape 199.
+Placed at (14,113) = under m_SkillControl0 (18,78) / m_SkillControl5 passive (18,22). m_btnRecall depth 493 at (7,24).
+NO reference to "m_mcMouseButton" in as2_lib (AS2), in the exe strings, or any UIHUDElementID: purely static
+timeline art ("basic attack = right mouse button"). It shows in every SkillsPanel incl. the original's.
+Server can only hide it with the whole panel (HUD 0x213D hide on SkillsBar 14). Not tied to skill points/rank/
+smartcast. Removal = client asset patch of movie 0x20000056 inside UI pack 0xA00000D0 (game file; not shippable):
+e.g. PlaceObject2 char id c800 -> id of an empty sprite, or delete that tag.
+
+== Q2 emotes ==
+InputAction_Joke 0x100000CC, Taunt 0x100000CD, Laugh 0x100000CE, Dance 0x100000CF, Oath 0x100000DB (AS2 getters).
+Input handler 0xa8a8e0 (action = [esi+0x34], pressed [esi+0x3c]) -> a8af6a: agent 0x6351d0 -> 0xa0ab70 maps
+ CC->0x16, CD->0x15, CE->0x17, CF->0x18, DB->0x1C (others 0) -> 0x964060(agent, emote): pushes (u32 emote kind 2,
+ agent IID kind 1) and calls script VM method 0x28F0001 (0x4a5440). Also called from a314e2 (chat/text path, 0xa30550
+ converts a name/id to the emote code). NOT 0x20EE (its only builder 0x88b030 is called from a70030/a70600/a8b0b0
+ only), not 0x2136/0x2139. Outgoing wire event of script class 0x28F unresolved statically.
+Batman graph 0x1A0002E7 (pack 0xA0000122) has events Emote_Dance/Joke/Laugh/Taunt/Abort/End, clips
+ chr_batman_gaslight_emote_{dance,joke,laugh,taunt}.hkx, Lua onEmoting(): aborts on Property_Slider_Propel>0 or Turn!=0.
+Graph-event ids (animnames): Emote_Taunt 0x1000022C, Emote_Laugh 0x1000022D, Emote_Joke 0x1000022E,
+ Emote_Dance 0x100001F1, Emote_End 0x100001F0, Emote_Abort 0x100001F2 (also "Joke".."Dance" 0x100000CC..CF, "Oath" 0xDB).
+Batman 0x8D table (diag line 311): 0x100001D2, 0x100001D3, 0x100001F2, 0x100004C3, 0x10000641, 0x10000643 (+0x1000115E in tsv).
+ Emote_*_Start (0x100001D1/D4/D8) are NOT in his table -> animations must be raised as graph events.
+
+== Q3 Super Strength throw ==
+0x480003CB (base): targeting 14, 0x100002A3 cursor reticle 0x48000156, 0x10000855 list {0x10000620 skill, 0x10000853 n}:
+ 3 -> 0x480003C9, 2 -> 0x480004A2, 1 -> 0x4800044B (read only by merge 0x8696fa and tooltip 0xa51fda; no runtime swap).
+0x480003C9 = THROW: script 0x34000161 (ThrowObject 0x7A0), 0x1000003D = 1 (ground), stats 0x17 = 9.0 m (range,
+ 0x874990 / 0x10000ABC=0x17 -> 0x874ad0), 0x12 = 2.5 (radius, 0x874930), 0x13 = 2, 0x9 = -0.2, 0x5 = 75 (dmg, 0x3B0000CA);
+ reticles 0x100006D7 = 0x48000155 (not in local packs), 0x100006D8 = 0x48000156 (decal 0x17000608/0x170010A8,
+ tex 0x13000135, size 3.0). Same icon 0x13000CE9. Aim-mode marker setup 0xa39360 reads 0x85f6f0 targeting type,
+ 0x100002A3 (0x861750), 0x100006D8 (0x861780, range ring sized by stat 0x17), 0x100006D7 (0x8617b0).
+Left click in aim mode: 0xa8c190 -> 0xa75d20 -> T1 0xa70600 -> 0x88b030 -> 0x20EE cmd 2, ability = slot (8), pos.
+
+== Q4 wagon explosion ==
+Diag 12:12:30: on the wagon Vfx_OnCollision 0x10000016 rejected, 0x10000079 accepted (ret rva 0x6251d978);
+ blast object 0x2E0007D4: "allowed scriptlets: none" (all 3 probe keys rejected); drones accept 0x10000079 and 0x100005B4.
+Wagon template 0x1D0000BA, graph 0x1C000021, entity 0x2D000238 not in local packs. Analog 0x1D0008EF (world state
+ 0x2E00134F, entity 0x2D000823, pack 0xA0000256, 7 placements) is an HFSM keyed by Destructible_State groups;
+ particles 0x180006C2/C3/C4 + debris 0x170001C6 are actions of the OnInit (0x78) / OnCollision (0x16) states.
+Intro cinematic 0x35000026: 02PaddyWagonA L2 t=473 Vfx_OnExplode + L1 (473, hash 0x7B0240B1, 3); WagonB only OnExplode.
+Server re-sends full create_object bundles for the car at +0, +0.3 s (0x10000063 = 2) and +1 s (0x100003F2 crash
+ states) around the 0.2 s explode: the crash state change / re-create is the prime suspect for killing attached FX.

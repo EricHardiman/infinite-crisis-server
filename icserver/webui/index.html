@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinite Crisis Launcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/app/app.css">
+</head>
+<body>
+<div class="backdrop" aria-hidden="true"><div class="bd-layer" id="bd-a"></div><div class="bd-layer" id="bd-b"></div><div class="bd-shade"></div></div>
+<div class="client">
+  <!-- top bar -->
+  <header class="topbar">
+    <button class="play-btn" id="play-btn" aria-haspopup="dialog"><span>Play</span></button>
+    <nav class="tabs-main" aria-label="Main">
+      <a href="#home" data-view="home">Home</a>
+      <a href="#collection" data-view="collection">Collection</a>
+      <a href="#arsenal" data-view="arsenal">Arsenal</a>
+      <a href="#profile" data-view="profile">Profile</a>
+    </nav>
+    <div class="queue-pill" id="queue-pill" hidden role="status"><b id="queue-title">In queue</b><span id="queue-time">0:00</span></div>
+    <button class="srv" id="srv" aria-describedby="srv-tip"><i></i><span id="srv-label">Server</span>
+      <span class="srv-tip" role="tooltip" id="srv-tip"></span></button>
+    <button class="friends-btn" id="friends-btn" aria-label="Friends" aria-pressed="true">
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-4 3.4-6 6.5-6s5.7 2 6.5 6"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.2c2.9.1 4.8 1.9 5.5 5"/></svg>
+      <span id="friends-count">0</span></button>
+    <button class="icon-btn" id="settings-btn" aria-label="Settings" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a7.6 7.6 0 0 0 0-3l2-1.6-2-3.4-2.4 1a7.7 7.7 0 0 0-2.6-1.5L14 2.5h-4l-.4 2.5A7.7 7.7 0 0 0 7 6.5l-2.4-1-2 3.4 2 1.6a7.6 7.6 0 0 0 0 3l-2 1.6 2 3.4 2.4-1a7.7 7.7 0 0 0 2.6 1.5l.4 2.5h4l.4-2.5a7.7 7.7 0 0 0 2.6-1.5l2.4 1 2-3.4z"/></svg>
+    </button>
+    <a class="me" href="#profile" aria-label="Your profile">
+      <span class="me-icon"><img id="me-icon" alt=""><i id="me-level">30</i></span>
+      <span class="me-text"><b id="me-name">Player</b><small id="me-status">Server ready</small></span>
+    </a>
+  </header>
+
+  <div class="body">
+    <main id="main" tabindex="-1">
+      <!-- HOME -->
+      <section class="view" id="view-home">
+        <div class="home">
+          <article class="feature" id="feature">
+            <div class="feature-copy">
+              <p class="feature-kicker">Training</p>
+              <h1 id="feature-title">Tutorial – Basic</h1>
+              <p id="feature-sub">Learn the basics on the streets of Gotham. Finish it to unlock Gaslight Batman.</p>
+              <button class="btn-gold" data-play="0x40000991" id="feature-play">Play now</button>
+            </div>
+          </article>
+          <div class="tiles">
+            <a class="tile" href="#collection" id="tile-champs">
+              <div class="tile-art" id="tile-champs-art"></div>
+              <div class="tile-copy"><b>New champions</b><span id="tile-champs-sub">Found in your install</span></div>
+            </a>
+            <a class="tile" href="#profile">
+              <div class="tile-art icons" id="tile-icons-art"></div>
+              <div class="tile-copy"><b>Profile icons</b><span id="tile-icons-sub">Choose the five on your card</span></div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- COLLECTION -->
+      <section class="view" id="view-collection" hidden>
+        <div class="subnav">
+          <div class="subtabs" role="tablist">
+            <button role="tab" class="subtab on" data-sub="champions">Champions</button>
+            <button role="tab" class="subtab" data-sub="icons">Icons</button>
+          </div>
+          <div class="filters" id="champ-tools">
+            <span class="owned" id="champ-owned"></span>
+            <select id="champ-filter" aria-label="Show">
+              <option value="all">All champions</option>
+              <option value="new">New</option>
+              <option value="playable">Playable</option>
+            </select>
+            <input type="search" id="champ-search" placeholder="Search" aria-label="Search champions">
+          </div>
+        </div>
+        <div class="champ-grid" id="champ-grid"></div>
+        <div id="icon-pane" hidden>
+          <div class="slot-bar">
+            <span>Profile card</span>
+            <div class="slots" id="col-slots"></div>
+            <small>Pick a slot, then an icon.</small>
+          </div>
+          <div class="icon-grid" id="icon-grid"></div>
+        </div>
+      </section>
+
+      <!-- ARSENAL -->
+      <section class="view" id="view-arsenal" hidden>
+        <div class="subnav">
+          <div class="subtabs" role="tablist">
+            <button role="tab" class="subtab on" data-tab="amplifiers">Amplifiers</button>
+            <button role="tab" class="subtab" data-tab="artifacts">Artifacts</button>
+            <button role="tab" class="subtab" data-tab="powers">Stolen Powers</button>
+          </div>
+          <div class="filters">
+            <select id="brand-filter" aria-label="Brand"></select>
+            <input type="search" id="arsenal-search" placeholder="Search" aria-label="Search the arsenal">
+          </div>
+        </div>
+        <div id="arsenal-body"></div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="view" id="view-profile" hidden>
+        <div class="profile">
+          <div class="profile-card">
+            <div class="crest">
+              <img id="profile-icon" alt="">
+              <i id="profile-level">30</i>
+            </div>
+            <h1 id="profile-name">Player</h1>
+            <p class="profile-sub" id="profile-sub"></p>
+            <div class="slots big" id="slots" aria-label="Profile card icons"></div>
+            <small class="hint">Pick a slot, then choose an icon in the Collection tab, under Icons.</small>
+          </div>
+          <div class="profile-side">
+            <h2 class="label">Training</h2>
+            <ul class="progress" id="progress"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAMPION -->
+      <section class="champ-page" id="champ-page" hidden aria-labelledby="cp-name">
+        <button class="close" data-close aria-label="Back to the collection">×</button>
+        <div class="cp-copy">
+          <p class="cp-tag" id="cp-tag"></p>
+          <h1 id="cp-name"></h1>
+          <h2 class="label">Abilities</h2>
+          <div class="abilities" id="cp-abilities"></div>
+          <div class="ability-info" id="cp-info"></div>
+          <h2 class="label" id="cp-skins-title">Skins</h2>
+          <div class="skins" id="cp-skins"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- friends (social panel) -->
+    <aside class="social" id="social" aria-label="Friends">
+      <div class="social-me">
+        <span class="me-icon small"><img id="soc-icon" alt=""><b class="pres-dot" id="soc-dot"></b></span>
+        <div class="social-me-text">
+          <b id="soc-name">Player</b>
+          <select id="soc-status" aria-label="Your status">
+            <option value="online">Online</option>
+            <option value="away">Away</option>
+            <option value="busy">Busy</option>
+          </select>
+        </div>
+      </div>
+      <form class="add-friend" id="add-friend">
+        <input id="add-name" placeholder="Add a friend by name" aria-label="Friend's name" maxlength="24" autocomplete="off">
+        <button aria-label="Add friend">+</button>
+      </form>
+      <div id="soc-lists"></div>
+    </aside>
+  </div>
+</div>
+
+<!-- mode select (PLAY) -->
+<div class="lobby" id="lobby" hidden role="dialog" aria-modal="true" aria-labelledby="lobby-title">
+  <div class="lobby-panel">
+    <div class="lobby-head">
+      <h2 id="lobby-title">Choose a mode</h2>
+      <button class="close" data-lobby-close aria-label="Close">×</button>
+    </div>
+    <div class="lobby-modes" id="lobby-modes" role="tablist"></div>
+    <div class="lobby-main">
+      <ul class="queues" id="lobby-queues"></ul>
+      <div class="lobby-art" id="lobby-art">
+        <div class="lobby-art-copy"><h3 id="lobby-map"></h3><p id="lobby-desc"></p></div>
+      </div>
+    </div>
+    <div class="lobby-foot">
+      <button class="btn-gold big" id="lobby-confirm">Confirm</button>
+      <button class="btn-ghost" data-lobby-close>Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- settings -->
+<div class="lobby" id="settings" hidden role="dialog" aria-modal="true" aria-labelledby="settings-title">
+  <div class="lobby-panel settings-panel">
+    <div class="lobby-head">
+      <h2 id="settings-title">Settings</h2>
+      <button class="close" data-settings-close aria-label="Close">×</button>
+    </div>
+    <div class="settings-body">
+      <h3 class="label">Interface</h3>
+      <div class="ui-choice">
+        <div class="ui-card" id="ui-new"><b>New interface</b><p>This launcher: play, champions, profile, arsenal and friends.</p><span class="ui-tag">In use</span></div>
+        <div class="ui-card" id="ui-legacy"><b>Legacy interface</b><p>The game's original menus. Launch a tutorial from Play Now in the game.</p>
+          <button class="btn-ghost" id="to-legacy">Switch to legacy</button></div>
+      </div>
+      <p class="settings-note" id="ui-note"></p>
+    </div>
+  </div>
+</div>
+
+<!-- confirm -->
+<div class="lobby" id="confirm" hidden role="alertdialog" aria-modal="true" aria-labelledby="confirm-title">
+  <div class="lobby-panel confirm-panel">
+    <h2 id="confirm-title">Restart in the legacy interface?</h2>
+    <p id="confirm-text">The launcher closes and Infinite Crisis restarts in its original menus.</p>
+    <div class="lobby-foot"><button class="btn-gold" id="confirm-yes">Restart</button><button class="btn-ghost" data-confirm-close>Cancel</button></div>
+  </div>
+</div>
+<div class="restarting" id="restarting" hidden role="status"><div><b>Restarting in the legacy interface</b><p>Infinite Crisis is opening. This window will close.</p></div></div>
+
+<!-- chat dock -->
+<div class="chat" id="chat" hidden>
+  <div class="chat-tabs" id="chat-tabs" role="tablist"></div>
+  <div class="chat-body">
+    <div class="chat-head"><b id="chat-with"></b><small id="chat-pres"></small>
+      <button class="chat-x" id="chat-min" aria-label="Minimize">–</button><button class="chat-x" id="chat-close" aria-label="Close conversation">×</button></div>
+    <ol class="chat-log" id="chat-log" aria-live="polite"></ol>
+    <form class="chat-form" id="chat-form"><input id="chat-input" placeholder="Write a message" maxlength="500" autocomplete="off"><button>Send</button></form>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/app/app.js"></script>
+</body>
+</html>

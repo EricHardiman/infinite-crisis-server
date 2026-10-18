@@ -1,0 +1,94 @@
+# Copy this file to config.toml and adjust what you need.
+# Anything you leave out uses the default value (icserver/config.py).
+
+[game]
+# Folder that contains InfiniteCrisis.exe and the rp\ folder
+# (single quotes avoid problems with backslashes)
+dir = 'C:\Games\InfiniteCrisis'
+exe = "InfiniteCrisis.exe"
+patched_exe = "InfiniteCrisis_patched.exe"
+language = "en"
+region = "NA"
+cpu_affinity = "FFFE"        # "" to leave the CPU affinity alone
+
+[server]
+host = "127.0.0.1"
+soap_port = 8888
+user_port = 9000
+game_port = 9001
+key = "keys/server_private.pem"
+champions_json = ""          # empty = looks for data\champions.json and <game>\_server\champions.json
+
+[account]
+level = 30
+player_name = "Player"
+
+[match]
+champion = 0x40000086        # Gaslight Batman
+agent_class = 0x40000086
+# "Player" object. 0x4000007C = "Unnamed Player", no model (removes the sliding Batman).
+# 0x40000086 = the same Batman as the previous emulator (use --classic if loading hangs).
+player_class = 0x4000007C
+spawn = [1, 0x13, 0xCB, 0, 18.7, 60.4, 200.3]
+cinematic = 0x35000026       # 0 = no intro cinematic
+pre_cinematics = []          # cinematics before the intro (0x35000025 was not the meteor)
+send_match_start = false     # 0x2053: currently crashes the client
+health = [600, 600]
+secondary = [100, 100]
+
+[timing]
+objects_min_delay = 4.0      # minimum seconds in the lobby before creating the objects
+objects_min_percent = 15     # loading % at which the game waits for the characters
+objects_max_wait = 10.0      # if the % never arrives, they are created anyway after 10 s
+link_delay = 2.0
+cinematic_delay = 5.0
+tutorial_start_delay = 0.5
+idle_resend = 5.0            # object refresh while the champion stands still (0 = off)
+keepalive = 2.0
+move_hz = 60
+move_speed = 4.5            # walking speed (was 6.0, looked too fast)
+ping_lifetime = 6.0
+
+[tutorial]
+# Stolen Powers on D / F: a DID or a name from `python ic.py stolen-powers`
+# (e.g. "Surveillance Camera / Gaslight Batman", "Super Strength / Superman")
+#camera_skill = "Surveillance Camera / Gaslight Batman"
+#strength_skill = "Super Strength / Superman"
+# Points the arrows guide you to (x, y, z), in order. With Alt + right-click
+# you can mark a point in the game: its position is written to logs\server.log.
+targets = [[25.0, 60.3, 200.0], [30.5, 59.0, 200.0]]
+meteors = true               # meteors at the start, on reaching the first marker and after the first drone
+catwoman_cinematic = 0x35000034  # after the practice drones: Catwoman breaks the vehicle; 0 = off
+hide_upgrade_buttons = false # hide the "+" buttons on unlock (true used to make the whole skill HUD disappear)
+drone_step = 3               # after the last point the drone appears and the arrows point at it
+# Skip part 1 to test the bridge: "bridge", "camera", "gate_fight", "unlock_e",
+# "e_practice", "vehicle" or "scream" ("" = the whole tutorial)
+start_at = ""
+# Move any spot of the bridge (see icserver/config.py for the names), e.g.
+# bridge_positions = { camera = [62.6, 41.7], vehicle = [112.1, 15.6] }
+
+[combat]
+use_variants = true          # drones with health that can be attacked (character variants)
+enemy_team = 2
+drone_health = 200
+basic_attack_damage = 45
+attack_interval = 1.0        # seconds between basic attacks
+attack_range = 2.5
+corpse_seconds = 3.0         # the defeated drone disappears after this
+scenery_module = [1, 1]  # the props' movement module; "none" = no module (the client does not place them)
+spawn_scenery = true         # vehicle and drone gates of the first area
+click_attack_radius = 2.5    # right-click on the ground this close to a drone = attack it
+attack_move_radius = 8.0     # with A + click: attacks the nearest drone within this radius
+
+[scripts]
+# Scripts the server orders the client to run (event 0x8D) for the animations.
+# Right hit then left hit: animation (Combat_Basic_Attack_*) + shot effect (Vfx_Bmg_Basic_Ranged_*)
+basic_attack_keys = [[0x10000195, 0x10000188], [0x10000196, 0x10000189]]   # [] = off
+send_target = true           # passes the drone as the shot's target (variable 0x108)
+hit_keys = [0x10000223, 0x10000209]   # on the drone that was hit: effect + physical reaction; [] = off
+death_keys = [0x100001FA]    # when a drone dies (_Defeat_OnDead); [] = off
+originator = 0
+
+[debug]
+hexdump = true               # full hex dumps in logs\traffic.log
+dev_send_file = true         # logs\send.txt to send events by hand

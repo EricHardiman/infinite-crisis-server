@@ -1,0 +1,111 @@
+id	kind	speaker	when	server_status	notes
+0x1BA	conversation		Part 1: start, after the intro cinematic	sent	Opening line (INTRO_CONVERSATIONS). Est. 5.1 s.
+0x193	conversation	Batman (probable)	Part 1: Batman gets up after the big meteor (+6.2 s)	sent	Relief at a close call. Est. 3.1 s.
+0x19C	conversation	Superman (probable)	Part 1: +9.2 s after marker 1	sent	Urges him on and introduces the fog of war. Est. 11.5 s.
+0x1AC	conversation	Batman (probable)	Part 1: marker 2 reached (drone step)	sent	Wonders what the machines are. Est. 3.0 s.
+0x1B8	conversation	Superman (probable)	Part 1: +3 s, with the drone objective	sent	Names the corrupted drone and orders its destruction. Est. 3.1 s.
+0x1E1	conversation	Batman (probable)	Part 1: first drone defeated (+0.5 s)	sent	Remark about the metal monsters. Est. 4.6 s.
+0x1E0	conversation	Superman (probable)	Part 1: +4 s, the wave teleports in	sent	Warns that more drones are on the way. Est. 4.7 s.
+0x38C	conversation	Superman (probable)	Part 1: +7 s, with hint 17	sent	Explains how basic attacks keep going once started. Est. 6.6 s.
+0x1DF	conversation	Superman (probable)	Part 1: wave defeated, level 2	sent	Short praise. Est. 1.6 s.
+0x1D4	conversation	Superman (probable)	Part 1: +2.5 s after level 2	sent	Introduces skills beyond the basic attack. Est. 5.3 s.
+0x1BE	conversation	Superman (probable)	Part 1: skill prompt (+7.5 s)	sent	Asks to spend the skill point on the highlighted Q upgrade button. Est. 4.9 s.
+0x19B	conversation	Superman (probable)	Part 1: Q ranked (+0.5 s)	sent	More about learning skills. Est. 6.4 s.
+0x1AB	conversation	Superman (probable)	Part 1: +4.5 s, practice drones appear	sent	Asks the Construct for target drones. Est. 3.7 s.
+0x1B7	conversation	Superman (probable)	Part 1: +7.5 s, practice objective	sent	Invites practising the new skill on the targets. Est. 9.7 s.
+0x19A	conversation	Superman (probable)	Part 1: practice drones destroyed (+2 s)	sent	Explains skill cooldowns. Est. 8.8 s.
+0x1E3	conversation	Superman (probable)	Part 1: after 0x19A	sent	Explains the Will resource that skills consume. Est. 5.8 s. The Catwoman cinematic waits for it.
+0x1AF	conversation		Part 1: first line of cinematic 0x35000034	off	Says the way ahead is blocked. Carries the cinematic-line flag 0x4000: the cinematic plays it, the server must not (it played twice).
+0x357	conversation	Catwoman (probable)	Cinematic 0x35000034	off	Cinematic-line flag 0x4000, like 0x1AF; spoken by the cinematic itself.
+0x358	conversation		Cinematic 0x35000034	off	Cinematic-line flag 0x4000; spoken by the cinematic itself.
+0x1CE	conversation	Superman	Any time: Batman below 25 % health (once)	sent	Warns that Batman's health is low and the Construct is healing him (he cannot die in the tutorial).
+0x1CD	conversation	Superman	Target drone hit by a basic attack (once)	sent	Explains that target drones only take skill damage.
+0x1DB	conversation	Superman	Target drone hit by the wrong skill (once)	sent	Says that attack does nothing to this target.
+0x1B2	conversation	Superman	Target drone hit by the wrong skill again (once)	sent	Suggests using the skill just learned.
+0x1C9	conversation	Batman	Bridge: after cinematic 0x35000034	sent	Catwoman has left her pursuers to them; two drones come.
+0x1E5	conversation		Bridge: pursuers defeated, level 3	sent	
+0x1E4	conversation		Bridge: +3 s after level 3	sent	
+0x1C2	conversation	Superman (probable)	Bridge: W unlock prompt	sent	Asks to unlock the next skill (W highlighted, hint 34).
+0x1B1	conversation		Bridge: W target drone appears	sent	Invites trying the new skill.
+0x192	conversation		Bridge: +4.5 s, W practice	sent	
+0x191	conversation		Bridge: W target destroyed	sent	Alarm: more enemies; three drones surround Batman.
+0x199	conversation		Bridge: +6 s, surround	sent	
+0x1D9	conversation		Bridge: surround defeated, level 4	sent	
+0x1D3	conversation	Superman (probable)	Bridge: upgrade prompt (Q or W)	sent	Asks to upgrade a skill; both Q and W are highlighted.
+0x38D	conversation		Bridge: first gate opens	sent	Time to move on; marker on the bridge.
+0x1CC	conversation		Bridge: ambush at the marker (gate closes behind)	sent	
+0x22B	conversation		Bridge: ambush defeated	sent	Introduces Stolen Powers.
+0x22A	conversation		Bridge: D button granted	sent	Says Gaslight Batman's own power is the surveillance camera (hint 27).
+0x196	conversation	Superman (probable)	Bridge: camera prompt	sent	Asks to place a camera on the marked spot.
+0x1BD	conversation		Bridge: camera placed	sent	Praises well-placed cameras.
+0x1D2	conversation		Bridge: middle gate opens	sent	Keep fighting towards the base (hint 22); four drones hit the last gate.
+0x1C6	conversation		Bridge: gate drones defeated, level 5	sent	
+0x1D1	conversation	Superman (probable)	Bridge: E unlock prompt	sent	Asks to unlock the next skill (E).
+0x190	conversation		Bridge: E target drone appears	sent	
+0x1AA	conversation		Bridge: +4 s, E practice	sent	
+0x1AE	conversation		Bridge: E target destroyed	sent	The enemy sends more drones (four).
+0x1A1	conversation	Superman (probable)	Bridge: passive prompt	sent	Skill point for the passive, Echoes (hint 23).
+0x18F	conversation		Bridge: passive ranked	sent	
+0x1E2	conversation		Bridge: last gate opens	sent	Short call to go; drones are hitting a car at the end of the bridge.
+0x1CB	conversation		Bridge: car drones defeated, level 6	sent	
+0x1DC	conversation	Superman (probable)	Bridge: R unlock prompt	sent	Asks to unlock the Bat Scream.
+0x1A0	conversation		Bridge: R unlocked	sent	The camera has spotted drones two sections back (red alert marker).
+0x1C8	conversation		Bridge: after 0x1A0	sent	Points at the red dots on the minimap. Est. 3.2 s.
+0x1B6	conversation		Bridge: camera unlock lines	sent	Explains that the view follows Batman. Est. 3.0 s.
+0x1B0	conversation		Bridge: camera unlock lines	sent	...how to unlock it. Est. 3.0 s. The server then waits for User.CameraLocked = False (0x216E) or camera_unlock_wait.
+0x1CA	conversation		Bridge: camera unlocked	sent	Est. 5.5 s; with the pan objective.
+0x1B5	conversation		Bridge: after 0x1CA	sent	Est. 5.0 s.
+0x1D8	conversation	Batman (probable)	Bridge: after 0x1B5	sent	Describes the Bat Scream as a long-range wave that hurts every enemy on its path. Est. 9.5 s.
+0x1D0	conversation		Bridge: Bat Scream prompt	sent	Fire it at the drones (0/3 objective). Est. 3.0 s.
+0x3AC	conversation		Bridge: a Bat Scream missed	sent	Advises taking time to aim. Est. 5.5 s.
+0x1A5	conversation		Bridge: Bat Scream drones defeated	sent	Praise for the shot. Est. 7.5 s.
+0x1AD	conversation		Bridge: camera lock lines	sent	Est. 3.2 s.
+0x1A8	conversation		Bridge: camera lock lines	sent	Est. 5.0 s.
+0x19F	conversation		Bridge: camera lock lines	sent	Asks to lock the camera back on Batman (also the objective). Est. 3.0 s.
+0x1C5	conversation	Superman	Finale: start (camera locked again)	sent	Another car blocks the road; he will lend Batman his Super Strength. Est. 16 s.
+0x1C1	conversation	Superman	Finale: F granted	sent	Tells the Protector to clear the way with Super Strength. Est. 3 s.
+0x1C0	conversation		Finale: car lifted	sent	Warns of more drones (three appear). Est. 2 s.
+0x1B4	conversation		Finale: after 0x1C0	sent	Tells him to throw the car. Est. 1.5 s.
+0x1CF	conversation		Finale: cinematic 0x35000028	off	Lines of the Destroyer cinematic; spoken by the cinematic.
+0x1D7	conversation		Finale: after cinematic 0x35000028	sent	Short: he knows what to do (reach the Destroyer). Est. 1.8 s.
+0x195	conversation		Finale: car B drones defeated, level 7	sent	Skill point for any skill. Est. 1.8 s.
+0x1C7	conversation	Batman (probable)	Finale: drones ahead defeated	sent	Refuses to let the machine stop them; Destroyer objective. Est. 3.2 s.
+0x1BC	conversation	Superman (probable)	Finale: ending cinematic 0x35000025	off	Congratulations to the Protector; spoken by the cinematic.
+16	hint		Part 1: marker 1 (+7 s)	sent	Guide Arrows. Hint records 0x40000D30-0x40000D48, texts in string tables 0x2B000202-0x2B00021A.
+17	hint		Part 1: first drone defeated (+7 s)	sent	Basic Attack.
+18	hint		Part 1: level 2; also after a start_at jump	sent	Experience.
+19	hint			data only	Quick Upgrade.
+20	hint			data only	Will.
+21	hint		Part 1: skill prompt	sent	Skill Ranks.
+22	hint		Bridge: middle gate opens	sent	Skill Charges.
+23	hint		Bridge: passive prompt	sent	Passive Skills.
+24	hint			data only	Spacebar.
+25	hint			data only	Camera zoom.
+26	hint		Finale: car lifted	sent	Super Strength and moving.
+27	hint		Bridge: D button granted	sent	Earn Stolen Powers.
+28	hint			data only	Attack-move.
+29	hint			data only	Attributes.
+30	hint			data only	Level Reset.
+31	hint			data only	Damage Types.
+32	hint			data only	Recommended Panel.
+33	hint			data only	Damaging Turrets.
+34	hint		Part 1: skill prompt; bridge W prompt	sent	Skill Points.
+35	hint			data only	Jungle Leashing.
+36	hint			data only	Jungle Camps.
+37	hint			data only	Activating Artifacts.
+38	hint			data only	Tactical Skills.
+39	hint			data only	Deployed Items.
+40	hint			data only	Status Icons. (Ids 2-15 and 41-44 belong to other maps.)
+1	objective		Whole tutorial	sent	The only objective (0x2034 list, then 0x2009 updates of its text and banner); category 1 'A Champion in Peril' shown with state 8. Cleared (inactive, empty banner) when the Destroyer falls and at the match end; tracker off with 0x2075.
+0x026BF934	objective text		Bridge / finale drone fights	sent	String token (pack 0xA00000B3): defeat the drones with basic attacks and skills (n/m). The server sends its own English text.
+0x05EBF934	objective text		Bridge: W unlock	sent	Token: click the highlighted button to unlock Sonic Shell.
+0x027BF934	objective text		Bridge: level 4	sent	Token: upgrade either Sonic Batarang or Sonic Shell.
+0x02BBF934	objective text		Bridge: E unlock	sent	Token: unlock Bat Flight.
+0x02EBF934	objective text		Bridge: passive	sent	Token: upgrade the passive skill, Echoes.
+0x036BF934	objective text		Bridge: R unlock	sent	Token: unlock the ultimate skill, Bat Scream.
+0x038BF934	objective text		Bridge: camera unlocked	sent	Token: pan the camera to the highlighted spot (minimap click or screen edge).
+0x029BF934	objective text		Finale: car lifted	sent	Token for throwing the vehicle (reverse-engineering.md). finale.py tags its throw objective 0x03DBF934 instead.
+0x03DBF934	objective text		Finale: car lifted	sent	Token named by finale.py for the throw objective; see 0x029BF934.
+0x03EBF934	objective text		Finale: car intro	sent	Token: another car blocks the way.
+0x03FBF934	objective text		Finale: Destroyer	sent	Token: defeat the Destroyer with basic attacks and skills.
+0x250	announcer	Announcer	Ending: with the VICTORY billboard	sent	CODE_UI_ANC_Congratulations_Victory (dialog line name). Candidate for the missing Victory voice (victory_voice_lines). Alternatives: 0x25E, 0x233.

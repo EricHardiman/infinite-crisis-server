@@ -1,0 +1,23 @@
+UI pack 0xA00000D0 reverse-engineering notes (2026-10-15)
+- AS2 code library: CWS at pack data offset 0x2189b08 -> ui_re/gfx/cws_2189b08.swf (3.1 MB, __Packages.*)
+- Disassembly: ui_re/as2_lib.txt (scripts/as2dis.py); per-movie GFX in ui_re/gfx/ (scripts/extract_gfx.py)
+- Enums: scripts/enums.py as2_lib.txt <suffix>; uism_events.txt (UI state machine event ids); all_ids.txt (notice ids)
+- 0x24000007 = font glyph table; 0x52xxxxxx = Wwise banks (Announcer_LOBBY/Wrapper/Store_and_Advancement)
+- 0x48000E76 = wrapper config (images/texts/packs, read at 0xac70e9..0xac7304)
+Key findings:
+- UIStateMachineEvent 0x21 = TransitionToScorecard, 0x12 = MatchEnded (fired by event 0x2038), 0x14 TransitionToLobby, 0x33 ServerLoadComplete
+- Flash RecvNotice_ShowAnnouncement(iidPlayer, siText, eBillboardType, didSrcIcon, didTgtIcon, iSrcTeam, iTgtTeam, bUseTgtTeamColor)
+  BillboardUpdateType: 2 GenericText, 6 Location, 7 MatchTie, 8 MatchLoss, 9 MatchWin, 10 Team2Victory, 11 Team1Victory
+  types 7..11 -> WinLossBillboard (big boxed VICTORY/DEFEAT)
+- Flash RecvNotice_NotifyMatchEnded(iid, uWinningTeam, uPlayerTeam, fMatchDuration, nTier, fTargetTime) -> MainHUD.HideHudOnMatchEnd
+- Scorecard (TransitionToScorecard) waits for ScorecardManager.CheckForAllDataReceived (see report)
+- Tutorial scorecard: SetupBasedOnTutorial(didEncounter) shows m_wtMissionComplete + encounter data (sName, sDescription, sBulletedDescription, sCompletionSummary, didFlavorImage)
+
+Scorecard data (see scorecard_msgs.py; tracer scripts/sert2.py VA):
+ 0x2190 ser 0x83f230 | 0x2154 ser 0x68f240 | 0x2188 ser 0x845000 | 0x2080 ser 0x8392f0
+ 0x2081 (currency balance) ser 0x68f240 exec 0x8aa970->0xa1ab40 | 0x20B9 ser 0x83bb90
+ 0x2104 ser 0x849680 | 0x2090 ser 0x8481a0 | 0x219E ser 0x83feb0 | 0x219F ser 0x848b80
+ 0x2120 ser 0x849540 (achievements; training defs not in local packs)
+ Request notices 0x100003F1/F2/FA/4E6 are Flash->C++; cached replies by VA 0xa1a100.
+ Achievement categories: 1 General, 2 Training, 3 ProtectorLevel, 4 ChampionLevel
+ (0x49000EC8..ECB in 0xA00000B3 are ChampionLevel achievements, prop 0x10000A25=4).

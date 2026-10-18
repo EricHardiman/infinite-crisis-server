@@ -1,0 +1,22 @@
+id	name	foundry_group	foundry_filter
+0x10000140	Health Regeneration	2	13
+0x10000426	Health	2	7
+0x10000483	Will Regeneration	3	15
+0x10000486	Will	3	10
+0x100004AA	Resilience	2	6
+0x100005E4	Move Speed	4	18
+0x100006FE	Attack Speed	1	14
+0x10000852	Credits	4	17
+0x10000B46	Critical Chance	1	9
+0x10000B75	Power Damage	3	19
+0x10000B76	Attack Damage	1	4
+0x10000B7A	Power Armor	2	2
+0x10000B7B	Cooldown Reduction	4	5
+0x10000B7C	Attack Lifesteal	1	1
+0x10000B7D	Attack Penetration	1	11
+0x10000B7E	Power Penetration	3	12
+0x10000B7F	Power Lifesteal	3	16
+0x10000B80	Critical Chance	1	9
+0x10000B82	Power Penetration	3	12
+0x10000B83	Attack Penetration	1	11
+0x10000B84	Attack Armor	2	3

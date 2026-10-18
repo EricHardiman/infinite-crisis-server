@@ -1,0 +1,100 @@
+id	direction	name	server_status	notes
+0x2	both	Notice (generic)	handled	Client: cinematic state, input notices. Server: tutorial hint.
+0x3	server	Remove object	sent	
+0x4	server	Create / update object (with properties)	sent	Batch 0x4 with 0xF2 descriptor.
+0x42	server	Vitals (health, secondary resource)	sent	Only to objects with a vitals component. Sent with every champion bundle.
+0x8D	server	Start scriptlets on an entity	sent	Animations, VFX, sounds; key must be in the entity's table.
+0xCC	client	Level loaded	ignored	Sent with the 10/15 % loading step.
+0xCE	server	Account character set	sent	Login.
+0xEB	server	Set local player	sent	At login and again before every later match (the world teardown resets it).
+0x100	server	Packet: ServerSwitch	sent	u32 sequence; makes the game connection current.
+0x12D	client	Left the match world	handled	After the match ends (teardown).
+0x800	server	Packet: Referral	sent	u64 cookie | u16 | u8 | u8 | u16 port | char[256] host. After AcceptMatch.
+0x2001	server	Start conversation	sent	
+0x2009	server	Objective update	sent	
+0x2016	server	End room check	sent	Lobby over: the client loads the world (apply 0x8b8a90 -> 0xab9080: SetLobbyTransitionCalled, CheckTransitionToWorldLoad). Re-arms a 60 s watchdog. Held back during a champion select (fase3-iy).
+0x2021	server	Exit lobby	off	u8 0 | u32 room id; the client leaves the world (answers 0x12D). exit_lobby_delay = -1.
+0x2024	server	Deliver encounter info	sent	Login.
+0x2028	server	Lobby room created	sent	
+0x2029	server	Lobby player slot	sent	
+0x2031	server	Lobby loading percent	sent	
+0x2034	server	Objective list	sent	
+0x2038	server	Match ended	sent	UI state machine event MatchEnded.
+0x2045	server	End-of-match stats	sent	Scorecard.
+0x204C	server	Lobby state	sent	Lobby: u8 0 | u32 teams | u32 players per team | u32 encounter | u32 qflags | u64 | u32 my team | u32 room | lists. Teams 0 (tutorials) = no champion select; fase3-iy sends 2 x 1 for Coast City v AI. Apply 0x8b8970 -> 0xabde80.
+0x2053	server	Match started	off	Makes the client reload (send_match_start).
+0x206D	server	All loaded?	sent	
+0x2075	server	Objective tracker enabled	sent	
+0x207A	client	(sent once the local player is recognised)	ignored	Missing on a replay without 0xEB.
+0x2080	server	Account level / XP	sent	Login (opens the landing screen) and scorecard.
+0x2081	server	Currency balance	sent	Scorecard.
+0x2090	server	Amplifier sets	sent	Scorecard.
+0x2095	server	Item fulfilled ribbon	off	Small "upgrade unlocked" ribbon.
+0x209D	server	Master character list	sent	Login.
+0x20A0	server	Skill disable condition (slot, ErrorType, add/remove)	data only	u8 0 | u32 slot (-2 = all) | u32 ErrorType key | 16 bytes | u8 add (1) / remove (0). Keys: 0x1000003B Silenced, 0x10000050 Rooted, 0x1000006B Crippled (only for skills with 0x100007FD), others always block. Never sent.
+0x20A6	client	End page closed	handled	
+0x20AD	server	Players accepted	sent	
+0x20AF	server	Enter match	sent	
+0x20B8	server	Item statuses	sent	u8 0 | u32 n | n x (u32 DID | u32 status | u32 content type | u8 owned | u32 count). Owned / locked champions (type 1), skins (4) and, since fase3-fn, the 134 Protector icons (3). Flash OwnablesManager builds its lists from it.
+0x20B9	server	Soft currency reward	sent	Scorecard.
+0x20BA	client	Post-match changes request	ignored	Empty body.
+0x20BE	client	Telemetry	ignored	Frame timings.
+0x20C0	server	Joined queue	sent	
+0x20C4	client	Sent on Launch (before the encounter overview movie) and after the end page	handled	Empty body; no reply needed. JoinQueue 0x20EB follows about 2 s after the movie ends (client side). After a match ended it marks the end page closing: the new interface brings the launcher back (fase3-fx).
+0x20CA	client	Accept match	handled	
+0x20D5	client	Loading percent	handled	
+0x20EB	client	Join queue	handled	
+0x20ED	server	Champion data	sent	Login.
+0x20EE	client	Order: move / attack / skill	handled	u32 command (2 attack or skill, 3 attack-move, 4 move, 6 stop, 9 skill) | u32 ability = skill slot (0 basic, 1-4 Q-R, 7 D, 8 F) | u64 target | position | u8.
+0x20F2	client	Connect to lobby	handled	
+0x20F5	server	Play cinematic	sent	0x35... cinematic DID.
+0x20F8	server	Skill cooldown	sent	u8 0 | u64 agent | u32 slot | f64 end time.
+0x20FA	server	Match found	sent	
+0x2104	server	Character level / XP	sent	Scorecard.
+0x211B	client	Entity attached (local player)	ignored	Its absence on a replay meant no local player.
+0x211F	server	Pending achievement notifications	sent	Answer to 0x212E (empty table).
+0x2120	server	Achievement progress	sent	Login (the 5 trainee achievements) and match end (Tutorial n newly complete): u8 0 | table of progress entries | u32list deprecated.
+0x2124	client	Ask for pending rewards	handled	Answered with 0x2125.
+0x2125	server	Pending reward sets	sent	Answer to 0x2124 (and with 0x211F): u8 0 | u32 n | elements (set, source, -, item, qty, bestowal, u64 instance, icon, name). The client passes it to the UI only once per instance id.
+0x2128	client	Claim reward (Continue)	handled	u32 reward set | u32 choice | u32 source | u64 instance | lists.
+0x212E	client	Ask for achievement banners	handled	Answered with 0x211F. Also sent when the client returns to the Launch screen after the overview movie without queuing; the server then queues it (fase3-fz).
+0x2136	client	Player ping	handled	Patched client also sends RankSkill as ping type "KNAR".
+0x213A	client	(sent once the local player is recognised)	ignored	As 0x207A.
+0x213D	server	HUD element event	sent	1 restore, 2 hide, 7 highlight.
+0x214B	server	Completed encounters	sent	
+0x2154	server	Protector icon slot	data only	u8 0 | u32 icon | u32 slot (scorecard.protector_icon_slot): the answer to 0x2093.
+0x215D	server	Account flags	sent	Login: u8 0 | u32 1 | u8 0.
+0x216A	server	Server preferences	sent	
+0x216E	client	User preference saved	handled	
+0x2188	server	Accolades	sent	Scorecard.
+0x218B	server	Account tables (game settings)	sent	Login: FeaturedMap_PVP / FeaturedMap_BOTS settings.
+0x2190	server	Header + protector icons	sent	u8 0 | 5 x u32 icon | u32 | u32 | StringInfo | StringInfo | u32 | u8. Flash GM_UI.RecvNotice_SendHeaderNameAndProtectorIcons(name, icon DIDs, names, descs, unlock texts) fills the header and its 5 icon slots (each opens the Protector icon picker). Sent after the end page and, since fase3-fp, at login with the first 5 avatar icons (ownable DIDs, to be confirmed).
+0x219E	server	Account standings	sent	Scorecard.
+0x219F	server	Standings	sent	Scorecard.
+0x40000	server	Packet: welcome / ConnectRequest reply	sent	16-byte route id | BE f64 time | 8 | u32 | BE u32 | BE u32 connection id. Both connections.
+0x01000000	server	Packet: time (keepalive)	sent	BE f64 time every 2 s on the game connection; without it the client drops it after 60 s.
+0x1000000E	server	Notice: NotifyMatchEnded (in event 0x2)	sent	u32 winning team | u32 player team | f32 seconds | u32 tier | f32 target time. Equal teams = VICTORY.
+0x10000117	client	Notice: cinematic state (in event 0x2)	handled	u32 state | u32 cinematic DID; 4 = ended.
+0x1000015E	client	Notice: load complete (in event 0x2)	handled	Starts the intro cinematic after cinematic_delay.
+0x10000251	internal	Flash notice RequestPostMatchChanges	data only	Probably what sends 0x20BA.
+0x1000027F	server	Notice: tutorial hint (in event 0x2)	sent	u32 hint id | u8 force open.
+0x100002AF	server	Notice: timeline banners on (in event 0x2)	off	u64 iid; needed with 0x100002B1 before 0x10000424.
+0x100002B1	server	Notice: timeline banners on, 2 (in event 0x2)	off	u64 iid.
+0x100002EB	server	Notice: ShowAnnouncement (in event 0x2)	sent	StringInfo | u32 billboard type (2 text, 9 MatchWin, 11 Team1Victory) | u32 src icon | u32 tgt icon | i32 src team | i32 tgt team | u8.
+0x100002EC	server	Notice: ClearAnnouncement (in event 0x2)	data only	Empty.
+0x100003F1	internal	Flash request: character level / XP	data only	Answered from the client's cache of 0x2104.
+0x100003F2	internal	Flash request: soft currency	data only	Cache of 0x20B9. Same number as the wagon behavior property.
+0x100003F4	internal	Flash notice RequestPendingPostMatchRewards	data only	No AS2 code sends it.
+0x100003F5	internal	Flash notice ClaimPostMatchReward	data only	Makes the client send 0x2128.
+0x100003FA	internal	Flash request: account level / XP	data only	Cache of 0x2080.
+0x10000402	internal	Flash notice RewardSetsData	data only	C++ -> Flash, from the 0x2125 handler.
+0x10000415	internal	Flash notice AllPendingAchivementBanners	data only	After 0x211F.
+0x10000424	server	Notice: AddTimelineBanner (in event 0x2)	off	victory_timeline_banner.
+0x1000042E	internal	Flash notice RequestAllPendingRewardlessAchievementNotifications	data only	Makes the client send 0x212E.
+0x1000042F	internal	Flash notice RequestPendingRewardUpdateFromServer	data only	Makes the client send 0x2124.
+0x1000049B	internal	Query InqSuperBannerVideoForAchievement	data only	Reads 0x10000BCD of the achievement record.
+0x100004E6	internal	Flash request: accolades	data only	Cache of 0x2188.
+0x1000047D	internal	Query RequestProtectorIcons (Flash -> C++)	data only	ProtectorIconManager.BuidDataArray: every Protector icon's ownable DID (didIconWC), picture, name, description and unlock text, from the game data.
+0x1000047E	internal	Notice UI_SetProtectorIcon (Flash -> C++)	data only	Sent when the player picks an icon for a header slot (icon DID, slot). It goes out as 0x2093; the server's answer is 0x2154.
+0x2093	client	Set Protector icon (profile header slot)	handled	u32 icon (ownable DID 0x40...) | u32 slot 0-4 (seen 15:10: 0x40000E55, slot 0). Saved in data/progress.json; answered with 0x2154.
+0x20E4	client	Lobby character lock (probable)	handled	u32 character variant | u8 1 | u32 1, sent in the champion select (2026-10-18 00:23). fase3-iz answers with the 0x2029 slot locked and ends the lobby.

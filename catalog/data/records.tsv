@@ -1,0 +1,26 @@
+id	name	pack	kind	notes
+0x480003CD	Stolen Powers catalog	0xA00000B3	list	Property 0x10000842: 12 groups; 0x10000841 count, 0x10000840 skill DIDs (first = base power).
+0x48000A49	Augment list	0xA00000B3	list	Property 0x1000099F: array of 0x100009A0 DIDs (162). Who points the game at it is unknown.
+0x48000A4A	Mod list	0xA00000B3	list	Property 0x1000099F: array of 0x100009A0 DIDs (172).
+0x48000163	Artifact Foundry config (main)	0xA00000B3	list	0x1000042C artifacts offered (228); 0x10000844 stat filter groups (item stat names).
+0x48000EA9	Artifact Foundry config	0xA00000B3	list	210 artifacts; per mode / map (map records point to a foundry through 0x1000081E).
+0x48000EAA	Artifact Foundry config	0xA00000B3	list	210 artifacts.
+0x4800118B	Artifact Foundry config	0xA00000B3	list	210 artifacts.
+0x480007B0	Artifact Foundry config	0xA00000B3	list	210 artifacts.
+0x48000E76	UI wrapper config	0xA00000D0	config	Images, texts and packs of the menus; property 0x10000BAC = trainee achievement list.
+0x48000615	Gaslight Batman skill set	0xA0000122	skill set	Slots 0x100008E3 (basic), 0x100008E8 Q, 0x100008EA W, 0x100008EC E, 0x100008E6 R, 0x100008EF passive.
+0x48000617	Gaslight Batman champion record	0xA00000B8	champion	Template 0x48000732.
+0x4800092D	Gaslight Batman stat sheet (variant 0x49000086 -> 0x10000165)	0xA00000B3	stats	Holds no stat values; his numbers are probably in the champion record / template.
+0x480014B4	Drone stat sheet	0xA0000257	stats	Health 1500, Attack Damage 45, Attack Speed 0.59, Move Speed 3.
+0x49000B08	Tutorial 1 achievement (twin of 0x40000B08)	0xA00002FF	achievement	Property 0x10000BCD = the showcase movie played after Champion Unlocked.
+0x40000B07	Tutorial 1 reward set	-	reward set	Grants Gaslight Batman (0x40000086).
+0x1D0001F6	Shared script table	-	script table	A 0x1D script template shared by champions (via class property 0x7D2); Batman's basic attack keys come from it.
+0x33000000	Scriptlet / event name table	-	name table	Names of 0x10... scriptlet keys (data/batman_actions.tsv).
+0x300000A4	Animation graph event name table	-	name table	Different numbering from 0x33000000: the same id can name another thing.
+0x34000164	Super Strength server script	0xA00000B3	server script	InitObjectPickup 0x100007A2 on Batman; PickupObject 0x100007A1 and ThrowObject 0x100007A0 on Batman and the object; hit effects on the target; _Combat_GoToLocomotion.
+0x34000167	Thrown object script	0xA00000B3	server script	Runs on the thrown object: Vfx_OnThrown 0x1000087A at 0.3 s; on collision Vfx_OnCollision 0x10000016, skill 0x48000295 on the target (Destructible_AdvanceState = 1, knockdown script 0x34000131), hit effects, Vfx_OnExplode 0x10000079, a destruction push, 0x1000001C.
+0x1D0008EF	Destructible object script table (analog of the wagons 0x1D0000BA/BB)	0xA00000B3	script table	Vfx_OnInit, Vfx_OnCollision, Vfx_OnExplode, destroy entity; particles 0x180006C3/C4 and debris model 0x170001C6.
+0x480003C9	Super Strength throw skill	0xA00000B3	skill	Linked skill 3 of base 0x480003CB (0x10000855). Script 0x34000161 (ThrowObject), targeting 1 (ground), stat 0x17 = 9 m range, stat 0x12 = 2.5 m radius, ground markers 0x100006D7 = 0x48000155 / 0x100006D8 = 0x48000156 (decal 0x17000608). The server puts it on F while Batman carries a car.
+0x20000056	Skill panel movie (Flash)	0xA00000D0	UI movie	Holds m_mcMouseButton (image 0x13000E68, right mouse button = basic attack): the small mouse icon left of the basic attack. Original art, not a server element.
+0x3400015F	Destructible explosion script (thrown / exploding objects)	0xA000024C	server script	Runs on the object: Vfx_OnThrown 0x1000087A, Vfx_OnFire 0x1000013E, Vfx_OnInit 0x10000078, Destructible_IgnoreAOI 0x10000A9D, Vfx_OnExplode 0x10000079; skill 0x48000294 and VFX_CBT_Hit_Shared on the target; vars DestructionMagnitude, DestructionRange, ExplosionRange, DestructionDelayDuration. Referenced by 0x1D00067A (-> 0x49000C40, 0x49000CAF, 0x4900081C) and 0x1D0008C4. Not sent yet.
+0x3400072D	Destruction impulse script	0xA000024C	server script	Vars DestructionMagnitude, DestructionRadius; referenced by 0x490001BD..0x490001CA. Not sent yet.

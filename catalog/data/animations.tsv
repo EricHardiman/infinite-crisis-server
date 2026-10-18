@@ -1,0 +1,149 @@
+id	name	graph	kind	server_status	notes
+0x1A0002E7	chr_batman_gaslight_behavior.hkb		graph	data only	Gaslight Batman's Havok behavior graph, pack 0xA0000122. Super Strength sub-machine SuperStrength_Car: Pickup_Start (bend and hold, waits for CarPickup) -> Pickup -> Hold (car idle / walk / run clips blended by the walk speed, variable 0x300) -> Throw (car leaves the hands at 0.20 s). Also KnockUp (FaceDown / FlipBack / FlipForward), Get Up (FaceDown / FaceUp), KnockDown, KnockBack, Stasis, Inactive, emotes, fidgets.
+0x1C000021	env_gas_vehicle_paddy_wagon_behavior.hkb		graph	sent	Paddy wagons' behavior graph (property 0x5B5 of 0x2E00034D / 0x2E00034E, sent with carrier props). States Idle01 / Idle02, each an idle and a crash clip (cin car a / b); also names env_gas_vehicle_paddy_wagon_exploding.hkx, which is a character asset (the breakable model), not a clip of the graph: the graph (0x1A0001B8, pack 0xA000024C) has only the states Idle01 / Idle02, each Idle + Crash (cinematic car a / b), and the events State_to_State, IdleState01, IdleState02 (2026-10-16).
+0x300000A4	Animation-graph event name table		name table	data only	Names Havok graph events. The 0x8D scriptlet keys use table 0x33000000: the same number means different things (0x10000176, 0x10000195, 0x10000063...).
+0x33000000	Scriptlet / event key name table		name table	data only	Names of the 0x8D keys (names_all.txt).
+0x10000246	SuperStrength_CarPickup (CarPickup)	0x1A0002E7	event	implemented	Raised with 0x100001E3 + variable 0x780 after the last lift key (lift_events): leaves Pickup_Start.
+0x100000BB	State_to_Locomotion (state_to_locomotion)	0x1A0002E7	event	off	Candidate for after the throw ([tutorial] throw_end_events, default empty); the server uses scriptlet _Combat_GoToLocomotion instead.
+0x100002FD	_Combat_GoToLocomotion	0x1A0002E7	state	implemented	Scriptlet key (locomotion_keys) 0.9 s after the throw: back to normal walking.
+0x100001E3	_HFSM_BehaviorRaiseEventAction	0x1A0002E7	event	implemented	Scriptlet that raises any graph event; the event goes in script variable 0x780 (kind enum, raise_event_kind 8).
+0x00000780	Raise-event variable	0x1A0002E7	variable	implemented	Script variable of 0x100001E3 = the graph event id.
+0x100007A2	SuperStrength_InitObjectPickup	0x1A0002E7	event	implemented	Scriptlet on Batman (car as 0x108 and second object): enters SuperStrength_Car / Pickup_Start.
+0x100007A1	SuperStrength_PickupObject	0x1A0002E7	event	implemented	Lift, lift_step 0.5 s after 0x100007A2.
+0x100007A0	SuperStrength_ThrowObject	0x1A0002E7	event	implemented	Throw (throw_keys).
+0x10000176	SuperStrength_InitCarPickup	0x1A0002E7	event	data only	Graph event; as a scriptlet key the number is Vfx_Bmg_Scream_Stop.
+0x10000175	SuperStrength_PickupCar	0x1A0002E7	event	data only	
+0x10000174	SuperStrength_ThrowCar	0x1A0002E7	event	data only	
+0x1000003D	CbtState_KnockUp	0x1A0002E7	event	off	Scriptlet key in Batman's table (graph table: 0x10000020). Sent alone it showed nothing; the knockdown uses _Defeat_OnIncapacitated.
+0x10000436	KnockUp	0x1A0002E7	state	data only	State machine SM_KnockUp.
+0x1000009D	CbtState_GetUp	0x1A0002E7	event	implemented	Raised (0x100001E3 / 0x780) 5 s after the knockdown: the face-down get-up (Knockup_Selection 0); it returns to walking by itself (state_to_locomotion at 0.4 s).
+0x10000490	RunScript_Vfx_GetUp	0x1A0002E7	event	sent	getup_keys 5 s after the knockdown; nothing visible alone.
+0x100002F5	CbtState_Knockdown	0x1A0002E7	event	implemented	Raised for the meteor knockdown: the knockdown clip, end pose held (knockdown_events). Scriptlet name of the same number: _Entity_OnEnterWorld_Default.
+0x100001F9	_Defeat_StartupIncapacitated	0x1A0002E7	event	data only	Visible in the tour.
+0x100001FB	_Defeat_OnIncapacitated	0x1A0002E7	event	implemented	Meteor knockdown (KNOCKDOWN_KEYS).
+0x100001FD	_Defeat_OnRevive	0x1A0002E7	event	sent	getup_keys with 0x10000490.
+0x100001FA	_Defeat_OnDead	0x1A0002E7	event	implemented	On drones at death (not visible on an idle Batman).
+0x100001FC	_Defeat_OnRespawn	0x1A0002E7	event	data only	
+0x10000209	_HFSM_TargetHitAction_PhysicalReaction	0x1A0002E7	event	implemented	Flinch on hit.
+0x10000050	State_to_State	0x1C000021	event	off	Paddy wagon crash transition tried through 0x100003F2 (car_crash_states).
+0x10000117	IdleState01	0x1C000021	state	data only	Wagon A's starting value of 0x100003F2. Same number as the cinematic-state notice.
+0x10000116	IdleState02	0x1C000021	state	sent	car_b_behavior_state for car B; also the crash target.
+0x1000012D	Locomotion	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x1000014E	Moving	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x1000020C	Fidget_A	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x10000210	Fidget_B	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x1000020F	Fidget_C	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x1000020E	Fidget_D	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x10000214	Fidget_E	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x100001F1	Emote_Dance	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x1000022E	Emote_Joke	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x1000022D	Emote_Laugh	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x1000022C	Emote_Taunt	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x10000154	Spawn	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x100000F4	Basic_Attack_Left	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x100000F3	Basic_Attack_Right	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x100001C0	Death	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x100000CE	Laugh	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x100001E4	SuperStrength_Rubble_Throw	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x100003BC	KnockDown	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x10000183	SpawnIdle	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x10000565	Inactive_Start	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x10000566	Inactive_End	0x1A0002E7	state	data only	Graph string resolved through the name tables (probable id).
+0x100000AD	CbtState_Death_Induce	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000008	a_EventHook	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000AC	CbtState_GetHit	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000014	Superman_Basic_Attack	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000072	Superman_Basic_Attack_Critical	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000D6	Superman_Flying_Uppercut	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000A3	Superman_Freeze_Breath_Stop	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000011	CbtState_GetHitLarge	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000000F	Hit_React_Complete	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000DD	Move_From_Stopped	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000090	Stop_From_Moving	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000001E	Fidget	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000004	Fidget_End	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000AA	Global_Locomotion	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000034	CbtState_Death_Recover	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000020	CbtState_KnockUp	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000001D	Fidget_Abort	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000016	ClothSetting	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000006B	RunScript_FX_Spawn	0x1A0002E7	event	off	Graph string resolved through the name tables (probable id). Raised on Gaslight Batman in fase3-gs/gt: plays a rope (grapple) going up from him; the tester says it must not show in Tutorial 1 (off since fase3-gu).
+0x10000031	RunScript_FX_Spawn_End	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000E2	Batman_Gaslight_Batflight	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000E7	Batman_Gaslight_Bat_Scream	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000E4	Batman_Gaslight_Sonic_Shell	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000E5	Batman_Gaslight_Batarang	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000002	skill_to_locomotion	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000006E	Basic_Attack	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000109	EnableLookAt	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000010A	DisableLookAt	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000010B	CbtState_Dead	0x1A0002E7	event	implemented	Raised 1.8 s into the knockdown: Dead state, clip death_fdown_a_recover at speed 0 = the frozen face-down pose (knockdown_snap_events).
+0x10000134	a_SkillEndHook	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000133	a_SkillStartHook	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000171	InductionChanneling_Start	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000172	InductionChanneling_End	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000179	CbtState_Cower	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000178	CbtState_Cower_Recover	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000153	InductionUsage_End	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000152	InductionUsage_Start	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000105	CbtState_SuperCharged	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000132	CommitFidget	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000C6	a_SoundEventHook	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000195	Footstep_Right_Walk	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000196	Footstep_Left_Walk	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000192	Footstep_Left_Jog	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000197	Footstep_Right_Jog	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000193	Footstep_Right_Run	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000199	Footstep_Left_Run	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000190	Footstep_Right_Sprint	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000198	Footstep_Left_Sprint	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100001AD	StopScript_Vfx_Active	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100001AE	RunScript_Vfx_Active	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000AB	Event00	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100001C7	CbtState_Laugh_Recover	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100001C8	CbtState_Laugh	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000014C	a_SkillHook	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000146	a_MissileFireHook	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100001AC	SuperStrength_Pole_Pickup	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000009A	Right_Foot_Forward	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000006D	Left_Foot_Forward	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100001AB	SuperStrength_Pole_Swing	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100001AA	SuperStrength_Pole_Swing_Final	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100001F2	Emote_Abort	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100001F0	Emote_End	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000267	basicattack_to_basicattack	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000024D	Combat_Locomotion	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000234	RunScript_Vfx_Chr_Emote_Dance	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000023A	StopScript_Vfx_Chr_Emote_Dance	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000233	RunScript_Vfx_Chr_Emote_Joke	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000023E	StopScript_Vfx_Chr_Emote_Joke	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000232	RunScript_Vfx_Chr_Emote_Laugh	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000240	StopScript_Vfx_Chr_Emote_Laugh	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000231	RunScript_Vfx_Chr_Emote_Taunt	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000023F	StopScript_Vfx_Chr_Emote_Taunt	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100002BA	CbtState_Cower_Instant	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000F1	Event01	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100002D3	Footstep_Right	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100002D4	Footstep_Left	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100002F4	emote_delay_ended	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100003AE	CbtState_EnableHit	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100003AF	CbtState_DisableHit	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000427	a_SkillHold_BasicAttack	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000454	CbtState_Trigger_End	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000453	CbtState_Trigger_Start	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000046B	CbtState_Stasis_Recover	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000046C	CbtState_Stasis	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000005E	CbtState_KnockBack	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100004C6	SuperStrength_Rubble_End	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000540	CosmeticEnabled	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x10000550	skill_to_cosmetic	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x1000058D	Cloth_Wind	0x1A0002E7	event	data only	Graph string resolved through the name tables (probable id).
+0x100000AD	CbtState_Death_Induce	0x1A0002E7	event	data only	Enters SM_Death; Death_Selection (var 6) picks Death_A (face up) or Death_B (face down), set 50/50 by the Lua onStandardDeath() on every return to walking. Probably raised by _Defeat_OnIncapacitated.
+0x1F000002	Batman behavior Lua		script	data only	onStandardDeath() (Death_Selection = random 0/1), onRagdollDeath() (= 3), onRandomizeKnockUp() (Knockup_Selection 0-2), onSetGetup() (= 0).
+0x1000022C	Emote_Taunt	0x1A0002E7	event	implemented	Graph event: taunt emote (clip chr_batman_gaslight_emote_taunt). Input actions Joke 0x100000CC, Taunt 0x100000CD, Laugh 0x100000CE, Dance 0x100000CF, Oath 0x100000DB; the client event they send is not known yet. Ctrl+2 Taunt emote (icserver/emotes.py, fase3-ga).
+0x1000022D	Emote_Laugh	0x1A0002E7	event	implemented	Graph event: laugh emote. Input actions Joke 0x100000CC, Taunt 0x100000CD, Laugh 0x100000CE, Dance 0x100000CF, Oath 0x100000DB; the client event they send is not known yet. Ctrl+3 Laugh emote (icserver/emotes.py, fase3-ga).
+0x1000022E	Emote_Joke	0x1A0002E7	event	implemented	Graph event: joke emote. Input actions Joke 0x100000CC, Taunt 0x100000CD, Laugh 0x100000CE, Dance 0x100000CF, Oath 0x100000DB; the client event they send is not known yet. Ctrl+1 Joke emote (icserver/emotes.py, fase3-ga).
+0x100001F1	Emote_Dance	0x1A0002E7	event	implemented	Graph event: dance emote. Input actions Joke 0x100000CC, Taunt 0x100000CD, Laugh 0x100000CE, Dance 0x100000CF, Oath 0x100000DB; the client event they send is not known yet. Ctrl+4 Dance emote (icserver/emotes.py, fase3-ga).
+0x100001F0	Emote_End	0x1A0002E7	event	data only	Graph event: ends an emote. Input actions Joke 0x100000CC, Taunt 0x100000CD, Laugh 0x100000CE, Dance 0x100000CF, Oath 0x100000DB; the client event they send is not known yet.
+0x100001F2	Emote_Abort	0x1A0002E7	event	data only	Graph event: aborts an emote (the graph also cancels it when he moves or turns). Input actions Joke 0x100000CC, Taunt 0x100000CD, Laugh 0x100000CE, Dance 0x100000CF, Oath 0x100000DB; the client event they send is not known yet.
+0x1A000E0B	env_pvp_phase_pod_behavior.hkb		graph	sent	Phase pod graph (packs 0xA0000168 / 0xA0000256), sent as 0x5B5 of the sphere 0x2E001157 (fase3-hk). Clips entrance_a, raider_open_a, raider_open_a_idle, active_idle_a, leviathan_*, die_a. Events Spawn 0x10000154, Activate 0x100001C1, Deactivate 0x10000419, Death 0x100001C0, OpenIdle 0x100004A5, ClosedIdle 0x100004A6.

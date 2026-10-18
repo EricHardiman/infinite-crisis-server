@@ -1,0 +1,144 @@
+REPLAY STALL AT 10% -- static analysis notes (2026-10-15)
+================================================================
+Addresses are VA (image base 0x400000). rva = VA - 0x400000 (tracer/diag use rva; the
+client runs with ASLR, e.g. diag logs show bases 0x490000 / 0xd50000).
+Globals: session [0x1b763c0] (rva 0x17763c0), lobby mgr [0x1b77068], net object manager
+[0x1b6ab18], local player id u64 at 0x1b6a710/0x1b6a714, gm client [0x1b73518], world =
+[[0x1b73518]+0xdc] (vtable 0x15e6e18), world+0xc = object manager.
+
+ROOT CAUSE (high confidence)
+----------------------------
+* SetLocalPlayerId(u64) = 0x635250 (writes 0x1b6a710/714). It has exactly 3 callers:
+    0x64b2ee  in 0x64b2e0 = object manager's listener for event 0xEB (via 0x69bf40, the 0xEB
+              handler 0x6a8170 -> listeners on channel [0x1863288]; 0x64b2e0 sits in the
+              vtable at 0x15cdc08) -> sets the id from the message.
+    0x64c927  in 0x64c910 (object manager reset) -> sets 0.
+    0x7d14ff  in 0x7d14b0 -> sets 0.
+* 0x7d14b0 is called by the world teardown 0xa99b60 at 0xa99d5c (ecx=[0x1b73518], push 1),
+  after the 0x12D send (0xa99d33). 0x7d14b0 does: world->vfunc+0x40(1) = 0x7ec090 ->
+  0x7de460(1) -> 0x64c070 (destroy every replicated object: vfunc 0x50(obj, 6), local player
+  last, then 0x64bc70 clears the pending-delete / deferred sets +0xe0/+0xf4/+0x180/+0x1c4),
+  then SetLocalPlayerId(0).
+* The server sends 0xEB only once, at login (messages.initial_events). So after the first
+  match the client has local player id 0 for the rest of the session. Restarting = new
+  login = new 0xEB, which is why a restart fixes it.
+* Every step after 10% needs the local player:
+    - 0x6351d0 (GetLocalPlayerObject) returns NULL when the id is 0 (0x6351dd).
+    - 0x635200 / 0x634e30 (IsLocalPlayer(obj)) compare obj+0x100/0x104 with 0x1b6a710.
+    - 0x211B is sent by 0xa9f9f0 (a component's attach-to-entity method, class built at
+      0xaa9e49) only if 0x864d30(entity) is true -> 0x635200 -> always false with id 0.
+      Also 0xa9e080 (same class) compares with the entity's own id.
+    - Session wait mask [session+0x68] (ctor 0xa975d9 = 0xf; teardown 0xa99d61 |= 0xe):
+        bit1 "no local player object" set by 0xa96150 (world load start) when 0x6351d0 is
+             NULL, cleared only by 0xa96181 (local player already present) or 0xa96a60
+             (local-player-arrived listener; hooks the player's channels, sends nothing).
+        bit2 cleared by 0xa96af0 (+20), bit3 by 0xa96cf0 (+15) / 0xa96a00 (needs local
+             player), bit0 by 0xa96b20.  When bits 0,1 clear -> [0x1b73518]+0xed = 1.
+    - +20 at 0xa0a570 requires 0x6351d0 != NULL and a controlled-agent change (the link).
+    - +5 at 0xab5287 (UI state action 0xab5200) requires 0x6351d0 != NULL.
+  => with id 0 the player/champion creates are processed but never recognised as the local
+     player: no 0x211B / 0x207A / 0x213A, no +20, percent frozen at the last pre-object
+     step (10%).
+
+LOADING PERCENT (0x20D5)
+------------------------
+* Step function 0xa964b0(int inc): returns at once unless [0x1b763c0] != 0 AND lobby room id
+  [[0x1b77068]+0x4bc] != 0 (0xa964c7). Then lobby+0x14 += inc (0xab7bf0), clamp to 100
+  (float 0x160b634), and if != session+0xc8 (last sent) store it and send 0x20D5 (0x889bc0;
+  the view-match variant goes to 0x89ead0). So increments that fire before 0x204C has set the
+  room id (0xabdeec, handler 0xabde80) are LOST.
+* Reset: lobby+0x14 = 0, room id = 0 in exit-lobby 0xabc2c0 (0xabc36b/0xabc380), called by
+  the teardown at 0xa99cd1; session+0xc8 = 0 at 0xa99d6b.
+* The steps (call sites of 0xa964b0):
+    +5  0xa087c0  level-load progress callback (passed to 0x7e2ce0 by 0xa09b30)
+    +10 0xa097a0  level-load done (0xa09b10) -> ALSO sends event 0xCC (0xa09801 -> 0x692a80,
+                  id from 0x1b579f0 = account character id, not the local player id)
+    +10 0xa97340  start of level load (0xa09b3c)
+    +10 0xa99460  packs (RPs) loaded, via callback 0xa99ef0 set in 0xa09e50
+    +5  0xa9aaa0  game connection status 7 (connected, 0xa9bdd8); also clears the 0x2016
+                  watchdog (+0xd1=0), sets session+0x70 |= 1 and calls 0xa99e20
+    +20 0xa96af0  session+0x68 bit2 cleared (after the local player's objects arrive)
+    +20 0xa0a570  local player's controlled agent changed (link player -> champion)
+    +5  0xab5287  UI action 0xab5200: in-world cell check with local player present
+    +15 0xa96d46  0xa96cf0: session+0x78 = 1, bit3 cleared (load complete)
+    +25 0xa96d5a  only if 0xabee50() (view match)
+    +0  0xab8566  0x206D handler 0xab84f0 (sets lobby+0x1c0, re-sends current value)
+* First load: 5,15 | 35 | 55,60 | 75. 15 = level loaded + 0xCC; 35 = +20 0xa96af0;
+  55 = +20 0xa0a570 (link); 60 = +5 0xab5287; 75 = +15 0xa96cf0.
+* Replay: single 10 = the same "level loaded + 0xCC" step (0xCC follows it in both runs).
+  The earlier +5 (0xa087c0 or 0xa9aaa0) fired while the room id was still 0 (the teardown
+  had zeroed it) and was dropped. The different first number is cosmetic, not a different
+  path. "14%" cannot be produced by these increments; it is probably the bar's animation.
+
+60 s ABORT
+----------
+* 0x2016 watchdog: 0x2016 handler 0xab9080 -> 0xa9aa50(1): session+0xd1 = 1, +0xd8 = now.
+  The check is at 0xa9b0cf: fires when now-+0xd8 > 60.0 (0x16067a0) AND session+0xc8 == 0
+  (nothing reported yet) AND !0xabee50 && !0xabee70 -> message 0x529c505 + 0xabc480(room).
+  With 10% already reported (+0xc8 = 10) it CANNOT fire on the replay. (It did fire at the
+  end of a match in diag 2193c658: "exit lobby (0x2021) received room=0x0 ret rva 0x69b139",
+  because the teardown zeroes +0xc8; the server's enter_match_first fixed that case.)
+* Connection-quality listener 0xa9aae0 (session+0x20 vtable slot 2): 10/30/60 s of no server
+  update (floats 0x1709800, 0x1601dc8, 0x15adaa0); at 60 s -> 0xa9a040 (disconnect with
+  error -> 0xa99b60). The old game connection's last server packet was 22:49:33.0 (keepalive
+  stops when self.game is replaced); the client gave up 22:50:37.1. Unconfirmed which of
+  these fired; see tracer list. The client stopped pinging the old connection after 22:49:25,
+  so it most likely closed it itself.
+* Once 0xEB is re-sent the load ends in about 10 s, well inside any 60 s limit.
+
+OBJECTS / IDS / SEQUENCES
+------------------------------
+* The teardown already destroys all replicated objects (0x64c070 keeps those whose
+  0x580160(obj+0x114) == 2) and clears the deferred/pending sets (0x64bc70). The 17 0x3
+  removals sent after 0x12D find nothing (0x64dde0: lookup 0x64a3a0 fails -> return).
+* 0x3 handling (when the object exists): 0x64dde0 hides it (0x635300), adds it to the pending
+  set (+0xdc/+0xe0) and the timer map +0xf4 with expiry now + 30.0 (float at 0x1862cf0). The
+  timers run in 0x64d530 (object manager tick, called every frame by the world tick
+  0x7deb20; it also pumps the connection +0x1d8).
+* A batch to an id in the pending set "revives" the old object (0x64bd30: removes it from
+  +0xf4/+0xe0, sets flag 8 at obj+0x118, 0x69bd00). A batch to an id in +0x180 (creation
+  deferred until a resource load ends) is queued (vfunc +0x28) and flushed by 0x64dac0 from
+  the load callback 0x64dd70. Neither applies after a teardown.
+* So reusing ids 0x...01/0x...02, seq 1 and the same room id is fine. The 31 s
+  object_free_seconds wait and the sequence carry-over are not needed; the wait only delayed
+  the replay's creates by 20 s.
+
+SERVER BUG SEEN IN PASSING
+--------------------------
+* server.py _serve_game passes every game socket's bytes to session.on_game_data, which feeds
+  self.game_reader whatever the socket. After ev_join_queue sets self.game = None, the old
+  socket is never closed (attach_game only closes self.game). Stale-socket data would mix into
+  the new connection's frame stream.
+
+FIX PROPOSAL (ranked)
+---------------------
+1. HIGH: re-send 0xEB "set local player" (to SVC_PLAYER_SYSTEM 0x0600000000000403,
+   body 00 | u64 0x0200000000000001 | 00 | compact 0, i.e. the login message) on every match
+   entry, after the client's teardown and before the champion/player creates. Best place:
+   ev_connect_to_lobby (0x20F2), first in the list ahead of 0x2029/0x204C/0x2016/0x206D; also
+   fine immediately before the creates in _maybe_create_objects. Not needed for the first match
+   but harmless. (The original world server presumably sent it at each world entry. Not
+   provable statically, but the client gives no other way back to a local player.)
+2. MEDIUM: with 1 in place, set object_free_seconds = 0 (or drop the wait) and stop the
+   post-0x12D 0x3 burst and the seq carry-over. They are no-ops against a torn-down world and
+   only delay the load.
+3. LOW: game connections: make on_game_data ignore sockets that are not self.game, and close
+   the previous game socket when the new referral's connection attaches (or keep its keepalive
+   until the client closes it), in case the 60 s abort is the no-update watchdog.
+4. Nothing new needed for 0x2021 / 0x2038 / room ids. The client runs exit lobby (0xabc2c0)
+   inside its own teardown, and 0x2016's handler accepts room == stored or stored == 0.
+
+TRACER (rva, run once over login -> match 1 -> replay)
+-------------------------------------------------------
+  0x235250 SetLocalPlayerId: log u64 [esp+4]:[esp+8] and the return address. Expect
+           ret 0x24b2f3 (0xEB) = 0x0200000000000001 at login, ret 0x3d1504 = 0 at match
+           end, and NOTHING before the replay's creates (with fix 1: a 0xEB call).
+  0x3d14b0 world reset from the teardown (log ret; expect 0x699d61)
+  0x24c070 destroy-all-objects (log count [ebp-0x30] at 0x24c16c)
+  0x69f9f0 component attach: log [[esp+8]+0x100],[+0x104] (entity id); 0x69fa1c: al
+           (is local player). Expect 0 on the replay.
+  0x6964b0 percent step: log [esp+4] (increment), ret, dword [[rva 0x1777068]+0x4bc]
+  0x696150 world-load start: log u64 at rva 0x176a710 (VA 0x1b6a710, local id) -> 0 on the replay
+  0x696a60 local player arrived (expected missing on the replay)
+  0x69b134 0x2016 watchdog fired; 0x69aca7 60 s no-update disconnect;
+  0x69a040 disconnect with error: log ret. Shows which killed the replay at ~60 s.

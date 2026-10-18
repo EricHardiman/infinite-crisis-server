@@ -1,0 +1,17 @@
+id	contents	notes
+0xA00000B3	Stolen Powers catalog (0x480003CD) and their 65 skill records; ChampionLevel achievements 0x49000EC8-ECB	Read by skilldata.py / ic.py stolen-powers.
+0xA00000B8	Gaslight Batman's champion record (0x48000617 -> template 0x48000732)	
+0xA0000122	Gaslight Batman's skill set (0x48000615): Echoes, The Bat Scream, Sonic Batarang, Sonic Shell, Bat Flight	
+0xA0000256	Tutorial 1 placement (records 0x1D000771 / 0x1D0007EE)	ic.py layout 0xa0000256
+0xA0000257	Character variants with health (e.g. Soldier Drone 0x40000C72)	ic.py variants
+0xA00000D0	UI pack: Flash movies and the AS2 code library	docs/ui-pack-0xa00000d0-notes.txt
+0xA00002FF	Achievement records (e.g. 0x49000B08, Tutorial 1; property 0x10000BCD = showcase movie)	
+0xA000024C	Zone pack (category 0xd): Tutorial 1 map (Gaslight Gotham, landblocks 0x13CB / 0x14CB)	Sent in [match] packs since fase1.
+0xA00002E5	Zone pack (category 0xd): Tutorial 2 map (tut_adv_wall_* pieces, Gaslight)	2026-10-17: [match] maps 0x40000A81. Mission pack 0xA00002E6.
+0xA00002E6	Tutorial 2 mission pack (category 0xf): layouts and cinematics 0x3500002C-3B, landblocks 0x13C3 / 0x13BB; places Crater1 / Crater3 (0x2E0004BE) and TurretBasePlate 0x2E000A9F	Names 0x40000CBC of encounter 0x49000A81.
+0xA00000D2	Zone pack (category 0xd): Coast City (env_coastcity, carnival coaster)	2026-10-17: [match] maps 0x40000270 / 0x40000B6A / 0x4000039C.
+0xA0000162	Coast City mission pack (category 0xf): bases 0x35000012 / 13, landblock 0x23E3	Names 0x40000534 of Coast City's encounters.
+0xA0000168	Gotham Divided mission pack (category 0xf): bases 0x35000014 / 15, landblock 0x1BD3	Names 0x40000554 of encounter 0x49000399.
+0xA000009A	Zone pack (category 0xd): a Gotham PvP map (env_gotham) with the meteor event 0x1D00019C	Tried as Gotham Divided's zone in fase3-gz (to confirm); also Tutorial 1's event pack.
+0xA00000FC	Zone pack (category 0xd): the remaining PvP map (no names inside)	Tried for Gotham Heights / Metropolis Skyway in fase3-gz (to confirm).
+0xA000016B	Mission pack (category 0xf) of an unidentified map, landblock 0x1BF3	

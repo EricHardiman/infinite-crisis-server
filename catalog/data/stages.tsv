@@ -1,0 +1,16 @@
+id	name	mode	training_achievement	reward_set	server_status	notes
+0x40000991	Tutorial -- Basic	Training	0x40000B08	0x40000B07	implemented	Tutorial 1. Reward: Gaslight Batman (0x40000086). Placement pack 0xA0000256. Twin 0x49000991: type 0x10000D0B = 4; SkipsLobby 0x10000B0E = 1 (no champion select) (2026-10-18).
+0x40000A81	Tutorial -- Intermediate	Training	0x40000BD5	0x40000C57	not started	Tutorial 2 (unlocked after Tutorial 1). Twin 0x49000A81: type 0x10000D0B = 4; SkipsLobby 0x10000B0E = 1 (no champion select) (2026-10-18).
+0x40000CA6	Crime Alley: 1vAI Tutorial	Training	0x40000C59	0x40000C55	not started	Tutorial 3. Twin 0x49000CA6: type 0x10000D0B = 4; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).
+0x4000013E	Gotham Heights	PvP			not started	Twin 0x4900013E: type 0x10000D0B = 3; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).
+0x40000270	Coast City	PvP			not started	Twin 0x49000270: type 0x10000D0B = 3; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).
+0x4000039C	Crisis Labs: Coast City Variant	PvP			not started	Twin 0x4900039C: type 0x10000D0B = 3; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).
+0x40000399	Gotham Divided	PvP			not started	Featured PvP map (game setting FeaturedMap_PVP). Twin 0x49000399: type 0x10000D0B = 3; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).
+0x40000E68	Crime Alley Clash: 1v1	PvP			not started	Twin 0x49000E68: type 0x10000D0B = 3; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).
+0x40000E74	Crime Alley Clash: 2v2	PvP			not started	Twin 0x49000E74: type 0x10000D0B = 3; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).
+0x40000EC0	Apokolips Causeway Clash: 1v1	PvP			not started	Twin 0x49000EC0: type 0x10000D0B = 3; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).
+0x40000C28	Metropolis Skyway	PvP			not started	No twin record in pack 0xA00000B3 (lobby unknown, 2026-10-18).
+0x40000C82	Crime Alley v AI	Versus AI			not started	Twin 0x49000C82: type 0x10000D0B = 1; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).
+0x40000B6C	Gotham Heights v AI	Versus AI			not started	Twin 0x49000B6C: type 0x10000D0B = 1; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).
+0x40000B6A	Coast City v AI	Versus AI			not started	Featured bots map (game setting FeaturedMap_BOTS). Twin 0x49000B6A: type 0x10000D0B = 1; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).
+0x40000B6B	Gotham Divided v AI	Versus AI			not started	Twin 0x49000B6B: type 0x10000D0B = 1; no SkipsLobby: champion select (PvPLobby) first (2026-10-18).

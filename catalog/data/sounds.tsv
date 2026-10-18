@@ -1,0 +1,1688 @@
+id	bank	actions	played_by	server_status	notes
+0x115338B7	0x3EFFC95F	1		data only	
+0x30253E98	0x8FA5AFD3	1		data only	
+0x3BDC2290	0x8FA5AFD3	2		data only	
+0x4C30541A	0x8FA5AFD3	1		data only	
+0x6659E835	0x8FA5AFD3	1		data only	
+0x721FF471	0x8FA5AFD3	1		data only	
+0xA7647EED	0x8FA5AFD3	1		data only	
+0xBACC7884	0x8FA5AFD3	1		data only	
+0xFE39E72E	0x8A57F39D	1		data only	
+0xFE892FE4	0x8FA5AFD3	1		data only	
+0x040B655C	AMB_CoastCity	1	0x13001484 0x130014B0	data only	
+0x0872FD4E	AMB_CoastCity	1	0x16000C8E	data only	
+0x1C73B953	AMB_CoastCity	1		data only	
+0x1CA4B032	AMB_CoastCity	1	0x10001DBC	data only	
+0x20894225	AMB_CoastCity	1	0x18000B01	data only	
+0x22362CCA	AMB_CoastCity	2	0x16000D08 0x16001821	data only	
+0x233EADA7	AMB_CoastCity	1	0x10000925	data only	
+0x45E19059	AMB_CoastCity	1	0x10000925	data only	
+0x45E1905A	AMB_CoastCity	1	0x100011D2 0x130015D4 0x16000C8E 0x16000EF5 0x190004AE	data only	
+0x45E1905B	AMB_CoastCity	1		data only	
+0x4ABECE97	AMB_CoastCity	1	0x10001DBC	data only	
+0x4FB1CFFF	AMB_CoastCity	1	0x18000B01	data only	
+0x51C614ED	AMB_CoastCity	1	0x10001E04	data only	
+0x5532C668	AMB_CoastCity	1	0x18000B01	data only	
+0x55B184E3	AMB_CoastCity	2		data only	
+0x5E347D97	AMB_CoastCity	1	0x10001D2C	data only	
+0x62176427	AMB_CoastCity	1	0x10001F3B	data only	
+0x706EC27F	AMB_CoastCity	2	0x16000D08 0x16001821	data only	
+0x7096FBDF	AMB_CoastCity	1	0x1100037E	data only	
+0x74FEF0D4	AMB_CoastCity	1	0x1000285E	data only	
+0x7917EB7C	AMB_CoastCity	1	0x16001824	data only	
+0x7A68C010	AMB_CoastCity	1	0x1100037E	data only	
+0x7C7BFD12	AMB_CoastCity	1		data only	
+0x7FD7CDB5	AMB_CoastCity	1		data only	
+0x84E89F8E	AMB_CoastCity	2		data only	
+0x882DF45F	AMB_CoastCity	2	0x1000052B	data only	
+0x88FE2AAD	AMB_CoastCity	1		data only	
+0x88FE2AAE	AMB_CoastCity	1		data only	
+0x88FE2AAF	AMB_CoastCity	1		data only	
+0x96BF3BEA	AMB_CoastCity	4		data only	
+0x9987F54A	AMB_CoastCity	1	0x18000B01	data only	
+0xA56710E3	AMB_CoastCity	1	0x10000529	data only	
+0xAB66FED3	AMB_CoastCity	1	0x1000285E	data only	
+0xB5BC5870	AMB_CoastCity	1		data only	
+0xC01694EE	AMB_CoastCity	1	0x10001E04	data only	
+0xC64B847D	AMB_CoastCity	2	0x18000B01	data only	
+0xC7E0E42B	AMB_CoastCity	1	0x13001484 0x130014B0	data only	
+0xCBE87E8D	AMB_CoastCity	1	0x16000C8E	data only	
+0xCF9D236E	AMB_CoastCity	1	0x1000052C	data only	
+0xD2740F76	AMB_CoastCity	1	0x48000E19	data only	
+0xE3D9FCC9	AMB_CoastCity	1	0x16001824	data only	
+0xE9A38695	AMB_CoastCity	1	0x10000CA3 0x10000F6E 0x10002535 0x16002259 0x190001E4 0x2D00047F	data only	
+0xEBD5DE18	AMB_CoastCity	1	0x10001D2C	data only	
+0xEE244E62	AMB_CoastCity	1	0x10000925	data only	
+0xF554D1E2	AMB_CoastCity	1	0x10001F3B	data only	
+0xF85F03AC	AMB_CoastCity	1	0x10001C12	data only	
+0x04925CE6	AMB_GothamDivided	1	0x15006685 0x1D00090B	data only	
+0x0A9E642F	AMB_GothamDivided	1	0x1300236A	data only	
+0x11069860	AMB_GothamDivided	1		data only	
+0x13745C29	AMB_GothamDivided	1	0x15006685 0x17000CC9	data only	
+0x17AD9F55	AMB_GothamDivided	1	0x10002C9B 0x13002444 0x13002451 0x190012CC	data only	
+0x18792210	AMB_GothamDivided	1		data only	
+0x1A0906BD	AMB_GothamDivided	1		data only	
+0x1E072333	AMB_GothamDivided	1		data only	
+0x1FED0503	AMB_GothamDivided	1	0x1500EA37 0x1500EAFA	data only	
+0x290049AA	AMB_GothamDivided	1		data only	
+0x2E07963D	AMB_GothamDivided	1	0x1300236A 0x16001BB9	data only	
+0x38A813F2	AMB_GothamDivided	1	0x1500EAFA	data only	
+0x3A962750	AMB_GothamDivided	1	0x13002357	data only	
+0x3EF548F4	AMB_GothamDivided	1		data only	
+0x4573BF11	AMB_GothamDivided	2		data only	
+0x4B08F75F	AMB_GothamDivided	1	0x1500E9D3	data only	
+0x4C905600	AMB_GothamDivided	1	0x1300236A	data only	
+0x577BB4BF	AMB_GothamDivided	1	0x10002C9D	data only	
+0x5B19C6BC	AMB_GothamDivided	1		data only	
+0x5EBE407F	AMB_GothamDivided	1		data only	
+0x6655406E	AMB_GothamDivided	1	0x10002C9D 0x100036CF 0x13002357 0x4000039D	data only	
+0x6976D198	AMB_GothamDivided	1		data only	
+0x6CCED405	AMB_GothamDivided	1	0x1500E99E 0x190012CC	data only	
+0x7390575F	AMB_GothamDivided	2	0x1500EA37	data only	
+0x746E29BC	AMB_GothamDivided	1	0x1500E99C 0x160002C1	data only	
+0x8B221BA6	AMB_GothamDivided	1	0x1500EA2F 0x1800102C	data only	
+0x8B7DB1B8	AMB_GothamDivided	1		data only	
+0x8B7DB1BA	AMB_GothamDivided	1		data only	
+0x8B7DB1BB	AMB_GothamDivided	1		data only	
+0x8C0FD931	AMB_GothamDivided	1		data only	
+0x8D55ADF9	AMB_GothamDivided	1	0x160002BC	data only	
+0xA3484700	AMB_GothamDivided	1		data only	
+0xA878EE07	AMB_GothamDivided	1		data only	
+0xAE91CC1F	AMB_GothamDivided	1	0x100036CF 0x16001B88 0x4000039D	data only	
+0xB1268ECF	AMB_GothamDivided	1	0x1500EAFC	data only	
+0xB1E34309	AMB_GothamDivided	1	0x1500E99A	data only	
+0xB47AEA2D	AMB_GothamDivided	1		data only	
+0xBF02849B	AMB_GothamDivided	1		data only	
+0xC125A4EA	AMB_GothamDivided	2		data only	
+0xC89EEBF4	AMB_GothamDivided	1		data only	
+0xCE61F754	AMB_GothamDivided	1	0x13002357 0x16001B88	data only	
+0xCE61F756	AMB_GothamDivided	1		data only	
+0xCE61F757	AMB_GothamDivided	1	0x10002C9D	data only	
+0xD3CEDF1E	AMB_GothamDivided	2		data only	
+0xDEC8AEE5	AMB_GothamDivided	1		data only	
+0xE177FA91	AMB_GothamDivided	1	0x10002C9D 0x100036CF 0x13002357 0x4000039D	data only	
+0xE5413B92	AMB_GothamDivided	1	0x10003853 0x13002451 0x15006686 0x1500EA2F 0x1500EA37 0x1800102C	data only	
+0xEEFE1AF4	AMB_GothamDivided	1	0x10002657 0x10003252 0x180003AC 0x19000C21	data only	
+0xF1AAF992	AMB_GothamDivided	1	0x16000F59	data only	
+0xF97AEB12	AMB_GothamDivided	1	0x1300236A 0x1500E99E 0x1D00090B	data only	
+0xFD866C20	AMB_GothamDivided	1	0x1300236A 0x1500E99E	data only	
+0xFE4476F5	AMB_GothamDivided	1		data only	
+0x023449DD	AMB_Tutorial	1		data only	
+0x04F58A85	AMB_Tutorial	1		data only	
+0x04F58A86	AMB_Tutorial	1		data only	
+0x10780F78	AMB_Tutorial	2		data only	
+0x1C343720	AMB_Tutorial	4		data only	
+0x1C343723	AMB_Tutorial	3	0x11000491	data only	
+0x21D19534	AMB_Tutorial	2		data only	
+0x24BEADD9	AMB_Tutorial	1	0x18001430	data only	
+0x266158BC	AMB_Tutorial	2		data only	
+0x2D016DCA	AMB_Tutorial	1		data only	
+0x2F3CD8DD	AMB_Tutorial	1		data only	
+0x3EB822F0	AMB_Tutorial	16		data only	
+0x48FDB777	AMB_Tutorial	1		data only	
+0x62C37455	AMB_Tutorial	1		data only	
+0x6914CD58	AMB_Tutorial	2		data only	
+0x69762697	AMB_Tutorial	1		data only	
+0x6AD9D236	AMB_Tutorial	1		data only	
+0x71E7438D	AMB_Tutorial	1	0x1D000767 0x1E0000B1	data only	
+0x7A13B229	AMB_Tutorial	1		data only	
+0x8EAFAE21	AMB_Tutorial	4		data only	
+0x8EAFAE22	AMB_Tutorial	1		data only	
+0x8EAFAE23	AMB_Tutorial	1		data only	
+0x8EAFAE24	AMB_Tutorial	1		data only	
+0x92C842E0	AMB_Tutorial	1	0x1D000767 0x1E0000B1	data only	
+0x9412B7E5	AMB_Tutorial	1		data only	
+0x9481E0BD	AMB_Tutorial	1		data only	
+0x955FCBAA	AMB_Tutorial	1		data only	
+0xA07BFF11	AMB_Tutorial	1	0x2D000F14 0x2D000F18	data only	
+0xA2BAD9B6	AMB_Tutorial	1		data only	
+0xA3ED7BCA	AMB_Tutorial	1		data only	
+0xA5BDCC96	AMB_Tutorial	1		data only	
+0xA78F2010	AMB_Tutorial	1		data only	
+0xBC83B6A0	AMB_Tutorial	1		data only	
+0xBEFF1627	AMB_Tutorial	1		data only	
+0xC05A8990	AMB_Tutorial	3		data only	
+0xD0A24E85	AMB_Tutorial	1		data only	
+0xD1DB45D4	AMB_Tutorial	1		data only	
+0xD4797DE0	AMB_Tutorial	2		data only	
+0xD4797DE1	AMB_Tutorial	2		data only	
+0xD4797DE2	AMB_Tutorial	4		data only	
+0xD4797DE7	AMB_Tutorial	1		data only	
+0xD590AF60	AMB_Tutorial	1		data only	
+0xD8A1588D	AMB_Tutorial	1		data only	
+0xD8A1588E	AMB_Tutorial	1		data only	
+0xD8A1588F	AMB_Tutorial	1		data only	
+0x03235708	Destruction	1	0x10000D07 0x10000D1C 0x10000D1E 0x10000D1F 0x1000251C 0x110003FF 0x1300051E 0x1300051F 0x130006D1 0x13001D1C 0x1500E4B6 0x180004CC	data only	
+0x033345F1	Destruction	1	0x10000C9C 0x10000CC2 0x10000CE4 0x10000D21 0x10001DE7 0x1000251C 0x10002973 0x110002A3 0x110003FF 0x1300051E 0x1300051F 0x130006D1	data only	
+0x0494AD89	Destruction	1		data only	
+0x0758D6C4	Destruction	4	0x10001F3B	data only	
+0x0BCB1760	Destruction	3	0x100011D5 0x100011D6 0x100011D9 0x17000B5F 0x2D00078D	data only	
+0x107B59F0	Destruction	1	0x1000252E 0x130006E4	data only	
+0x10E2E84A	Destruction	1	0x15000528 0x1E000167	data only	
+0x15FA937E	Destruction	4	0x10000C80 0x1500EEAB 0x40000458	data only	
+0x19D80764	Destruction	4	0x1500EEAB	data only	
+0x1B7FDCC2	Destruction	1		data only	
+0x1BD97341	Destruction	2	0x10000C92 0x10000D21 0x10000ECB 0x18000B01 0x4000039D 0x40000458	data only	
+0x1EED8497	Destruction	1	0x160009F9 0x16000AB9 0x180014F9 0x2B0000F1 0x48000A03 0x48000E4A	data only	
+0x1FCF7E5F	Destruction	1	0x10000C31 0x10000D7F 0x10003853 0x18000563 0x18000A29	data only	
+0x23D4BD8D	Destruction	2	0x10000C10 0x10000D48 0x10000F81 0x17000AF9 0x170016F4 0x2D00087C	data only	
+0x25C7FCDD	Destruction	1		data only	
+0x2D84D7A3	Destruction	2	0x10000529 0x10000C13 0x10000CE4 0x100011D1 0x10001C01 0x10001C0B 0x10001C0D 0x10001CC1 0x100028FC 0x13001484 0x130014B0 0x130015D4	data only	
+0x35A03DB3	Destruction	4	0x10000C86 0x10000D21 0x16000F35	data only	
+0x377DBADD	Destruction	1	0x1000252E 0x130006E4	data only	
+0x3E244705	Destruction	1	0x10000CC2 0x100011D2 0x10002973 0x130013F6 0x13001400 0x130014B0 0x1500F06E 0x16000A08 0x16000BBB 0x16000C8E 0x17000AF9 0x170016F4	data only	
+0x3E8FC2F6	Destruction	9	0x18000B01	data only	
+0x40B05B77	Destruction	2		data only	
+0x419E54BA	Destruction	1	0x10000529 0x1000052B 0x10000C13 0x10000CA0 0x10000CA9 0x10000CE4 0x10000CF4 0x10000CFA 0x10000D21 0x10000D51 0x100011D2 0x10001DBC	data only	
+0x4875B851	Destruction	2	0x10000C31 0x10000CE4 0x10001DE7 0x100021B5 0x100027A1 0x100028FC 0x13000571 0x13001400 0x16000AA1 0x17000B5F 0x1D0005F0 0x2D00044D	data only	
+0x4A8CF04E	Destruction	5	0x16000F35	data only	
+0x4B5922BC	Destruction	1	0x10001033 0x10003424 0x1500E5A4 0x19000DF7 0x2D0005D7	data only	
+0x4CACE6E5	Destruction	1		data only	
+0x5197FCCA	Destruction	5		data only	
+0x538C3FC0	Destruction	1	0x10000C13 0x10001DE7 0x17000AF9 0x17000B5F 0x170016F4 0x2D00087C	data only	
+0x5452C49C	Destruction	2	0x10000CE4 0x100039AC 0x110004A5 0x11000797 0x13001484 0x1500EEAE 0x1A000667 0x1D0005F0	data only	
+0x55CB177D	Destruction	3	0x10000514 0x10000925 0x10000C7A 0x10000C80 0x10000CE4 0x10001C01 0x10001C0D 0x110004A5 0x130014B0 0x13002361 0x160002C1 0x1800089C	data only	
+0x583EF218	Destruction	1	0x10000528 0x10000529 0x10000C10 0x10000C95 0x10000D07 0x10000D51 0x10000D7F 0x10001033 0x10001135 0x10001B40 0x10001B41 0x10001B45	data only	
+0x58A73A40	Destruction	6	0x100011D1 0x100036CF 0x130013F6 0x1500EA37 0x16000BBB 0x170009F1 0x18000B01	data only	
+0x5A59C31F	Destruction	3	0x10000529 0x10000C31 0x10000D7F 0x11000306 0x16001821 0x2E00105C	data only	
+0x5BB21A96	Destruction	2	0x1000051D 0x10000927 0x10000CA3 0x10000CA4 0x10000CA9 0x10000CAC 0x10000D07 0x10000D20 0x10000D21 0x10000F6E 0x10001147 0x10001148	data only	
+0x5BF55057	Destruction	1	0x10000C31 0x10000C7A 0x10000C9B 0x10000CE4 0x10000D6A 0x10000FA2 0x10001B43 0x10001D2C 0x1000250F 0x1000263D 0x1000263E 0x150090DC	data only	
+0x5C700E68	Destruction	8	0x10001147 0x10001148 0x10002900 0x10002C9D 0x1100037E 0x1500EA37 0x16000F35 0x1D0005F0 0x40000458	data only	
+0x5F89D822	Destruction	3	0x10000CE4 0x10000D48 0x10000F81 0x10000F82 0x100011D2 0x10003853 0x13002361 0x1300236A 0x15006686 0x1500EA30 0x1500EA37 0x160002C1	data only	
+0x610B8F96	Destruction	1	0x160009F9 0x16000AB9 0x180014F9 0x2B0000F1 0x48000A03 0x48000E4A	data only	
+0x637A44FD	Destruction	4		data only	
+0x640791A9	Destruction	3	0x10000C31 0x10000CC2 0x10002973 0x1500EBA6 0x1500F06E 0x16000A08 0x1900018A 0x1900018B 0x2D0004B7 0x2D000779	data only	
+0x692B19E9	Destruction	1	0x10000528 0x10000C10 0x17000AF9 0x170016F4 0x2D00087C	data only	
+0x69679FF5	Destruction	1	0x1E000167	data only	
+0x6E0416D7	Destruction	3	0x10000C31 0x10000CE4 0x10000D1E 0x10000D1F 0x10000D20 0x10000D51 0x10001135 0x100011D2 0x10001B40 0x10001B41 0x10001B45 0x10001DE7	data only	
+0x702642D2	Destruction	1		data only	
+0x70ED5263	Destruction	5		data only	
+0x73B211B2	Destruction	1	0x10000C13 0x10000CC2 0x10000D07 0x10001033 0x100011D2 0x10003424 0x10003A7E 0x130015D4 0x1500E4B6 0x1500E5A4 0x170001F0 0x17000AF9	data only	
+0x7858ACB6	Destruction	1	0x10000C31 0x10000D7F 0x10001E23 0x10003853 0x13001331 0x18000A29 0x2D00055D	data only	
+0x79A6F7B5	Destruction	1		data only	
+0x7B0240B1	Destruction	5	0x1000051D 0x10000CA4 0x10000CA9 0x10000CAC 0x10000F6E 0x100012F8 0x100012F9 0x1000252E 0x10002533 0x10002535 0x1000285E 0x10002AF2	data only	
+0x7C6387EC	Destruction	4	0x10000CA9	data only	
+0x801B042D	Destruction	4	0x1000052B 0x10000C7A 0x10000C95 0x10000D03 0x10000D07 0x10000D21 0x10001147 0x10001148 0x10001190 0x1000332D 0x11000000 0x13000C28	data only	
+0x842B7498	Destruction	2		data only	
+0x890B342F	Destruction	1	0x10000CA0 0x10000F1B 0x10001D4E 0x10002657 0x10002948 0x10003252 0x110002A4 0x130013F6 0x16000BBB 0x180003AC 0x19000C21	data only	
+0x8C0CA15E	Destruction	7	0x10002900 0x1100037E 0x13000C28	data only	
+0x8C2E044C	Destruction	5	0x10000529 0x10000925 0x100011D1 0x10001C0D 0x10001DBC 0x10001E04 0x130014B0 0x130015D4 0x13002357 0x1500EA37 0x16000C8E 0x16000EF5	data only	
+0x8C6404A5	Destruction	1	0x1E00021C	data only	
+0x94318704	Destruction	1	0x1E000090	data only	
+0x9A444B20	Destruction	5	0x17000670 0x18000467	data only	
+0x9D499B55	Destruction	1	0x180006C7 0x180006C8 0x180006C9 0x180006CA 0x18001431 0x18001437 0x2E000AA8	data only	
+0xA11AFBAA	Destruction	1	0x10000C13 0x10000C86 0x10000C94 0x10000C95 0x10000C9D 0x10000CA3 0x10000CA4 0x10000D03 0x10000D21 0x10000D7F 0x1000332D 0x11000306	data only	
+0xA3BB6516	Destruction	1	0x10000C10 0x10003A7E 0x1300144D 0x130015D4 0x17000AF9 0x170016F4 0x18000A29 0x2D00087C	data only	
+0xA48BF2F5	Destruction	1	0x10001033 0x10003424 0x1500E5A4 0x19000DF7 0x2D0005D7	data only	
+0xA6819349	Destruction	2	0x1000052B 0x10000C13 0x10000CA0 0x10000F1B 0x10001D4E 0x10002657 0x10002948 0x10003252 0x10003A7E 0x110002A4 0x1100037E 0x1500EA37	data only	
+0xA6A26451	Destruction	2	0x10000514 0x10000C10 0x10000CE4 0x10000D48 0x10000F81 0x10000F82 0x100011D2 0x130015D4 0x1500F079 0x160002A5 0x16000D08 0x16001821	data only	
+0xA791C045	Destruction	7	0x10001DBC 0x18000B01	data only	
+0xAA84F504	Destruction	5	0x10000CA3 0x2D00047F	data only	
+0xACD1E959	Destruction	2	0x10000C31 0x10000CC2 0x10002973 0x1500F06E 0x16000A08 0x1900018A 0x1900018B 0x2D0004B7 0x2D000779	data only	
+0xADD10EE3	Destruction	1		data only	
+0xB0CB198B	Destruction	1	0x1000051D 0x10000C31 0x10000CA3 0x10000CA4 0x10000CA9 0x10000CAC 0x10000F6E 0x10001147 0x10001148 0x100012F8 0x100012F9 0x1000252E	data only	
+0xB18A7F0B	Destruction	3	0x10000C2C 0x10000C2D 0x10000C30 0x10000C31 0x10000C7A 0x10000C80 0x10000CA0 0x10000CFA 0x10000D21 0x100011D1 0x10001C01 0x10001C0B	data only	
+0xB20930FE	Destruction	4	0x10000CA9 0x10001E04 0x1100037E 0x1500E99A	data only	
+0xB22E037A	Destruction	3	0x10001CC1 0x17000B5F	data only	
+0xB810D3B6	Destruction	1	0x15000528	data only	
+0xC04D25ED	Destruction	1	0x10000514 0x1000051D 0x10000925 0x10000C7A 0x10000CAC 0x10000D03 0x10001190 0x10001C01 0x10001C0D 0x1000332D 0x13000A31 0x130014B0	data only	
+0xC2CD045E	Destruction	1	0x40000458	data only	
+0xC9B5FF44	Destruction	2		data only	
+0xCE1AA3DD	Destruction	2	0x1500E9D3 0x1500EE9C 0x190012CC	data only	
+0xCED8E6D2	Destruction	3	0x10000C2F 0x10000C31 0x10000C7A 0x10000C80 0x10000CC2 0x10000D51 0x10001F3B 0x10002522 0x100028FE 0x10003A88 0x1500E8C9 0x1500EB3D	data only	
+0xD3E1D35C	Destruction	2	0x10000CA9 0x1100037E 0x1300144D 0x17000AF9 0x170016F4 0x2D00087C 0x2E000892	data only	
+0xD4DCFC70	Destruction	1		data only	
+0xD65A03D7	Destruction	1	0x10000C13 0x10000C9E 0x16000D08 0x17000AF9 0x170016F4 0x2D00047A 0x2D00087C 0x2E000D9F	data only	
+0xD7C48F28	Destruction	1	0x10000C7A 0x10000CA0 0x110002A4	data only	
+0xD80471E9	Destruction	1	0x1000052B 0x10000C31 0x10000D7F 0x10001D2C 0x10001F3B 0x10002C9D 0x100036CF 0x11000306 0x1300236A 0x18000B01 0x1D0005F0 0x2D0006E8	data only	
+0xDEDD10BD	Destruction	1	0x10000C13 0x100011D5 0x100011D6 0x100011D9 0x17000AF9 0x170016F4 0x2D00078D 0x2D00087C	data only	
+0xE35AD13F	Destruction	3	0x10000529 0x10000D21 0x10001DBC 0x10003853 0x110002E3 0x16001824 0x180004D5 0x1D0003FF	data only	
+0xE45CE26F	Destruction	1	0x10000CC2 0x1D000155	data only	
+0xE4673D42	Destruction	4	0x10000528 0x10001DBC 0x10001F3B 0x1100037E 0x1300144D 0x1300236A 0x1500EA2F	data only	
+0xEA1159EA	Destruction	1	0x10000C31 0x10000D7F 0x10003853 0x18000563 0x18000A29	data only	
+0xEA7DC5DE	Destruction	2		data only	
+0xEF6AB2F7	Destruction	5	0x10000D21 0x100035C6 0x10003C97 0x16000D62 0x170006F2 0x1D000582	data only	
+0xF057C66C	Destruction	2	0x10000C7A 0x10000CF4 0x100011D1 0x100011D2 0x10001B2A 0x10003A88 0x110003E8 0x1500E9D3 0x1500EA30 0x1500EA37 0x1500EBA6 0x16000A27	data only	
+0xF2402729	Destruction	1	0x10000C13 0x10000CA0 0x10000CA9 0x10000CC2 0x100011D1 0x10001C01 0x10001C0B 0x10001C0D 0x1000250F 0x10002514 0x10002528 0x100028FC	data only	
+0xF6663F23	Destruction	3	0x1100037E	data only	
+0xF6C6C48D	Destruction	4	0x180006C6 0x180006C7 0x180006C8 0x180006C9 0x180006CA 0x2E000AA8	data only	
+0xF8BECF8F	Destruction	2	0x10000529 0x10000925 0x10000C2D 0x10000CC2 0x10000CE4 0x10000CF4 0x10000CFA 0x10002C9B 0x1300236A 0x1500EA30 0x1500EBA3 0x1500EE9C	data only	
+0xF9867598	Destruction	2	0x10000C13 0x10001CC1 0x17000AF9 0x170016F4 0x2D00087C	data only	
+0xFB3E2292	Destruction	2	0x10000C9A 0x10000C9E 0x10000CE4 0x10000D21 0x10000ED7 0x10001B43 0x1000250F 0x150090DC 0x1800041E 0x1D0005F0	data only	
+0x00D35812	FE_Music_Lobby_CoastCity	2		data only	
+0x021F6A67	FE_Music_Lobby_CoastCity	2		data only	
+0x377A445D	FE_Music_Lobby_CoastCity	2		data only	
+0x4323CD0E	FE_Music_Lobby_CoastCity	5		data only	
+0x5290C9D0	FE_Music_Lobby_CoastCity	2		data only	
+0x69849080	FE_Music_Lobby_CoastCity	2		data only	
+0x732F6731	FE_Music_Lobby_CoastCity	4		data only	
+0x7CF1C202	FE_Music_Lobby_CoastCity	2		data only	
+0x80022B1E	FE_Music_Lobby_CoastCity	5		data only	
+0x885020A4	FE_Music_Lobby_CoastCity	7		data only	
+0x8BE109BB	FE_Music_Lobby_CoastCity	2		data only	
+0x8C046F92	FE_Music_Lobby_CoastCity	2		data only	
+0x9480AEEF	FE_Music_Lobby_CoastCity	2		data only	
+0xA79925F3	FE_Music_Lobby_CoastCity	2		data only	
+0xCE69BEF9	FE_Music_Lobby_CoastCity	2		data only	
+0xD20F0E82	FE_Music_Lobby_CoastCity	2		data only	
+0xD3EAB82C	FE_Music_Lobby_CoastCity	2		data only	
+0xF2BBFE65	FE_Music_Lobby_CoastCity	4		data only	
+0xFAE9F9A0	FE_Music_Lobby_CoastCity	7		data only	
+0x11B142D6	FE_Music_Lobby_GothamHeights	2		data only	
+0x3CF0286A	FE_Music_Lobby_GothamHeights	2		data only	
+0x4EDFE484	FE_Music_Lobby_GothamHeights	2		data only	
+0x550BC039	FE_Music_Lobby_GothamHeights	4		data only	
+0x55889771	FE_Music_Lobby_GothamHeights	2		data only	
+0x65E11EA5	FE_Music_Lobby_GothamHeights	2		data only	
+0x6AEE30C3	FE_Music_Lobby_GothamHeights	7		data only	
+0x738DAC75	FE_Music_Lobby_GothamHeights	2		data only	
+0x743FA0D6	FE_Music_Lobby_GothamHeights	1		data only	
+0x80499248	FE_Music_Lobby_GothamHeights	2		data only	
+0x91AC1BE9	FE_Music_Lobby_GothamHeights	2		data only	
+0x98F6C16A	FE_Music_Lobby_GothamHeights	2		data only	
+0xA6EC9CE5	FE_Music_Lobby_GothamHeights	4		data only	
+0xAB11CEFB	FE_Music_Lobby_GothamHeights	2		data only	
+0xB8E8ADB3	FE_Music_Lobby_GothamHeights	2		data only	
+0xB9DEBD5D	FE_Music_Lobby_GothamHeights	3		data only	
+0xD4F2DE47	FE_Music_Lobby_GothamHeights	4		data only	
+0xD939D5EB	FE_Music_Lobby_GothamHeights	7		data only	
+0xDC9B902F	FE_Music_Lobby_GothamHeights	3		data only	
+0x9289EEF3	FE_chr_Krypto	1		data only	
+0x0067D10A	GlobalElements	2		data only	
+0x0173702C	GlobalElements	4	0x180007D7 0x19000C61 0x40000132	data only	
+0x02FF49C0	GlobalElements	1	0x130017A4	data only	
+0x03C92C99	GlobalElements	3	0x49000EC9	data only	
+0x04F42BA8	GlobalElements	1		data only	
+0x066B3B30	GlobalElements	1	0x160005E9	data only	
+0x0889B010	GlobalElements	1	0x1600118C 0x480004C5	data only	
+0x08EC1965	GlobalElements	3	0x1500EB31	data only	
+0x0B744F9F	GlobalElements	1	0x130005A8 0x13002055 0x15001503 0x15001505 0x15009E4E 0x15009E4F 0x15009FDA 0x1500DEE4 0x18000C81 0x480004C5	data only	
+0x0C4F41EF	GlobalElements	3	0x1500A934	data only	
+0x0DD7A537	GlobalElements	1		data only	
+0x0F5B303C	GlobalElements	1	0x2B0000F7 0x2D000E4D	data only	
+0x0FEC984F	GlobalElements	1	0x1500A835	data only	
+0x10EA0BFA	GlobalElements	3	0x48000D48	data only	
+0x11C8DAE0	GlobalElements	2	0x48000D48	data only	
+0x12AF2EC8	GlobalElements	1	0x40000AAC	data only	
+0x12BFBE6C	GlobalElements	3	0x40000C82	data only	
+0x13257B0A	GlobalElements	4		data only	
+0x13AD275D	GlobalElements	2		data only	
+0x14B8AE4F	GlobalElements	1		data only	
+0x15903D59	GlobalElements	2		data only	
+0x16525A2B	GlobalElements	2	0x17000303	data only	
+0x169CD40F	GlobalElements	12	0x13001FD4 0x3B0002EC	data only	
+0x18A3CA8A	GlobalElements	2	0x16000D7B	data only	
+0x1917CB6C	GlobalElements	2	0x49000CFD	data only	
+0x1A07CE58	GlobalElements	1		data only	
+0x1A29EE87	GlobalElements	1	0x2B0001EA	data only	
+0x1ABC27E4	GlobalElements	2		data only	
+0x1B7B06B1	GlobalElements	2	0x10002BFE 0x130017B6 0x160018D5 0x1A00029D 0x34000087 0x3B0002CB	data only	
+0x1BF0E3E7	GlobalElements	1	0x1300154F	data only	
+0x1C82CAA7	GlobalElements	3	0x1300386D 0x13003872 0x17001445 0x40000EB2	data only	
+0x1EEDE5DA	GlobalElements	2	0x13002337	data only	
+0x2272B75C	GlobalElements	1	0x17000300 0x1800030D	data only	
+0x23BDA633	GlobalElements	2	0x170002F4 0x170020C1 0x40000C82 0x48001197	data only	
+0x2472D0BE	GlobalElements	1	0x49000D16	data only	
+0x258F3C48	GlobalElements	1		data only	
+0x265F8D3A	GlobalElements	1	0x180013F7	data only	
+0x27A684EC	GlobalElements	1		data only	
+0x286C81FA	GlobalElements	1	0x18000865	data only	
+0x293FC859	GlobalElements	1	0x18000774	data only	
+0x29B4A687	GlobalElements	3	0x13001FD4 0x2B000050	data only	
+0x2AA990F6	GlobalElements	1	0x15001506 0x1500EC0B 0x1600118B 0x17001243 0x18000C81 0x480004C5	data only	
+0x2AF5F5E6	GlobalElements	2		data only	
+0x2B36F7DC	GlobalElements	5	0x18000921	data only	
+0x2B94087A	GlobalElements	1		data only	
+0x2DC1EB86	GlobalElements	2	0x18000693 0x19000C61 0x40000132	data only	
+0x2E1FA677	GlobalElements	1		data only	
+0x2E5DDAB8	GlobalElements	2	0x40000E9F	data only	
+0x2F4C573C	GlobalElements	1	0x13002D4F	data only	
+0x342620DE	GlobalElements	4	0x180007D7 0x19000C61 0x40000132	data only	
+0x34F528F7	GlobalElements	3		data only	
+0x350E12EF	GlobalElements	1	0x10000D07	data only	
+0x36729EA7	GlobalElements	1		data only	
+0x383FB611	GlobalElements	3		data only	
+0x3A0741AD	GlobalElements	1	0x1600228E 0x1700160E 0x18001209 0x2E0010B9	data only	
+0x3B0F2E87	GlobalElements	1	0x130016AF 0x16001FC5	data only	
+0x3B9581A8	GlobalElements	1	0x1500E4A7 0x2E0009F0	data only	
+0x3C0715BA	GlobalElements	3	0x13000744	data only	
+0x3D96BC9E	GlobalElements	1		data only	
+0x3DA78EED	GlobalElements	4		data only	
+0x3DE973DA	GlobalElements	2	0x13002F9D	data only	
+0x3E445E02	GlobalElements	1		data only	
+0x407242F7	GlobalElements	1		data only	
+0x40F2F2C8	GlobalElements	1	0x10000B3E 0x10000B5C 0x10000B66 0x10000B76 0x10000B79 0x10000B7A 0x10002648 0x1100037E 0x110003DD 0x1500EF0B 0x19000265 0x19000CF8	data only	
+0x4264A4DB	GlobalElements	1	0x180013F7	data only	
+0x42DADD5A	GlobalElements	2	0x17000EF0	data only	
+0x42EFF376	GlobalElements	1		data only	
+0x43CD81D1	GlobalElements	10	0x13001FD4 0x19000F81 0x3B0002EC	data only	
+0x449EFB2C	GlobalElements	1	0x18000A33	data only	
+0x45A76246	GlobalElements	1	0x13001536	data only	
+0x4627DCBE	GlobalElements	1	0x10002BFE 0x130017B6 0x160018D5 0x1A00029D 0x34000087 0x3B0002CB	data only	
+0x477FD01D	GlobalElements	1	0x1500E451	data only	
+0x48333BC6	GlobalElements	3	0x40000AAC	data only	
+0x493BCA8D	GlobalElements	1		data only	
+0x498FD50F	GlobalElements	1		data only	
+0x4AADBAD9	GlobalElements	1		data only	
+0x4ABEE995	GlobalElements	2		data only	
+0x4ACA6D64	GlobalElements	1		data only	
+0x52711EBD	GlobalElements	6	0x180013F7	data only	
+0x5553DB24	GlobalElements	1		data only	
+0x5674FBCF	GlobalElements	2	0x17000746	data only	
+0x57161D43	GlobalElements	1	0x13000744	data only	
+0x5A2FBADD	GlobalElements	2	0x13003A6C	data only	
+0x5A775254	GlobalElements	1	0x1600004B 0x18000A8C	data only	
+0x5A8C9DE5	GlobalElements	5		data only	
+0x5DF8D3D1	GlobalElements	4	0x1500F021 0x40000C82 0x48001197	data only	
+0x5EBC6606	GlobalElements	1	0x130017A3	data only	
+0x5F5DB766	GlobalElements	1	0x40000C82	data only	
+0x5FF1C76A	GlobalElements	1	0x40000EDA	data only	
+0x5FF449CE	GlobalElements	1		data only	
+0x61E0D3C9	GlobalElements	2	0x40000ED9	data only	
+0x623245D0	GlobalElements	2		data only	
+0x62951F7B	GlobalElements	1		data only	
+0x62976A68	GlobalElements	1	0x180007D7 0x19000C61 0x40000132	data only	
+0x635EEB2E	GlobalElements	1		data only	
+0x66D8FED1	GlobalElements	1		data only	
+0x66D8FED4	GlobalElements	1		data only	
+0x66D8FED6	GlobalElements	1		data only	
+0x66D8FED7	GlobalElements	1		data only	
+0x6779BBBD	GlobalElements	6	0x13001FD4 0x2B000050	data only	
+0x6889BF94	GlobalElements	1	0x2B0000F1	data only	
+0x68B48CC3	GlobalElements	2	0x18000921	data only	
+0x6B09A6B1	GlobalElements	1	0x18000777	data only	
+0x6CBF1A06	GlobalElements	1	0x40000AAC	data only	
+0x6CD26F55	GlobalElements	2	0x2B0001EA	data only	
+0x6D81F5C7	GlobalElements	3	0x1500EC28	data only	
+0x6ECBD549	GlobalElements	1	0x480004C5	data only	
+0x6F355081	GlobalElements	8		data only	
+0x6FB66353	GlobalElements	3	0x3C000000	data only	
+0x6FC33846	GlobalElements	1	0x13003A7B	data only	
+0x7274785E	GlobalElements	2	0x48000D48	data only	
+0x72A0D714	GlobalElements	1	0x13002337	data only	
+0x7319B841	GlobalElements	2	0x13002F9D	data only	
+0x73AC951D	GlobalElements	1		data only	
+0x73E0B8AB	GlobalElements	2	0x18000798	data only	
+0x73F1B453	GlobalElements	1	0x18000798	data only	
+0x750AEED1	GlobalElements	1	0x49000ECB	data only	
+0x7746957C	GlobalElements	1		data only	
+0x785E27E2	GlobalElements	1	0x13002337	data only	
+0x79D206DB	GlobalElements	3		data only	
+0x7AD3723D	GlobalElements	1	0x1500A834	data only	
+0x7AEE278F	GlobalElements	5		data only	
+0x7B38EC65	GlobalElements	2	0x1D0004F4	data only	
+0x7D1322A5	GlobalElements	1		data only	
+0x7D349FAA	GlobalElements	1	0x1500F00C	data only	
+0x7E364034	GlobalElements	6		data only	
+0x7EED5A7C	GlobalElements	1		data only	
+0x81BA2157	GlobalElements	2	0x1500A834	data only	
+0x82142074	GlobalElements	2	0x1500A82B 0x1500E4A7	data only	
+0x8247C3C7	GlobalElements	1	0x1500A812 0x17000889 0x180007C4 0x18000AFE 0x2D000E4D 0x49000BAA	data only	
+0x82AD8CCA	GlobalElements	3	0x140001AA	data only	
+0x839B6AA2	GlobalElements	2		data only	
+0x840ED118	GlobalElements	1		data only	
+0x84E7E9D4	GlobalElements	3	0x140001AA	data only	
+0x85291368	GlobalElements	1	0x1500EB32	data only	
+0x8529A804	GlobalElements	2	0x40000EA5	data only	
+0x879F09A2	GlobalElements	2	0x130017A4	data only	
+0x87C49888	GlobalElements	1	0x13002D4F	data only	
+0x8AC43BD0	GlobalElements	2	0x17000300 0x1800030D	data only	
+0x8ADCBC2B	GlobalElements	2	0x13002D4F	data only	
+0x8B249CC5	GlobalElements	1	0x1900110A	data only	
+0x8B658F71	GlobalElements	3	0x17000303	data only	
+0x8B7FA9C9	GlobalElements	1	0x180006CE 0x2E000AA8	data only	
+0x8BC736C2	GlobalElements	1	0x1E00042A 0x2D000E4D 0x40000CF3	data only	
+0x8C6E2CC3	GlobalElements	1	0x130017A4	data only	
+0x8EB144B8	GlobalElements	2	0x1E00037B	data only	
+0x8F03FCC4	GlobalElements	1	0x13001536	data only	
+0x90CC36E9	GlobalElements	1	0x1500E6B3 0x180009DD	data only	
+0x91DD76A5	GlobalElements	1	0x1E00037B	data only	
+0x928CC385	GlobalElements	1	0x13000AA4 0x17000300	data only	
+0x94F777B2	GlobalElements	2		data only	
+0x960E11A4	GlobalElements	3	0x48000D48	data only	
+0x97197500	GlobalElements	19		data only	
+0x97498558	GlobalElements	1	0x1500E4B0	data only	
+0x98CA4707	GlobalElements	2	0x13003A73 0x1500E6B3 0x48000FE1	data only	
+0x9A39DD7F	GlobalElements	2	0x1E000091	data only	
+0x9BD38639	GlobalElements	1	0x40000C82	data only	
+0x9CF771C1	GlobalElements	1	0x13000AA4 0x17000300	data only	
+0x9E4D94E4	GlobalElements	2		data only	
+0x9F2E8310	GlobalElements	1		data only	
+0x9F2E8311	GlobalElements	1		data only	
+0x9F2E8312	GlobalElements	1		data only	
+0x9F2E8313	GlobalElements	1		data only	
+0x9F2E8314	GlobalElements	1		data only	
+0x9F2E8315	GlobalElements	1		data only	
+0x9F2E8316	GlobalElements	1		data only	
+0x9F2E8317	GlobalElements	1		data only	
+0x9F2E831E	GlobalElements	1		data only	
+0xA3B81F87	GlobalElements	1	0x16001FC5 0x40000EE1	data only	
+0xA42A511F	GlobalElements	2		data only	
+0xA5173C38	GlobalElements	2	0x18000863	data only	
+0xA5B50D51	GlobalElements	5		data only	
+0xA628DE9F	GlobalElements	1	0x10000FAE 0x13002944	data only	
+0xA67B7CF8	GlobalElements	1	0x40000EA6	data only	
+0xA7F347E4	GlobalElements	2	0x13002F9D	data only	
+0xAA514CEA	GlobalElements	2	0x1500A810	data only	
+0xAA8FDD6A	GlobalElements	1	0x13001536	data only	
+0xAC66E53F	GlobalElements	1	0x1500EB31	data only	
+0xAD553078	GlobalElements	2	0x180006F1	data only	
+0xAE992E25	GlobalElements	2		data only	
+0xAF5BDFC6	GlobalElements	1	0x40000EDA	data only	
+0xAFBCF7E9	GlobalElements	2	0x1500EC28	data only	
+0xB3DF5CE2	GlobalElements	1	0x16000D7B	data only	
+0xB40A4312	GlobalElements	3	0x160005E9	data only	
+0xB444194D	GlobalElements	2		data only	
+0xB5E4EFB3	GlobalElements	3	0x1500E6B3	data only	
+0xB6EF1F56	GlobalElements	1	0x13003A6D	data only	
+0xB7ABA266	GlobalElements	1	0x10000FAE 0x1500E499	data only	
+0xB7CBB92D	GlobalElements	1	0x18000774	data only	
+0xBA054F9E	GlobalElements	1		data only	
+0xBA53696A	GlobalElements	2	0x17000058	data only	
+0xBA6C6552	GlobalElements	1		data only	
+0xBAE9A772	GlobalElements	2	0x1000050C 0x10003EB8 0x1500A81C 0x1500A826 0x1800030D 0x40000C82 0x48001197	data only	
+0xBB713B91	GlobalElements	1	0x1500E6B3	data only	
+0xBC0895AE	GlobalElements	1		data only	
+0xBD0E9718	GlobalElements	4	0x13002F9D	data only	
+0xBE1261D5	GlobalElements	1	0x130017A4	data only	
+0xBE3A39E3	GlobalElements	2	0x480004C5	data only	
+0xBF7AF7FE	GlobalElements	2	0x49000EC0	data only	
+0xC025A0BB	GlobalElements	1	0x13002F9D	data only	
+0xC29BF986	GlobalElements	2	0x1900110A	data only	
+0xC2F6C925	GlobalElements	3	0x10000FAE 0x13002944	data only	
+0xC40A26C9	GlobalElements	2		data only	
+0xC447049D	GlobalElements	2	0x1500E6B3	data only	
+0xC6F788D7	GlobalElements	1	0x17000F51	data only	
+0xC7A44FE8	GlobalElements	7		data only	
+0xC7A5BE86	GlobalElements	1		data only	
+0xC9028211	GlobalElements	1		data only	
+0xC92115C4	GlobalElements	1	0x1E00037B	data only	
+0xC9860741	GlobalElements	1		data only	
+0xC9D0EC68	GlobalElements	1	0x1300154F	data only	
+0xCA136BD7	GlobalElements	1		data only	
+0xCDED4FC6	GlobalElements	1		data only	
+0xCE1E7B15	GlobalElements	1		data only	
+0xCE280E22	GlobalElements	3		data only	
+0xD0F7E978	GlobalElements	3	0x18000921	data only	
+0xD4293C63	GlobalElements	1	0x13002F9D	data only	
+0xD55BF2FF	GlobalElements	10		data only	
+0xD6F3CED6	GlobalElements	1		data only	
+0xD732C878	GlobalElements	1	0x180001D8	data only	
+0xD8193357	GlobalElements	2	0x13003872 0x17001445 0x18000D90	data only	
+0xDC1F5007	GlobalElements	2	0x130015AB	data only	
+0xDDAD704A	GlobalElements	1		data only	
+0xDE0BFA2D	GlobalElements	2	0x130016AF 0x16001FC5	data only	
+0xDEB94516	GlobalElements	1	0x1500EB32	data only	
+0xDFF5F0F7	GlobalElements	5	0x2B0000F1	data only	
+0xE1253A94	GlobalElements	3	0x1500E44E	data only	
+0xE6613198	GlobalElements	1		data only	
+0xE7F24906	GlobalElements	1	0x30000009	data only	
+0xE8050D4E	GlobalElements	1		data only	
+0xE89661E6	GlobalElements	1	0x18000864	data only	
+0xEA8A9C3C	GlobalElements	1	0x13003A75 0x18000143 0x18000EA8 0x180014FB	data only	
+0xEACEAEEB	GlobalElements	2	0x40000C82	data only	
+0xED6C302D	GlobalElements	3	0x17000747	data only	
+0xEE8448C0	GlobalElements	1	0x30000008	data only	
+0xEEA755E8	GlobalElements	3	0x10000FAE 0x1500E499	data only	
+0xEF5DB700	GlobalElements	2	0x18000693 0x19000C61 0x40000132	data only	
+0xEFAA8F9D	GlobalElements	1	0x480004C5	data only	
+0xF091122E	GlobalElements	3	0x13001536	data only	
+0xF0EF657E	GlobalElements	2		data only	
+0xF12EA992	GlobalElements	3	0x1E00046C	data only	
+0xF4F68067	GlobalElements	4	0x49000D0F	data only	
+0xF59A4908	GlobalElements	3	0x1E000195	data only	
+0xF68BD870	GlobalElements	2	0x13000744 0x1D0004F4 0x1E00046C	data only	
+0xF6F60CC0	GlobalElements	2		data only	
+0xF7325EC0	GlobalElements	2	0x1E000139	data only	
+0xFA23D284	GlobalElements	2		data only	
+0xFA283824	GlobalElements	1	0x18000693 0x19000C61 0x40000132	data only	
+0xFAE123D1	GlobalElements	2	0x49000EC0	data only	
+0xFAED094A	GlobalElements	1		data only	
+0xFB109D8A	GlobalElements	1		data only	
+0xFC193758	GlobalElements	1		data only	
+0xFDDB39B6	GlobalElements	2		data only	
+0xFE306E0E	GlobalElements	1		data only	
+0xFF36BA44	GlobalElements	1	0x1E00021C	data only	
+0xFF568C66	GlobalElements	1	0x1300154F	data only	
+0xFFB29B9B	GlobalElements	1		data only	
+0x0461AF7D	Music_CoastCity	1		data only	
+0x0CBED0A9	Music_CoastCity	2		data only	
+0x1A3EA266	Music_CoastCity	2		data only	
+0x28037A5C	Music_CoastCity	5		data only	
+0x2FC091EA	Music_CoastCity	3		data only	
+0x54ED533E	Music_CoastCity	5		data only	
+0x597F484A	Music_CoastCity	1		data only	
+0x5E97740E	Music_CoastCity	5		data only	
+0x6195499C	Music_CoastCity	5		data only	
+0x678E2120	Music_CoastCity	1		data only	
+0x8304E25E	Music_CoastCity	4		data only	
+0x902A5233	Music_CoastCity	2		data only	
+0x95BE2850	Music_CoastCity	5		data only	
+0xA13693EB	Music_CoastCity	5		data only	
+0xA381AE07	Music_CoastCity	2		data only	
+0xA9C36029	Music_CoastCity	5		data only	
+0xAB1742BF	Music_CoastCity	5		data only	
+0xAEC2DF73	Music_CoastCity	5		data only	
+0xAF5328AC	Music_CoastCity	5		data only	
+0xBE53F87B	Music_CoastCity	5		data only	
+0xC5F35E34	Music_CoastCity	3		data only	
+0xD9C10D17	Music_CoastCity	5		data only	
+0xE2439A67	Music_CoastCity	1		data only	
+0xF3F8B047	Music_CoastCity	4		data only	
+0xF55BBD87	Music_CoastCity	5		data only	
+0x033F8F4C	Music_Divided	1		data only	
+0x087217FD	Music_Divided	3		data only	
+0x0AE5CB58	Music_Divided	2		data only	
+0x0F45B3FB	Music_Divided	5		data only	
+0x124BCE03	Music_Divided	5		data only	
+0x13C8394D	Music_Divided	2		data only	
+0x1BF99C58	Music_Divided	2		data only	
+0x242DF420	Music_Divided	2		data only	
+0x28F10634	Music_Divided	6		data only	
+0x2CB23E81	Music_Divided	5		data only	
+0x3157BE62	Music_Divided	3		data only	
+0x367A37AC	Music_Divided	5		data only	
+0x3D5E73E3	Music_Divided	2		data only	
+0x3E929E51	Music_Divided	2		data only	
+0x490E4E4C	Music_Divided	2		data only	
+0x4D3FAA5D	Music_Divided	2		data only	
+0x52420BEB	Music_Divided	5		data only	
+0x588E53B6	Music_Divided	2		data only	
+0x59C42815	Music_Divided	2		data only	
+0x5C5F7717	Music_Divided	2		data only	
+0x5E1264CB	Music_Divided	2		data only	
+0x708158FF	Music_Divided	2		data only	
+0x7B60F93D	Music_Divided	2		data only	
+0x7BE02B46	Music_Divided	2		data only	
+0x8B64B834	Music_Divided	2		data only	
+0x8C7742E1	Music_Divided	2		data only	
+0x9B402C18	Music_Divided	6		data only	
+0x9DAB07AC	Music_Divided	5		data only	
+0xAD7161ED	Music_Divided	2		data only	
+0xB43D7050	Music_Divided	3		data only	
+0xB7E59F82	Music_Divided	3		data only	
+0xBD929512	Music_Divided	3		data only	
+0xBE17E126	Music_Divided	2		data only	
+0xBE44D181	Music_Divided	2		data only	
+0xD00E8176	Music_Divided	4		data only	
+0xD010BD74	Music_Divided	2		data only	
+0xD10262A6	Music_Divided	2		data only	
+0xD113569C	Music_Divided	5		data only	
+0xD355B5C6	Music_Divided	2		data only	
+0xD53D5BF7	Music_Divided	1		data only	
+0xEC429497	Music_Divided	1		data only	
+0xF1008837	Music_Divided	2		data only	
+0xF7960C4E	Music_Divided	3		data only	
+0x1B310CAA	Music_GothamHeights	3		data only	
+0x268EE1E8	Music_GothamHeights	2		data only	
+0x4C21042A	Music_GothamHeights	1		data only	
+0x57A02EBC	Music_GothamHeights	1		data only	
+0x57A02EBD	Music_GothamHeights	1		data only	
+0x61E93673	Music_GothamHeights	3		data only	
+0x6ECF6DD4	Music_GothamHeights	2		data only	
+0x6F385C44	Music_GothamHeights	3		data only	
+0x75B24A41	Music_GothamHeights	4		data only	
+0x8A3EFB57	Music_GothamHeights	4		data only	
+0xB16C7E76	Music_GothamHeights	3		data only	
+0xF84FC9A0	Music_GothamHeights	3		data only	
+0xFA8B12D4	Music_GothamHeights	1		data only	
+0x0A6C952A	Turrets	1	0x1E00021C	data only	
+0x19758E9D	Turrets	3	0x1500E936 0x17000B97	data only	
+0x22CE2ADC	Turrets	2	0x180007D7 0x19000C61 0x40000132	data only	
+0x299246D2	Turrets	2	0x180006C6 0x180006C7 0x180006C8 0x180006C9 0x180006CA 0x18001437 0x2E000C42	data only	
+0x2B9821DB	Turrets	1	0x180006FB 0x18000A8B 0x1D000397	data only	
+0x2EE476EC	Turrets	1	0x180006FB 0x18000A8B 0x1D000397	data only	
+0x30049DEB	Turrets	1		data only	
+0x3A8D9B09	Turrets	2		data only	
+0x3C5B5B14	Turrets	1	0x180006FB 0x18000A8B	data only	
+0x3D0A1730	Turrets	1	0x10002BA5 0x1700023A	data only	
+0x3D6E7B89	Turrets	1	0x1300278A 0x1500E936 0x17000B97 0x1800145C	data only	
+0x41ED1E5F	Turrets	3	0x1300278A 0x1500E936 0x17000B97 0x1800145C	data only	
+0x59C7A81C	Turrets	1	0x180006C6 0x180006C7 0x180006C8 0x180006C9 0x180006CA 0x18001437	data only	
+0x5AF4EF15	Turrets	2	0x180006FB 0x18000A8B 0x2E000C42 0x40000400	data only	
+0x5B5D202C	Turrets	1	0x13001271 0x2E000AA8	data only	
+0x5B6B2361	Turrets	1	0x180006C6 0x180006C8	data only	
+0x694D971A	Turrets	1	0x180006C6 0x180006C7 0x180006C8 0x180006C9 0x180006CA 0x18001437	data only	
+0x6BD7D838	Turrets	1	0x180006CB 0x18000A8D 0x18000A8E 0x180014FA 0x1E00035F	data only	
+0x6F05B878	Turrets	3	0x180006C6 0x180006C7 0x180006C8 0x180006C9 0x180006CA 0x18001437 0x2E000C42	data only	
+0x7F1F2FB2	Turrets	2	0x180006C7 0x180006C8 0x180006C9 0x180006CA 0x180006CB 0x18001431 0x18001437 0x180014C5 0x1D000397 0x1E00035F 0x2E000AA8 0x2E001349	data only	
+0x830AFF83	Turrets	2	0x1500053F 0x180006FB 0x1D000397	data only	
+0x8C3A673F	Turrets	1	0x10002BA5 0x1700023A	data only	
+0x986D23BB	Turrets	1	0x180006C7 0x180006C8 0x180006C9 0x180006CA 0x180006CB 0x18000AEB 0x18000E72 0x180011F9 0x18001437 0x1E00035F 0x2E000AA8 0x2E000C42	data only	
+0x999D2166	Turrets	1	0x10002818 0x190009B3 0x190009B4 0x190009B5 0x2E000AA8 0x480006CE 0x52000015	data only	
+0xA7E904EE	Turrets	1		data only	
+0xB3A36100	Turrets	1	0x1E000220	data only	
+0xB589ABE8	Turrets	2	0x180006CB 0x1E00035F	data only	
+0xB589ABEA	Turrets	2	0x180006CB 0x1E00035F	data only	
+0xB589ABEB	Turrets	2	0x180006CB 0x18000A89 0x18001453 0x180014FA	data only	
+0xBCDCC5EE	Turrets	2	0x1500053F 0x180006FB 0x1D000397	data only	
+0xBED1B555	Turrets	1	0x190009A1 0x190009D6 0x190009D7 0x1D00037B 0x2E00103B	data only	
+0xC3E71C7E	Turrets	1	0x180006C7 0x180006C8 0x180006C9 0x180006CA 0x180006CB 0x18001431 0x18001437 0x180014C5 0x1D000397 0x1E00035F 0x2E000AA8 0x2E001349	data only	
+0xC4652820	Turrets	1	0x10002818 0x190009B3 0x190009B4 0x190009B5 0x2E000AA8 0x480006CE 0x52000015	data only	
+0xCB8E1DC8	Turrets	1	0x13001271	data only	
+0xCD9B3ABC	Turrets	1		data only	
+0xD1852C04	Turrets	0		data only	
+0xD30CC844	Turrets	2	0x1E000166 0x1E00021B	data only	
+0xDF068C76	Turrets	1	0x180006C6 0x180006C8	data only	
+0xE14FCB88	Turrets	1	0x1300278A 0x1500E936 0x17000B97 0x1800145C	data only	
+0xE3AD29A7	Turrets	1	0x1300278A 0x1500E936 0x17000B97	data only	
+0xE41C89E8	Turrets	1	0x180006CB 0x18000A89 0x18001453 0x180014FA	data only	
+0xE41C89E9	Turrets	1	0x180006CB 0x1E00035F	data only	
+0xE41C89EB	Turrets	1	0x180006CB 0x1E00035F	data only	
+0xEC14FF86	Turrets	1	0x190009A1 0x190009D6 0x190009D7 0x1D00037B 0x2E00103B	data only	
+0xEE48740B	Turrets	1		data only	
+0xF10F15FB	Turrets	1	0x130018A8	data only	
+0xF3BAE596	Turrets	1	0x18000A8A 0x190009A1 0x190009D6 0x190009D7 0x1D00037B 0x2E00103B	data only	
+0xF661517E	Turrets	1		data only	
+0xFEC54882	Turrets	3	0x2E000C42	data only	
+0x0C361440	chr_Atrocitus	1	0x18000CB6	data only	
+0x0C361441	chr_Atrocitus	1	0x18000CB6	data only	
+0x0C361442	chr_Atrocitus	1	0x2E000F3C	data only	
+0x0C361447	chr_Atrocitus	1	0x18000CB6	data only	
+0x0CAD9332	chr_Atrocitus	6	0x1D00063D	data only	
+0x0D619101	chr_Atrocitus	1	0x18000CC4	data only	
+0x0ED27332	chr_Atrocitus	2	0x18000CC9 0x2E000F3C	data only	
+0x185284E0	chr_Atrocitus	4	0x1D00063D	data only	
+0x1951B795	chr_Atrocitus	2	0x18000CB6	data only	
+0x217E14A4	chr_Atrocitus	2	0x18000CCB 0x1D00063D	data only	
+0x21A4E916	chr_Atrocitus	1	0x130037AA	data only	
+0x23DD8088	chr_Atrocitus	1	0x15009BE2 0x15009BE4 0x18000CB2 0x18000CC4 0x2E0012D6	data only	
+0x353DBE96	chr_Atrocitus	1	0x15009BE2 0x15009BE4 0x18000CB2 0x18000CC4 0x2E0012D6	data only	
+0x3585EF25	chr_Atrocitus	2	0x18000CB3	data only	
+0x3A168D8B	chr_Atrocitus	1	0x18000CCD	data only	
+0x3B04B11F	chr_Atrocitus	2	0x18000CB3	data only	
+0x3CB8CE8A	chr_Atrocitus	1	0x18000CCB 0x1D00063D	data only	
+0x3EA58A77	chr_Atrocitus	3	0x2E000F3C	data only	
+0x426055B1	chr_Atrocitus	2	0x18000CB3	data only	
+0x44FDC50A	chr_Atrocitus	2	0x18000CB6	data only	
+0x482EF84C	chr_Atrocitus	6	0x1D00063D	data only	
+0x50A827C3	chr_Atrocitus	1	0x2E000F3C	data only	
+0x5E3DECF7	chr_Atrocitus	1	0x130037AA	data only	
+0x62B3A2ED	chr_Atrocitus	2	0x1D00063D	data only	
+0x649723D8	chr_Atrocitus	1	0x18000CC9 0x18000CCD 0x18000E98	data only	
+0x67560869	chr_Atrocitus	2	0x18000CC4	data only	
+0x6B1E9939	chr_Atrocitus	2	0x18000CB6	data only	
+0x7AAA1F0F	chr_Atrocitus	1	0x10003E48 0x2D000D40	data only	
+0x85AAA367	chr_Atrocitus	1	0x1D00063D	data only	
+0x8736E16A	chr_Atrocitus	1	0x18000CC9 0x18000CCD 0x18000E98	data only	
+0x8B203EFF	chr_Atrocitus	2	0x18000CB6	data only	
+0x957DA439	chr_Atrocitus	3	0x2E000F3C	data only	
+0x95E138E9	chr_Atrocitus	1		data only	
+0x97562EDC	chr_Atrocitus	1		data only	
+0x9B9F8129	chr_Atrocitus	3	0x1D00063D	data only	
+0xA17AA2A4	chr_Atrocitus	1	0x2E000F3C	data only	
+0xADB771DD	chr_Atrocitus	3	0x2E000F3C	data only	
+0xADF2A104	chr_Atrocitus	1	0x18000CC4	data only	
+0xB21A210D	chr_Atrocitus	4	0x2E000F3C	data only	
+0xB2CD5A7B	chr_Atrocitus	1	0x18000CC4	data only	
+0xBAC90865	chr_Atrocitus	3	0x18000CB6	data only	
+0xCD450751	chr_Atrocitus	1	0x18000CCB	data only	
+0xD04314DB	chr_Atrocitus	2	0x18000CB3	data only	
+0xD1B6B054	chr_Atrocitus	2	0x18000CC9 0x2E000F3C	data only	
+0xD1DFFEE9	chr_Atrocitus	4	0x18000CB6 0x2E000F3C	data only	
+0xD47AC956	chr_Atrocitus	4	0x1D00063D	data only	
+0xDE677F76	chr_Atrocitus	1	0x18000CB6	data only	
+0xE18BDBC0	chr_Atrocitus	1	0x130037AA	data only	
+0xE25D9CDB	chr_Atrocitus	1	0x18000CB6	data only	
+0xE4A2D893	chr_Atrocitus	3	0x2E000F3C	data only	
+0xE6405489	chr_Atrocitus	1	0x130037AA	data only	
+0xE68BFC37	chr_Atrocitus	4	0x2E000F3C	data only	
+0xE8D20D7D	chr_Atrocitus	1	0x10003E48 0x2D000D40	data only	
+0x0262077C	chr_Batman	1	0x18001565	data only	
+0x0683BD11	chr_Batman	1	0x13000EB4	data only	
+0x0694434B	chr_Batman	7	0x1900080F	data only	
+0x15AC6372	chr_Batman	4	0x1900080F	data only	
+0x1A0E9EDF	chr_Batman	1	0x18001565	data only	
+0x1BB1E961	chr_Batman	2	0x18001565	data only	
+0x23167A91	chr_Batman	1	0x1E00062A	data only	
+0x299FB7E1	chr_Batman	3	0x16000E70	data only	
+0x2DD95F05	chr_Batman	2	0x1D000290	data only	
+0x315D0A53	chr_Batman	3	0x13000EB4	data only	
+0x3284DDBF	chr_Batman	4	0x16000E70	data only	
+0x34859915	chr_Batman	6	0x1900080F	data only	
+0x3728DFD7	chr_Batman	3	0x13002E3D 0x1300316A 0x16002083 0x18000EC3 0x1D000529 0x40000546	data only	
+0x3BA11274	chr_Batman	1	0x13002E3D 0x1300316A 0x16002083 0x18000EC3 0x1D000529 0x40000546	data only	
+0x3E2D82A2	chr_Batman	2	0x180004DF	data only	
+0x4393489C	chr_Batman	1	0x1E00062A	data only	
+0x47B5E106	chr_Batman	3	0x18001565	data only	
+0x4AA781F7	chr_Batman	2	0x1D000290	data only	
+0x4EBF84BC	chr_Batman	1	0x1D000290 0x1D00085E 0x1D000885 0x1D0008F8 0x1D00096E	data only	
+0x5B1CD5DC	chr_Batman	1	0x18001565	data only	
+0x5BBF9153	chr_Batman	1	0x16000E70	data only	
+0x63D01224	chr_Batman	2	0x180004DF	data only	
+0x645220D9	chr_Batman	2	0x18001565	data only	
+0x750AC211	chr_Batman	1	0x13002E3D 0x1300316A 0x16002083 0x18000EC3 0x1D000529 0x40000546	data only	
+0x750AC216	chr_Batman	1	0x13002E3D 0x1300316A 0x16002083 0x18000EC3 0x1D000529 0x40000546	data only	
+0x750AC217	chr_Batman	1	0x13002E3D 0x1300316A 0x16002083 0x18000EC3 0x1D000529 0x40000546	data only	
+0x758AF17C	chr_Batman	2	0x1D000290	data only	
+0x78B7FF3F	chr_Batman	1	0x18001565	data only	
+0x7E101FB7	chr_Batman	1	0x13000EB4	data only	
+0x7EEFEECE	chr_Batman	1	0x1E00062A	data only	
+0x8033D425	chr_Batman	1	0x180004DF	data only	
+0x837A7646	chr_Batman	2	0x1900080F	data only	
+0x8C42B828	chr_Batman	2	0x1900080F	data only	
+0x944F7AD9	chr_Batman	1	0x16000E70	data only	
+0x95EA3901	chr_Batman	1	0x18001565	data only	
+0x99A928DB	chr_Batman	2	0x18001565	data only	
+0xA05A4F72	chr_Batman	3	0x1D000290	data only	
+0xA112E3F7	chr_Batman	1	0x180004DF	data only	
+0xA93580DE	chr_Batman	2	0x18001565	data only	
+0xAEA0752E	chr_Batman	2	0x16000E70	data only	
+0xB7F28AA8	chr_Batman	1	0x1D000290 0x1D0008F8 0x1D000901 0x1D00096E	data only	
+0xBAFE72CF	chr_Batman	5		data only	
+0xC2B9F311	chr_Batman	1	0x13002E3D 0x1300316A 0x16002083 0x18000EC3 0x1D000529 0x40000546	data only	
+0xCDE4DA6D	chr_Batman	1	0x13000EB4	data only	
+0xD8FD766F	chr_Batman	3	0x18001565	data only	
+0xDB7F93D7	chr_Batman	5		data only	
+0xDCC454BC	chr_Batman	2	0x1900080F	data only	
+0xE592B2EE	chr_Batman	1	0x1D000290 0x1D00085E 0x1D000885 0x1D0008F8 0x1D00096E	data only	
+0xEFF30FE6	chr_Batman	2	0x1D000290	data only	
+0xF2A29E79	chr_Batman	1	0x18001565	data only	
+0xF540C51C	chr_Batman	2	0x16000E70	data only	
+0xF993D796	chr_Batman	1	0x13000EB4	data only	
+0xFAD3FF7D	chr_Batman	1	0x13002E3D 0x16002083 0x1D000529 0x40000546	data only	
+0x1646A194	chr_Catwoman_Nightmare	1	0x10003856	data only	
+0x19B9DE23	chr_Catwoman_Nightmare	1		data only	
+0x26AA535C	chr_Catwoman_Nightmare	1	0x34000729	data only	
+0x2C758E8B	chr_Catwoman_Nightmare	1	0x1E0005AB	data only	
+0x3C7AD2C4	chr_Catwoman_Nightmare	1		data only	
+0x487E024A	chr_Catwoman_Nightmare	1		data only	
+0x7767EE69	chr_Catwoman_Nightmare	3		data only	
+0x9E8F21B9	chr_Catwoman_Nightmare	1	0x10003856	data only	
+0xA22E3E69	chr_Catwoman_Nightmare	1	0x1E0005AB	data only	
+0xAE9078F3	chr_Catwoman_Nightmare	1	0x1D0008CF	data only	
+0xB12D48A9	chr_Catwoman_Nightmare	1	0x1D0008CF	data only	
+0xBB0F59F1	chr_Catwoman_Nightmare	1	0x1D0008CF	data only	
+0xBB8959CA	chr_Catwoman_Nightmare	1	0x34000729	data only	
+0xD597235A	chr_Catwoman_Nightmare	1	0x1D0008CF	data only	
+0xDFF8CFB0	chr_Catwoman_Nightmare	1		data only	
+0xE241FB93	chr_Catwoman_Nightmare	1	0x10003856	data only	
+0xE6AE7D52	chr_Catwoman_Nightmare	1	0x1D0008CF	data only	
+0xFE8A165A	chr_Catwoman_Nightmare	1	0x10003856	data only	
+0x10A854B8	chr_Deathstroke	1		data only	
+0x15E35BE3	chr_Deathstroke	4	0x1E00061F	data only	
+0x163E202E	chr_Deathstroke	1		data only	
+0x1787EFCD	chr_Deathstroke	2		data only	
+0x17AFC6C2	chr_Deathstroke	2		data only	
+0x17DF4EC8	chr_Deathstroke	2	0x48001514	data only	
+0x1AE3BE4A	chr_Deathstroke	1		data only	
+0x1E4BC943	chr_Deathstroke	1	0x18001526	data only	
+0x22396FCA	chr_Deathstroke	3		data only	
+0x22F11674	chr_Deathstroke	2		data only	
+0x23233AD8	chr_Deathstroke	3		data only	
+0x247307FC	chr_Deathstroke	1		data only	
+0x28A7267D	chr_Deathstroke	1	0x1D00081B	data only	
+0x2921BA8A	chr_Deathstroke	1	0x18001524	data only	
+0x2D668C18	chr_Deathstroke	4		data only	
+0x2E501231	chr_Deathstroke	1		data only	
+0x2E501232	chr_Deathstroke	1		data only	
+0x2E501233	chr_Deathstroke	1		data only	
+0x2E501234	chr_Deathstroke	1		data only	
+0x2FDD3F4E	chr_Deathstroke	1		data only	
+0x335C88C8	chr_Deathstroke	1		data only	
+0x3B26A857	chr_Deathstroke	2		data only	
+0x3D270076	chr_Deathstroke	1		data only	
+0x4312D8C4	chr_Deathstroke	1		data only	
+0x535927DE	chr_Deathstroke	1		data only	
+0x58EDFB3C	chr_Deathstroke	1		data only	
+0x5F2BC96D	chr_Deathstroke	1		data only	
+0x6796019F	chr_Deathstroke	1	0x48001514	data only	
+0x6936D7F1	chr_Deathstroke	4	0x1E00061F	data only	
+0x69724ED3	chr_Deathstroke	3	0x18001533	data only	
+0x6B5E726D	chr_Deathstroke	1		data only	
+0x7B94B065	chr_Deathstroke	3	0x18001533	data only	
+0x7BE1CCF7	chr_Deathstroke	1	0x1D00081B	data only	
+0x848907DB	chr_Deathstroke	1		data only	
+0x88E4B0CD	chr_Deathstroke	2		data only	
+0x8B4C6789	chr_Deathstroke	3	0x1D00099B	data only	
+0x91119BCA	chr_Deathstroke	1		data only	
+0x94C104F9	chr_Deathstroke	1	0x18001526	data only	
+0x9BAF5A1C	chr_Deathstroke	1	0x16002153	data only	
+0xA4ED80C9	chr_Deathstroke	1	0x1D00081B	data only	
+0xA8015609	chr_Deathstroke	2	0x190013BB	data only	
+0xAA945A92	chr_Deathstroke	4	0x16002153	data only	
+0xACB557EA	chr_Deathstroke	1		data only	
+0xAF00845E	chr_Deathstroke	1	0x16002153	data only	
+0xAF6A320E	chr_Deathstroke	2	0x48001514	data only	
+0xB410E12A	chr_Deathstroke	2	0x130038BC	data only	
+0xBC99E1AB	chr_Deathstroke	2	0x190013BB	data only	
+0xC3351613	chr_Deathstroke	1	0x17001EC8	data only	
+0xC531EC85	chr_Deathstroke	1	0x48001514	data only	
+0xC604696E	chr_Deathstroke	1		data only	
+0xCC1DEA90	chr_Deathstroke	1	0x18001524	data only	
+0xD55A01C2	chr_Deathstroke	2		data only	
+0xD866CCBC	chr_Deathstroke	2	0x130038BC	data only	
+0xDD4BBE14	chr_Deathstroke	4	0x16002153	data only	
+0xE984C0C3	chr_Deathstroke	1		data only	
+0xEF9DF7EB	chr_Deathstroke	2		data only	
+0xF405192E	chr_Deathstroke	1		data only	
+0xF5E8C914	chr_Deathstroke	2		data only	
+0xFB0A8013	chr_Deathstroke	1	0x1D00081B	data only	
+0xFD774EBF	chr_Deathstroke	1		data only	
+0xFD7866C9	chr_Deathstroke	1	0x1D00081B	data only	
+0x27BD034C	chr_Dexstarr	3		data only	
+0x682132E3	chr_Dexstarr	2	0x16002294	data only	
+0x718CF78A	chr_Dexstarr	2	0x16002294	data only	
+0x734740B0	chr_Dexstarr	2	0x16002294	data only	
+0x767830C6	chr_Dexstarr	3	0x2E001422	data only	
+0x9A24B71A	chr_Dexstarr	2	0x2E0012D6	data only	
+0xAE752C6A	chr_Dexstarr	1	0x1D000901	data only	
+0xB438BA08	chr_Dexstarr	1	0x1D000901	data only	
+0xB6CB54F1	chr_Dexstarr	2	0x16002294	data only	
+0xD736F6B0	chr_Dexstarr	1	0x2E0012D6	data only	
+0xD9D533B3	chr_Dexstarr	1	0x15009BE0	data only	
+0xE81766F1	chr_Dexstarr	1	0x15009BE0	data only	
+0x0ACF0E1B	chr_Harley_Arcane	2		data only	
+0x1168B87C	chr_Harley_Arcane	1	0x1800138D	data only	
+0x1485AE5F	chr_Harley_Arcane	1		data only	
+0x1A39CA83	chr_Harley_Arcane	1		data only	
+0x1ABF9D33	chr_Harley_Arcane	3	0x13002F67	data only	
+0x1D3C2D6B	chr_Harley_Arcane	2	0x1800138E	data only	
+0x1F0F5453	chr_Harley_Arcane	3		data only	
+0x1F8CED0B	chr_Harley_Arcane	0		data only	
+0x1F8CED0C	chr_Harley_Arcane	1		data only	
+0x1F8CED0D	chr_Harley_Arcane	1		data only	
+0x1F8CED0E	chr_Harley_Arcane	1		data only	
+0x2C9C9ECD	chr_Harley_Arcane	1		data only	
+0x2D2E27F4	chr_Harley_Arcane	1	0x13002F67	data only	
+0x2E47526E	chr_Harley_Arcane	1	0x1D00092C	data only	
+0x2F508F49	chr_Harley_Arcane	3	0x13002F64	data only	
+0x378EFAD8	chr_Harley_Arcane	1	0x1D00092C	data only	
+0x384CD78B	chr_Harley_Arcane	1		data only	
+0x42CE1A9D	chr_Harley_Arcane	1		data only	
+0x44C84410	chr_Harley_Arcane	1	0x1D00092C	data only	
+0x45CDEA59	chr_Harley_Arcane	3	0x13002F67	data only	
+0x485976D8	chr_Harley_Arcane	3		data only	
+0x4CCE66EE	chr_Harley_Arcane	1		data only	
+0x4F63A91D	chr_Harley_Arcane	1		data only	
+0x4FCE6D47	chr_Harley_Arcane	1		data only	
+0x57651749	chr_Harley_Arcane	1		data only	
+0x681ECAA4	chr_Harley_Arcane	1		data only	
+0x68EF2BBA	chr_Harley_Arcane	1	0x13002F67	data only	
+0x6AC17088	chr_Harley_Arcane	3		data only	
+0x78D8ACE6	chr_Harley_Arcane	1		data only	
+0x80704652	chr_Harley_Arcane	1	0x1D00092C	data only	
+0x84F921EA	chr_Harley_Arcane	1	0x1800138D	data only	
+0x88535FD1	chr_Harley_Arcane	2		data only	
+0x8A9D425F	chr_Harley_Arcane	1		data only	
+0x8E358BF6	chr_Harley_Arcane	3		data only	
+0x94851276	chr_Harley_Arcane	1		data only	
+0x95B30391	chr_Harley_Arcane	1		data only	
+0x9A59A49B	chr_Harley_Arcane	1		data only	
+0x9B00152D	chr_Harley_Arcane	1		data only	
+0x9BCB8736	chr_Harley_Arcane	1		data only	
+0xA503E142	chr_Harley_Arcane	3		data only	
+0xAD545ED5	chr_Harley_Arcane	1		data only	
+0xB78E1E24	chr_Harley_Arcane	3		data only	
+0xC5F68957	chr_Harley_Arcane	1	0x1D00092C	data only	
+0xCC1D9AC9	chr_Harley_Arcane	2	0x1800138E	data only	
+0xD76986B0	chr_Harley_Arcane	1		data only	
+0xDAF2552E	chr_Harley_Arcane	1		data only	
+0xDC5966A3	chr_Harley_Arcane	1		data only	
+0xDD4A3F44	chr_Harley_Arcane	1		data only	
+0xE3A3ABF0	chr_Harley_Arcane	1		data only	
+0xF6ED6AF2	chr_Harley_Arcane	1		data only	
+0xFEF655AF	chr_Harley_Arcane	1		data only	
+0x049295F2	chr_Huntress	1	0x48001197	data only	
+0x072B79A4	chr_Huntress	2	0x48001197	data only	
+0x0DC5325D	chr_Huntress	1	0x40000CD1	data only	
+0x10438C98	chr_Huntress	2	0x13003204	data only	
+0x1223564D	chr_Huntress	1	0x180014C9	data only	
+0x1596746C	chr_Huntress	2	0x1D0008DA	data only	
+0x15D2419A	chr_Huntress	1	0x180014C9	data only	
+0x15D9FA57	chr_Huntress	1	0x1D0008E1	data only	
+0x17A46A21	chr_Huntress	1	0x40000CD1	data only	
+0x2C7833E2	chr_Huntress	1	0x40000CD1	data only	
+0x32F36481	chr_Huntress	1	0x40000CD1	data only	
+0x3566D942	chr_Huntress	1	0x40000CD1	data only	
+0x3B27B074	chr_Huntress	1	0x180014C9	data only	
+0x426D3C87	chr_Huntress	3		data only	
+0x47AC2365	chr_Huntress	1	0x40000CD1	data only	
+0x48A614F5	chr_Huntress	2	0x40000CD1	data only	
+0x553B00D4	chr_Huntress	1		data only	
+0x5F604CB2	chr_Huntress	1	0x40000CD1	data only	
+0x605A3E52	chr_Huntress	1	0x18001352 0x1D0008DC	data only	
+0x611D46E1	chr_Huntress	1		data only	
+0x6326142A	chr_Huntress	1	0x1D0008E1	data only	
+0x652D8014	chr_Huntress	1	0x40000CD1	data only	
+0x663BB4D5	chr_Huntress	1	0x48001197	data only	
+0x67373965	chr_Huntress	1	0x180014C9	data only	
+0x6BA9882E	chr_Huntress	1	0x40000CD1	data only	
+0x73817476	chr_Huntress	1		data only	
+0x75CD7354	chr_Huntress	1		data only	
+0x799C8648	chr_Huntress	1	0x1D0008E1	data only	
+0x7A5BCD73	chr_Huntress	1		data only	
+0x7EEB6577	chr_Huntress	1	0x40000CD1	data only	
+0x80036BF3	chr_Huntress	2	0x40000CD1	data only	
+0x8A4B6BD3	chr_Huntress	1	0x180014C9	data only	
+0x903EC06C	chr_Huntress	1	0x48001197	data only	
+0x927CFCD8	chr_Huntress	2	0x180014C9	data only	
+0x9532DF09	chr_Huntress	1	0x180014C9	data only	
+0x9A1AC4BA	chr_Huntress	2	0x48001197	data only	
+0x9B3D58DA	chr_Huntress	2	0x13003204	data only	
+0x9B45F624	chr_Huntress	1	0x40000CD1	data only	
+0x9E72E55C	chr_Huntress	1	0x40000CD1	data only	
+0xA3B97377	chr_Huntress	1		data only	
+0xA45E0918	chr_Huntress	1	0x18001352 0x1D0008DC	data only	
+0xA53DD9A3	chr_Huntress	1	0x40000CD1	data only	
+0xA5BB8834	chr_Huntress	1		data only	
+0xA9225948	chr_Huntress	1	0x13003205	data only	
+0xB4FD3437	chr_Huntress	1	0x180014C9	data only	
+0xB75EE1C8	chr_Huntress	1		data only	
+0xBA5290F3	chr_Huntress	1	0x40000CD1	data only	
+0xBB2BBFCE	chr_Huntress	1	0x13003205	data only	
+0xC0127DB1	chr_Huntress	3	0x180014C9	data only	
+0xCA3B2580	chr_Huntress	1	0x40000CD1	data only	
+0xCE09970D	chr_Huntress	1		data only	
+0xD1A33DB1	chr_Huntress	1		data only	
+0xD2BC3481	chr_Huntress	2	0x1D0008DA	data only	
+0xD6C13C89	chr_Huntress	2	0x1D0008DA	data only	
+0xDAB73CB2	chr_Huntress	2	0x1D0008DA	data only	
+0xDC566EA3	chr_Huntress	2	0x40000CD1	data only	
+0xE0453F07	chr_Huntress	3	0x1D0008E1	data only	
+0xE5709D87	chr_Huntress	1	0x48001197	data only	
+0xE688A403	chr_Huntress	1	0x180014C9	data only	
+0xE9ED943A	chr_Huntress	2	0x180014C9	data only	
+0xEB792557	chr_Huntress	1	0x40000CD1	data only	
+0xED1FEBCC	chr_Huntress	4		data only	
+0xEE951F39	chr_Huntress	1	0x40000CD1	data only	
+0xF274B283	chr_Huntress	1	0x40000CD1	data only	
+0xF583805B	chr_Huntress	2	0x1D0008DA	data only	
+0xF7069391	chr_Huntress	2	0x40000CD1	data only	
+0xF8A21B22	chr_Huntress	1		data only	
+0xFC250413	chr_Huntress	2	0x1D0008DA	data only	
+0x029BE525	chr_Krypto	2	0x52000082	data only	
+0x0785ED81	chr_Krypto	1	0x10003ED8	data only	
+0x0785ED82	chr_Krypto	1	0x10003ED8	data only	
+0x0785ED83	chr_Krypto	1	0x10003ED8	data only	
+0x0785ED84	chr_Krypto	1	0x18001503 0x19001253 0x36000055	data only	
+0x0999EF68	chr_Krypto	2	0x52000082	data only	
+0x0BA8A0E9	chr_Krypto	1		data only	
+0x0CBDCEE3	chr_Krypto	1		data only	
+0x0D82BD00	chr_Krypto	1		data only	
+0x0DE90BC4	chr_Krypto	1		data only	
+0x0E0ECF64	chr_Krypto	1		data only	
+0x10084DB1	chr_Krypto	1		data only	
+0x10722821	chr_Krypto	1		data only	
+0x1210B36F	chr_Krypto	1		data only	
+0x13C69915	chr_Krypto	1		data only	
+0x14846A9A	chr_Krypto	1		data only	
+0x15B73E6B	chr_Krypto	1	0x18000FBE	data only	
+0x16C2C0A5	chr_Krypto	1		data only	
+0x18BFAC76	chr_Krypto	1		data only	
+0x19F5C492	chr_Krypto	1		data only	
+0x1AC36DF1	chr_Krypto	1		data only	
+0x1BCDD715	chr_Krypto	1	0x10003ED8	data only	
+0x1CC1D39E	chr_Krypto	1	0x18000FBE	data only	
+0x1E110466	chr_Krypto	1		data only	
+0x1EF7C3B5	chr_Krypto	1		data only	
+0x1FEBDF29	chr_Krypto	1		data only	
+0x215E8204	chr_Krypto	1		data only	
+0x25FBEA03	chr_Krypto	1		data only	
+0x26A45830	chr_Krypto	1		data only	
+0x2761B0B1	chr_Krypto	1		data only	
+0x28EE7A52	chr_Krypto	1	0x10003ED8	data only	
+0x2AAD954D	chr_Krypto	1	0x10003A55 0x18001056	data only	
+0x2C79829A	chr_Krypto	1		data only	
+0x2CE6B4BD	chr_Krypto	1		data only	
+0x312BCF1C	chr_Krypto	1	0x10003ED8	data only	
+0x33F08F42	chr_Krypto	1		data only	
+0x34BC178C	chr_Krypto	1		data only	
+0x36B5EC56	chr_Krypto	1		data only	
+0x3735A9D5	chr_Krypto	1		data only	
+0x3818D53E	chr_Krypto	1		data only	
+0x38E5820E	chr_Krypto	1		data only	
+0x38F76D1B	chr_Krypto	1		data only	
+0x3F5E8153	chr_Krypto	1		data only	
+0x3F92C465	chr_Krypto	1		data only	
+0x41101E4A	chr_Krypto	0		data only	
+0x4497BBE8	chr_Krypto	2	0x52000082	data only	
+0x45898212	chr_Krypto	2	0x52000082	data only	
+0x45AAF04A	chr_Krypto	1	0x10003ED8	data only	
+0x463C9B78	chr_Krypto	1		data only	
+0x46B7D559	chr_Krypto	1		data only	
+0x4808D8CE	chr_Krypto	1		data only	
+0x48B21F76	chr_Krypto	1		data only	
+0x4BD97D96	chr_Krypto	1		data only	
+0x4BF6405F	chr_Krypto	1		data only	
+0x4CA75942	chr_Krypto	1		data only	
+0x516B803F	chr_Krypto	1		data only	
+0x52EE9160	chr_Krypto	1		data only	
+0x532635D8	chr_Krypto	1		data only	
+0x5BD962EE	chr_Krypto	0		data only	
+0x5E18FE6B	chr_Krypto	1	0x10003ED8	data only	
+0x5E58068F	chr_Krypto	4	0x10003ED8 0x18001503 0x19001253 0x36000055	data only	
+0x6021BA81	chr_Krypto	1		data only	
+0x613E587A	chr_Krypto	3	0x18001315	data only	
+0x65CF314D	chr_Krypto	0		data only	
+0x66DA7819	chr_Krypto	1		data only	
+0x673C90F0	chr_Krypto	3	0x1D0007C9	data only	
+0x67C38F3B	chr_Krypto	2	0x10003ED8	data only	
+0x6C695FF9	chr_Krypto	1		data only	
+0x6D5D68A3	chr_Krypto	1		data only	
+0x6E9B51FF	chr_Krypto	1		data only	
+0x718024C2	chr_Krypto	2	0x10003ED8	data only	
+0x732609B4	chr_Krypto	1		data only	
+0x7383E57F	chr_Krypto	1		data only	
+0x763D65E4	chr_Krypto	1		data only	
+0x774DBAF4	chr_Krypto	3	0x16002355	data only	
+0x7A632BEE	chr_Krypto	1		data only	
+0x7AF2F9F5	chr_Krypto	1		data only	
+0x7B5890FB	chr_Krypto	1		data only	
+0x7EA75A41	chr_Krypto	1		data only	
+0x83A981E0	chr_Krypto	2	0x10003ED8	data only	
+0x858EFA6F	chr_Krypto	1		data only	
+0x8AFE63DC	chr_Krypto	1		data only	
+0x8C821FA8	chr_Krypto	1		data only	
+0x8CE8DB47	chr_Krypto	1		data only	
+0x8D2FA348	chr_Krypto	1		data only	
+0x944C8057	chr_Krypto	1		data only	
+0x9471D71F	chr_Krypto	1		data only	
+0x94EE3E66	chr_Krypto	3	0x13003113	data only	
+0x977DE8FA	chr_Krypto	3	0x16002355	data only	
+0x98BDC16C	chr_Krypto	1		data only	
+0x9AB64AD0	chr_Krypto	2	0x13003113	data only	
+0x9C864578	chr_Krypto	1	0x18000FBE	data only	
+0x9D412F4C	chr_Krypto	3	0x18001315	data only	
+0x9D9DB23C	chr_Krypto	1		data only	
+0x9E1BE3BF	chr_Krypto	1		data only	
+0x9ED15A0C	chr_Krypto	1		data only	
+0x9EE6BE11	chr_Krypto	1		data only	
+0xA0676289	chr_Krypto	1		data only	
+0xA24676F9	chr_Krypto	3	0x52000080	data only	
+0xA48A1B79	chr_Krypto	1	0x10003ED8	data only	
+0xAAFC045E	chr_Krypto	1	0x1D0007C9	data only	
+0xACB0008C	chr_Krypto	2	0x10003ED8	data only	
+0xACB55049	chr_Krypto	1	0x18000FBE	data only	
+0xAEA85CDA	chr_Krypto	1		data only	
+0xAF89B499	chr_Krypto	1		data only	
+0xB193C726	chr_Krypto	1		data only	
+0xB254386F	chr_Krypto	4	0x13003113	data only	
+0xB5926B34	chr_Krypto	0		data only	
+0xB5926B36	chr_Krypto	0		data only	
+0xB5926B37	chr_Krypto	0		data only	
+0xB595DECC	chr_Krypto	1		data only	
+0xB6E48FE6	chr_Krypto	0		data only	
+0xB7867106	chr_Krypto	1		data only	
+0xB97A7C5A	chr_Krypto	2	0x13003113	data only	
+0xBAD93D37	chr_Krypto	2	0x52000082	data only	
+0xBCE44B92	chr_Krypto	1		data only	
+0xBE2A0FB2	chr_Krypto	1		data only	
+0xBFF0B65C	chr_Krypto	1		data only	
+0xC19A28EB	chr_Krypto	1		data only	
+0xC1C020F4	chr_Krypto	1		data only	
+0xC384871C	chr_Krypto	1		data only	
+0xC3B440A8	chr_Krypto	1		data only	
+0xCAF205A2	chr_Krypto	1		data only	
+0xCCFDB35D	chr_Krypto	1		data only	
+0xCD66CB93	chr_Krypto	3	0x52000080	data only	
+0xCEBBB794	chr_Krypto	1	0x18001056	data only	
+0xCF17AAD2	chr_Krypto	1		data only	
+0xCFFEFD47	chr_Krypto	0		data only	
+0xD1030DFA	chr_Krypto	3		data only	
+0xD16F76AE	chr_Krypto	1		data only	
+0xD4B4AD7D	chr_Krypto	4	0x13003113	data only	
+0xD64DF2F2	chr_Krypto	1		data only	
+0xD9AD8508	chr_Krypto	1		data only	
+0xD9C082DE	chr_Krypto	2	0x18001315	data only	
+0xDCB5B238	chr_Krypto	3	0x13003113	data only	
+0xDD071BEF	chr_Krypto	1		data only	
+0xDEE3934B	chr_Krypto	0		data only	
+0xE02401AD	chr_Krypto	1		data only	
+0xE0EC467A	chr_Krypto	2	0x52000082	data only	
+0xE363CADD	chr_Krypto	1		data only	
+0xE5121DF8	chr_Krypto	1		data only	
+0xE7C80E44	chr_Krypto	1		data only	
+0xEA5CC829	chr_Krypto	1	0x10003ED8	data only	
+0xF114BFDF	chr_Krypto	1	0x10003A55 0x18001056	data only	
+0xF5298CD5	chr_Krypto	1		data only	
+0xF778FB7E	chr_Krypto	1	0x18001056	data only	
+0xF909B6C3	chr_Krypto	1		data only	
+0xFAE0510B	chr_Krypto	1		data only	
+0xFBF810F1	chr_Krypto	1	0x10003ED8	data only	
+0xFE70D76A	chr_Krypto	1		data only	
+0xFEB16CE8	chr_Krypto	2	0x18001315	data only	
+0xFF9A170D	chr_Krypto	1	0x10003ED8	data only	
+0x03E18730	chr_Lexluthor	1	0x18000F82	data only	
+0x041FE39B	chr_Lexluthor	1	0x17001EF0	data only	
+0x05B4F7CA	chr_Lexluthor	1	0x2D000EE8	data only	
+0x06060C56	chr_Lexluthor	1	0x18000F82	data only	
+0x09A3C705	chr_Lexluthor	1	0x2D000EE8	data only	
+0x0A0021E7	chr_Lexluthor	2	0x17001C02 0x2D000EE8	data only	
+0x0CF4EA3F	chr_Lexluthor	2	0x18000F82	data only	
+0x10F0C201	chr_Lexluthor	2	0x17001C02 0x2D000EE8	data only	
+0x14021D6A	chr_Lexluthor	1	0x18000F7D	data only	
+0x214CCEA7	chr_Lexluthor	3	0x1800111E	data only	
+0x21815F4E	chr_Lexluthor	1	0x2D000EE8	data only	
+0x251FC161	chr_Lexluthor	1	0x18000F45 0x1800150F	data only	
+0x28342BD3	chr_Lexluthor	3	0x16001EDF 0x2D000EE8	data only	
+0x2C64F0A9	chr_Lexluthor	1	0x180012F9	data only	
+0x2DACE3E0	chr_Lexluthor	2	0x1800151B	data only	
+0x2E07CA29	chr_Lexluthor	1	0x18000F50	data only	
+0x307499CB	chr_Lexluthor	3	0x2D000EE8	data only	
+0x35B13CED	chr_Lexluthor	2	0x1E0004D8	data only	
+0x39A50050	chr_Lexluthor	2	0x16001EDF	data only	
+0x3F53E3F4	chr_Lexluthor	2	0x18000F4F 0x1E0004D7	data only	
+0x3F8F1915	chr_Lexluthor	2	0x18000F82	data only	
+0x43E05F4D	chr_Lexluthor	1	0x1800151B	data only	
+0x45CCFBED	chr_Lexluthor	3	0x2D000EE8	data only	
+0x4740558C	chr_Lexluthor	2	0x2D000EE8	data only	
+0x4740558F	chr_Lexluthor	2	0x2D000EE8	data only	
+0x48569040	chr_Lexluthor	1	0x17001C02	data only	
+0x49B3F658	chr_Lexluthor	2	0x1800111E 0x2D000EE8	data only	
+0x4A33FCE6	chr_Lexluthor	2		data only	
+0x4A9E4EAA	chr_Lexluthor	2	0x18000F81 0x180010CE	data only	
+0x4E751E99	chr_Lexluthor	2	0x2D000EE8	data only	
+0x526589F7	chr_Lexluthor	1	0x2D000EE8	data only	
+0x529E5B1D	chr_Lexluthor	1	0x1800111E	data only	
+0x560D1AC1	chr_Lexluthor	3	0x1800111E	data only	
+0x61E45705	chr_Lexluthor	1	0x1800151B	data only	
+0x652E674D	chr_Lexluthor	2	0x180010A6	data only	
+0x661945AB	chr_Lexluthor	4	0x1800151B	data only	
+0x69521434	chr_Lexluthor	1	0x2D000EE8	data only	
+0x6BA327AF	chr_Lexluthor	2	0x1E0004D8	data only	
+0x6DB30085	chr_Lexluthor	1	0x18000F82 0x1800111E	data only	
+0x727C43D5	chr_Lexluthor	2	0x2D000EE8	data only	
+0x727C43D6	chr_Lexluthor	2	0x2D000EE8	data only	
+0x75C76407	chr_Lexluthor	3	0x1D000992	data only	
+0x7CE4B00E	chr_Lexluthor	1	0x1800151B	data only	
+0x7FA42FEB	chr_Lexluthor	4	0x1D000992 0x1E0004D7	data only	
+0x89DF8E6C	chr_Lexluthor	2	0x18000F81 0x180010CE	data only	
+0x8ADC7173	chr_Lexluthor	1	0x2D000EE8	data only	
+0x8E9AF852	chr_Lexluthor	1	0x17001C02	data only	
+0x8F00C0B6	chr_Lexluthor	3	0x1E0004D7	data only	
+0x9032E77E	chr_Lexluthor	2	0x18000F4F 0x1E0004D7	data only	
+0x91DF9ADB	chr_Lexluthor	1		data only	
+0x9429FDAB	chr_Lexluthor	3	0x2D000EE8	data only	
+0x9667B287	chr_Lexluthor	3	0x2D000EE8	data only	
+0x98C251F9	chr_Lexluthor	1	0x2D000EE8	data only	
+0x993D37F3	chr_Lexluthor	1	0x180012F9	data only	
+0x993FCC80	chr_Lexluthor	1	0x1E0004D8	data only	
+0x9E474E3B	chr_Lexluthor	1	0x2D000EE8	data only	
+0xA2AA1588	chr_Lexluthor	1	0x1800151B	data only	
+0xA45AD4BD	chr_Lexluthor	1	0x2D000EE8	data only	
+0xA8DF1B49	chr_Lexluthor	3	0x2D000EE8	data only	
+0xAEF9A63D	chr_Lexluthor	2	0x180010A6	data only	
+0xB19A4DB8	chr_Lexluthor	2	0x2D000EE8	data only	
+0xB347F354	chr_Lexluthor	1	0x18000F7D	data only	
+0xB5A4B232	chr_Lexluthor	2		data only	
+0xB7094873	chr_Lexluthor	2	0x2D000EE8	data only	
+0xBBA53D4F	chr_Lexluthor	2	0x180010A6	data only	
+0xC656C7B8	chr_Lexluthor	1	0x2D000EE8	data only	
+0xC8BC243D	chr_Lexluthor	4	0x1D000992 0x1E0004D7	data only	
+0xC9F2B964	chr_Lexluthor	2	0x1800111E	data only	
+0xCD0B248D	chr_Lexluthor	1	0x2D000EE8	data only	
+0xCD3F9047	chr_Lexluthor	2	0x2D000EE8	data only	
+0xCF701CCF	chr_Lexluthor	2	0x1800151B	data only	
+0xD05CAC30	chr_Lexluthor	1	0x1800151B	data only	
+0xD05CAC32	chr_Lexluthor	1	0x1800151B	data only	
+0xD05CAC33	chr_Lexluthor	1	0x1800151B	data only	
+0xD05CAC35	chr_Lexluthor	1	0x1800151B	data only	
+0xD1490F7C	chr_Lexluthor	1	0x2D000EE8	data only	
+0xD264B73F	chr_Lexluthor	1	0x18000F82 0x1800111E	data only	
+0xD508A93A	chr_Lexluthor	2	0x16001EDF	data only	
+0xD7375149	chr_Lexluthor	1		data only	
+0xDC50F4C3	chr_Lexluthor	1		data only	
+0xDE800ED1	chr_Lexluthor	1	0x1800151B	data only	
+0xDF9B9B0D	chr_Lexluthor	3	0x2D000EE8	data only	
+0xE065091C	chr_Lexluthor	3	0x1D000992	data only	
+0xE2590ED6	chr_Lexluthor	1	0x2D000EE8	data only	
+0xE32EBAFF	chr_Lexluthor	1		data only	
+0xE7F44CEE	chr_Lexluthor	1	0x1E0004D8	data only	
+0xE9E0ABDF	chr_Lexluthor	1		data only	
+0xED7722BA	chr_Lexluthor	2	0x2D000EE8	data only	
+0xEFA0C83B	chr_Lexluthor	2	0x180010A6	data only	
+0xF032559B	chr_Lexluthor	1	0x18000F50	data only	
+0xF576E24D	chr_Lexluthor	3	0x16001EDF 0x2D000EE8	data only	
+0xF7DE8369	chr_Lexluthor	2	0x2D000EE8	data only	
+0xFCDB5635	chr_Lexluthor	1	0x17001EF0	data only	
+0xFF2A1FFD	chr_Lexluthor	3	0x1D000992	data only	
+0x14ACD976	chr_Min_DDD_Guardian	1	0x1C000032	data only	
+0x369C9150	chr_Min_DDD_Guardian	2	0x18000E56	data only	
+0x40EF5FF8	chr_Min_DDD_Guardian	2	0x1C000032	data only	
+0x5780877B	chr_Min_DDD_Guardian	1	0x1D000711	data only	
+0x596394EA	chr_Min_DDD_Guardian	1	0x18000E72	data only	
+0x62B718CE	chr_Min_DDD_Guardian	1	0x18000E56	data only	
+0x684B58EF	chr_Min_DDD_Guardian	3	0x1C000032	data only	
+0x762D9E1B	chr_Min_DDD_Guardian	3	0x18000E56	data only	
+0x7654E8C1	chr_Min_DDD_Guardian	1	0x18000E56	data only	
+0x77BB2446	chr_Min_DDD_Guardian	1	0x16000D62 0x18000E72 0x1D000582	data only	
+0x780ED39C	chr_Min_DDD_Guardian	4	0x18000E79	data only	
+0x9164EB38	chr_Min_DDD_Guardian	1	0x1D0002F6 0x1E0005F8	data only	
+0x98617260	chr_Min_DDD_Guardian	1	0x18000E56	data only	
+0xBB6ED212	chr_Min_DDD_Guardian	2	0x18000E72	data only	
+0xC26DFFD0	chr_Min_DDD_Guardian	1	0x18000E72	data only	
+0xD495FF04	chr_Min_DDD_Guardian	1	0x18000E56	data only	
+0xE637D47D	chr_Min_DDD_Guardian	2	0x18000E72	data only	
+0x15B63E16	chr_Min_Leviathan	3	0x1E000209	data only	
+0x1733B4DE	chr_Min_Leviathan	3	0x19000D3E	data only	
+0x19912D62	chr_Min_Leviathan	1	0x18001419	data only	
+0x23121069	chr_Min_Leviathan	2		data only	
+0x23E9CF39	chr_Min_Leviathan	2	0x1E000209	data only	
+0x23EB8B3A	chr_Min_Leviathan	6	0x18001419	data only	
+0x497C832A	chr_Min_Leviathan	1	0x1E000209	data only	
+0x673E457A	chr_Min_Leviathan	1	0x19000D3E	data only	
+0x68CF3575	chr_Min_Leviathan	1	0x1E000209	data only	
+0x76F5C070	chr_Min_Leviathan	1	0x19001002	data only	
+0x7D0F12EE	chr_Min_Leviathan	4	0x19001002 0x1E000209	data only	
+0x8C5FF742	chr_Min_Leviathan	2	0x1E000209	data only	
+0x9105F50C	chr_Min_Leviathan	4	0x19001002	data only	
+0x95090021	chr_Min_Leviathan	2	0x1500E936 0x17000B97	data only	
+0xA5C53135	chr_Min_Leviathan	1	0x1E000209	data only	
+0xAFC77FE3	chr_Min_Leviathan	2	0x3B0002BF	data only	
+0xE43C6A61	chr_Min_Leviathan	1		data only	
+0xF2EB7A66	chr_Min_Leviathan	1	0x1E000209	data only	
+0xF8F43A1A	chr_Min_Leviathan	2		data only	
+0x197A9692	chr_Min_Raider	1	0x1D000678 0x2E001395	data only	
+0x42E4B441	chr_Min_Raider	2		data only	
+0x4AEEF1E5	chr_Min_Raider	2	0x2E001395 0x3B000292 0x49000E81	data only	
+0x4E26EBA4	chr_Min_Raider	2	0x18000DA3 0x2E001395 0x3B000292 0x49000E81	data only	
+0x4EDD0D25	chr_Min_Raider	1	0x18000DA3 0x3B000292 0x49000E81	data only	
+0x4EDD0D26	chr_Min_Raider	1	0x2E001395 0x3B000292 0x49000E81	data only	
+0x88988575	chr_Min_Raider	1	0x18000DA3 0x3B000292 0x49000E81	data only	
+0xF03EC0EB	chr_Min_Raider	1	0x18000DA3 0x3B000292 0x49000E81	data only	
+0xF9E5931C	chr_Min_Raider	1	0x18000DA3 0x3B000292 0x49000E81	data only	
+0x00451892	chr_Nightwing	2	0x180013D6	data only	
+0x02E95C72	chr_Nightwing	2		data only	
+0x03FAEB32	chr_Nightwing	1	0x340007C0	data only	
+0x042E94B8	chr_Nightwing	1		data only	
+0x0B1ED3B0	chr_Nightwing	4		data only	
+0x0BD0BEA8	chr_Nightwing	2	0x180013D6	data only	
+0x10B268DE	chr_Nightwing	4		data only	
+0x1189EA7E	chr_Nightwing	2		data only	
+0x13D1E991	chr_Nightwing	1		data only	
+0x15611ADA	chr_Nightwing	1		data only	
+0x1B40E4A4	chr_Nightwing	3		data only	
+0x21C806AC	chr_Nightwing	1		data only	
+0x2458F798	chr_Nightwing	1		data only	
+0x251B1998	chr_Nightwing	2		data only	
+0x2A668FF2	chr_Nightwing	3		data only	
+0x2B621392	chr_Nightwing	1		data only	
+0x2F32BE20	chr_Nightwing	0		data only	
+0x33D78F66	chr_Nightwing	2		data only	
+0x35A0BC7F	chr_Nightwing	1		data only	
+0x3F967C0B	chr_Nightwing	1		data only	
+0x3FBA8F55	chr_Nightwing	1		data only	
+0x42EBAA5F	chr_Nightwing	2		data only	
+0x45B179BF	chr_Nightwing	4		data only	
+0x4F5F2237	chr_Nightwing	6		data only	
+0x57617885	chr_Nightwing	1		data only	
+0x5909FE2B	chr_Nightwing	2	0x520000AC	data only	
+0x5F89FCB9	chr_Nightwing	2	0x520000AC	data only	
+0x7168EA0F	chr_Nightwing	1		data only	
+0x75F30B70	chr_Nightwing	1		data only	
+0x7953807E	chr_Nightwing	1		data only	
+0x7C57B0BA	chr_Nightwing	1		data only	
+0x83951D86	chr_Nightwing	1		data only	
+0x8A0A4687	chr_Nightwing	2		data only	
+0x8AD6CEC2	chr_Nightwing	3	0x520000AC	data only	
+0x9396D0E8	chr_Nightwing	1		data only	
+0x9396D0E9	chr_Nightwing	1		data only	
+0x9396D0EB	chr_Nightwing	1		data only	
+0x9396D0EE	chr_Nightwing	1		data only	
+0x9556B46E	chr_Nightwing	5		data only	
+0x997F8B08	chr_Nightwing	5		data only	
+0x9BB5710A	chr_Nightwing	1	0x340007C0	data only	
+0xA25B9214	chr_Nightwing	4		data only	
+0xA312FA60	chr_Nightwing	2		data only	
+0xA9B660D9	chr_Nightwing	2	0x180013D6	data only	
+0xAA4A89EB	chr_Nightwing	2		data only	
+0xB27707AD	chr_Nightwing	2		data only	
+0xB5177125	chr_Nightwing	2		data only	
+0xB73939E0	chr_Nightwing	1		data only	
+0xB8E65C8C	chr_Nightwing	1		data only	
+0xB90219CE	chr_Nightwing	4		data only	
+0xB957577C	chr_Nightwing	1		data only	
+0xBA3D54D6	chr_Nightwing	1		data only	
+0xBCC8E9A9	chr_Nightwing	4		data only	
+0xBEF42148	chr_Nightwing	3	0x520000AC	data only	
+0xBFB2E23A	chr_Nightwing	1		data only	
+0xBFE9200F	chr_Nightwing	1		data only	
+0xC219AC3B	chr_Nightwing	2	0x180013D6	data only	
+0xCEEF6528	chr_Nightwing	1	0x340007C0	data only	
+0xD3AACD0F	chr_Nightwing	0		data only	
+0xDA0A57C4	chr_Nightwing	2		data only	
+0xDB6E2389	chr_Nightwing	2		data only	
+0xDC2B7A32	chr_Nightwing	1		data only	
+0xE9C631CD	chr_Nightwing	4		data only	
+0xEF403C75	chr_Nightwing	6		data only	
+0xEF540975	chr_Nightwing	1		data only	
+0xF5161827	chr_Nightwing	2	0x340007C0	data only	
+0x0143DB6A	chr_Swampthing	1	0x180010EF	data only	
+0x04C4CD5E	chr_Swampthing	1	0x1500DBDB	data only	
+0x0B14FF19	chr_Swampthing	1	0x180010EF	data only	
+0x0C1656FC	chr_Swampthing	3	0x18000F1D 0x18000F3B 0x18000F3C	data only	
+0x0D0E2185	chr_Swampthing	1	0x18000F37	data only	
+0x0FACE572	chr_Swampthing	2	0x1500DBDB	data only	
+0x10996186	chr_Swampthing	1	0x17001C40	data only	
+0x10AF7B98	chr_Swampthing	1	0x18000F33	data only	
+0x12B7E7F7	chr_Swampthing	1	0x18000F3B	data only	
+0x14663299	chr_Swampthing	1	0x18000F35 0x1D0007F1	data only	
+0x16AB24ED	chr_Swampthing	2		data only	
+0x19B37523	chr_Swampthing	1	0x18000F1D	data only	
+0x19FAF97A	chr_Swampthing	1	0x1D0007F1	data only	
+0x1C6BBDAE	chr_Swampthing	1		data only	
+0x1FBC5EDF	chr_Swampthing	1		data only	
+0x250067E6	chr_Swampthing	1		data only	
+0x264D9215	chr_Swampthing	3	0x18000F33	data only	
+0x2B766AB2	chr_Swampthing	1	0x13002E15 0x16001D53	data only	
+0x2D31C5DA	chr_Swampthing	3	0x13002E15 0x1500DBDB	data only	
+0x3B1D9AC7	chr_Swampthing	3	0x18000F33	data only	
+0x3D340D18	chr_Swampthing	4	0x1D0007F1	data only	
+0x43A240BA	chr_Swampthing	2	0x18000F33	data only	
+0x476B9A57	chr_Swampthing	2	0x180010EF	data only	
+0x485D95A6	chr_Swampthing	1	0x18000F33	data only	
+0x56708735	chr_Swampthing	1	0x18000F3C	data only	
+0x5A713838	chr_Swampthing	2	0x1D0007E1	data only	
+0x5B71AD68	chr_Swampthing	1	0x1500DBDB	data only	
+0x5D40A184	chr_Swampthing	1	0x1D0007F1	data only	
+0x5FB6C885	chr_Swampthing	2	0x18000F33	data only	
+0x6212C047	chr_Swampthing	2	0x1500DBDB	data only	
+0x628DC2B0	chr_Swampthing	1	0x180010EF	data only	
+0x628DC2B1	chr_Swampthing	1	0x180010EF	data only	
+0x628DC2B2	chr_Swampthing	1	0x180010EF	data only	
+0x628DC2B7	chr_Swampthing	1	0x180010EF	data only	
+0x64140A04	chr_Swampthing	4	0x180010EF	data only	
+0x68F60BFB	chr_Swampthing	1	0x18000F35	data only	
+0x6E8229E7	chr_Swampthing	3	0x16001E65	data only	
+0x6F8EF57C	chr_Swampthing	1		data only	
+0x6F8EF57F	chr_Swampthing	1	0x18000F3A 0x18000F3B	data only	
+0x74A71693	chr_Swampthing	1	0x1D0007F1	data only	
+0x753188A2	chr_Swampthing	1	0x18000F34	data only	
+0x75BACB17	chr_Swampthing	2		data only	
+0x762112EB	chr_Swampthing	1		data only	
+0x79BB0FAA	chr_Swampthing	1	0x180010EF	data only	
+0x7D371A57	chr_Swampthing	2	0x1500DBDB	data only	
+0x7DAA2000	chr_Swampthing	1	0x1D0007F1	data only	
+0x856B8C10	chr_Swampthing	1		data only	
+0x875EFEDC	chr_Swampthing	5	0x1D0007F1	data only	
+0x87AFAA28	chr_Swampthing	3	0x13002E15 0x1500DBDB	data only	
+0x88DCEB40	chr_Swampthing	1	0x17001C40	data only	
+0x8AF59C8F	chr_Swampthing	2	0x18000F33	data only	
+0x916D8ECF	chr_Swampthing	1	0x18000F35 0x18000F37	data only	
+0x98F8D8C8	chr_Swampthing	1	0x13002E15 0x16001D53	data only	
+0x9D4A00C5	chr_Swampthing	1	0x18000F3A 0x18000F3B	data only	
+0x9D4A00C6	chr_Swampthing	1		data only	
+0x9E3584F3	chr_Swampthing	1	0x18000F3C	data only	
+0x9EE7B372	chr_Swampthing	5	0x1D0007F1	data only	
+0x9EFFC5A9	chr_Swampthing	3	0x16001E65	data only	
+0x9FD874D1	chr_Swampthing	3	0x18000F38	data only	
+0xA39D1315	chr_Swampthing	1		data only	
+0xADA2353D	chr_Swampthing	2	0x1500DBDB	data only	
+0xADE75A11	chr_Swampthing	1	0x18000F1D	data only	
+0xB06B2125	chr_Swampthing	2	0x1500DBDB	data only	
+0xB428D508	chr_Swampthing	1	0x18000F39 0x1D0007F1	data only	
+0xB6ACA5F4	chr_Swampthing	2	0x1500DBDB	data only	
+0xB6CDD0D9	chr_Swampthing	1	0x18000F3B	data only	
+0xBF162BD0	chr_Swampthing	1		data only	
+0xC88F4686	chr_Swampthing	1	0x1D0007F1	data only	
+0xC8D1DA3A	chr_Swampthing	1	0x180010EF	data only	
+0xC97CABF2	chr_Swampthing	2	0x180010EF	data only	
+0xCAF674EC	chr_Swampthing	1	0x1D0007E1	data only	
+0xCC7D4F55	chr_Swampthing	4	0x13002D62	data only	
+0xDEEAA98E	chr_Swampthing	1	0x1D0007E1	data only	
+0xE17BB228	chr_Swampthing	2	0x18000F33	data only	
+0xE25D362A	chr_Swampthing	3	0x18000F1D 0x18000F3B 0x18000F3C	data only	
+0xE64F450E	chr_Swampthing	3	0x16001E65	data only	
+0xEF94EE45	chr_Swampthing	1	0x1D0007F1	data only	
+0xFD35315A	chr_Swampthing	4	0x1D0007F1	data only	
+0x0168607D	chr_ZOD	1		data only	
+0x0176ECB9	chr_ZOD	1		data only	
+0x02B05EA7	chr_ZOD	1		data only	
+0x088AD091	chr_ZOD	2		data only	
+0x104E1AD4	chr_ZOD	5		data only	
+0x1D7772D3	chr_ZOD	1		data only	
+0x20EF528D	chr_ZOD	1		data only	
+0x2531652D	chr_ZOD	1		data only	
+0x26AE1B1F	chr_ZOD	1		data only	
+0x2A55174B	chr_ZOD	1		data only	
+0x2CA65CB5	chr_ZOD	2		data only	
+0x2D578E9A	chr_ZOD	4		data only	
+0x2DC4192F	chr_ZOD	2		data only	
+0x35AED9F7	chr_ZOD	2		data only	
+0x3C386CB8	chr_ZOD	1		data only	
+0x4077A53D	chr_ZOD	7		data only	
+0x44223A3C	chr_ZOD	1		data only	
+0x45217288	chr_ZOD	1		data only	
+0x485CF513	chr_ZOD	3		data only	
+0x49D4EC90	chr_ZOD	1		data only	
+0x4B796BD9	chr_ZOD	1		data only	
+0x4F048EF2	chr_ZOD	2		data only	
+0x592ABE52	chr_ZOD	1		data only	
+0x592ABE54	chr_ZOD	1		data only	
+0x592ABE55	chr_ZOD	1		data only	
+0x592ABE57	chr_ZOD	1		data only	
+0x5994F563	chr_ZOD	1		data only	
+0x6343A94D	chr_ZOD	1		data only	
+0x69D40D9E	chr_ZOD	3		data only	
+0x6BDA7D3B	chr_ZOD	2		data only	
+0x74FE28A6	chr_ZOD	1		data only	
+0x7C4FDC4B	chr_ZOD	2		data only	
+0x7F279115	chr_ZOD	1		data only	
+0x87E0B90B	chr_ZOD	7		data only	
+0x891F1EC8	chr_ZOD	1		data only	
+0x8ABCF5F6	chr_ZOD	1		data only	
+0x8DBD2D0E	chr_ZOD	1		data only	
+0x9704B4B0	chr_ZOD	2		data only	
+0x977473D5	chr_ZOD	2		data only	
+0x98AD5E6A	chr_ZOD	1		data only	
+0x9FF41C74	chr_ZOD	3		data only	
+0xA92BAA51	chr_ZOD	2		data only	
+0xAB7143E5	chr_ZOD	3		data only	
+0xB14E3F4E	chr_ZOD	3		data only	
+0xB23F06E9	chr_ZOD	2		data only	
+0xB4BF7140	chr_ZOD	4		data only	
+0xBC3D8490	chr_ZOD	3		data only	
+0xBF953A21	chr_ZOD	1		data only	
+0xC0FFED34	chr_ZOD	3		data only	
+0xC1FF059B	chr_ZOD	2		data only	
+0xCAC7081B	chr_ZOD	1		data only	
+0xCBD6CDF3	chr_ZOD	1		data only	
+0xD4B254DB	chr_ZOD	1		data only	
+0xD678D154	chr_ZOD	1		data only	
+0xD947F687	chr_ZOD	1		data only	
+0xE26FAA16	chr_ZOD	2		data only	
+0xE51DE043	chr_ZOD	1		data only	
+0xE9B18A2F	chr_ZOD	1		data only	
+0xEC9BEBEF	chr_ZOD	1		data only	
+0xEF1FE311	chr_ZOD	4		data only	
+0xEF47B9AA	chr_ZOD	5		data only	
+0xF18D1894	chr_ZOD	1		data only	
+0xF65EF966	chr_ZOD	1		data only	
+0xF9EE9681	chr_ZOD	2		data only	
+0xFB464BBA	chr_ZOD	1		data only	
+0x04D6A34A	chr_Zatanna_Arcane	4	0x1800108A	data only	
+0x0620EF3F	chr_Zatanna_Arcane	3		data only	
+0x06A5998E	chr_Zatanna_Arcane	2	0x13003381	data only	
+0x0C557FC8	chr_Zatanna_Arcane	1	0x1800106A	data only	
+0x0F98D54F	chr_Zatanna_Arcane	1	0x18001355	data only	
+0x14115668	chr_Zatanna_Arcane	3	0x13003381	data only	
+0x16587376	chr_Zatanna_Arcane	1		data only	
+0x16B4EB92	chr_Zatanna_Arcane	2	0x13003381	data only	
+0x1A63FE90	chr_Zatanna_Arcane	1	0x18001067	data only	
+0x1ADCA98D	chr_Zatanna_Arcane	1	0x10003E44 0x1800108B 0x180014F5	data only	
+0x1BD19A11	chr_Zatanna_Arcane	2	0x1D00085E	data only	
+0x221210BB	chr_Zatanna_Arcane	1	0x130034F0	data only	
+0x22B6FDF6	chr_Zatanna_Arcane	1	0x1D00085E	data only	
+0x2A1FCE14	chr_Zatanna_Arcane	4	0x1800108A	data only	
+0x2BA2B147	chr_Zatanna_Arcane	1	0x1800106A	data only	
+0x30457A9F	chr_Zatanna_Arcane	3	0x10003E44	data only	
+0x35A64305	chr_Zatanna_Arcane	2	0x13003381	data only	
+0x35AD3341	chr_Zatanna_Arcane	1	0x1D000983	data only	
+0x35CA1F3A	chr_Zatanna_Arcane	2	0x1D000983	data only	
+0x3D140DC1	chr_Zatanna_Arcane	3		data only	
+0x4136A63D	chr_Zatanna_Arcane	1	0x130034F0	data only	
+0x42EEACF1	chr_Zatanna_Arcane	2	0x13002935	data only	
+0x49297D3A	chr_Zatanna_Arcane	2	0x13003381	data only	
+0x49B2B907	chr_Zatanna_Arcane	1	0x1D000983	data only	
+0x55CC556F	chr_Zatanna_Arcane	2	0x13002935	data only	
+0x55CE0ACE	chr_Zatanna_Arcane	1		data only	
+0x561E1F0F	chr_Zatanna_Arcane	2	0x1D000983	data only	
+0x583D40B4	chr_Zatanna_Arcane	1	0x1D00085E	data only	
+0x589FE2C6	chr_Zatanna_Arcane	1	0x1800106A	data only	
+0x5984F7AF	chr_Zatanna_Arcane	2	0x13003381	data only	
+0x5AA75C3F	chr_Zatanna_Arcane	3	0x18001521	data only	
+0x5C5358D8	chr_Zatanna_Arcane	2	0x13003381	data only	
+0x60691411	chr_Zatanna_Arcane	2	0x1800106D	data only	
+0x62E0C4B7	chr_Zatanna_Arcane	1	0x17001ECB	data only	
+0x676AD23B	chr_Zatanna_Arcane	4	0x3B0002E7	data only	
+0x6989DB9D	chr_Zatanna_Arcane	1	0x1800106A	data only	
+0x6D319DC0	chr_Zatanna_Arcane	2		data only	
+0x6EDB0791	chr_Zatanna_Arcane	4	0x1800106C	data only	
+0x6EEC2E90	chr_Zatanna_Arcane	1		data only	
+0x6FFF923A	chr_Zatanna_Arcane	2	0x17001ECB	data only	
+0x7113D92D	chr_Zatanna_Arcane	2	0x1800106A	data only	
+0x73C54AE6	chr_Zatanna_Arcane	2		data only	
+0x74185D24	chr_Zatanna_Arcane	2	0x17001ECB	data only	
+0x74A4FC9E	chr_Zatanna_Arcane	1	0x1D000983	data only	
+0x7D2E8729	chr_Zatanna_Arcane	3	0x18001521	data only	
+0x7D86F179	chr_Zatanna_Arcane	1	0x1800106B	data only	
+0x83B3FE84	chr_Zatanna_Arcane	1	0x130034F0 0x180014F6	data only	
+0x86E083A6	chr_Zatanna_Arcane	1	0x130034F0 0x180014F6	data only	
+0x8ADD9BAF	chr_Zatanna_Arcane	2	0x1800106A	data only	
+0x8C6D571D	chr_Zatanna_Arcane	1	0x1800108C	data only	
+0x90C34068	chr_Zatanna_Arcane	2	0x1800106A	data only	
+0x910BCB88	chr_Zatanna_Arcane	1	0x130036D3	data only	
+0x910BCB89	chr_Zatanna_Arcane	1	0x130036D3	data only	
+0x910BCB8A	chr_Zatanna_Arcane	1	0x130036D3	data only	
+0x910BCB8F	chr_Zatanna_Arcane	1	0x130036D3	data only	
+0x979DFB42	chr_Zatanna_Arcane	2	0x180010C0	data only	
+0x9861CC6B	chr_Zatanna_Arcane	2	0x13002935	data only	
+0x994C51B2	chr_Zatanna_Arcane	4	0x18001505	data only	
+0x9A464352	chr_Zatanna_Arcane	2	0x18001505	data only	
+0x9D2CFEFC	chr_Zatanna_Arcane	4	0x130036D3	data only	
+0x9D46479E	chr_Zatanna_Arcane	2	0x18001507	data only	
+0xA13FF602	chr_Zatanna_Arcane	1	0x1D000983	data only	
+0xAAC6B075	chr_Zatanna_Arcane	2	0x13002935	data only	
+0xB452F16F	chr_Zatanna_Arcane	1		data only	
+0xB7A7A4B4	chr_Zatanna_Arcane	1	0x18001507	data only	
+0xBBCA3D28	chr_Zatanna_Arcane	5	0x18001505	data only	
+0xBBF907DD	chr_Zatanna_Arcane	4	0x3B0002E7	data only	
+0xBCA7ACD4	chr_Zatanna_Arcane	2	0x18001505	data only	
+0xC18B15C0	chr_Zatanna_Arcane	2	0x13003381	data only	
+0xC1CA07F7	chr_Zatanna_Arcane	1	0x10003E44 0x1800108B 0x180014F5	data only	
+0xC2D1DF48	chr_Zatanna_Arcane	2	0x180010C0	data only	
+0xC6A5956B	chr_Zatanna_Arcane	1	0x1800106A	data only	
+0xCA1C6129	chr_Zatanna_Arcane	1		data only	
+0xCB099BB6	chr_Zatanna_Arcane	2	0x1800106A	data only	
+0xCB8B44F9	chr_Zatanna_Arcane	1	0x17001ECB	data only	
+0xD0977D43	chr_Zatanna_Arcane	2	0x1800106D	data only	
+0xD2E02AC2	chr_Zatanna_Arcane	1	0x1D000983	data only	
+0xD3EC313D	chr_Zatanna_Arcane	3	0x130036D3	data only	
+0xD66F011F	chr_Zatanna_Arcane	2	0x1800106B	data only	
+0xD8E85391	chr_Zatanna_Arcane	1	0x1800106A	data only	
+0xE0E4B65C	chr_Zatanna_Arcane	1		data only	
+0xE8DD8BBE	chr_Zatanna_Arcane	1	0x18001067	data only	
+0xEFCA8573	chr_Zatanna_Arcane	2	0x130034F0 0x180014F6	data only	
+0xF3673B0B	chr_Zatanna_Arcane	1	0x1800108C	data only	
+0xF6217B69	chr_Zatanna_Arcane	2	0x130034F0 0x180014F6	data only	
+0xF9E965EF	chr_Zatanna_Arcane	4	0x1800106C	data only	
+0xFD0857A1	chr_Zatanna_Arcane	1	0x18001355	data only	
+0xFD3111DD	chr_Zatanna_Arcane	3	0x10003E44	data only	
+0x055BA51E	chr_min_pvp	1	0x1D0003BB 0x2D0008C6	data only	
+0x05CEBB8E	chr_min_pvp	1	0x13003865 0x13003867	data only	
+0x066793F3	chr_min_pvp	1	0x13003865 0x13003867 0x1E000205 0x1F00001C	data only	
+0x0AA196AF	chr_min_pvp	1	0x3B00018E	data only	
+0x15B52A6A	chr_min_pvp	1	0x13003868 0x3B00018E	data only	
+0x15C988A2	chr_min_pvp	3	0x1D0003BB	data only	
+0x18AC6EB9	chr_min_pvp	1	0x13001C6D 0x13003866	data only	
+0x1B1EF3B7	chr_min_pvp	1	0x3B00018E	data only	
+0x20DCEF3C	chr_min_pvp	1	0x1D0007ED	data only	
+0x2241429D	chr_min_pvp	1	0x1D0007ED	data only	
+0x2A3C9B03	chr_min_pvp	1	0x13003868 0x3B00018E	data only	
+0x2AB21827	chr_min_pvp	1	0x1300131A 0x1700142A 0x1800069B 0x180011F9 0x180012F5 0x1E000202 0x1E000211 0x1E0005F8 0x2E0009A5 0x40000BFA	data only	
+0x2C90DEED	chr_min_pvp	1	0x3B000296	data only	
+0x2F1A485D	chr_min_pvp	1	0x13003865 0x13003867	data only	
+0x31CA9446	chr_min_pvp	1	0x13001516 0x13001517 0x1A0013C9	data only	
+0x4014422F	chr_min_pvp	1	0x1E000205 0x1F000038 0x3B000211 0x48000D15	data only	
+0x41E8D997	chr_min_pvp	1	0x13001C6D 0x13003866	data only	
+0x46ACACEE	chr_min_pvp	2	0x13001D7E 0x16001A2A	data only	
+0x4F3116FE	chr_min_pvp	1	0x13003868 0x3B00018E	data only	
+0x512ECF10	chr_min_pvp	1	0x1D000772	data only	
+0x52E333F3	chr_min_pvp	1	0x13003868 0x3B00018E	data only	
+0x5869939E	chr_min_pvp	2	0x18001124	data only	
+0x5E4B95BE	chr_min_pvp	1	0x13002787	data only	
+0x688EFAB5	chr_min_pvp	1	0x13003868 0x3B00018E	data only	
+0x694426BF	chr_min_pvp	1	0x13001C6D 0x13003866	data only	
+0x6BAAA736	chr_min_pvp	1	0x3B000296	data only	
+0x718C91A2	chr_min_pvp	2	0x10000E8D 0x13001516 0x13001517 0x13001C6D 0x13003865 0x13003866 0x13003867 0x13003868 0x16001C2D 0x16001C8B 0x18000229 0x18000790	data only	
+0x720A6E36	chr_min_pvp	2	0x19001002 0x1E000205 0x1E000208 0x1E000209 0x1F00001C 0x1F000036 0x1F000038 0x3B000210 0x3B000211 0x48000D13 0x48000D15 0x48000D19	data only	
+0x7E56E46F	chr_min_pvp	1	0x13001C6D 0x13003866	data only	
+0x7F2A45D9	chr_min_pvp	1	0x3B00018E	data only	
+0x8303F2B9	chr_min_pvp	2	0x13001516 0x13001517 0x18000B55	data only	
+0x837284B4	chr_min_pvp	1		data only	
+0x838CDE9A	chr_min_pvp	2	0x100018E1 0x10002651 0x100039DA 0x13000F9C 0x13001D7E 0x16001A2A 0x1800069B 0x18000790 0x1D0002F5 0x1D0002F6 0x1D00037D 0x1D0005EB	data only	
+0x8C7065B1	chr_min_pvp	1	0x3B00018E	data only	
+0x90C60026	chr_min_pvp	1	0x1E000204	data only	
+0x929F60F9	chr_min_pvp	1		data only	
+0x9BE68B5A	chr_min_pvp	1		data only	
+0x9CCE10D7	chr_min_pvp	1	0x1E000204	data only	
+0xA1D05F4E	chr_min_pvp	1	0x3B00018E	data only	
+0xA380AEB1	chr_min_pvp	3	0x1D0003BB	data only	
+0xAB88B3E0	chr_min_pvp	3	0x1D0003E3 0x1D000678 0x2E001395	data only	
+0xADA903C5	chr_min_pvp	1		data only	
+0xB0E87F74	chr_min_pvp	1	0x16000D62 0x180014FB 0x1D000582	data only	
+0xB43B09F3	chr_min_pvp	1	0x13003865 0x13003867	data only	
+0xB9747033	chr_min_pvp	1	0x1E000205 0x1F000036 0x1F000038 0x48000D13	data only	
+0xC042F05E	chr_min_pvp	1		data only	
+0xC0DDE10E	chr_min_pvp	1	0x100018E1 0x100039DA 0x13000F9C 0x13001C6D 0x13003865 0x13003866 0x13003867 0x13003868 0x16001C2C 0x1800069B 0x180012F5 0x1D0002F5	data only	
+0xC4047316	chr_min_pvp	1	0x1D0003BB 0x2D0008C6	data only	
+0xC5BF92F0	chr_min_pvp	1	0x100018E1 0x100039DA 0x13000F9C 0x16001C2C 0x1D0002F5 0x1D0002F6 0x1D00037D 0x1D0005EB 0x1D0005F1 0x1D000772 0x1D0007ED 0x1E0005F8	data only	
+0xC74CDE1F	chr_min_pvp	1	0x19001002 0x3B000210	data only	
+0xC8476745	chr_min_pvp	1	0x100018E1 0x100039DA 0x13000F9C 0x13001516 0x13001517 0x1700142A 0x18000032 0x18000692 0x18000790 0x18000A8C 0x18000A8E 0x180012F5	data only	
+0xCBF6F30F	chr_min_pvp	1	0x16001C2D 0x16001C8B 0x18000032 0x18000B56 0x18000B67 0x18000B68 0x18001419 0x19000D37 0x19000D3E 0x1D0003BB 0x1E000054 0x2D0008C6	data only	
+0xCF35724D	chr_min_pvp	1	0x13003868 0x3B00018E	data only	
+0xD0B1985F	chr_min_pvp	1	0x13001516 0x13001517 0x2E0009A5	data only	
+0xD12E2E56	chr_min_pvp	1	0x1800069B 0x2E0004F7 0x2E0009A5 0x3B000278	data only	
+0xD4C847FC	chr_min_pvp	2	0x13003865 0x13003867	data only	
+0xD83DBEE9	chr_min_pvp	1	0x1800069B 0x1D0002F6 0x1D0002F7 0x1D000451 0x1D000452 0x2E0009A5	data only	
+0xE291E97E	chr_min_pvp	1	0x1D0007ED	data only	
+0xE2D8C10A	chr_min_pvp	1	0x13001C6D 0x13003866	data only	
+0xE322C4E3	chr_min_pvp	1	0x13003865 0x13003867	data only	
+0xE53846BC	chr_min_pvp	1		data only	
+0xE5A8A44B	chr_min_pvp	1	0x1E000205 0x1E000209 0x48000D19	data only	
+0xEC0F9BB3	chr_min_pvp	2	0x1C0000AA 0x40000937	data only	
+0xEC5FA308	chr_min_pvp	2	0x13001C6D 0x13003866	data only	
+0xEC7E696C	chr_min_pvp	1	0x13003868 0x3B00018E	data only	
+0xEDB44E46	chr_min_pvp	1	0x13001C6D 0x13003865 0x13003866 0x13003867	data only	
+0xEDE52720	chr_min_pvp	1	0x3B000296	data only	
+0xEEE7B8A1	chr_min_pvp	1	0x1800145D 0x1D0005D5 0x3B000278	data only	
+0xFA1D6680	chr_min_pvp	1	0x3B00018E	data only	
+0xFC7495C6	chr_min_pvp	1	0x16001C2C 0x1700142A 0x18000EF2 0x180012F5 0x1E000203 0x1E000211 0x1E0005F8 0x3B000297	data only	
+0xFDC10592	chr_min_pvp	1	0x3B00018E	data only	
+0x1D7896B6	chr_robovender	2	0x2E00134F	data only	
+0x3A30AE25	chr_robovender	1	0x2E00134F	data only	
+0xC23779DC	chr_robovender	1		data only	
+0xC23779DE	chr_robovender	1		data only	
+0xC23779DF	chr_robovender	1		data only	
+0xE7945E54	chr_robovender	1		data only	
+0xE7945E56	chr_robovender	1		data only	
+0x03B97436	mse_DoomsDayDevice	3	0x40000400	data only	
+0x15718E6B	mse_DoomsDayDevice	1		data only	
+0x21920AFF	mse_DoomsDayDevice	3	0x190003A3	data only	
+0x29B08F64	mse_DoomsDayDevice	2		data only	
+0x4D7D377B	mse_DoomsDayDevice	2		data only	
+0x545A1B28	mse_DoomsDayDevice	3	0x40000400	data only	
+0x54F9CBF6	mse_DoomsDayDevice	1	0x18000A8A	data only	
+0x87E974E4	mse_DoomsDayDevice	1	0x40000400	data only	
+0x8B4F2476	mse_DoomsDayDevice	1		data only	
+0x93BB2001	mse_DoomsDayDevice	1	0x40000400	data only	
+0x994DFA06	mse_DoomsDayDevice	5	0x190003A3	data only	
+0xAA22AC42	mse_DoomsDayDevice	1		data only	
+0xBBA17758	mse_DoomsDayDevice	6	0x40000400	data only	
+0xC74C9DA5	mse_DoomsDayDevice	1		data only	
+0xCBFE9D2A	mse_DoomsDayDevice	5	0x40000400	data only	
+0xF4B16982	mse_DoomsDayDevice	1	0x40000400	data only	
+0x492CDEAA	mse_EarthQuake	3	0x18001456	data only	
+0x066A4E18	mse_Meteor	3		data only	
+0x0934A9BA	mse_Meteor	6	0x10003E53 0x170001C4 0x1A000DC9 0x1D00019C	data only	Meteor event: played by effect 0x170001C4 (with the rock 0x2E000BB3 and the dust 0x2E0007D4) and script table 0x1D00019C. Probably the fall / impact.
+0x0C15A2A0	mse_Meteor	1	0x2D0006E4	data only	
+0x109A5F56	mse_Meteor	6		data only	
+0x19FE39D8	mse_Meteor	7	0x2D0006E4	data only	
+0xA4B1A226	mse_Meteor	1	0x10003E53 0x170001C4 0x1A000DC9 0x1D00019C	data only	Meteor event: effect 0x170001C4 and script table 0x1D00019C.
+0xB3A8D439	mse_Meteor	6	0x1500EE63 0x1D00019C	data only	Meteor event: script table 0x1D00019C and 0x1500EE63.
+0xD48DB5C6	mse_Meteor	1	0x10003E53 0x170001C4 0x1A000DC9 0x1D00019C	data only	Meteor event: effect 0x170001C4 and script table 0x1D00019C.
+0xE015FB56	mse_Meteor	1		data only	
+0xEB685A04	mse_Meteor	11	0x1D00019C	data only	Meteor event: script table 0x1D00019C (11 actions).
+0x25DB172E	mse_MeteorStorm	1	0x1300278A 0x1500E936 0x17000B97 0x18000467 0x180007D7 0x1800145C 0x19000846 0x19000C61 0x1D0003BB 0x40000132	data only	
+0x4FC792E0	mse_MeteorStorm	6	0x10002FFB 0x180007D7 0x19000C61 0x1D0003BB 0x40000132	data only	

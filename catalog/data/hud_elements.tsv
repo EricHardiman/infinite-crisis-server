@@ -1,0 +1,25 @@
+id	element
+2	PlayerVitalBars
+4	SkillButtonWUpgradeButton
+5	SkillButtonRUpgradeButton
+6	SkillButtonBasic
+7	SkillButtonPassive
+9	SkillButtonQ
+12	SkillButtonR
+14	SkillsBar
+15	Minimap
+17	SkillButtonW
+18	Portrait
+19	SkillButtonPassiveUpgradeButton
+20	LevelAndExperience
+21	SkillButtonStolenPowerTSkill
+22	SkillButtonStolenPower1 (D)
+23	SkillButtonStolenPower2 (F)
+25	SkillButtonE
+27	SkillPointSpendReminder
+28	SkillButtonEUpgradeButton
+30	SkillButtonQUpgradeButton
+31	StatusIconDisplay
+32	HintManager
+35	MissionObjectiveTracker
+45	SkillsBarUpgradeReccommendedText

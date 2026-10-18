@@ -1,0 +1,335 @@
+id	name	type	brand	stats	targets	server_status
+0x400006E7	Holt Holdings Augment Codename: PAPRIKA	augment	Holt Holdings	Attack Armor +3.9; Cooldown Reduction +0.0152		data only
+0x40000689	Holt Holdings Augment Codename: FORTRESS	augment	Holt Holdings	Attack Armor +3.9; Power Armor +3.9		data only
+0x4000065B	Holt Holdings Augment Codename: CLAYMORE	augment	Holt Holdings	Cooldown Reduction +0.0152; Attack Speed +%0.0269		data only
+0x400006E0	Holt Holdings Augment Codename: WEREWOLF	augment	Holt Holdings	Health +20.05; Cooldown Reduction +0.0152		data only
+0x40000685	Holt Holdings Augment Codename: HYPER	augment	Holt Holdings	Health +20.05; Attack Speed +%0.0269		data only
+0x400006C9	Holt Holdings Augment Codename: SCORPION	augment	Holt Holdings	Attack Armor +3.9; Move Speed +0.0252		data only
+0x400006A4	Holt Holdings Augment Codename: PANTHER	augment	Holt Holdings	Attack Armor +3.9; Attack Speed +%0.0269		data only
+0x400006DA	Holt Holdings Augment Codename: DAGGER	augment	Holt Holdings	Move Speed +0.0252; Attack Speed +%0.0269		data only
+0x4000064E	Holt Holdings Augment Codename: PEGASUS	augment	Holt Holdings	Move Speed +0.0252; Cooldown Reduction +0.0152		data only
+0x40000661	Holt Holdings Augment Codename: SILK	augment	Holt Holdings	Power Armor +3.9; Attack Speed +%0.0269		data only
+0x400006A8	Holt Holdings Augment Codename: HYDRA	augment	Holt Holdings	Power Armor +3.9; Cooldown Reduction +0.0152		data only
+0x40000662	Holt Holdings Augment Codename: EARTHQUAKE	augment	Holt Holdings	Health +20.05; Move Speed +0.0252		data only
+0x4000068D	Holt Holdings Augment Codename: GIANT	augment	Holt Holdings	Power Armor +3.9; Health +20.05		data only
+0x400006B4	Holt Holdings Augment Codename: ICARUS	augment	Holt Holdings	Move Speed +0.0252; Cooldown Reduction +0.0015		data only
+0x400006C3	Holt Holdings Augment Codename: TERROR	augment	Holt Holdings	Power Armor +3.9; Move Speed +0.0252		data only
+0x40000651	Holt Holdings Augment Codename: TIGER	augment	Holt Holdings	Attack Armor +0.39; Attack Speed +%0.0269		data only
+0x400006B6	Holt Holdings Augment Codename: FORCEFIELD	augment	Holt Holdings	Attack Armor +3.9; Health +20.05		data only
+0x400006D4	Holt Holdings Augment Codename: GOBLIN	augment	Holt Holdings	Attack Armor +0.39; Cooldown Reduction +0.0015		data only
+0x400006E2	Holt Holdings Augment Codename: RAMPAGE	augment	Holt Holdings	Health +2.51; Move Speed +0.0252		data only
+0x400006D1	Holt Holdings Augment Codename: OAK	augment	Holt Holdings	Attack Armor +0.39; Health +2.51		data only
+0x400006D7	Holt Holdings Augment Codename: PHALANX	augment	Holt Holdings	Attack Armor +0.39; Power Armor +0.39		data only
+0x400006B2	Holt Holdings Augment Codename: ARROW	augment	Holt Holdings	Health +2.51; Attack Speed +%0.0269		data only
+0x4000068F	Holt Holdings Augment Codename: SWORD	augment	Holt Holdings	Cooldown Reduction +0.0015; Attack Speed +%0.0269		data only
+0x4000067E	Holt Holdings Augment Codename: BREAKFAST	augment	Holt Holdings	Power Armor +0.39; Cooldown Reduction +0.0015		data only
+0x4000066A	Holt Holdings Augment Codename: HENDRIX	augment	Holt Holdings	Health +2.51; Cooldown Reduction +0.0015		data only
+0x400006A9	Holt Holdings Augment Codename: SAMURAI	augment	Holt Holdings	Power Armor +0.39; Move Speed +0.0252		data only
+0x400006AE	Holt Holdings Augment Codename: TORNADO	augment	Holt Holdings	Attack Armor +0.39; Move Speed +0.0252		data only
+0x40000674	Kord Industries Augment Codename: ORIGIN	augment	Kord Industries	Attack Damage +2.01; Attack Lifesteal +0.01		data only
+0x40000686	Holt Holdings Augment Codename: VANGUARD	augment	Holt Holdings	Power Armor +0.39; Health +2.51		data only
+0x400006B7	Kord Industries Augment Codename: CRASH	augment	Kord Industries	Attack Damage +2.01; Cooldown Reduction +0.0152		data only
+0x400006C6	Kord Industries Augment Codename: POPCORN	augment	Kord Industries	Attack Damage +2.01; Health +18.51		data only
+0x40000695	Kord Industries Augment Codename: CHILLY	augment	Kord Industries	Attack Lifesteal +0.01; Health +18.51		data only
+0x4000067A	Kord Industries Augment Codename: BOOTS	augment	Kord Industries	Attack Lifesteal +0.01; Cooldown Reduction +0.0152		data only
+0x400006A2	Holt Holdings Augment Codename: SNOWSTORM	augment	Holt Holdings	Power Armor +0.39; Attack Speed +%0.0269		data only
+0x400006AD	Kord Industries Augment Codename: BURRITO	augment	Kord Industries	Attack Lifesteal +0.01; Cooldown Reduction +0.0015		data only
+0x400006E8	Kord Industries Augment Codename: SHREW	augment	Kord Industries	Attack Penetration +1.8; Attack Lifesteal +0.01		data only
+0x40000671	Kord Industries Augment Codename: ALPHA	augment	Kord Industries	Attack Penetration +1.8; Health +18.51		data only
+0x400006D0	Kord Industries Augment Codename: FORTYTWO	augment	Kord Industries	Attack Lifesteal +0.01; Health +2.31		data only
+0x400006BE	Kord Industries Augment Codename: SLASHER	augment	Kord Industries	Attack Penetration +1.8; Attack Damage +2.01		data only
+0x400006A6	Kord Industries Augment Codename: OMNI	augment	Kord Industries	Attack Penetration +1.8; Cooldown Reduction +0.0152		data only
+0x4000065C	Kord Industries Augment Codename: BUTTER	augment	Kord Industries	Cooldown Reduction +0.0152; Health +2.31		data only
+0x400006D6	Kord Industries Augment Codename: LASER	augment	Kord Industries	Move Speed +0.0302; Attack Damage +2.01		data only
+0x400006B0	Kord Industries Augment Codename: FORCE	augment	Kord Industries	Attack Penetration +1.8; Attack Damage +0.25		data only
+0x4000064A	Kord Industries Augment Codename: TURTLE	augment	Kord Industries	Cooldown Reduction +0.0152; Health +18.51		data only
+0x4000067F	Kord Industries Augment Codename: NOTCH	augment	Kord Industries	Move Speed +0.0302; Cooldown Reduction +0.0152		data only
+0x400006CA	Kord Industries Augment Codename: OMEGA	augment	Kord Industries	Attack Penetration +1.8; Health +2.31		data only
+0x40000655	Kord Industries Augment Codename: PIXXY	augment	Kord Industries	Move Speed +0.0302; Attack Lifesteal +0.01		data only
+0x400006EA	Kord Industries Augment Codename: HORSEPOWER	augment	Kord Industries	Attack Penetration +1.8; Move Speed +0.0302		data only
+0x40000672	Kord Industries Augment Codename: PLATINUM	augment	Kord Industries	Attack Penetration +1.8; Cooldown Reduction +0.0015		data only
+0x400006D2	Kord Industries Augment Codename: VENGEANCE	augment	Kord Industries	Move Speed +0.0302; Health +18.51		data only
+0x4000066B	Kord Industries Augment Codename: VEX	augment	Kord Industries	Move Speed +0.0302; Attack Damage +0.25		data only
+0x400006B1	Kord Industries Augment Codename: BLIGHT	augment	Kord Industries	Move Speed +0.0302; Health +2.31		data only
+0x400006E3	Kord Industries Augment Codename: DIVER	augment	Kord Industries	Attack Damage +0.25; Attack Lifesteal +0.01		data only
+0x400006A7	Lex Corp Augment Codename: ARMADILLO	augment	Lex Corp	Attack Armor +3; Power Armor +3		data only
+0x40000687	Kord Industries Augment Codename: BLADELORD	augment	Kord Industries	Attack Damage +0.25; Cooldown Reduction +0.0015		data only
+0x400006B3	Kord Industries Augment Codename: BEETLE	augment	Kord Industries	Attack Damage +0.25; Health +2.31		data only
+0x4000069E	Lex Corp Augment Codename: MASTER	augment	Lex Corp	Cooldown Reduction +0.0197; Power Armor +3		data only
+0x4000065A	Kord Industries Augment Codename: ANGRY	augment	Kord Industries	Move Speed +0.0302; Cooldown Reduction +0.0015		data only
+0x400006B9	Lex Corp Augment Codename: SANDSTORM	augment	Lex Corp	Cooldown Reduction +0.0197; Attack Armor +3		data only
+0x400006BF	Lex Corp Augment Codename: CROSSROAD	augment	Lex Corp	Cooldown Reduction +0.0197; Power Lifesteal +0.0168		data only
+0x400006A0	Lex Corp Augment Codename: FOREST	augment	Lex Corp	Cooldown Reduction +0.0197; Power Damage +3.51		data only
+0x400006B8	Lex Corp Augment Codename: CACTUS	augment	Lex Corp	Power Lifesteal +0.0168; Power Damage +3.51		data only
+0x400006CB	Lex Corp Augment Codename: TITAN	augment	Lex Corp	Power Damage +3.51; Attack Armor +3		data only
+0x400006D9	Lex Corp Augment Codename: DRAGON	augment	Lex Corp	Power Lifesteal +0.0168; Power Armor +3		data only
+0x4000067B	Lex Corp Augment Codename: VAMPIRE	augment	Lex Corp	Power Lifesteal +0.0168; Attack Armor +3		data only
+0x40000699	Lex Corp Augment Codename: VIPER	augment	Lex Corp	Power Damage +3.51; Power Penetration +1.5		data only
+0x400006CF	Lex Corp Augment Codename: LAVA	augment	Lex Corp	Power Damage +3.51; Power Armor +3		data only
+0x4000066E	Lex Corp Augment Codename: QUICKSAND	augment	Lex Corp	Cooldown Reduction +0.0197; Power Penetration +1.5		data only
+0x40000677	Lex Corp Augment Codename: CHRONO	augment	Lex Corp	Power Lifesteal +0.0168; Power Damage +0.44		data only
+0x400006D5	Lex Corp Augment Codename: WHIP	augment	Lex Corp	Power Penetration +1.5; Attack Armor +3		data only
+0x400006DE	Lex Corp Augment Codename: OCEAN	augment	Lex Corp	Power Lifesteal +0.0168; Power Armor +0.3		data only
+0x40000698	Lex Corp Augment Codename: ENERGY	augment	Lex Corp	Power Penetration +1.5; Power Armor +3		data only
+0x40000682	Lex Corp Augment Codename: STARBUCK	augment	Lex Corp	Power Lifesteal +0.0168; Attack Armor +0.3		data only
+0x40000653	Lex Corp Augment Codename: SCIENCE	augment	Lex Corp	Power Penetration +1.5; Attack Armor +0.3		data only
+0x400006C4	Lex Corp Augment Codename: EAGLE	augment	Lex Corp	Power Lifesteal +0.0168; Power Penetration +1.5		data only
+0x40000660	Lex Corp Augment Codename: STEEL	augment	Lex Corp	Attack Armor +0.3; Power Armor +0.3		data only
+0x400006DF	Lex Corp Augment Codename: ANDROID	augment	Lex Corp	Cooldown Reduction +0.002; Power Armor +0.3		data only
+0x40000670	Lex Corp Augment Codename: SWAMP	augment	Lex Corp	Cooldown Reduction +0.002; Power Damage +0.44		data only
+0x40000656	Lex Corp Augment Codename: PYRAMID	augment	Lex Corp	Cooldown Reduction +0.002; Attack Armor +0.3		data only
+0x400006E5	Lex Corp Augment Codename: TUNDRA	augment	Lex Corp	Cooldown Reduction +0.002; Power Lifesteal +0.0168		data only
+0x400006A5	Lex Corp Augment Codename: COBRA	augment	Lex Corp	Power Damage +0.44; Power Penetration +1.5		data only
+0x400006D3	Lex Corp Augment Codename: MAZE	augment	Lex Corp	Cooldown Reduction +0.002; Power Penetration +1.5		data only
+0x40000652	Queen Industries Augment Codename: KAI	augment	Queen Industries	Attack Damage +2.41; Attack Penetration +1.5		data only
+0x4000066C	Lex Corp Augment Codename: MAGMA	augment	Lex Corp	Power Damage +0.44; Power Armor +0.3		data only
+0x4000069C	Lex Corp Augment Codename: CRYPT	augment	Lex Corp	Power Damage +0.44; Attack Armor +0.3		data only
+0x40000676	Queen Industries Augment Codename: VOLCANO	augment	Queen Industries	Attack Damage +2.41; Power Damage +3.24		data only
+0x4000066F	Queen Industries Augment Codename: FALCON	augment	Queen Industries	Attack Damage +2.41; Attack Speed +%0.035		data only
+0x400006B5	Lex Corp Augment Codename: PLASMA	augment	Lex Corp	Power Penetration +1.5; Power Armor +0.3		data only
+0x40000664	Queen Industries Augment Codename: ELEVEN	augment	Queen Industries	Attack Damage +2.41; Power Penetration +1.39		data only
+0x400006C1	Queen Industries Augment Codename: XBERGER	augment	Queen Industries	Attack Penetration +1.5; Power Damage +3.24		data only
+0x40000692	Queen Industries Augment Codename: BULWARK	augment	Queen Industries	Attack Penetration +1.5; Critical Chance +0.0625		data only
+0x4000069A	Queen Industries Augment Codename: PHAX	augment	Queen Industries	Attack Speed +%0.035; Attack Penetration +1.5		data only
+0x4000064B	Queen Industries Augment Codename: HEX	augment	Queen Industries	Attack Damage +2.41; Critical Chance +0.0625		data only
+0x4000065D	Queen Industries Augment Codename: ZAG	augment	Queen Industries	Attack Penetration +1.5; Power Penetration +1.39		data only
+0x40000684	Queen Industries Augment Codename: CROW	augment	Queen Industries	Attack Penetration +1.5; Power Damage +0.4		data only
+0x40000666	Queen Industries Augment Codename: BRAMBLE	augment	Queen Industries	Attack Speed +%0.035; Power Damage +3.24		data only
+0x400006C5	Queen Industries Augment Codename: MANTLE	augment	Queen Industries	Attack Speed +%0.035; Critical Chance +0.0625		data only
+0x4000065F	Queen Industries Augment Codename: LION	augment	Queen Industries	Critical Chance +0.0625; Power Penetration +1.39		data only
+0x40000665	Queen Industries Augment Codename: FIREBALL	augment	Queen Industries	Critical Chance +0.0625; Power Damage +3.24		data only
+0x40000697	Queen Industries Augment Codename: ECLIPSE	augment	Queen Industries	Critical Chance +0.0625; Power Damage +0.4		data only
+0x4000068C	Queen Industries Augment Codename: COLUMBUS	augment	Queen Industries	Attack Damage +0.3; Attack Penetration +1.5		data only
+0x400006AF	Queen Industries Augment Codename: YEW	augment	Queen Industries	Power Damage +3.24; Power Penetration +1.39		data only
+0x40000679	Queen Industries Augment Codename: GANK	augment	Queen Industries	Attack Damage +0.3; Power Damage +0.4		data only
+0x400006A1	Queen Industries Augment Codename: DANGER	augment	Queen Industries	Attack Damage +0.3; Attack Speed +%0.035		data only
+0x40000669	Queen Industries Augment Codename: MELTDOWN	augment	Queen Industries	Power Damage +0.4; Power Penetration +1.39		data only
+0x400006DB	Queen Industries Augment Codename: BEAVER	augment	Queen Industries	Attack Damage +0.3; Critical Chance +0.0625		data only
+0x400006A3	Queen Industries Augment Codename: SHEEP	augment	Queen Industries	Attack Damage +0.3; Power Penetration +1.39		data only
+0x400006BC	S.T.A.R. Labs Augment Codename: LOCKDOWN	augment	S.T.A.R. Labs	Cooldown Reduction +0.0164; Attack Damage +1.85		data only
+0x400006C8	Queen Industries Augment Codename: FLOON	augment	Queen Industries	Attack Speed +%0.035; Power Damage +0.4		data only
+0x40000694	Queen Industries Augment Codename: TUSK	augment	Queen Industries	Attack Speed +%0.035; Power Penetration +1.39		data only
+0x40000688	S.T.A.R. Labs Augment Codename: NOVA	augment	S.T.A.R. Labs	Power Damage +4.21; Power Lifesteal +0.014		data only
+0x4000066D	S.T.A.R. Labs Augment Codename: GALAXY	augment	S.T.A.R. Labs	Power Damage +4.21; Attack Damage +1.85		data only
+0x4000064C	S.T.A.R. Labs Augment Codename: RED	augment	S.T.A.R. Labs	Cooldown Reduction +0.0164; Attack Penetration +0.9		data only
+0x4000069F	S.T.A.R. Labs Augment Codename: IMPACT	augment	S.T.A.R. Labs	Power Damage +4.21; Attack Penetration +0.9		data only
+0x40000663	S.T.A.R. Labs Augment Codename: LIBRA	augment	S.T.A.R. Labs	Power Lifesteal +0.014; Attack Damage +1.85		data only
+0x400006CD	S.T.A.R. Labs Augment Codename: BLAST	augment	S.T.A.R. Labs	Power Damage +4.21; Power Penetration +1.8		data only
+0x4000067D	S.T.A.R. Labs Augment Codename: NEBULA	augment	S.T.A.R. Labs	Power Damage +4.21; Cooldown Reduction +0.0164		data only
+0x40000690	S.T.A.R. Labs Augment Codename: BULLET	augment	S.T.A.R. Labs	Attack Damage +1.85; Attack Penetration +0.9		data only
+0x40000678	S.T.A.R. Labs Augment Codename: ARES	augment	S.T.A.R. Labs	Power Lifesteal +0.014; Attack Penetration +0.9		data only
+0x40000668	S.T.A.R. Labs Augment Codename: ISIS	augment	S.T.A.R. Labs	Power Penetration +1.8; Attack Damage +1.85		data only
+0x4000067C	S.T.A.R. Labs Augment Codename: SHARK	augment	S.T.A.R. Labs	Power Lifesteal +0.014; Cooldown Reduction +0.0164		data only
+0x40000691	S.T.A.R. Labs Augment Codename: STARFISH	augment	S.T.A.R. Labs	Power Lifesteal +0.014; Cooldown Reduction +0.0016		data only
+0x40000649	S.T.A.R. Labs Augment Codename: HAVOC	augment	S.T.A.R. Labs	Power Penetration +1.8; Power Lifesteal +0.014		data only
+0x400006C2	S.T.A.R. Labs Augment Codename: RA	augment	S.T.A.R. Labs	Power Penetration +1.8; Attack Damage +0.23		data only
+0x4000068A	S.T.A.R. Labs Augment Codename: REEF	augment	S.T.A.R. Labs	Power Penetration +1.8; Attack Penetration +0.9		data only
+0x4000064D	S.T.A.R. Labs Augment Codename: ZEUS	augment	S.T.A.R. Labs	Power Damage +0.53; Attack Penetration +0.9		data only
+0x400006BB	S.T.A.R. Labs Augment Codename: ORION	augment	S.T.A.R. Labs	Power Damage +0.53; Power Penetration +1.8		data only
+0x40000657	S.T.A.R. Labs Augment Codename: CLAW	augment	S.T.A.R. Labs	Cooldown Reduction +0.0016; Attack Penetration +0.9		data only
+0x40000680	S.T.A.R. Labs Augment Codename: CYCLONE	augment	S.T.A.R. Labs	Cooldown Reduction +0.0016; Attack Damage +1.85		data only
+0x400006CC	S.T.A.R. Labs Augment Codename: LIGHTNING	augment	S.T.A.R. Labs	Power Penetration +1.8; Cooldown Reduction +0.0164		data only
+0x40000673	S.T.A.R. Labs Augment Codename: PORTAL	augment	S.T.A.R. Labs	Power Damage +0.53; Attack Damage +0.23		data only
+0x4000068E	S.T.A.R. Labs Augment Codename: COMET	augment	S.T.A.R. Labs	Power Damage +0.53; Power Lifesteal +0.014		data only
+0x400006BA	S.T.A.R. Labs Augment Codename: SUN	augment	S.T.A.R. Labs	Power Damage +0.53; Cooldown Reduction +0.0016		data only
+0x400006E6	Wayne Enterprises Augment Codename: HAWK	augment	Wayne Enterprises	Attack Armor +3.25; Move Speed +0.0232		data only
+0x40000658	Wayne Enterprises Augment Codename: MONSTER	augment	Wayne Enterprises	Attack Armor +3.25; Attack Speed +%0.0269		data only
+0x40000659	Wayne Enterprises Augment Codename: CLIFF	augment	Wayne Enterprises	Attack Armor +3.25; Power Armor +3.25		data only
+0x400006C0	Wayne Enterprises Augment Codename: LEMON	augment	Wayne Enterprises	Attack Lifesteal +0.012; Attack Armor +3.25		data only
+0x400006D8	Wayne Enterprises Augment Codename: BREAKER	augment	Wayne Enterprises	Attack Lifesteal +0.012; Move Speed +0.0232		data only
+0x40000667	S.T.A.R. Labs Augment Codename: SPIDER	augment	S.T.A.R. Labs	Power Penetration +1.8; Cooldown Reduction +0.0016		data only
+0x4000064F	Wayne Enterprises Augment Codename: HEAT	augment	Wayne Enterprises	Attack Lifesteal +0.012; Power Armor +3.25		data only
+0x400006E1	Wayne Enterprises Augment Codename: CUBE	augment	Wayne Enterprises	Attack Lifesteal +0.012; Health +24.06		data only
+0x40000683	Wayne Enterprises Augment Codename: LEGEND	augment	Wayne Enterprises	Attack Lifesteal +0.012; Health +3.01		data only
+0x400006DC	S.T.A.R. Labs Augment Codename: RAZOR	augment	S.T.A.R. Labs	Attack Damage +0.23; Attack Penetration +0.9		data only
+0x400006E9	Wayne Enterprises Augment Codename: SPEED	augment	Wayne Enterprises	Health +24.06; Attack Speed +%0.0269		data only
+0x40000654	Wayne Enterprises Augment Codename: WAVE	augment	Wayne Enterprises	Attack Lifesteal +0.012; Attack Speed +%0.0269		data only
+0x400006BD	Wayne Enterprises Augment Codename: ESSCENCE	augment	Wayne Enterprises	Attack Lifesteal +0.012; Power Armor +0.32		data only
+0x4000065E	Wayne Enterprises Augment Codename: WOLF	augment	Wayne Enterprises	Health +24.06; Power Armor +3.25		data only
+0x400006E4	Wayne Enterprises Augment Codename: TEACHER	augment	Wayne Enterprises	Attack Speed +%0.0269; Move Speed +0.0232		data only
+0x40000681	Wayne Enterprises Augment Codename: PANDA	augment	Wayne Enterprises	Power Armor +3.25; Attack Speed +%0.0269		data only
+0x40000693	Wayne Enterprises Augment Codename: TOWER	augment	Wayne Enterprises	Attack Lifesteal +0.012; Attack Armor +0.32		data only
+0x4000069D	Wayne Enterprises Augment Codename: TSUNAMI	augment	Wayne Enterprises	Health +24.06; Move Speed +0.0232		data only
+0x400006AB	Wayne Enterprises Augment Codename: RAVEN	augment	Wayne Enterprises	Attack Armor +0.32; Attack Speed +%0.0269		data only
+0x400006AA	Wayne Enterprises Augment Codename: FOX	augment	Wayne Enterprises	Attack Armor +0.32; Move Speed +0.0232		data only
+0x40000675	Wayne Enterprises Augment Codename: ICEBOX	augment	Wayne Enterprises	Power Armor +3.25; Move Speed +0.0232		data only
+0x4000069B	Wayne Enterprises Augment Codename: MOUNTAIN	augment	Wayne Enterprises	Attack Armor +0.32; Power Armor +0.32		data only
+0x400006AC	Wayne Enterprises Augment Codename: RAGE	augment	Wayne Enterprises	Health +3.01; Attack Speed +%0.0269		data only
+0x40000650	Wayne Enterprises Augment Codename: WRECK	augment	Wayne Enterprises	Health +3.01; Power Armor +0.32		data only
+0x400006CE	Wayne Enterprises Augment Codename: RABBIT	augment	Wayne Enterprises	Power Armor +0.32; Attack Speed +%0.0269		data only
+0x4000068B	Wayne Enterprises Augment Codename: BEAST	augment	Wayne Enterprises	Health +3.01; Attack Armor +0.32		data only
+0x400006C7	Wayne Enterprises Augment Codename: LANDSLIDE	augment	Wayne Enterprises	Health +3.01; Move Speed +0.0232		data only
+0x400006DD	Wayne Enterprises Augment Codename: REVENGE	augment	Wayne Enterprises	Power Armor +0.32; Move Speed +0.0232		data only
+0x40000696	Wayne Enterprises Augment Codename: CASTLE	augment	Wayne Enterprises	Health +24.06; Attack Armor +3.25		data only
+0x40000874	Queen Industries Mod Discounted Nil Weapon	mod	Queen Industries		0x400004CF -150 credits	data only
+0x400008B0	Queen Industries Mod Empowered Nil Weapon	mod	Queen Industries		0x400004CF keyword 0x4800140D	data only
+0x40000865	Kord Industries Mod Discounted Marauder Knife	mod	Kord Industries		0x400004E2 -100 credits; 0x400004A5 -100 credits; 0x400004BD -100 credits; 0x400004F8 -100 credits	data only
+0x40000858	Kord Industries Mod Enhanced Attack Damage Marauder Knife	mod	Kord Industries		0x400004BD Attack Damage +10; 0x400004F8 Attack Damage +10	data only
+0x40000868	Kord Industries Mod Empowered Marauder Knife	mod	Kord Industries		0x400004F8 keyword 0x4800096F	data only
+0x40000A8B	Kord Industries Mod Discounted Cheetah's Claw	mod	Kord Industries		0x40000566 -100 credits; 0x4000055A -100 credits; 0x4000059B -100 credits; 0x4000055E -100 credits	data only
+0x40000A88	Queen Industries Mod Enhanced Attack Lifesteal Cheetah's Claw	mod	Queen Industries		0x4000059B Attack Lifesteal +0.04; 0x4000055E Attack Lifesteal +0.04	data only
+0x40000ACE	Queen Industries Mod Empowered Cheetah's Claw	mod	Queen Industries		0x4000055E keyword 0x48000EB3	data only
+0x4000086E	Kord Industries Mod Optimized Coda Blade	mod	Kord Industries		0x400004E7 -350 credits	data only
+0x4000087D	Queen Industries Mod Enhanced Attack Damage Coda Blade	mod	Queen Industries		0x400004A7 Attack Damage +10; 0x400004E7 Attack Damage +10	data only
+0x40000832	Queen Industries Mod Rapid Coda Blade	mod	Queen Industries		0x400004A7 keyword 0x48001295	data only
+0x4000084E	Queen Industries Mod Enhanced Attack Armor Atlantis Gambit	mod	Queen Industries		0x400004BA Attack Armor +10; 0x400004A0 Attack Armor +10; 0x40000617 Attack Armor +10	data only
+0x40000847	Queen Industries Mod Resonant Atlantis Gambit	mod	Queen Industries		0x400004A0 keyword 0x48000A53; 0x40000617 keyword 0x48000A53	data only
+0x4000087B	Queen Industries Mod Enhanced Attack Damage Shade's Cane	mod	Queen Industries		0x4000056A Attack Damage +10; 0x40000599 Attack Damage +10	data only
+0x400008BE	Queen Industries Mod Optimized Shade's Cane	mod	Queen Industries		0x40000599 -350 credits	data only
+0x40000824	Queen Industries Mod Enhanced Attack Damage Zeiss Goggles	mod	Queen Industries		0x40000571 Attack Damage +10; 0x4000057A Attack Damage +10	data only
+0x400008A7	Queen Industries Mod Discounted Zeiss Goggles	mod	Queen Industries		0x40000587 -150 credits; 0x40000574 -150 credits; 0x40000571 -150 credits; 0x4000057A -150 credits	data only
+0x40000872	Wayne Enterprises Mod Enhanced Attack Damage Rip Hunter's Time Pack	mod	Wayne Enterprises		0x40000514 Attack Damage +10; 0x4000051F Attack Damage +10	data only
+0x40000883	Wayne Enterprises Mod Enhanced Cooldown Reduction Rip Hunter's Time Pack	mod	Wayne Enterprises		0x40000514 Cooldown Reduction +0.05; 0x4000051F Cooldown Reduction +0.05	data only
+0x400008B1	Wayne Enterprises Mod Discounted Rip Hunter's Time Pack	mod	Wayne Enterprises		0x40000517 -150 credits; 0x4000051A -150 credits; 0x40000514 -150 credits; 0x4000051F -150 credits	data only
+0x40000B28	Lex Corp Mod Empowered Rip Hunter's Time Pack	mod	Lex Corp		0x4000051A keyword 0x480007CE; 0x40000514 keyword 0x480007CE; 0x4000051F keyword 0x480007CE	data only
+0x4000084D	Wayne Enterprises Mod Enhanced Health Lobo's Chain	mod	Wayne Enterprises		0x4000050B Health +75; 0x400004A2 Health +75	data only
+0x400008B8	Wayne Enterprises Mod Discounted Lobo's Chain	mod	Wayne Enterprises		0x4000048C -150 credits; 0x400004F7 -150 credits; 0x4000050B -150 credits; 0x400004A2 -150 credits	data only
+0x40000BEB	Wayne Enterprises Mod Empowered Lobo's Chain	mod	Wayne Enterprises		0x400004A2 ? ?	data only
+0x40000841	Queen Industries Mod Overclocked Joker's Crowbar	mod	Queen Industries		0x4000049E keyword 0x48000A56	data only
+0x40000856	Queen Industries Mod Accelerated Joker's Crowbar	mod	Queen Industries		0x4000049E keyword 0x48000A55	data only
+0x40000864	Wayne Enterprises Mod Enhanced Attack Armor Claw of Horus	mod	Wayne Enterprises		0x40000497 Attack Armor +15; 0x40000500 Attack Armor +15	data only
+0x4000086D	Wayne Enterprises Mod Magnified Claw of Horus	mod	Wayne Enterprises		0x40000500 keyword 0x48000A66	data only
+0x400008B3	Wayne Enterprises Mod Discounted Claw of Horus	mod	Wayne Enterprises		0x400004FB -250 credits; 0x40000497 -250 credits; 0x40000500 -250 credits	data only
+0x40000875	Kord Industries Mod Discounted Huntress' Crossbow	mod	Kord Industries		0x40000590 -250 credits; 0x4000058F -250 credits; 0x4000058B -250 credits	data only
+0x40000873	Kord Industries Mod Enhanced Attack Damage Huntress' Crossbow	mod	Kord Industries		0x4000058F Attack Damage +10; 0x4000058B Attack Damage +10	data only
+0x40000ABE	Kord Industries Mod Enhanced Attack Speed Huntress' Crossbow	mod	Kord Industries		0x4000058F Attack Speed +%0.1; 0x4000058B Attack Speed +%0.1	data only
+0x40000840	Wayne Enterprises Mod Enhanced Move Speed Batman's Utility Belt	mod	Wayne Enterprises		0x4000048B Move Speed +0.1; 0x40000633 Move Speed +0.1	data only
+0x400008AE	Wayne Enterprises Mod Discounted Batman's Utility Belt	mod	Wayne Enterprises		0x400004BE -250 credits; 0x400004F9 -250 credits; 0x4000048B -250 credits; 0x40000633 -250 credits	data only
+0x4000087F	Queen Industries Mod Empowered Mega Rod	mod	Queen Industries		0x400004F5 keyword 0x48000B77	data only
+0x400008A9	Queen Industries Mod Discounted Mega Rod	mod	Queen Industries		0x4000049F -250 credits; 0x400004DE -250 credits; 0x400004F5 -250 credits	data only
+0x40000821	Wayne Enterprises Mod Enhanced Power Armor Sword of Beowulf	mod	Wayne Enterprises		0x40000518 Power Armor +15; 0x4000051D Power Armor +15	data only
+0x400008A8	Wayne Enterprises Mod Discounted Sword of Beowulf	mod	Wayne Enterprises		0x40000513 -250 credits; 0x40000518 -250 credits; 0x4000051D -250 credits	data only
+0x40000AD3	Wayne Enterprises Mod Empowered Sword of Beowulf	mod	Wayne Enterprises		0x4000051D keyword 0x48000EB2	data only
+0x4000083D	Queen Industries Mod Enhanced Critical Chance Velocity 9 Implants	mod	Queen Industries		0x400004F4 Critical Chance +0.1; 0x400004DD Critical Chance +0.1	data only
+0x400008BD	Queen Industries Mod Optimized Velocity 9 Implants	mod	Queen Industries		0x400004DD -350 credits	data only
+0x40000AC0	Queen Industries Mod Empowered Velocity 9 Implants	mod	Queen Industries		0x400004DD keyword 0x48000EB4	data only
+0x4000083A	Queen Industries Mod Optimized Deadshot's Visor	mod	Queen Industries		0x40000598 -350 credits	data only
+0x4000087A	Queen Industries Mod Enhanced Will Deadshot's Visor	mod	Queen Industries		0x40000558 Will +200; 0x40000598 Will +200	data only
+0x4000083E	Queen Industries Mod Empowered Deadshot's Visor	mod	Queen Industries		0x40000598 keyword 0x48000B7E	data only
+0x40000861	Queen Industries Mod Accelerated Soultaker Katana	mod	Queen Industries		0x400004D0 keyword 0x48000A60	data only
+0x4000088F	Queen Industries Mod Capacity Soultaker Katana	mod	Queen Industries		0x400004D0 keyword 0x48000A5F	data only
+0x400008B5	Queen Industries Mod Enhanced Attack Damage Soultaker Katana	mod	Queen Industries		0x4000048D Attack Damage +10; 0x400004D0 Attack Damage +10	data only
+0x40000842	Kord Industries Mod Optimized Atomic Axe	mod	Kord Industries		0x400004EE -300 credits	data only
+0x40000870	Queen Industries Mod Enhanced Attack Damage Atomic Axe	mod	Queen Industries		0x400004DB Attack Damage +10; 0x400004EE Attack Damage +10	data only
+0x40000846	Kord Industries Mod Enhanced Cooldown Reduction Deathstroke's Claymore	mod	Kord Industries		0x400004B7 Cooldown Reduction +0.05; 0x40000D1A Cooldown Reduction +0.05	data only
+0x4000086A	Queen Industries Mod Enhanced Attack Damage Deathstroke's Claymore	mod	Queen Industries		0x400004B7 Attack Damage +10; 0x40000D1A Attack Damage +10	data only
+0x40000AC1	Queen Industries Mod Empowered Deathstroke's Claymore	mod	Queen Industries		0x40000D1A ? ?	data only
+0x40000878	Queen Industries Mod Optimized Joe Chill's Revolver	mod	Queen Industries		0x400004DF -350 credits	data only
+0x40000AC7	Queen Industries Mod Empowered Joe Chill's Revolver	mod	Queen Industries		0x400004DF keyword 0x48000EDC	data only
+0x40000825	Holt Holdings Mod Discounted Nil Cloak	mod	Holt Holdings		0x400004DA -150 credits	data only
+0x400008B7	Holt Holdings Mod Empowered Nil Cloak	mod	Holt Holdings		0x400004DA keyword 0x4800140F	data only
+0x4000084B	Wayne Enterprises Mod Discounted Marauder Shield	mod	Wayne Enterprises		0x40000494 -100 credits; 0x400004CD -100 credits; 0x400004E8 -100 credits; 0x400004A8 -100 credits	data only
+0x40000885	Holt Holdings Mod Enhanced Health Marauder Shield	mod	Holt Holdings		0x400004E8 Health +75; 0x400004A8 Health +75	data only
+0x40000849	Queen Industries Mod Enhanced Health Olympus Gambit	mod	Queen Industries		0x400004C6 Health +50; 0x400004B2 Health +50; 0x40000618 Health +50	data only
+0x4000085F	Queen Industries Mod Resonant Olympus Gambit	mod	Queen Industries		0x400004B2 keyword 0x48000C88; 0x40000618 keyword 0x48000C88	data only
+0x40000835	Queen Industries Mod Enhanced Power Armor Oa Gambit	mod	Queen Industries		0x400004C9 Power Armor +10; 0x40000508 Power Armor +10; 0x40000619 Power Armor +10	data only
+0x40000853	Queen Industries Mod Resonant Oa Gambit	mod	Queen Industries		0x40000508 keyword 0x48000C85; 0x40000619 keyword 0x48000C85	data only
+0x40000AD7	Lex Corp Mod Empowered Mirror Master's Prism	mod	Lex Corp		0x4000099D keyword 0x48000EB9	data only
+0x40000ACA	Lex Corp Mod Optimized Mirror Master's Prism	mod	Lex Corp		0x4000099D -350 credits	data only
+0x40000889	Lex Corp Mod Discounted Medusa Mask	mod	Lex Corp		0x40000597 -150 credits; 0x4000055D -150 credits; 0x4000055B -150 credits; 0x40000563 -150 credits	data only
+0x4000082D	Lex Corp Mod Rapid Medusa Mask	mod	Lex Corp		0x40000597 keyword 0x480007E1	data only
+0x40000828	Holt Holdings Mod Optimized Steel's Breastplate	mod	Holt Holdings		0x40000582 -350 credits	data only
+0x4000085D	Holt Holdings Mod Altered Steel's Breastplate	mod	Holt Holdings		0x40000582 ? ?	data only
+0x40000AD4	Holt Holdings Mod Enhanced Will Steel's Breastplate	mod	Holt Holdings		0x40000582 Will +200	data only
+0x4000082A	Queen Industries Mod Accelerated Phantom Stranger's Necklace	mod	Queen Industries		0x40000572 keyword 0x48000A62; 0x40000576 keyword 0x48000A62	data only
+0x40000891	Queen Industries Mod Capacity Phantom Stranger's Necklace	mod	Queen Industries		0x40000572 keyword 0x48000A61; 0x40000576 keyword 0x48000A61	data only
+0x40000AC6	Queen Industries Mod Enhanced Cooldown Reduction Phantom Stranger's Necklace	mod	Queen Industries		0x40000576 Cooldown Reduction +0.05	data only
+0x40000884	Queen Industries Mod Enhanced Attack Armor Diana's Bracers	mod	Queen Industries		0x400004CB Attack Armor +15; 0x40000C08 Attack Armor +15	data only
+0x400008B4	Queen Industries Mod Discounted Diana's Bracers	mod	Queen Industries		0x4000048E -250 credits; 0x400004CB -250 credits; 0x40000C08 -250 credits	data only
+0x40000848	Wayne Enterprises Mod Optimized Metallo's Heart	mod	Wayne Enterprises		0x400004C1 -350 credits	data only
+0x4000083F	Holt Holdings Mod Enhanced Attack Armor Metallo's Heart	mod	Holt Holdings		0x400004FC Attack Armor +15; 0x400004C1 Attack Armor +15	data only
+0x4000084A	Holt Holdings Mod Resonant Metallo's Heart	mod	Holt Holdings		0x400004C1 keyword 0x48000C82	data only
+0x4000085B	Holt Holdings Mod Discounted Helm of Fate	mod	Holt Holdings		0x400004B3 -250 credits; 0x400004ED -250 credits; 0x40000501 -250 credits	data only
+0x400008BA	Holt Holdings Mod Optimized Helm of Fate	mod	Holt Holdings		0x40000501 -350 credits	data only
+0x40000A89	Holt Holdings Mod Rapid Helm of Fate	mod	Holt Holdings		0x400004ED ? ?	data only
+0x40000AC8	Holt Holdings Mod Enhanced Power Armor Helm of Fate	mod	Holt Holdings		0x400004ED Power Armor +15; 0x40000501 Power Armor +15	data only
+0x40000B27	Wayne Enterprises Mod Enhanced Health Booster Gold's Power Suit™	mod	Wayne Enterprises		0x40000B0D Health +75; 0x40000B0E Health +75	data only
+0x40000B26	Holt Holdings Mod Enhanced Cooldown Reduction Booster Gold's Power Suit™	mod	Holt Holdings		0x40000B0D Cooldown Reduction +0.05; 0x40000B0E Cooldown Reduction +0.05	data only
+0x40000B29	Lex Corp Mod Empowered Booster Gold's Power Suit™	mod	Lex Corp		0x40000B0E keyword 0x48000F39	data only
+0x40000879	Wayne Enterprises Mod Optimized Spear of Destiny	mod	Wayne Enterprises		0x400004D5 -300 credits	data only
+0x40000836	Wayne Enterprises Mod Enhanced Attack Damage Spear of Destiny	mod	Wayne Enterprises		0x40000498 Attack Damage +10; 0x400004D5 Attack Damage +10	data only
+0x40000AD2	Wayne Enterprises Mod Empowered Spear of Destiny	mod	Wayne Enterprises		0x400004D5 keyword 0x48000EBA	data only
+0x40000823	Lex Corp Mod Discounted Amulet of Isis	mod	Lex Corp		0x40000516 -150 credits; 0x40000520 -150 credits; 0x40000522 -150 credits	data only
+0x40000855	Lex Corp Mod Enhanced Cooldown Reduction Amulet of Isis	mod	Lex Corp		0x40000520 Cooldown Reduction +0.05; 0x40000522 Cooldown Reduction +0.05	data only
+0x40000ACD	Lex Corp Mod Empowered Amulet of Isis	mod	Lex Corp		0x40000522 ? ?	data only
+0x40000886	Queen Industries Mod Overclocked Crime Bible	mod	Queen Industries		0x4000056E keyword 0x48000A5A	data only
+0x4000088A	Queen Industries Mod Accelerated Crime Bible	mod	Queen Industries		0x4000056E keyword 0x48000A58	data only
+0x40000844	Holt Holdings Mod Accelerated Ruby of Life	mod	Holt Holdings		0x40000496 keyword 0x48000A5E; 0x400004FE keyword 0x48000A5E; 0x400004EB keyword 0x48000A5E	data only
+0x4000088E	Holt Holdings Mod Capacity Ruby of Life	mod	Holt Holdings		0x40000496 keyword 0x48000A5D; 0x400004FE keyword 0x48000A5D; 0x400004EB keyword 0x48000A5D	data only
+0x400008AA	Holt Holdings Mod Enhanced Health Ruby of Life	mod	Holt Holdings		0x400004FE Health +75; 0x400004EB Health +75	data only
+0x40000871	Wayne Enterprises Mod Discounted Suit of Sorrows	mod	Wayne Enterprises		0x400004E4 -150 credits; 0x400004D2 -150 credits; 0x40000492 -150 credits; 0x400004AA -150 credits	data only
+0x4000085A	Wayne Enterprises Mod Empowered Suit of Sorrows	mod	Wayne Enterprises		0x400004AA keyword 0x48000A2C	data only
+0x40000ACC	Wayne Enterprises Mod Enhanced Move Speed Suit of Sorrows	mod	Wayne Enterprises		0x40000492 Move Speed +0.1; 0x400004AA Move Speed +0.1	data only
+0x4000082C	Holt Holdings Mod Optimized Entropy Aegis	mod	Holt Holdings		0x400004BB -350 credits	data only
+0x40000854	Lex Corp Mod Enhanced Health Entropy Aegis	mod	Lex Corp		0x400004CA Health +75; 0x400004BB Health +75	data only
+0x40000A8C	Lex Corp Mod Empowered Entropy Aegis	mod	Lex Corp		0x400004BB keyword 0x48000E53	data only
+0x40000AC2	Lex Corp Mod Enhanced Power Armor Entropy Aegis	mod	Lex Corp		0x400004CA Power Armor +15; 0x400004BB Power Armor +15	data only
+0x40000876	Wayne Enterprises Mod Enhanced Move Speed Kryptonian War Armor	mod	Wayne Enterprises		0x400004D4 Move Speed +0.1; 0x400004C3 Move Speed +0.1	data only
+0x40000850	Holt Holdings Mod Enhanced Health Regen per 10s Kryptonian War Armor	mod	Holt Holdings		0x400004D4 Health Regeneration +1.5; 0x400004C3 Health Regeneration +1.5	data only
+0x40000AD5	Holt Holdings Mod Empowered Kryptonian War Armor	mod	Holt Holdings		0x400004C3 keyword 0x48000EBF	data only
+0x40000834	Lex Corp Mod Optimized Ra's al Ghul's Robe	mod	Lex Corp		0x40000523 -350 credits	data only
+0x400008AD	Lex Corp Mod Empowered Ra's al Ghul's Robe	mod	Lex Corp		0x40000523 keyword 0x480015DA	data only
+0x40000862	Holt Holdings Mod Enhanced Health Fragment of Mogo	mod	Holt Holdings		0x40000559 Health +75; 0x4000059A Health +75	data only
+0x400008B9	Holt Holdings Mod Optimized Fragment of Mogo	mod	Holt Holdings		0x4000059A -350 credits	data only
+0x4000087E	S.T.A.R. Labs Mod Discounted Nil Ring	mod	S.T.A.R. Labs		0x400004CE -150 credits	data only
+0x400008B6	S.T.A.R. Labs Mod Empowered Nil Ring	mod	S.T.A.R. Labs		0x400004CE keyword 0x48001063	data only
+0x40000851	S.T.A.R. Labs Mod Discounted Marauder Ring	mod	S.T.A.R. Labs		0x400004D7 -100 credits; 0x40000499 -100 credits; 0x40000503 -100 credits; 0x400004C7 -100 credits	data only
+0x40000857	S.T.A.R. Labs Mod Enhanced Power Damage Marauder Ring	mod	S.T.A.R. Labs		0x40000503 Power Damage +15; 0x400004C7 Power Damage +15	data only
+0x4000082F	S.T.A.R. Labs Mod Empowered Marauder Ring	mod	S.T.A.R. Labs		0x400004C7 keyword 0x48000971	data only
+0x40000880	Lex Corp Mod Discounted Doctor Destiny's Dreamstone	mod	Lex Corp		0x400004E1 -100 credits; 0x4000049D -100 credits; 0x400004B8 -100 credits; 0x400008C6 -100 credits	data only
+0x40000830	Lex Corp Mod Enhanced Power Damage Doctor Destiny's Dreamstone	mod	Lex Corp		0x400004B8 Power Damage +15; 0x400008C6 Power Damage +15	data only
+0x40000863	Queen Industries Mod Enhanced Will Qward Gambit	mod	Queen Industries		0x400004AB Will +125; 0x4000048F Will +125; 0x4000061A Will +125	data only
+0x4000086F	Queen Industries Mod Resonant Qward Gambit	mod	Queen Industries		0x4000048F keyword 0x48000C7F; 0x4000061A keyword 0x48000C7F	data only
+0x40000829	S.T.A.R. Labs Mod Enhanced Power Damage Fatality's Energy Lance	mod	S.T.A.R. Labs		0x40000585 Power Damage +15; 0x4000058C Power Damage +15	data only
+0x40000852	S.T.A.R. Labs Mod Enhanced Cooldown Reduction Fatality's Energy Lance	mod	S.T.A.R. Labs		0x40000585 Cooldown Reduction +0.05; 0x4000058C Cooldown Reduction +0.05	data only
+0x40000AC9	S.T.A.R. Labs Mod Discounted Fatality's Energy Lance	mod	S.T.A.R. Labs		0x4000057D -150 credits; 0x40000588 -150 credits; 0x40000585 -150 credits; 0x4000058C -150 credits	data only
+0x40000869	Lex Corp Mod Discounted Gorilla Grodd's Helmet	mod	Lex Corp		0x4000055C -100 credits; 0x40000591 -100 credits; 0x4000058E -100 credits; 0x40000595 -100 credits	data only
+0x400008AB	Lex Corp Mod Enhanced Resilience Gorilla Grodd's Helmet	mod	Lex Corp		0x4000058E Resilience +0.1; 0x40000595 Resilience +0.1	data only
+0x40000AD1	Lex Corp Mod Enhanced Will Gorilla Grodd's Helmet	mod	Lex Corp		0x4000058E Will +200; 0x40000595 Will +200	data only
+0x40000BE7	Lex Corp Mod Enhanced Cooldown Reduction Gorilla Grodd's Helmet	mod	Lex Corp		0x40000591 Cooldown Reduction +0.05; 0x4000058E Cooldown Reduction +0.05; 0x40000595 Cooldown Reduction +0.05	data only
+0x40000BEA	Lex Corp Mod Resonant Gorilla Grodd's Helmet	mod	Lex Corp		0x4000058E keyword 0x48000FC1; 0x40000595 keyword 0x48000FC1	data only
+0x40000BE9	Lex Corp Mod Enhanced Power Lifesteal Mr. Terrific's T-Mask	mod	Lex Corp		0x40000BDF Power Lifesteal +0.05; 0x40000BDE Power Lifesteal +0.05	data only
+0x40000BEC	Lex Corp Mod Empowered Mr. Terrific's T-Mask	mod	Lex Corp		0x40000BE1 keyword 0x48000F04; 0x40000BE0 keyword 0x48000F03; 0x40000BDF keyword 0x48000EF1; 0x40000BDE keyword 0x48000EF1	data only
+0x40000BE8	Lex Corp Mod Altered Mr. Terrific's T-Mask	mod	Lex Corp		0x40000BDF ? ?; 0x40000BDE ? ?	data only
+0x4000085C	S.T.A.R. Labs Mod Discounted The Logoz	mod	S.T.A.R. Labs		0x40000592 -100 credits; 0x40000583 -100 credits; 0x4000057F -100 credits	data only
+0x40000837	S.T.A.R. Labs Mod Accelerated The Logoz	mod	S.T.A.R. Labs		0x40000583 keyword 0x48000A5C; 0x4000057F keyword 0x48000A5C	data only
+0x40000890	S.T.A.R. Labs Mod Capacity The Logoz	mod	S.T.A.R. Labs		0x40000583 keyword 0x48000A5B; 0x4000057F keyword 0x48000A5B	data only
+0x40000AC4	S.T.A.R. Labs Mod Enhanced Will The Logoz	mod	S.T.A.R. Labs		0x4000057F Will +200	data only
+0x4000083B	Queen Industries Mod Overclocked Two Face's Coin	mod	Queen Industries		0x400004AE keyword 0x48000A59	data only
+0x40000826	Queen Industries Mod Accelerated Two Face's Coin	mod	Queen Industries		0x400004AE keyword 0x48000A57	data only
+0x40000AD6	S.T.A.R. Labs Mod Enhanced Health Cosmic Belt	mod	S.T.A.R. Labs		0x40000996 Health +75; 0x40000995 Health +75	data only
+0x40000ACF	S.T.A.R. Labs Mod Discounted Cosmic Belt	mod	S.T.A.R. Labs		0x40000997 -150 credits; 0x40000996 -150 credits; 0x40000995 -150 credits	data only
+0x4000084F	S.T.A.R. Labs Mod Optimized Cosmic Staff	mod	S.T.A.R. Labs		0x400004EC -350 credits	data only
+0x40000881	S.T.A.R. Labs Mod Empowered Cosmic Staff	mod	S.T.A.R. Labs		0x400004EC keyword 0x48000BFB	data only
+0x40000838	Lex Corp Mod Enhanced Health Atlantean Royal Seal	mod	Lex Corp		0x400004A4 Health +75; 0x400004E0 Health +75	data only
+0x4000082B	Lex Corp Mod Empowered Atlantean Royal Seal	mod	Lex Corp		0x400004E0 keyword 0x48000BF8	data only
+0x400008AC	Lex Corp Mod Optimized Atlantean Royal Seal	mod	Lex Corp		0x400004E0 -350 credits	data only
+0x40000888	S.T.A.R. Labs Mod Enhanced Will Eye of Ekron	mod	S.T.A.R. Labs		0x4000053B Will +200; 0x4000053A Will +200	data only
+0x4000088D	S.T.A.R. Labs Mod Empowered Eye of Ekron	mod	S.T.A.R. Labs		0x400004FA keyword 0x48001063; 0x400004C0 keyword 0x48001063; 0x4000053B keyword 0x48001063; 0x4000053A keyword 0x48001063	data only
+0x400008BB	S.T.A.R. Labs Mod Discounted Eye of Ekron	mod	S.T.A.R. Labs		0x400004FA -150 credits; 0x400004C0 -150 credits; 0x4000053B -150 credits; 0x4000053A -150 credits	data only
+0x4000084C	Kord Industries Mod Enhanced Attack Damage Blue Scarab	mod	Kord Industries		0x40000515 Attack Damage +10; 0x4000051C Attack Damage +10	data only
+0x4000086B	Kord Industries Mod Empowered Shade's Cane	mod	Kord Industries		0x40000599 keyword 0x48000924	data only
+0x40000866	Kord Industries Mod Empowered Eclipso's Diamond	mod	Kord Industries		0x400004EF keyword 0x480008A9	data only
+0x400008AF	Kord Industries Mod Discounted Blue Scarab	mod	Kord Industries		0x4000051B -250 credits; 0x40000515 -250 credits; 0x4000051C -250 credits	data only
+0x40000877	S.T.A.R. Labs Mod Enhanced Power Damage Psi-Scimitar	mod	S.T.A.R. Labs		0x400004C2 Power Damage +15; 0x400004D1 Power Damage +15	data only
+0x400008B2	S.T.A.R. Labs Mod Discounted Psi-Scimitar	mod	S.T.A.R. Labs		0x400004D8 -250 credits; 0x400004C2 -250 credits; 0x400004D1 -250 credits	data only
+0x40000A8A	S.T.A.R. Labs Mod Empowered Psi-Scimitar	mod	S.T.A.R. Labs		0x400004D1 keyword 0x4800144F	data only
+0x40000859	S.T.A.R. Labs Mod Optimized Neron's Contract	mod	S.T.A.R. Labs		0x40000562 -350 credits	data only
+0x40000887	Holt Holdings Mod Enhanced Attack Armor Neron's Contract	mod	Holt Holdings		0x40000568 Attack Armor +15; 0x40000562 Attack Armor +15	data only
+0x40000AD0	Holt Holdings Mod Discounted Neron's Contract	mod	Holt Holdings		0x4000056D -150 credits; 0x40000565 -150 credits; 0x40000568 -150 credits; 0x40000562 -150 credits	data only
+0x40000845	Lex Corp Mod Optimized Pandora's Box	mod	Lex Corp		0x4000058A -350 credits	data only
+0x4000082E	S.T.A.R. Labs Mod Enhanced Cooldown Reduction Pandora's Box	mod	S.T.A.R. Labs		0x4000058D Cooldown Reduction +0.05; 0x4000058A Cooldown Reduction +0.05	data only
+0x40000ABF	S.T.A.R. Labs Mod Empowered Pandora's Box	mod	S.T.A.R. Labs		0x4000058A ? ?	data only
+0x4000087C	S.T.A.R. Labs Mod Discounted Abin Sur's Lantern	mod	S.T.A.R. Labs		0x40000504 -150 credits; 0x400004E9 -150 credits; 0x400004FD -150 credits; 0x40000495 -150 credits	data only
+0x40000867	S.T.A.R. Labs Mod Accelerated Abin Sur's Lantern	mod	S.T.A.R. Labs		0x400004E9 keyword 0x480010D3; 0x400004FD keyword 0x480010D3; 0x40000495 keyword 0x480010D3	data only
+0x40000833	S.T.A.R. Labs Mod Empowered Eye of Ekron	mod	S.T.A.R. Labs		0x4000053A keyword 0x48000B7D	data only
+0x40000BE6	Lex Corp Mod Overclocked Abin Sur's Lantern	mod	Lex Corp		0x400004E9 keyword 0x480010D4; 0x400004FD keyword 0x480010D4; 0x40000495 keyword 0x480010D4	data only
+0x40000839	Lex Corp Mod Optimized Book of Eternity	mod	Lex Corp		0x400004EA -300 credits	data only
+0x4000083C	S.T.A.R. Labs Mod Enhanced Power Damage Book of Eternity	mod	S.T.A.R. Labs		0x40000505 Power Damage +15; 0x400004EA Power Damage +15	data only
+0x4000086C	Lex Corp Mod Optimized Eclipso's Diamond	mod	Lex Corp		0x400004EF -350 credits	data only
+0x40000822	S.T.A.R. Labs Mod Enhanced Power Lifesteal Eclipso's Diamond	mod	S.T.A.R. Labs		0x400004B5 Power Lifesteal +0.05; 0x400004EF Power Lifesteal +0.05	data only
+0x4000085E	S.T.A.R. Labs Mod Optimized The Starheart	mod	S.T.A.R. Labs		0x400004CC -350 credits	data only
+0x40000843	Holt Holdings Mod Optimized Speed Force Battery	mod	Holt Holdings		0x4000061D -300 credits	data only
+0x40000ACB	Holt Holdings Mod Empowered Speed Force Battery	mod	Holt Holdings		0x4000061C ? ?; 0x4000061D ? ?	data only
+0x40000820	Holt Holdings Mod Altered Bleed Portal	mod	Holt Holdings		0x4000061B ? ?	data only
+0x40000E6E	Queen Industries Mod Empowered Mobius Core	mod	Queen Industries		0x40000E6B ? ?; 0x40000E6A ? ?	data only
