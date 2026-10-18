@@ -3505,3 +3505,98 @@ level 6; every possible animation of the champion; a drone that can be attacked 
   the patched exe from the 2015 Steam exe and disassembling both caves.
 - New `tests/test_patcher_layout.py`: no two patches overlap; with the exe path, the full build applies.
 
+## fase3-je — documentation brought up to date
+
+01:30 (tester): "make sure everything is documented" (before the branch goes to EricHardiman/infinite-crisis-server).
+
+- `README.md`: every module and test listed, Coast City v AI / free play / John Stewart in the status, the full
+  list of files kept out of the repository.
+- `CLAUDE.md`: `kits.py`, `champion_fx.py`, `net.py` / `log.py` / `scheduler.py`, `progress.py`,
+  `tools/split_file.py`, `tests/test_kits.py` and `tests/test_patcher_layout.py`.
+- `docs/HANDOFF.md`: a "Current state (fase3-jd)" section (confirmed, shipped but not seen, decisions, open
+  work); the fase3-gz handoff kept below it.
+- `docs/AI_GUIDE.md`: how to add a champion's kit, a champion-select map, and change an exe patch.
+- `config.example.toml`: where the per-map settings are, and an example of `[combat] kits`.
+- Catalog: John Stewart's passive and basic attack had an invalid status (now `data only`); two IDs used in the
+  code were missing (0x35000013 Coast City mission layout, 0x480007FC meteor damage-area skill).
+  `tests/test_catalog.py` passes again.
+- No code changes.
+
+## fase3-jf — docs/FINDINGS.md: summary for new contributors
+
+10:02 (tester): the documentation still missed some things for the team: Tutorial 1 does not disconnect at the end
+and can be played again; which maps are in the files and which are not, and what can or cannot be built because
+of it; sorting the new champions alphabetically breaks the portraits; the profile pictures can be changed; some
+animations and game elements are still not found; anything else relevant.
+
+- New `docs/FINDINGS.md` with all of that (Tutorial 1, maps table, champions, profile and collection, not found
+  yet, findings to know before changing code). Linked from `README.md`, `CLAUDE.md`, `docs/AI_GUIDE.md` and
+  `docs/HANDOFF.md`.
+- `catalog/data/stages.tsv`: every encounter says whether its map files are in the install; Coast City v AI is
+  `implemented` (champion select, free play).
+- `icserver/roster.py` and `CLAUDE.md`: the added champions stay after champions.json's; sorting them
+  alphabetically gives champions the wrong portrait (tester). Docstring only, no behaviour change.
+
+## fase3-jg — the Amplifiers tab: the data it waits for
+
+10:09 (tester): the Amplifiers tab keeps loading and never shows the amplifiers.
+
+- The tab waits for three pieces of data (`docs/reverse-engineering.md`, "The Amplifiers tab"). Two of them never
+  came in the menus:
+  - the amplifier set list (0x2090), which was sent only with the scorecard;
+  - the store's amplifier data (0x2107, newly decoded), which was never sent.
+- `[account] send_amplifier_data` (new, on): 0x2090 (0 sets, `amplifier_set_slots` = 6, a guess) and an empty
+  0x2107 (`scorecard.amplifier_boutique_data`) are sent at login, before 0x2080, and again when the client sends
+  0x2116 (on opening the tab).
+- The third piece (the amplifiers' own data) comes from the item statuses the server already sends (162 augments,
+  172 mods as owned).
+- Catalog: network events 0x2107, 0x2116 and 0x2106 added, 0x2090 updated.
+- `tests/test_collections.py`: 9 checks (was 5). `tests/test_e2e.py`'s login check counts the two new messages.
+- Not seen in the game yet. If the tab still loads forever, the next suspect is 0x2106 (the store request).
+
+## fase3-jh — the Amplifiers tab: answer its own requests
+
+10:23 (tester's logs with fase3-jg): the login carried 0x2090 and 0x2107, but the tab still loaded forever.
+
+- Flash creates BoutiqueDataManager and AmplifierSetManager only when the tab opens. Their constructors clear their
+  "have data" flags, register for the notices and send the requests that reach the server as 0x2116. So the
+  login's 0x2090 / 0x2107 arrived before anything listened.
+- The reply to 0x2116 was then skipped: 0x21A4 (Champions data, sent 1.2 s before) had used the 2 s limit of
+  `resend_collections` (server.log 10:22:45.706 / 10:22:46.898, no message sent after it).
+- 0x2116 is now always answered at once with 0x2090, 0x2107 and the item statuses 0x20B8. AmplifierSetManager
+  builds its amplifier list on `EVENT_ITEM_STATUSES_UPDATE`. The 2 s limit stays for 0x21A4 only.
+- `tests/test_collections.py`: 10 checks (0x2116 right after 0x21A4).
+
+## fase3-ji — 0x2116's own answer: 0x2115 (store offers)
+
+10:28 (tester's logs with fase3-jh): no 0x2116 or 0x21A4 in this session, only 0x20BA and 0x2106 at 10:28:16. So
+the server could not answer the tab.
+
+- 0x2116 is sent by VA 0xa57170 only while the store UI's "offers loaded" byte (+0x1b1) is 0. Otherwise the client
+  rebuilds the lists from its cache (VA 0xa416b0).
+- That byte is set by the exec of **0x2115** (VA 0x8aad20 -> 0xa57000), the store's offers. Each offer is 0x230
+  bytes (reader VA 0x866650, not decoded). The exec looks for offer 0x4000094C, sets the byte and rebuilds the
+  lists.
+- 0x2116 is now answered first with an empty 0x2115 (`scorecard.store_offers`), then 0x2090, 0x2107 and 0x20B8 as
+  in fase3-jh.
+- `tests/test_collections.py`: 11 checks.
+- Open: what the tester did in the 10:28 session, and whether the tab still loads after a full restart of the
+  game.
+
+## fase3-jj — the Stats tab: account encounter stats (0x2115)
+
+10:36 (tester, fase3-ji): the amplifiers take a moment but now show. Asks: can the Stats tab show data?
+
+- fase3-ji took 0x2115 for the store's offers. It is the account's **encounter stats**. Its exec (VA 0xa57000) caches
+  the entries and calls VA 0xa416b0, which calls VA 0x8ce3d0, the caller of Flash
+  `GM_Character.RecvNotice_SendAccountEncounterStats(encounters, ranked, stat labels, stat data)` (string at VA
+  0x15f4210). 0x2116 is `RequestAccountEncounterStats`.
+- Entry layout (reader VA 0x866650, 0x230 bytes in memory): u64, ranked bool, u32 encounter DID, then 60 counters
+  (u64 integers and a few u32) and two StringInfos (`scorecard.ENCOUNTER_STATS_FIELDS`). The labels come from each
+  encounter record (property 0x10000A73). Entry 0x4000094C is put first, probably the totals.
+- `[account] encounter_stats` (new, "sample"): 0x2115 carries made-up counters for the totals entry and the 15
+  encounters. They are different per encounter and never 0, so a screenshot can show which counter feeds which
+  label. "empty" = no entries.
+- `tests/test_collections.py`: the 0x2115 check now looks at the 16 entries.
+- Not seen in the game yet. A wrong layout would show as a broken Stats tab or a client error in the log.
+

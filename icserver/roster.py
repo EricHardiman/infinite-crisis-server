@@ -194,7 +194,11 @@ def _entry(rp_dir, packs, near, cache, c, light, wall, skills, parent, skills_ke
 
 
 def extend(cfg, roster, log=None):
-    """Append the install's champions missing from the roster (cached)."""
+    """Append the install's champions missing from the roster (cached).
+
+    They are appended after the champions of champions.json on purpose: the tester found (2026-10) that sorting
+    the added champions alphabetically among the others makes champions show another champion's portrait in the
+    game. The cause is not traced; keep this order."""
     if not cfg["account"].get("extra_champions", True):
         return roster
     from . import gamecache

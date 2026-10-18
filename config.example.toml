@@ -35,6 +35,8 @@ pre_cinematics = []          # cinematics before the intro (0x35000025 was not t
 send_match_start = false     # 0x2053: currently crashes the client
 health = [600, 600]
 secondary = [100, 100]
+# Per-map settings (champion select "lobby", free play "free", lighting) are in icserver/config.py under
+# [match] maps; e.g. Coast City v AI is "0x40000B6A". Override one here as [match.maps."0x40000B6A"].
 
 [timing]
 objects_min_delay = 4.0      # minimum seconds in the lobby before creating the objects
@@ -68,6 +70,7 @@ start_at = ""
 # bridge_positions = { camera = [62.6, 41.7], vehicle = [112.1, 15.6] }
 
 [combat]
+# kits = {"0x40000E57" = {"1" = {"ticks" = 10}, "base" = {"cooldown" = 8.0}}}   # John Stewart's numbers (icserver/kits.py)
 use_variants = true          # drones with health that can be attacked (character variants)
 enemy_team = 2
 drone_health = 200

@@ -40,6 +40,18 @@ DEFAULTS = {
         # client's unanswered 0x21A4 / 0x2116 are answered with the login's champion data, character
         # list and item statuses again (False = ignore them)
         "resend_collections": True,
+        # 2026-10-18 10:09 (tester: the Amplifiers tab keeps loading and never shows them). The tab (Flash
+        # CheckForAllDataAvailable) waits for three things: AmplifierSetManager's set list (0x2090, until now
+        # only sent with the scorecard), its amplifier data (from the item statuses 0x20B8) and the store's
+        # amplifier data (0x2107, never sent). Both are now sent at login and when the client asks (0x2116).
+        # False = the old behaviour. amplifier_set_slots = the "max amplifier sets" of 0x2090 (a guess).
+        "send_amplifier_data": True,
+        "amplifier_set_slots": 6,
+        # 2026-10-18 10:36 (tester: the amplifiers show now; can the Stats tab show data?). 0x2116 is the
+        # client's RequestAccountEncounterStats and 0x2115 its answer (the profile's Stats tab). "sample" =
+        # made-up counters for every encounter plus the totals entry 0x4000094C, so the tab shows numbers;
+        # "empty" = no entries (fase3-ji).
+        "encounter_stats": "sample",
         "level": 30,            # veteran level: skips the trainee light-pack load
         "player_name": "Player",
         # 2026-10-16 14:02 (tester): every Protector (avatar) icon of the

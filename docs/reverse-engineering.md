@@ -1679,3 +1679,56 @@ Tester: "program John's abilities". John Stewart (variant 0x40000E57) was never 
   `catalog/data/skills_notes.tsv`. The client plays the scriptlets on the champion (agent 0x0200000000000002);
   the mine, base and turret have no world object of their own yet (the two world states in pack 0xA000039F,
   0x2E0013A8 and 0x2E0013B2, are candidates).
+
+## The Amplifiers tab (2026-10-18 10:09)
+
+Tester: the Amplifiers tab keeps loading and never shows the amplifiers.
+
+- Flash (UI pack 0xA00000D0) opens the tab only when `CheckForAllDataAvailable` finds three flags set:
+  - `AmplifierSetManager.hasAllAmplifierSetData`. It is set by `RecvNotice_NotifyListAmplifierSets`, which the
+    client calls for message 0x2090 (exec VA 0x8aa0c0 -> 0xa64520 -> 0x8cb1a0). It is called even for an empty
+    list. Until fase3-jg the server sent 0x2090 only with the scorecard, so in the menus it never came.
+  - `AmplifierSetManager.hasAllAmplifierData`. It is set by `OnItemStatusesChange`: on the item statuses (0x20B8),
+    it takes the owned Mods / Augments and reads their names, tooltips and icons from the client's own data
+    (`SendQuery_UI_InqModData` / `SendQuery_UI_InqAugmentData`).
+  - `BoutiqueDataManager.hasDataForAmplifiers`. It is set by `GM_Amplifier.RecvNotice_NotifyContextualAmplifierData
+    (boutique ids, amplifier DIDs, currency names, currency values)`, the store prices. The server never sent it.
+- That notice comes from message **0x2107**:
+  - ctor VA 0x8ca6f0 sets the id 0x2107, vtable 0x15f3e94, serializer VA 0x847870 and exec VA 0x8aa140 ->
+    0xa57510 -> 0x8ca800 (Flash call).
+  - Body: `u8 0 | u32 count | count x (u64 boutique id | u32 amplifier DID | compact length + 8-bit currency name |
+    u32 price)`. The element reader is VA 0x86d980, 0x18 bytes in memory, and the string is read by VA 0x424b80.
+  - A count of 0 still calls Flash (0xa5758a jumps to the notice), and Flash sets the flag after its loop.
+- 0x2090's two u32 after the u8 are passed to Flash as `i_uiTotalAmplifierSets` / `i_uiMaxAmplifierSets`
+  ([msg+0x20] / [msg+0x24]).
+- 0x2116 (empty, client) is sent when the tab opens, from VA 0x88a730, called from VA 0xa57170 in the same
+  amplifier code. 0x2106 (`02 "en"`, client) also comes then (VA 0x883340, called from VA 0xa2fd1e); it is
+  probably the store catalog and is not answered yet.
+- fase3-jg sends 0x2090 (0 sets, 6 slots) and an empty 0x2107 at login and again on 0x2116.
+- fase3-jh (10:23 logs): both managers are created only when the tab opens. BoutiqueDataManager's constructor
+  (UI pack, sprite code near "m_bHasAmplifierBoutiqueData") sets the flag false, registers
+  NotifyContextualAmplifierData and calls `SendNotice_UI_RequestAllAmplifierBoutiqueData`. AmplifierSetManager's
+  sets both flags false, registers NotifyAmplifierSet / NotifyListAmplifierSets, calls
+  `SendNotice_UI_RequestAllAmplifierSets` and listens to `OwnablesManager.EVENT_ITEM_STATUSES_UPDATE`. Data
+  sent before that is lost, so the answers must follow the client's 0x2116.
+- fase3-ji: 0x2116 (VA 0x88a730) is sent by VA 0xa57170 only while byte +0x1b1 of the store UI object
+  ([VA 0xa12d50()+0x54]) is 0. Otherwise VA 0xa416b0 rebuilds the store lists from the cache. The byte is set by
+  0x2115's exec (ctor VA 0x8aa4f0, vtable 0x15f2d3c, serializer VA 0x846460, list reader VA 0x841d90 with 0x230-byte
+  elements read by VA 0x866650, exec VA 0x8aad20 -> 0xa57000). The exec searches the list for an entry whose
+  +8 is 0x4000094C and is cleared at VA 0xa1aa7d. So 0x2116 asks for the store offers and 0x2115 answers it. The
+  server sends it empty.
+
+## The Stats tab: account encounter stats (2026-10-18 10:36)
+
+- Correction to fase3-ji: 0x2116 (client, empty) is `RequestAccountEncounterStats`, and **0x2115** is the answer.
+- The exec (VA 0x8aad20 -> 0xa57000) needs the profile object ([VA 0xa12d50()+0x54]). It copies the entries to its
+  list at +0x1b4, the 0x4000094C entry first, sets +0x1b1 = 1 (cached) and calls VA 0xa416b0.
+- VA 0xa416b0 looks up each entry's encounter record (VA 0x8535d0) and its property 0x10000A73 (kind 0x15). It
+  builds the label and data arrays (counters loaded with `fild qword`, ratios formatted "%.2f") and calls VA
+  0x8ce3d0. That function calls Flash `GM_Character.RecvNotice_SendAccountEncounterStats(i_adidEncounters,
+  i_aRanked, i_statLabels, i_statData)` (UI pack: a screen with AccoladeManager and scroll views).
+- Entry wire format (VA 0x866650): u64 (+0) | u8 bool 0/1 (+0xc, ranked) | u32 encounter (+0x8) | 14 x u64
+  (+0x10..+0x78) | 2 x u32 | 6 x u64 | u32 | 8 x u64 | u32 | 6 x u64 | u32 (+0x130) | StringInfo (+0x1e8) |
+  StringInfo (+0x20c) | 21 x u64 (+0x138..+0x1d8) | 2 x u32. That is 481 bytes plus the two StringInfos.
+- VA 0xa57170 sends 0x2116 only while +0x1b1 is 0 (cleared at VA 0xa1aa7d). Otherwise it rebuilds from the cache.
+

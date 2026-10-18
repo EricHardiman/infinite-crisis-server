@@ -169,12 +169,81 @@ def character_level_xp(champion_did=0x40000086, icon_did=0, name="Gaslight Batma
 # ---- amplifier sets --------------------------------------------------------------------------
 
 def amplifier_sets(unk1=0, unk2=0):
+    # unk1 / unk2 are passed to Flash as i_uiTotalAmplifierSets / i_uiMaxAmplifierSets (VA 0xa64520 gets
+    # [msg+0x20] / [msg+0x24]; 2026-10-18)
     """0x2090 (ser VA 0x8481a0, exec 0x8aa0c0 -> 0xa64520 -> Flash NotifyListAmplifierSets):
     u8 0 | u32 | u32 | u32 count | count x amplifier set (VA 0x86fb20, 0x50 bytes in memory;
     wire: u32 | u64 | u32 | StringInfo | wstring | u32 | compact-count list).
     Empty list. Confidence: high (layout), medium (whether an empty list sets
     AmplifierSetManager.hasAllAmplifierData)."""
     return build_message(SVC_PLAYER_SYSTEM, 0x2090, b"\x00" + _u32(unk1, unk2) + _u32(0))
+
+
+# One 0x2115 entry, in wire order (reader VA 0x866650; 0x230 bytes in memory). "q" = u64, "I" = u32,
+# "B" = bool, "S" = StringInfo. The first three are (u64, ranked flag, encounter DID); the rest are the
+# account's counters for that encounter, u64 integers (VA 0xa41b8a loads them with fild qword). Which counter
+# is which label is not known yet (the labels come from the encounter record, property 0x10000A73).
+ENCOUNTER_STATS_FIELDS = ("q", "B", "I") + ("q",) * 14 + ("I", "I") + ("q",) * 6 + ("I",) + ("q",) * 8 + ("I",) \
+    + ("q",) * 6 + ("I", "S", "S") + ("q",) * 21 + ("I", "I")
+ALL_ENCOUNTERS_STATS = 0x4000094C   # the exec puts this entry first (account totals?)
+
+
+def encounter_stats_entry(encounter, values=(), ranked=False):
+    """One account-encounter-stats entry: counters from `values` (in field order, missing ones = 0)."""
+    out, k = b"", 0
+    for i, f in enumerate(ENCOUNTER_STATS_FIELDS):
+        if i == 0:
+            out += struct.pack("<Q", 0)
+        elif i == 1:
+            out += bytes([1 if ranked else 0])
+        elif i == 2:
+            out += _u32(encounter)
+        elif f == "S":
+            out += string_info("")
+        else:
+            v = int(values[k]) if k < len(values) else 0
+            k += 1
+            out += struct.pack("<Q" if f == "q" else "<I", v)
+    return out
+
+
+def sample_stat_values(seed):
+    """Made-up counters so the Stats tab shows numbers (2026-10-18, tester: simulate the Stats tab).
+    Different per encounter, never zero, so a screenshot shows which field feeds which label."""
+    n = sum(1 for f in ENCOUNTER_STATS_FIELDS[3:] if f != "S")
+    return [((seed * 7 + i * 3) % 40) + 1 + i for i in range(n)]
+
+
+def account_encounter_stats(entries=()):
+    """0x2115 (2026-10-18; ctor VA 0x8aa4f0, vtable 0x15f2d3c, ser VA 0x846460, exec 0x8aad20 -> 0xa57000 ->
+    VA 0xa416b0 -> Flash GM_Character.RecvNotice_SendAccountEncounterStats(encounters, ranked, stat labels,
+    stat data), the profile's Stats tab). The client's answer to its own 0x2116 (RequestAccountEncounterStats,
+    sent by VA 0xa57170 only while the stats are not cached, byte +0x1b1). u8 0 | u32 count | entries
+    (encounter_stats_entry). entries = [(encounter, values, ranked)]."""
+    body = b"\x00" + _u32(len(entries))
+    for enc, values, ranked in entries:
+        body += encounter_stats_entry(enc, values, ranked)
+    return build_message(SVC_PLAYER_SYSTEM, 0x2115, body)
+
+
+def store_offers(count=0):
+    """Kept for fase3-ji callers: an empty 0x2115 (it was first taken for the store's offers)."""
+    return account_encounter_stats()
+
+
+def amplifier_boutique_data(entries=()):
+    """0x2107 (2026-10-18; ctor VA 0x8ca6f0, vtable 0x15f3e94, ser VA 0x847870, exec 0x8aa140 -> 0xa57510 ->
+    Flash GM_Amplifier.RecvNotice_NotifyContextualAmplifierData(boutique ids, amplifier DIDs, currency names,
+    currency values) -> BoutiqueDataManager.hasDataForAmplifiers = true, event AMPLIFIER_BOUTIQUE_DATA_RECEIVED).
+    The Amplifiers tab waits for it (with AmplifierSetManager's set data from 0x2090 and its amplifier data
+    from the item statuses). Body: u8 0 | u32 count | count x (u64 boutique id | u32 amplifier DID |
+    compact length + 8-bit currency name | u32 price) (element reader VA 0x86d980). An empty list is accepted:
+    the client calls Flash for any count (0xa5758a jumps straight to the notice)."""
+    body = b"\x00" + _u32(len(entries))
+    for boutique_id, did, currency, price in entries:
+        name = currency.encode("ascii")
+        body += struct.pack("<QI", boutique_id, did) + pack_compact(len(name)) + name + _u32(price)
+    return build_message(SVC_PLAYER_SYSTEM, 0x2107, body)
 
 
 # ---- ranked standings ------------------------------------------------------------------------

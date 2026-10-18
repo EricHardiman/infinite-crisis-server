@@ -1,16 +1,50 @@
-# Handoff — state at build fase3-gz (2026-10-17)
+# Handoff — state at build fase3-jd (2026-10-18)
 
-Moving from the cloud chat to Claude Code on the user's machine. Read `CLAUDE.md` first.
+Read `CLAUDE.md` first; `docs/FINDINGS.md` has the summary for new contributors. The history of every build is in `docs/CHANGELOG.md`; this page is the short version.
+The sections after "Current state" are the earlier handoff (fase3-gz) and are kept for history.
 
-## Goal
+## Current state (fase3-jd)
+
+Confirmed in the game:
+- Tutorial 1 from start to victory (street, bridge, Super Strength, the Destroyer, ending).
+- Coast City v AI (0x40000B6A) opens the champion select first (fase3-iy): every champion can be picked and
+  locked (client event 0x20E4, fase3-iz), the player plays the locked champion and Gaslight Batman stands on the
+  other team as the AI (fase3-ja).
+
+Shipped, not yet seen in the game:
+- fase3-jb/jd: the map's own fog-of-war map (exe cave N; fase3-jb's version overlapped cave X and the patch was
+  refused, fixed in fase3-jd). Needs `python ic.py patch`.
+- fase3-jb: free play on Coast City v AI (`icserver/freeplay.py`): level 6 with 6 skill points, one level every
+  60 s up to 20, skill ranks with the "+", an indestructible training drone, a tour of the champion's animations.
+- fase3-jc: John Stewart's Q W E R (`icserver/kits.py`). His game data only has placeholder numbers, so the
+  behaviour is an interpretation of the skill names; the mine, base and turret have no world object yet.
+
+Decided by the tester:
+- Tutorial 1: no electricity between Batman's antennas for now (the only effect that lights it, Cinematic_Intro,
+  also plays a voice line and a rope); the sphere lands with the crater and the dust wave. The right sphere is
+  a purple one, not yet found.
+
+Open work (in order):
+1. The tester's results for fase3-jb/jc/jd (fog, free play, John Stewart).
+2. The store items on Coast City v AI.
+3. Bot AI: Gaslight Batman moves and fights.
+4. Other champions' kits (`icserver/kits.py` `KITS`), John's passive and basic attack, world objects for his
+   mine / base / turret (candidates: world states 0x2E0013A8 and 0x2E0013B2 in pack 0xA000039F).
+5. Tutorial 1: the purple Destroyer sphere, the throw's aim ring, the antenna electricity.
+
+## Earlier handoff (fase3-gz, 2026-10-17)
+
+Moving from the cloud chat to Claude Code on the user's machine.
+
+### Goal (then)
 Finish **Tutorial 1** with all of Gaslight Batman's animations, actions and interactions.
 
-## Confirmed working in game
+### Confirmed working in game (then)
 - Full tutorial flow: street, bridge, finale, victory, Champion Unlocked banner, showcase movie.
 - Replay of the tutorial (`0xEB` local player resent before each later match).
 - HUD: basic attack and passive in colour, D places a Surveillance Camera at the cursor.
 
-## Shipped in fase3-fm, NOT yet verified by the user
+### Shipped in fase3-fm, NOT yet verified by the user (then)
 - Car carried centred on Batman (`CARRY_ORIGIN`, `carry_height` 2.1), throw arc + spin, F swapped to the throw
   skill `0x480003C9` while carrying (aim ring).
 - Scriptlet `0x5` on the car for the explosion fire.
@@ -93,7 +127,7 @@ Finish **Tutorial 1** with all of Gaslight Batman's animations, actions and inte
 - fase3-gy: tour skips the 9 models that closed the client (they do it alone, ~3 s after appearing); crash window 4.5 s.
 - fase3-gz: [match] maps (packs + start per encounter): Tutorial 2, Coast City, Gotham Divided, Gotham Heights, Metropolis Skyway load their own zone pack (to verify). The local copy of the install was partial (97 packs); the user's rp folder has ~590.
 
-## Open work (in order)
+### Open work (then, in order)
 1. Get the user's logs for fase3-fm and fix whatever above did not work.
 2. **Explosion fire** (see reverse-engineering.md "14:02 findings": script 0x3400015F / Vfx_OnFire 0x1000013E): spawn the destructible world state `0x2E00134F` (analog
    `0x1D0008EF`) at the impact point and run keys `0x10000078` / `0x10000016` / `0x10000079`.

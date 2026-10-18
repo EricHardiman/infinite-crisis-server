@@ -413,6 +413,10 @@ class Session:
                 n += 1
             events = [(f"achievements (0x2120): {n} tutorial(s) done", scorecard.trainee_progress(completed=n))
                       if label.startswith("achievements (0x2120)") else (label, msg) for label, msg in events]
+        if self.cfg["account"].get("send_amplifier_data", True):
+            # before 0x2080, which must stay last: what the Amplifiers tab waits for (fase3-jg)
+            for item in self._amplifier_messages():
+                events.insert(len(events) - 1, item)
         if done:
             # before 0x2080, which must stay last (it opens the landing screen)
             events.insert(len(events) - 1, (f"completed encounters (0x214b): {', '.join(hex(d) for d in done)}",
@@ -1403,6 +1407,25 @@ class Session:
             self.later(self.cfg["timing"]["tutorial_start_delay"], lambda: self.send_many(msgs), m.group)
             log.info(f"lab started on encounter {m.encounter:#x}", self)
 
+    def _amplifier_messages(self):
+        """0x2090 (the amplifier sets: none saved, `amplifier_set_slots` slots) and 0x2107 (the store's
+        amplifier data: none, every amplifier is owned). Together with the item statuses they are what the
+        Amplifiers tab waits for (fase3-jg)."""
+        from . import scorecard
+        slots = int(self.cfg["account"].get("amplifier_set_slots", 6))
+        return [(f"amplifier sets: 0 of {slots} (0x2090)", scorecard.amplifier_sets(0, slots)),
+                ("amplifier store data: none (0x2107)", scorecard.amplifier_boutique_data())]
+
+    def _encounter_stats_message(self):
+        """0x2115: the Stats tab's data ([account] encounter_stats)."""
+        from . import scorecard
+        if str(self.cfg["account"].get("encounter_stats", "sample")) != "sample":
+            return ("account encounter stats: none (0x2115)", scorecard.account_encounter_stats())
+        encs = [scorecard.ALL_ENCOUNTERS_STATS] + [e for e, _ in M.ENCOUNTERS]
+        entries = [(e, scorecard.sample_stat_values(i), False) for i, e in enumerate(encs)]
+        return (f"account encounter stats: sample counters for {len(entries)} encounters (0x2115)",
+                scorecard.account_encounter_stats(entries))
+
     def ev_collection_request(self, msg):
         """2026-10-17 21:40 (tester): after a match the Champions and Amplifiers tabs stay empty.
         The client then sends 0x21A4 (u32 0, opening Champions; seen twice) and 0x2116 (empty,
@@ -1410,6 +1433,20 @@ class Session:
         account's champion data, character list and item statuses (champions, costumes, mods,
         augments) are sent again, as at login ([account] resend_collections, at most every 2 s)."""
         log.info(f"client asks for its collection ({msg.event_id:#x}): sending champions and items again", self)
+        if msg.event_id == 0x2116 and self.cfg["account"].get("send_amplifier_data", True):
+            # 2026-10-18 10:23 (tester's logs, fase3-jg): the tab still loaded forever. Flash creates
+            # BoutiqueDataManager and AmplifierSetManager only when the tab opens; their constructors clear
+            # their flags, register for the notices and send the requests that arrive here as 0x2116. So the
+            # login's 0x2090 / 0x2107 came before anyone listened, and the reply to 0x2116 was eaten by the
+            # 2 s limit below (0x21A4 had just used it). 0x2116 is now always answered, at once, with the sets,
+            # the store data and the item statuses (AmplifierSetManager builds its amplifier list on them).
+            items = [(label + " again", m_) for label, m_ in M.initial_events(
+                self.server.roster, self.cfg["account"]["level"], self.cfg["account"]["player_name"])
+                if label.startswith("item statuses")]
+            # 10:28 (fase3-ji): 0x2116's own answer is 0x2115, sent first; 10:36 (fase3-jj): it is the
+            # account's encounter stats (the profile's Stats tab), not the store's offers
+            self.send_many([self._encounter_stats_message()] + self._amplifier_messages() + items)
+            return
         if not self.cfg["account"].get("resend_collections", True):
             return
         now = time.time()
@@ -1421,6 +1458,7 @@ class Session:
                                             self.cfg["account"]["player_name"]):
             if label.startswith(keep):
                 self.send(label + " again", msg_)
+
 
     def ev_end_page_closed(self, msg):
         """0x20A6: the client closed the end page (scorecard / Mission Complete).

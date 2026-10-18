@@ -1,7 +1,7 @@
 # CLAUDE.md — Infinite Crisis preservation server
 
-Read this first, then `docs/HANDOFF.md` (current state and pending work) and `docs/AI_GUIDE.md` (where
-everything is). Everything in the repository is written in **English**.
+Read this first, then `docs/HANDOFF.md` (current state and pending work), `docs/FINDINGS.md` (what works, which
+maps the install has, what is missing) and `docs/AI_GUIDE.md` (where everything is). Everything in the repository is written in **English**.
 
 ## Working with the user
 
@@ -37,22 +37,29 @@ everything is). Everything in the repository is written in **English**.
 | `icserver/finale.py` | Part 3: Super Strength (lift / carry / throw / explosion), Destroyer, victory, match end |
 | `icserver/batman.py`, `abilities.py` | Gaslight Batman's Q/W/E/R and cooldowns |
 | `icserver/freeplay.py` | Free play on a champion-select map: levels / ranks, training drone, animation tour |
+| `icserver/kits.py` | Skills of champions other than Gaslight Batman outside the tutorial (`KITS`; John Stewart first), `[combat] kits` overrides |
+| `icserver/champion_fx.py` | Gaslight Batman's graph events and scriptlets for the lab's animation tour (`[debug] lab_tour`) |
+| `icserver/net.py`, `log.py`, `scheduler.py` | Connection wrapper (send never raises), logging on a writer thread, per-match timers |
+| `icserver/progress.py` | Progress kept between logins (`data/progress.json`: encounters completed, which unlocks Tutorial 2) |
 | `icserver/messages.py`, `scorecard.py`, `wire.py` | Message builders and wire format |
 | `icserver/skilldata.py`, `stolenpowers.py`, `cosmetics.py`, `roster.py`, `gamecache.py`, `gamedata.py`, `rp.py` | Reading the game data from the player's install (records, kinds, English strings, packs) |
 | `icserver/webapp.py`, `textures.py`, `social.py`, `interface.py`, `winctl.py`, `emotes.py`, `webui/` | The companion app (`python ic.py app`, served on the SOAP port at `/app`, `/api/*`, `/tex/<did>.png`); pictures decoded from the install and cached in `data/texcache/` |
 | `icserver/config.py` | Every setting with its default and the reason for it |
 | `tools/diag.py` + `tools/tracer.py` | Breakpoint logger for the running client (`--scripts`, `--skills`, `--reward`, `--replay`, `--props`, ...) |
+| `tools/split_file.py` | Splits a big file (a video) into 300 MB parts so it can be sent to the cloud session |
 | `tools/build_catalog.py`, `tools/catalog_scan.py`, `tools/world_scan.py` | The ID catalog page, the full-install scanner and the world-state inventory (`ic.py worlds`) |
 | `catalog/` | `data/*.tsv` (source of truth) and the generated `index.html` |
-| `docs/` | `reverse-engineering.md`, `CHANGELOG.md`, `AI_GUIDE.md`, `HANDOFF.md`, `re-notes/` (raw static-analysis notes with exe addresses) |
+| `docs/` | `reverse-engineering.md`, `CHANGELOG.md`, `FINDINGS.md`, `AI_GUIDE.md`, `HANDOFF.md`, `re-notes/` (raw static-analysis notes with exe addresses) |
 
 ## Testing
 
 - `python tests\test_catalog.py` — catalog tables are well formed.
+- `python tests\test_patcher_layout.py [InfiniteCrisis.exe]` — no two exe patches overlap; with the exe, the
+  whole patch applies (run it after every change to `patcher.py`).
 - `python tests\test_e2e.py tests\e2e.example.toml` (178 checks) and `python tests\test_jump.py tests\e2e.example.toml`
-  (24), `tests\test_lab.py` (10, real packs; 9 with `lab_tour = "batman"` and a small `champion_tour_interval`), `tests\test_collections.py` (5), `tests\test_lobby.py` (19, champion select + free play), `tests\test_movie_queue.py` (17) and `tests\test_app.py` (30) — a simulated client against the server; adjust the paths in the example config first. They use other
+  (24), `tests\test_lab.py` (10, real packs; 9 with `lab_tour = "batman"` and a small `champion_tour_interval`), `tests\test_collections.py` (11), `tests\test_lobby.py` (19, champion select + free play), `tests\test_kits.py` (16, John Stewart's Q W E R), `tests\test_movie_queue.py` (17) and `tests\test_app.py` (30) — a simulated client against the server; adjust the paths in the example config first. They use other
   ports than the real server.
-- Then the user tests in the game. Build tags continue from `fase3-jd` (next: `fase3-je`).
+- Then the user tests in the game. Build tags continue from `fase3-jj` (next: `fase3-jk`).
 
 ## Facts that are easy to get wrong
 
@@ -67,6 +74,8 @@ everything is). Everything in the repository is written in **English**.
   (`queue_on_movie_end`): it cuts the movie and the match has no dialogue audio (2026-10-16 16:23).
 - roster.py: a cluster without a 0x52 sound bank is usually a costume (its variant is in champions.json's costume_info);
   only John Stewart is a real unreleased champion.
+- roster.extend() appends the added champions after champions.json's: sorting them alphabetically among the
+  others gives champions another champion's portrait (tester, 2026-10). Never sort the roster.
 - A costume must never repeat its champion's own variant (the client loses the champion): `messages.costumes()`.
 - Sounds: Wwise event ids are typed values of kind 0x2C in records; banks are 0x52 records (id = FNV-1 hash of the
   name). `python ic.py sounds` / catalog Sounds.
@@ -129,5 +138,8 @@ everything is). Everything in the repository is written in **English**.
   Metropolis Skyway have no map data in the install.
 - With a champion select, 0x20AF (the match's champions + packs) goes after the lock with the locked champion and the
   bot's; the controlled object's class is `Match.agent_class` (fase3-ja).
+- The Amplifiers tab opens only after 0x2090 (sets), 0x2107 (store data) and the item statuses. Its Flash managers
+  are created when the tab opens and ask with 0x2116: answer 0x2116 every time, never rate-limit it; its own reply is 0x2115
+  (account encounter stats = the Stats tab; sample counters, fase3-jj).
 - The minimap / fog map comes from the encounter in the lobby manager (exe cave N, fase3-jb); patch caves must be
   position-independent (the client runs with ASLR).

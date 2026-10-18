@@ -134,8 +134,9 @@ def login_and_menu(cfg, server):
     u = Client(s["user_port"], "user")
     u.sock.sendall(hello_blob(server.key.n))
     got = u.wait_for(lambda e: e[2] == 0x2080)
-    check("account data delivered (11 messages + completed list + profile header, 0x2080 last)",
-          got and u.ids()[-1] == 0x2080 and len([i for i in u.ids() if i not in (0x214B, 0x2190)]) == 11,
+    check("account data delivered (11 messages + completed list + profile header + amplifier data, 0x2080 last)",
+          got and u.ids()[-1] == 0x2080
+          and len([i for i in u.ids() if i not in (0x214B, 0x2190, 0x2090, 0x2107)]) == 11,
           str([hex(i) for i in u.ids()]))
     return u
 

@@ -28,7 +28,7 @@ id	direction	name	server_status	notes
 0x207A	client	(sent once the local player is recognised)	ignored	Missing on a replay without 0xEB.
 0x2080	server	Account level / XP	sent	Login (opens the landing screen) and scorecard.
 0x2081	server	Currency balance	sent	Scorecard.
-0x2090	server	Amplifier sets	sent	Scorecard.
+0x2090	server	Amplifier sets	sent	u8 0 | u32 total sets | u32 max sets | u32 count + sets -> Flash NotifyListAmplifierSets. Sent at login, on 0x2116 and with the scorecard (empty list, 6 slots; fase3-jg). The Amplifiers tab waits for it.
 0x2095	server	Item fulfilled ribbon	off	Small "upgrade unlocked" ribbon.
 0x209D	server	Master character list	sent	Login.
 0x20A0	server	Skill disable condition (slot, ErrorType, add/remove)	data only	u8 0 | u32 slot (-2 = all) | u32 ErrorType key | 16 bytes | u8 add (1) / remove (0). Keys: 0x1000003B Silenced, 0x10000050 Rooted, 0x1000006B Crippled (only for skills with 0x100007FD), others always block. Never sent.
@@ -98,3 +98,7 @@ id	direction	name	server_status	notes
 0x1000047E	internal	Notice UI_SetProtectorIcon (Flash -> C++)	data only	Sent when the player picks an icon for a header slot (icon DID, slot). It goes out as 0x2093; the server's answer is 0x2154.
 0x2093	client	Set Protector icon (profile header slot)	handled	u32 icon (ownable DID 0x40...) | u32 slot 0-4 (seen 15:10: 0x40000E55, slot 0). Saved in data/progress.json; answered with 0x2154.
 0x20E4	client	Lobby character lock (probable)	handled	u32 character variant | u8 1 | u32 1, sent in the champion select (2026-10-18 00:23). fase3-iz answers with the 0x2029 slot locked and ends the lobby.
+0x2107	server	Amplifier store data	sent	u8 0 | u32 count + (u64 boutique id | u32 amplifier DID | compact len + 8-bit currency name | u32 price) -> Flash GM_Amplifier.RecvNotice_NotifyContextualAmplifierData (BoutiqueDataManager.hasDataForAmplifiers). Sent empty at login and on 0x2116 (fase3-jg). The Amplifiers tab waits for it.
+0x2116	client	RequestAccountEncounterStats	handled	Empty body, sent when the Amplifiers tab opens (sender VA 0x88a730, called from the amplifier code at VA 0xa57170). Sent by the Flash managers' constructors when the tab opens. Asks for the account's encounter stats (only while they are not cached). Also comes when the Amplifiers tab opens. Answered at once, every time, with 0x2115 + 0x2090 + 0x2107 + 0x20B8 (fase3-ji).
+0x2106	client	Store request (language)	ignored	Body 02 "en" when the Amplifiers tab opens (sender VA 0x883340). Probably the store catalog; not answered yet.
+0x2115	server	Account encounter stats	sent	u8 0 | u32 count + entries (u64 | bool ranked | u32 encounter | 60 counters + 2 StringInfos; reader VA 0x866650) -> Flash GM_Character.RecvNotice_SendAccountEncounterStats (Stats tab). Answer to 0x2116; sample counters (fase3-jj).

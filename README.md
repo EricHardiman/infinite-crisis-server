@@ -115,37 +115,56 @@ These read your own game install and write their findings to `logs\`. They never
 
 - `logs\send.txt`: every line `<player|svc|id hex> <event hex> <body hex>` is sent to the client within 1 s
   (`[debug] dev_send_file`).
-- `python tests/test_e2e.py config.toml`: a full match against a simulated client, including leaving,
-  logging in again, double-clicking Launch, combat and the whole tutorial script up to the victory
-  (169 checks). Use other ports in that test config.
-- `python tests/test_compat.py <earlier _server folder>`: byte-for-byte comparison with the earlier server.
-- `python tests/test_jump.py config.toml`: each `[tutorial] start_at` jump starts where it should.
-- `python tests/test_layout.py <rp folder>`: checks that the tutorial table matches the packs.
+- Tests (a simulated client against the server; copy `tests\e2e.example.toml`, adjust its paths, it uses other
+  ports than the real server):
+
+  | Test | Checks |
+  |---|---|
+  | `python tests/test_catalog.py` | The catalog tables are well formed. |
+  | `python tests/test_patcher_layout.py [InfiniteCrisis.exe]` | No two exe patches overlap; with the exe, the whole patch applies. |
+  | `python tests/test_e2e.py <config>` | A full Tutorial 1 match: leaving, logging in again, double-clicking Launch, combat and the whole tutorial script up to the victory. |
+  | `python tests/test_jump.py <config>` | Each `[tutorial] start_at` jump starts where it should. |
+  | `python tests/test_lobby.py <config>` | Coast City v AI: champion select, lock, the bot, free play (level 6, drone, ranks). |
+  | `python tests/test_kits.py <config>` | John Stewart's Q W E R against the training drone. |
+  | `python tests/test_lab.py <config>` | Tutorial 2 as the lab (needs the real packs). |
+  | `python tests/test_collections.py <config>` | Champions / amplifiers collections. |
+  | `python tests/test_movie_queue.py <config>` | Queueing after the showcase movie. |
+  | `python tests/test_app.py <config>` | The companion app's API. |
+  | `python tests/test_layout.py <rp folder>` | The tutorial table matches the packs. |
+  | `python tests/test_compat.py <earlier _server folder>` | Byte-for-byte comparison with the earlier server (optional). |
 
 Code layout:
 
 | File | What it does |
 |---|---|
-| `ic.py` | Command-line entry point. |
-| `icserver/wire.py` | Binary format. |
-| `icserver/messages.py` | Protocol messages. |
-| `icserver/session.py` | Sessions, load sequence, movement, combat, casting. |
+| `ic.py` | Command-line entry point (`doctor`, `patch`, `server`, `play`, `app`, `catalog`, `find`, ...). |
+| `icserver/server.py` | Ports and SOAP login. |
+| `icserver/session.py` | One login session: lobby, champion select, loading, object creation, movement, combat, casting, every client event handler. |
+| `icserver/net.py`, `icserver/log.py`, `icserver/scheduler.py` | Connections, the logs (`server.log`, `traffic.log`, `unhandled.log`), per-match timers. |
+| `icserver/wire.py`, `icserver/messages.py`, `icserver/scorecard.py` | Binary format and protocol messages. |
+| `icserver/crypto.py` | Login key exchange. |
 | `icserver/tutorial1.py` | Tutorial 1 script, part 1 (markers, meteors, crater, drones, thug, pings, Q, action tour). |
 | `icserver/bridge.py` | Tutorial 1 part 2: the bridge, from Catwoman's pursuers to the Bat Scream (gates, drone groups, rank-ups, the camera, R). |
 | `icserver/finale.py` | Tutorial 1 part 3: Super Strength (lift and throw cars), the Destroyer, the ending. |
-| `icserver/skilldata.py` | Builds a Stolen Power slot's skill collection (D / F) from the game data and `logs\props.txt`. |
-| `icserver/batman.py` | Gaslight Batman's W (Sonic Shell), E (Bat Flight), R (Bat Scream) and Stolen Power (surveillance camera). |
-| `icserver/abilities.py` | Ability engine (kits, cooldowns, cooldown event 0x20F8). |
-| `icserver/world.py` | Obstacles, pathing, fog of war. |
-| `icserver/rp.py` | Reader for the game's `.rp` packs. |
-| `icserver/scheduler.py` | Per-match timers. |
-| `icserver/server.py` | Ports and SOAP login. |
-| `icserver/crypto.py` | Login key exchange. |
+| `icserver/batman.py`, `icserver/abilities.py` | Gaslight Batman's Q W E R and Stolen Power, cooldowns (event 0x20F8). |
+| `icserver/freeplay.py` | Free play on a champion-select map: levels, skill ranks, training drone, animation tour. |
+| `icserver/kits.py` | Skills of other champions outside the tutorial (John Stewart first). |
+| `icserver/champion_fx.py` | Gaslight Batman's animations and effects for the lab's tour. |
+| `icserver/emotes.py` | Emotes (Ctrl+1..4). |
+| `icserver/skilldata.py`, `icserver/stolenpowers.py` | Stolen Power skill collections (D / F) from the game data. |
+| `icserver/gamedata.py`, `icserver/rp.py`, `icserver/gamecache.py`, `icserver/roster.py`, `icserver/cosmetics.py`, `icserver/audio.py` | Reading the game data from your install (records, texts, packs, champions, icons, sounds), cached before the ports open. |
+| `icserver/progress.py` | Progress kept between logins (`data/progress.json`). |
+| `icserver/world.py` | Obstacles, pathing, fog of war, entities. |
+| `icserver/webapp.py`, `icserver/webui/`, `icserver/textures.py`, `icserver/social.py`, `icserver/interface.py`, `icserver/winctl.py` | The companion app (`python ic.py app`) and the switch between it and the game's own menus. |
 | `icserver/doctor.py` | Installation checks. |
 | `icserver/patcher.py` | Exe patches (each one documented in the source and in `docs/reverse-engineering.md`). |
-| `icserver/config.py` | Config loading and defaults. |
+| `icserver/config.py` | Every setting with its default and the reason for it. |
+| `tools/split_file.py` | Splits a big file (a video) into 300 MB parts. |
 
 ## Status
+
+For a summary of what works, which maps the install has, what is missing and the main findings, see
+[`docs/FINDINGS.md`](docs/FINDINGS.md).
 
 Working in Tutorial 1: login, lobby and loading; intro cinematic; movement with obstacles; guide markers and
 arrows; the street vehicle, meteors and the meteor crater; the drone fight with the human thug; practice
@@ -156,14 +175,21 @@ on target drones, the blue gates, drone ambushes (melee and ranged), the surveil
 the drones at the vehicle, the R unlock and the Bat Scream at the drones the camera spots; then Super Strength
 (lifting and throwing cars), the Destroyer and the ending (positions estimated from video).
 
+Coast City v AI (Play -> Coast City vs AI) opens the champion select first: pick and lock any champion, you play
+it and Gaslight Batman stands on the other team (he does not move or fight yet). Free play there: you start at
+level 6 with 6 skill points and gain a level every minute, a training drone you can hit but not destroy stands
+next to you, and the champion plays each of its animations once. John Stewart's Q W E R work there (his
+numbers are placeholders from the game data; see `docs/CHANGELOG.md` fase3-jc). The fog fix for this map needs
+`python ic.py patch` (fase3-jd). Not done yet: the store items, the bot's AI, other champions' skills.
+
 To test a later part without replaying the start: `[tutorial] start_at = "bridge"` (or `"camera"`,
 `"gate_fight"`, `"unlock_e"`, `"e_practice"`, `"vehicle"`, `"scream"`, `"strength"`, `"destroyer"`).
 
 The D and F buttons need `logs\props.txt`: run `python tools\diag.py --props` once (start it in the menu,
 then enter the tutorial).
 
-Next: the real victory screen, positions checked against the original (see
-[`docs/reverse-engineering.md`](docs/reverse-engineering.md#remaining-tutorial-1-content)).
+Next: the store items and the bot's AI on Coast City v AI, more champions' skills, and the remaining Tutorial 1
+details (the purple Destroyer sphere, the throw's aim ring); see [`docs/HANDOFF.md`](docs/HANDOFF.md).
 
 ## One folder, ready for GitHub
 
@@ -174,7 +200,9 @@ These stay local and are kept out of the repository by `.gitignore`:
 - `config.toml`;
 - `keys\*.pem`;
 - `logs\`;
-- `data\champions.json` and `data\progress.json`;
+- `data\champions.json`, `data\progress.json`, `data\stolen_powers.json`, `data\game_cache.json`,
+  `data\social.json` and `data\texcache\` (read or generated from your install, or your own data);
+- `__pycache__\` and `*.pyc`;
 - every `.exe`.
 
 No game file belongs in the repository.
