@@ -1,0 +1,67 @@
+# Stolen Powers catalog: record 0x480003CD (pack 0xA00000B3), 12 groups.
+# group	skill DID	power	champion (unique version; empty = the base power)	icon
+0	0x4800056e	Consume		0x13000dd1
+0	0x48000815	Consume	Atomic Green Lantern	0x130017a2
+0	0x48000841	Consume	Nightmare Batman	0x130017a1
+0	0x48000a3f	Consume	Mecha Superman	0x13002013
+0	0x48000f3c	Consume	Stargirl	0x13002c3f
+0	0x48000f9b	Consume	Swamp Thing	0x13002cd4
+1	0x4800055f	Detonate		0x13000dd0
+1	0x48000e21	Detonate	Atomic Joker	0x130028df
+1	0x4800109f	Detonate	Deathstroke	
+1	0x48000872	Detonate	Harley Quinn	0x13001848
+1	0x4800080c	Detonate	Joker	0x130017a0
+2	0x480007a8	Healing Wave		0x130016ed
+2	0x48000869	Healing Wave	Arcane Green Lantern	0x1300179d
+2	0x48001003	Healing Wave	Krypto	0x13002d7c
+2	0x48000846	Healing Wave	Poison Ivy	0x1300179c
+3	0x48000780	Invulnerability		0x130016ec
+3	0x48000813	Invulnerability	Doomsday	0x1300179b
+3	0x48000fb1	Invulnerability	Katana	0x13002d4c
+3	0x4800080e	Invulnerability	Shazam	0x1300179a
+3	0x48000d2c	Invulnerability	Supergirl	0x130028e0
+4	0x480005a2	Meteor Drop		0x13000dcc
+4	0x48000863	Meteor Drop	Gaslight Joker	0x1300179f
+4	0x4800085f	Meteor Drop	Green Lantern	0x1300179e
+4	0x48000d28	Meteor Drop	Atrocitus	0x13002487
+4	0x48000f05	Meteor Drop	Arcane Supergirl	0x13002cd3
+4	0x48001333	Meteor Drop	Zod	
+5	0x48000785	Psychic Assault		0x130016ee
+5	0x4800131b	Psychic Assault	Arcane Harley Quinn	
+5	0x48001060	Psychic Assault	Arcane Zatanna	
+5	0x48001160	Psychic Assault	Raven	
+5	0x48000bf2	Psychic Assault	Sinestro	0x13001fcb
+5	0x480009ee	Psychic Assault	Star Sapphire	0x13001797
+5	0x48000ef2	Psychic Assault	Starro	0x13002942
+5	0x48000852	Psychic Assault	Zatanna	0x13001796
+6	0x480003cb	Super Strength		0x13000ce9
+6	0x48000913	Super Strength	Aquaman	0x13001793
+6	0x480012b6	Super Strength	Nightmare Catwoman	
+6	0x480010e3	Super Strength	Solomon Grundy	0x13002f8a
+6	0x48000a3b	Super Strength	Superman	0x13001d4e
+6	0x4800081d	Super Strength	Wonder Woman	0x13001792
+7	0x48000529	Super Speed		0x13000cea
+7	0x48000868	Super Speed	Atomic Wonder Woman	0x1300190d
+7	0x48000807	Super Speed	Flash	0x13001794
+7	0x48000f57	Super Speed	Hawkgirl	0x13002c01
+8	0x48000523	Surveillance Camera		0x13000ce8
+8	0x48001114	Surveillance Camera	Deadshot	
+8	0x48000808	Surveillance Camera	Gaslight Batman	0x13001791
+8	0x48000aa3	Surveillance Camera	Green Arrow	0x13001d74
+8	0x48000876	Surveillance Camera	Robin	0x13001790
+9	0x48000809	Teleport		0x13000dcd
+9	0x4800080a	Teleport	Catwoman	0x130017a4
+9	0x48000867	Teleport	Cyborg	0x130017a3
+9	0x48001253	Teleport	Dex-Starr	
+9	0x48000a8f	Teleport	Nightmare Superman	0x1300246b
+10	0x480007ac	Trap		0x130016eb
+10	0x48000804	Trap	Batman	0x13001799
+10	0x48001298	Trap	Huntress	
+10	0x48000fd8	Trap	Lex Luthor	0x13002d82
+10	0x4800086c	Trap	Mecha Wonder Woman	0x13001798
+10	0x48001466	Trap	Nightwing	
+11	0x48000549	X-Ray Vision		0x13000dce
+11	0x4800088f	X-Ray Vision	Atomic Poison Ivy	0x1300178f
+11	0x48000a8c	X-Ray Vision	Blue Beetle	0x1300246a
+11	0x48000854	X-Ray Vision	Gaslight Catwoman	0x1300178e
+11	0x48000d42	X-Ray Vision	Nightmare Robin	0x1300270f

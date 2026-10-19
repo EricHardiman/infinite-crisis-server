@@ -1,0 +1,166 @@
+Champion Unlocked (super reward ribbon) - static RE notes (2026-10-15)
+=====================================================================
+VA = rva + 0x400000. AS2 line numbers refer to ui_re/as2_lib.txt.
+Helper output: reward_re/reward_bcast.txt = (broadcaster VA, notice-id global, listener vtable slot)
+for every Flash->C++ notice dispatcher built on 0x6a8120/0x4820f0.
+
+0. TL;DR - why it never shows
+-----------------------------
+* a41300 (C++ -> Flash RewardSetsData 0x10000402) runs exactly ONCE per reward set: synchronously
+  inside the 0x2125 handler (a7ebb0 -> a7ea80 -> a41300 @a7eb14).  The other caller (a57318 in
+  a57300) is account-vtable slot 29 (0x1604af8+0x74), reached only through Flash notice
+  0x100003F4 Notice_Character__UI_RequestPendingPostMatchRewards (broadcaster 912730, handler
+  9348b0).  No AS2 code calls GM_Character.SendNotice_UI_RequestPendingPostMatchRewards
+  (only its definition, l.507634).  So "re-sent on every 0x2190" is WRONG: nothing re-sends it.
+* We send 0x2125 while the client is still in the world.  The Flash listener is
+  gameplay.wrapper.WrapperMain.RecvNoticeRewardSetsData, registered in
+  WrapperMain.RegisterForNotices (l.414657/414763), called from WrapperMain.OnLoadComplete
+  (l.413812) and removed in OnUnloadComplete (l.413968).  GM_Character.RecvNotice_RewardSetsData
+  (l.506192) drops the notice when engNoticeSystemImpl.m_Listeners[key] == null.  The frontend
+  wrapper is (re)loaded only for the end page, so the in-world notice is lost (to confirm:
+  breakpoint 2/3 below fire but no ribbon).
+* Afterwards the reward sits in the pending list (account+0x10); any re-send of 0x2125 with the
+  SAME instance id is ignored by de-dup a1aba0 (no a41300 call at all).
+* The real flow is a request/response chain the server must answer:
+    end page loads -> WrapperMain.AskForRibbons (l.417961; called from LoadNewScreen when
+    ScreenSettings.m_bAskForRibbons, l.416855) -> SendNotice_RequestPostMatchChanges (-> 0x20BA?)
+    + SendNotice_RequestAllPendingRewardlessAchievementNotifications (0x1000042E)
+    -> AchMgr slot 0x14 = a34900: if AchMgr+8 table empty -> client sends 0x212E (empty)
+       else a347e0 -> Flash AllPendingAchivementBanners (notice 0x10000415)
+    SERVER must answer 0x212E with 0x211F (pending rewardless-achievement banners)
+    -> exec 8a9c30 -> a8b7f0: copies table into AchMgr+8, tail-jumps a347e0
+    -> Flash WrapperMain.RecvNotice_AllPendingAchivementBanners (l.415716) first calls
+       AskForRewards (l.417975) = GM_Character.SendNotice_UI_RequestPendingRewardUpdateFromServer
+       (0x1000042F) -> account slot 30 (0x78) = a0b3e0 -> 888340 -> client sends 0x2124 (empty)
+    SERVER must answer 0x2124 with 0x2125 -> a7ebb0 -> a41300 -> RewardSetsData -> Flash
+       RecvNoticeRewardSetsData (l.415505) -> RibbonManager.ShowSuperRewardRibbon (bSuperReward
+       because UseSuperBanner[i] true).
+
+1. a41300 and its preconditions
+-------------------------------
+0x2125: ser/deser 0x846680 (u8 hdr via b0d380, then list at +0x20: u32 n + n*elem 867fb0),
+exec 8ab080 (no state checks) -> a7ebb0(account = [a12d50()+0x54], must be non-null).
+a7ebb0 loop over elements (stride 0x48):
+  type = 86e830(item=[e+0xc], icon=[e+0x20]); type==0 -> element silently skipped.
+  Consecutive elements with same rewardSet [e+0] are grouped; group flushed with
+  a7ea80(rewardSet, source=[e+4], sourceType=1 (hard-coded), instLo=[e+0x18], instHi=[e+0x1c],
+        items[], types[], bestowals[e+0x14], quantities[e+0x10], icons[e+0x20], names[e+0x24]).
+  (fields of the LAST element of a group are used for source/instance.)
+a7ea80: if a1aba0(instLo,instHi) -> return (no Flash send).  a1aba0 = instance id already in
+  claimed list (account+0x20, count +0x28, 8-byte ids) OR in pending list (account+0x10,
+  count +0x18, stride 0x78, id at +0x10/+0x14).  Else a3e0a0 builds the set (0x78 bytes:
+  +0 set, +4 source, +8 srcType, +0x10/+0x14 instance, arrays +0x18 items, +0x28 types,
+  +0x38 bestowal, +0x48 qty, +0x58 icon, +0x68 names), appends to pending list, calls a41300.
+a41300 (ret 4): no UI-state / scorecard / ownership checks, no filtering.  Per item it emits
+  RewardSetDIDs, SourceDIDs, UseSuperBanner = (type==7||type==0xA), SourceTypes, SourceNames
+  (always default token 0x0A3A2149 table 0x1000000A) and calls 8ccee0 (Flash notice 0x10000402,
+  global 0x18672e0).  RewardSet/source DIDs are NOT resolved against records.
+  No server-side ordering requirement except: 0x20ED must have been delivered (see 2).
+
+2. Item type for 0x40000086
+---------------------------
+86e830(item, icon): catalog = [a12d50()+0x64] (filled by 0x20ED champion data, exec 8ab100 ->
+a833d0).  85df40 walks catalog+0x14 (count +0x1c) groups; group[0].did == item -> flag=1 ->
+type 7 (Character); a later element (costume) -> type 0xA.  Our login 0x20ED roster group for
+Gaslight Batman starts with 0x40000086 -> type 7.  Not needed: 0x20B8 status, ownership, pack
+record.  Fallback if not in catalog: icon != 0 -> 4; else record props 0x10000AB9->3,
+86d8e0->8, 86d930->9, 0x10000AB4->1, 0x10000AB3->2, 0x10000B38 (1->5, 2->6), else 0 (dropped).
+
+3. Flash side
+-------------
+RecvNoticeRewardSetsData (l.415505): one RewardRibbonData per distinct rewardSet; bSuperReward
+from UseSuperBanner; items via PushGrantedReward (bestowal==Grant) / PushChoiceReward; then
+ShowSuperRewardRibbon or ShowRewardRibbon.
+RibbonManager (l.~220700-222560): ShowSuperRewardRibbon ignores duplicates (DataAlreadyInQueue
+/ IsEqualTo current), queues, PlayNextInQueue if nothing active.  PlayNextInQueue skips any
+queued type present in m_aHolds.
+Holds: WrapperMain.RecvNotice_UIStateMachineEvent case LoadScorecardScreen (l.416740-416767)
+  calls HoldAllCharLevelUpRibbons, HoldAllRewardRibbons, HoldAllSuperRewardRibbons.
+Release: RibbonManager.ReleaseAllRibbons (l.221114, clears m_aHolds) called only by
+  - WrapperMain.AttachNextScreen when the new screen != SCORECARD_SCREEN and HasHolds (l.417355)
+  - ScorecardAccolades.KillAnimations (l.428962), reached from: show(false) while accolades
+    data present and animation not complete (l.428613), OnManagerKillAnimation (ScorecardManager
+    KILL_ANIMATION, dispatched by ScorecardManager.KillAnimations l.109005 when animating, e.g.
+    ESC via WrapperMain.RecvNotice_ActionEnumEvent l.415448), OnUnloadComplete (l.428559).
+  In the tutorial the accolades tab clip exists (AttachTabContents l.25339) and ShowTab
+  (l.26099) is called at end of Scorecard.OnAllDataRecvd (l.26925) -> tab hide/show path.
+  (ReleaseAllRewardRibbons/ReleaseAllSuperRewardRibbons are never called.)
+The Mission Complete page itself does not query rewards; the queries are WrapperMain's
+AskForRibbons (screen load) and AskForRewards (inside AllPendingAchivementBanners).
+On Continue (super ribbon handler ~l.312984): SendNotice_UI_ClaimPostMatchReward(nRewardSetDID,
+DID_INVALID) then SendQuery_InqSuperBannerVideoForAchievement(nRewardSourceDID) ->
+siVideoName -> DialogsManager.ShowMovieDialog if valid string.
+
+4. Client events
+----------------
+All of 0x212E / 0x20BA / 0x20C4 / 0x2124 use the empty event class 0x15f02e8 (body = u8 0).
+ 0x212E  sender 883090 <- a34900 (AchMgr listener slot 0x14 of vtable 0x1604498) for Flash
+         notice 0x1000042E RequestAllPendingRewardlessAchievementNotifications, only when
+         AchMgr+8 (pending rewardless banners) is empty.  EXPECTS 0x211F.
+ 0x2124  sender 888340 <- a0b3e0 (account slot 30) for 0x1000042F
+         RequestPendingRewardUpdateFromServer (Flash AskForRewards).  EXPECTS 0x2125.
+         Precondition: [[0x1b6ab18]+0x1d8] != 0 (lobby connection).
+ 0x20BA  sender 883430 <- a2fc80 (vtable entry 0x1601e50), probably the
+         RequestPostMatchChanges (0x10000251) listener (sent in the same AskForRibbons);
+         reply not needed for the ribbon.
+ 0x20C4  sender 889020 <- ab9540 (flag obj+0x4ed), fire-and-forget after the end page.
+ 0x2128  ClaimPostMatchReward: Flash 0x100003F5 (3-arg dispatch 934470) -> account slot 26 =
+         a411d0(set, choice): finds pending set by rewardSet, 8c4470 -> 8c4300 builds 0x2128,
+         serializer 845bb0:  u8 0 | u32 rewardSetDID | u32 choiceDID (0) | u32 sourceDID |
+         u64 instanceId | u32list itemDIDs | u32list quantities | u32list bestowalTypes
+         (u32list = u32 n + n*u32).  Then instance id appended to claimed list (+0x20) and
+         set removed from pending.  No reply required by the client code seen.
+
+5. 0x211F layout (server -> client)
+-----------------------------------
+deser 0x8495a0: b0d380 header (u8 0) + hashtable codec 0x8473d0 into +0x20 - the SAME codec as
+the 0x2120 progress table (0x849540) but WITHOUT the trailing u32list.
+  body = 00 | 00 (size class) | compact n | n x progress_entry (same as scorecard.progress_entry)
+Exec a8b7f0: AchMgr = [a12d50()+0x58]; table -> AchMgr+8; a347e0 sends Flash one array
+(value [node+8] = achievement DID) even when empty.  "Rewardless" = achievements without a
+reward; T1 has a reward (it arrives via 0x2125), so send n=0: body 00 00 00.
+
+6. 0x2125 layout check (vs 846680 / 867fb0)
+-------------------------------------------
+867fb0: u32 +0, u32 +4, u32 +8, u32 +0xc, u32 +0x10, u32 +0x14, u64 +0x18, u32 +0x20,
+StringInfo +0x24 (5a7710).  Meaning (from a7ebb0 / Flash arg order): +0 rewardSetDID,
++4 sourceDID, +8 unused, +0xc itemDID, +0x10 quantity, +0x14 bestowal, +0x18 instance id,
++0x20 icon DID (also 2nd arg of 86e830 -> keep 0), +0x24 name.  scorecard.reward_item matches.
+Body = u8 0 | u32 n | elements: matches pending_reward_sets.  No layout error found.
+
+7. Showcase movie
+-----------------
+Query 0x1000049B (global 0x18670f0, dispatcher 90e13c, AchMgr slot 0x8 = a13070(achDID, out)):
+85c2c0 loads the achievement record, 86d230 reads property 0x10000BCD (string).  Purely local:
+0x49000B08 (pack 0xA00002FF, achz/achievements/0x49000b08.bin @0xa4) has 0x10000BCD.
+Needs nothing from the server; nRewardSourceDID must be 0x40000B08 (0x2125 +4 field).
+
+8. Proposed server sequence
+---------------------------
+ match end (in world): keep 0x2009..0x2120 etc. but DO NOT send 0x2125 here (or, if kept,
+   remember that later re-sends must use a NEW instance id).
+ on 0x212E (empty): reply 0x211F body 00 00 00.  (optionally also send 0x2125 here as fallback;
+   harmless duplicate thanks to client de-dup of the same instance id.)
+ on 0x2124 (empty): reply 0x2125 = tutorial_reward(1, instance_id=<fixed per reward, e.g. 1>).
+   Only while the reward is unclaimed.
+ on 0x2128: mark claimed (instance id); stop offering 0x2125 for it.  Optionally 0x20B8.
+ 0x20BA / 0x20C4: ignore.
+
+9. Tracer breakpoints (rva = VA - 0x400000)
+-------------------------------------------
+ rva       VA        log                                       meaning
+ 0x67ebb0  a7ebb0    [[esp+8]+8], [[[esp+8]]+0xc]              0x2125 exec: n, item0 DID
+ 0x46e850  86e850    al                                        catalog hit (1 => type 7/0xA)
+ 0x67ed01  a7ed01    eax                                       item type (want 7)
+ 0x67ea98  a7ea98    al                                        de-dup (1 = ignored, no Flash)
+ 0x641300  a41300    [[esp+4]], [[esp+4]+4], [[esp+4]+0x10], [[[esp+4]+0x28]]  set/source/inst/type
+ 0x4ccee0  8ccee0    (hit)                                     RewardSetsData pushed to Flash
+ 0x634900  a34900    [ecx+0xc]                                 Flash asked rewardless banners (0 -> sends 0x212E)
+ 0x68b7f0  a8b7f0    (hit)                                     0x211F received
+ 0x6347e0  a347e0    (hit)                                     AllPendingAchivementBanners -> Flash
+ 0x60b3e0  a0b3e0    (hit)                                     AskForRewards -> 0x2124 about to be sent
+ 0x488340  888340    [[0x1b6ab18]+0x1d8]                       0x2124 sender (must be != 0)
+ 0x657300  a57300    (hit)                                     pending re-flush (expected never)
+ 0x6411d0  a411d0    [esp+4], [esp+8]                          ClaimPostMatchReward(set, choice)
+ 0x613070  a13070    [esp+4]                                   InqSuperBannerVideo(achievement)
+ 0x613082  a13082    [ebp-4]                                   achievement record found (!=0)

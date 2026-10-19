@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinite Crisis ID Catalog</title>
+<meta name="description" content="Game IDs for the Infinite Crisis preservation server: champions, skills, Stolen Powers, stages and engine reference.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f5f8; --panel: #ffffff; --panel-2: #eef0f5; --ink: #151821; --muted: #5d6475;
+  --line: #dde1ea; --accent: #c8102e; --accent-ink: #ffffff; --accent-soft: #fbe7ea;
+  --side-bg: #12151d; --side-ink: #c9cfdc; --side-muted: #7b8396; --side-hover: #1d2230; --side-active: #262c3d;
+  --ok: #1d7a46; --ok-bg: #e2f4ea; --info: #1f5fbf; --info-bg: #e3edfb; --warn: #9a6200; --warn-bg: #fdf1dc;
+  --off: #5d6475; --off-bg: #eceef3; --shadow: 0 1px 2px rgba(16,20,30,.06), 0 4px 16px rgba(16,20,30,.05);
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1016; --panel: #151922; --panel-2: #1b2030; --ink: #e7eaf1; --muted: #98a0b3;
+    --line: #262c3b; --accent: #ff3b55; --accent-ink: #ffffff; --accent-soft: #3a1820;
+    --side-bg: #090b10; --side-hover: #141823; --side-active: #1c2130;
+    --ok: #4fd18b; --ok-bg: #12301f; --info: #74a8ff; --info-bg: #142540; --warn: #f2b545; --warn-bg: #3a2a0c;
+    --off: #98a0b3; --off-bg: #20263a; --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1016; --panel: #151922; --panel-2: #1b2030; --ink: #e7eaf1; --muted: #98a0b3;
+  --line: #262c3b; --accent: #ff3b55; --accent-ink: #ffffff; --accent-soft: #3a1820;
+  --side-bg: #090b10; --side-hover: #141823; --side-active: #1c2130;
+  --ok: #4fd18b; --ok-bg: #12301f; --info: #74a8ff; --info-bg: #142540; --warn: #f2b545; --warn-bg: #3a2a0c;
+  --off: #98a0b3; --off-bg: #20263a; --shadow: none;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.5 Inter, system-ui, sans-serif; }
+a { color: inherit; }
+.app { display: grid; grid-template-columns: 264px 1fr; min-height: 100vh; }
+
+/* ---- sidebar ---- */
+.side { background: var(--side-bg); color: var(--side-ink); position: sticky; top: 0; height: 100vh;
+  overflow-y: auto; display: flex; flex-direction: column; }
+.brand { padding: 22px 20px 18px; border-bottom: 1px solid #ffffff10; }
+.brand .mark { display: flex; align-items: center; gap: 10px; }
+.brand .x { width: 30px; height: 30px; border-radius: 6px; background: var(--accent); display: grid;
+  place-items: center; font: 700 18px "Barlow Condensed", sans-serif; color: #fff; transform: skew(-8deg); }
+.brand h1 { margin: 0; font: 700 21px/1 "Barlow Condensed", sans-serif; letter-spacing: .04em; color: #fff;
+  text-transform: uppercase; }
+.brand p { margin: 8px 0 0; font-size: 12px; color: var(--side-muted); }
+.nav { padding: 10px 10px 24px; flex: 1; }
+.nav h2 { margin: 18px 10px 6px; font: 600 11px Inter, sans-serif; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--side-muted); }
+.nav a { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px;
+  border-radius: 7px; text-decoration: none; color: var(--side-ink); font-weight: 500; position: relative; }
+.nav a:hover { background: var(--side-hover); }
+.nav a.active { background: var(--side-active); color: #fff; }
+.nav a.active::before { content: ""; position: absolute; left: -10px; top: 8px; bottom: 8px; width: 3px;
+  border-radius: 2px; background: var(--accent); }
+.nav .count { font: 500 11px var(--mono); color: var(--side-muted); background: #ffffff0d; padding: 1px 7px;
+  border-radius: 10px; }
+.nav .count.zero { opacity: .5; }
+.side-foot { padding: 14px 20px; border-top: 1px solid #ffffff10; font-size: 12px; color: var(--side-muted); }
+.side-foot button { background: none; border: 1px solid #ffffff22; color: var(--side-ink); border-radius: 6px;
+  padding: 5px 10px; cursor: pointer; font: inherit; }
+
+/* ---- main ---- */
+.main { min-width: 0; display: flex; flex-direction: column; }
+.top { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); padding: 12px 28px; display: flex; gap: 12px;
+  align-items: center; }
+.menu-btn { display: none; background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+  width: 38px; height: 38px; color: var(--ink); cursor: pointer; font-size: 18px; }
+.search { flex: 1; position: relative; max-width: 560px; }
+.search input { width: 100%; height: 38px; border-radius: 9px; border: 1px solid var(--line);
+  background: var(--panel); color: var(--ink); padding: 0 12px 0 36px; font: inherit; outline: none; }
+.search input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.search svg { position: absolute; left: 11px; top: 11px; color: var(--muted); }
+.scope { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.content { padding: 26px 28px 60px; max-width: 1400px; width: 100%; }
+.head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 16px; }
+.head h2 { margin: 0; font: 700 34px/1 "Barlow Condensed", sans-serif; letter-spacing: .02em; text-transform: uppercase; }
+.head .kicker { font: 600 11px Inter, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 6px; }
+.desc { color: var(--muted); max-width: 860px; margin: 0 0 18px; }
+.meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+.meta code { font-family: var(--mono); background: var(--panel-2); padding: 2px 6px; border-radius: 5px; }
+
+/* ---- table ---- */
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);
+  overflow: hidden; }
+.tbl-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th { position: sticky; top: 0; background: var(--panel-2); text-align: left; font: 600 11px Inter, sans-serif;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; white-space: nowrap;
+  border-bottom: 1px solid var(--line); cursor: pointer; user-select: none; }
+th:hover { color: var(--ink); }
+th .arrow { opacity: .35; margin-left: 4px; }
+th.sorted .arrow { opacity: 1; color: var(--accent); }
+td { padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+tbody tr:hover td { background: color-mix(in srgb, var(--panel-2) 60%, transparent); }
+td.notes { color: var(--muted); min-width: 300px; max-width: 520px; }
+td.wide { min-width: 220px; max-width: 420px; }
+td .clamp { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+td .clamp.open { -webkit-line-clamp: unset; display: block; }
+.id { display: inline-flex; align-items: center; gap: 6px; font: 500 12.5px var(--mono); white-space: nowrap; }
+.id button { border: 0; background: none; padding: 2px; cursor: pointer; color: var(--muted); border-radius: 4px;
+  line-height: 0; opacity: .55; }
+.id button:hover { opacity: 1; color: var(--accent); background: var(--accent-soft); }
+.hexlist { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.badge { display: inline-block; padding: 2px 9px; border-radius: 20px; font: 600 11.5px Inter, sans-serif;
+  white-space: nowrap; background: var(--off-bg); color: var(--off); }
+.badge.ok { background: var(--ok-bg); color: var(--ok); }
+.badge.info { background: var(--info-bg); color: var(--info); }
+.badge.warn { background: var(--warn-bg); color: var(--warn); }
+.empty { padding: 40px 24px; text-align: center; color: var(--muted); }
+.empty strong { display: block; color: var(--ink); font-size: 15px; margin-bottom: 6px; }
+.more { padding: 12px 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.more button { font: inherit; font-weight: 600; color: var(--accent); background: var(--accent-soft); border: 0;
+  border-radius: 7px; padding: 5px 10px; cursor: pointer; }
+mark { background: var(--accent-soft); color: inherit; border-radius: 3px; padding: 0 1px; }
+
+/* ---- overview ---- */
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin: 8px 0 28px; }
+.tile { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px;
+  text-decoration: none; box-shadow: var(--shadow); transition: border-color .15s, transform .15s; display: block; }
+.tile:hover { border-color: var(--accent); transform: translateY(-1px); }
+.tile .n { font: 700 32px/1 "Barlow Condensed", sans-serif; }
+.tile .t { font-weight: 600; margin-top: 4px; }
+.tile .g { font-size: 12px; color: var(--muted); }
+.howto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.howto .card { padding: 16px 18px; }
+.howto h3 { margin: 0 0 6px; font-size: 14px; }
+.howto p { margin: 0; color: var(--muted); }
+.howto code { font-family: var(--mono); font-size: 12px; background: var(--panel-2); padding: 1px 5px; border-radius: 4px; }
+.group-label { font: 600 11px Inter, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  margin: 26px 0 10px; }
+.hit-section { margin-bottom: 26px; }
+.hit-section h3 { margin: 0 0 8px; font: 700 20px "Barlow Condensed", sans-serif; text-transform: uppercase; }
+.hit-section h3 a { text-decoration: none; }
+.hit-section h3 a:hover { color: var(--accent); }
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px); opacity: 0;
+  background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 8px; font-size: 13px;
+  transition: .2s; pointer-events: none; z-index: 20; }
+.toast.show { opacity: 1; transform: translateX(-50%); }
+
+@media (max-width: 860px) {
+  .app { grid-template-columns: 1fr; }
+  .side { position: fixed; inset: 0 auto 0 0; width: 280px; z-index: 30; transform: translateX(-100%);
+    transition: transform .2s; }
+  .app.open .side { transform: none; box-shadow: 0 0 0 100vmax #0008; }
+  .menu-btn { display: inline-grid; place-items: center; }
+  .top { padding: 10px 16px; }
+  .content { padding: 20px 16px 48px; }
+  .scope { display: none; }
+  .head h2 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <aside class="side">
+    <div class="brand">
+      <div class="mark"><div class="x">X</div><h1>ID Catalog</h1></div>
+      <p>Infinite Crisis preservation server</p>
+    </div>
+    <nav class="nav" id="nav"></nav>
+    <div class="side-foot"><button id="theme" type="button">Toggle theme</button></div>
+  </aside>
+  <div class="main">
+    <div class="top">
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu">&#9776;</button>
+      <label class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Search a name or an ID (e.g. 0x48000808, camera)" autocomplete="off">
+      </label>
+      <span class="scope" id="scope"></span>
+    </div>
+    <main class="content" id="content"></main>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const CATALOG = /*__CATALOG__*/null;
+const SECTIONS = CATALOG.flatMap(g => g.sections.map(s => ({...s, group: g.group})));
+const BY_ID = Object.fromEntries(SECTIONS.map(s => [s.id, s]));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const HEX = /^0x[0-9a-f]+(:\d+)?$/i;
+let sortState = {};
+const expanded = {};
+
+function theme() {
+  try { const t = localStorage.getItem("ic-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+}
+theme();
+$("#theme").onclick = () => {
+  const dark = document.documentElement.dataset.theme
+    ? document.documentElement.dataset.theme === "dark"
+    : matchMedia("(prefers-color-scheme: dark)").matches;
+  const next = dark ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem("ic-theme", next); } catch (e) {}
+};
+$("#menuBtn").onclick = () => $("#app").classList.toggle("open");
+
+function nav(active) {
+  let h = `<h2>Start</h2><a href="#overview" class="${active === "overview" ? "active" : ""}"><span>Overview</span></a>`;
+  for (const g of CATALOG) {
+    h += `<h2>${esc(g.group)}</h2>`;
+    for (const s of g.sections)
+      h += `<a href="#${s.id}" class="${active === s.id ? "active" : ""}"><span>${esc(s.title)}</span>` +
+           `<span class="count ${s.rows.length ? "" : "zero"}">${s.rows.length}</span></a>`;
+  }
+  $("#nav").innerHTML = h;
+}
+
+function hl(text, q) {
+  const t = esc(text);
+  if (!q) return t;
+  const i = String(text).toLowerCase().indexOf(q);
+  if (i < 0) return t;
+  return esc(String(text).slice(0, i)) + "<mark>" + esc(String(text).slice(i, i + q.length)) + "</mark>" +
+         esc(String(text).slice(i + q.length));
+}
+
+const COPY = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
+function idCell(v, q) { return `<span class="id">${hl(v, q)}<button type="button" data-copy="${esc(v)}" title="Copy">${COPY}</button></span>`; }
+
+function badge(v) {
+  const s = v.toLowerCase();
+  const cls = /implemented|playable|handled/.test(s) ? "ok" : /sent|shown|data only/.test(s) ? "info"
+            : /ignored|off|not sent|partial/.test(s) ? "warn" : "";
+  return `<span class="badge ${cls}">${esc(v)}</span>`;
+}
+
+function cell(col, v, q) {
+  if (v === undefined || v === null || v === "") return "";
+  if (/status$/.test(col)) return badge(v);
+  const parts = String(v).split(/\s+/);
+  if (parts.length > 1 && parts.every(p => HEX.test(p))) return `<div class="hexlist">${parts.map(p => idCell(p, q)).join("")}</div>`;
+  if (HEX.test(v)) return idCell(v, q);
+  return hl(v, q);
+}
+
+function tdCell(c, v, q) {
+  const long = /notes|purpose|contents|meaning|when|description/.test(c) ? "notes"
+             : /stats|targets|used_in|passives|lists|attack_scripts|record_types|costume/.test(c) ? "wide" : "";
+  const html = cell(c, v, q);
+  return `<td class="${long}">${long && String(v || "").length > 160 ? `<div class="clamp" title="Click to expand">${html}</div>` : html}</td>`;
+}
+
+function matches(row, q) { return !q || row.some(c => String(c).toLowerCase().includes(q)); }
+
+function sorted(s, rows) {
+  const st = sortState[s.id];
+  if (!st) return rows;
+  const i = st.col, dir = st.dir;
+  const val = x => { const v = x[i] || ""; return HEX.test(v) ? parseInt(v, 16) : (/^-?\d+(\.\d+)?$/.test(v) ? parseFloat(v) : v.toLowerCase()); };
+  return [...rows].sort((a, b) => { const x = val(a), y = val(b); return (x > y ? 1 : x < y ? -1 : 0) * dir; });
+}
+
+function table(s, rows, q) {
+  if (!s.columns.length || !s.rows.length)
+    return `<div class="card"><div class="empty"><strong>No entries yet</strong>${esc(s.description)}</div></div>`;
+  if (!rows.length) return `<div class="card"><div class="empty"><strong>No match</strong>Nothing in ${esc(s.title)} matches “${esc(q)}”.</div></div>`;
+  const st = sortState[s.id] || {};
+  const th = s.columns.map((c, i) => `<th data-col="${i}" class="${st.col === i ? "sorted" : ""}">${esc(c.replace(/_/g, " "))}` +
+    `<span class="arrow">${st.col === i ? (st.dir > 0 ? "▲" : "▼") : "↕"}</span></th>`).join("");
+  const all = sorted(s, rows), LIMIT = 400, showAll = expanded[s.id] || q;
+  const shown = showAll ? all : all.slice(0, LIMIT);
+  const more = all.length > shown.length
+    ? `<div class="more"><button type="button" data-more="${s.id}">Show all ${all.length} rows</button> or search to narrow them.</div>` : "";
+  const body = shown.map(r => "<tr>" + s.columns.map((c, i) =>
+    tdCell(c, r[i], q)).join("") + "</tr>").join("");
+  return `<div class="card"><div class="tbl-wrap"><table data-section="${s.id}"><thead><tr>${th}</tr></thead><tbody>${body}</tbody></table></div>${more}</div>`;
+}
+
+function overview(q) {
+  if (q) return search(q);
+  const tiles = SECTIONS.map(s => `<a class="tile" href="#${s.id}"><div class="n">${s.rows.length}</div>` +
+    `<div class="t">${esc(s.title)}</div><div class="g">${esc(s.group)}</div></a>`).join("");
+  return `<div class="head"><div><div class="kicker">Reference</div><h2>Game ID Catalog</h2></div></div>
+  <p class="desc">Every game ID the server works with, in one place. The ID is the key: the client only understands
+  the game's own IDs (DIDs), so assign things by ID and use the names only to find them. Hex IDs have a copy button.</p>
+  <div class="tiles">${tiles}</div>
+  <div class="group-label">How to use it</div>
+  <div class="howto">
+    <div class="card"><h3>Find</h3><p>Search a name or an ID in the bar above; it looks in every section. Click a column to sort.</p></div>
+    <div class="card"><h3>Assign</h3><p>Copy an ID into <code>config.toml</code>, e.g. <code>strength_skill = "0x48000A3B"</code> or by name: <code>"Super Strength / Superman"</code>.</p></div>
+    <div class="card"><h3>Status</h3><p><b>implemented</b>: the server makes it work. <b>data only</b>: the ID is known, behaviour not written yet.</p></div>
+    <div class="card"><h3>Update</h3><p>Edit <code>catalog/data/*.tsv</code> and run <code>python tools/build_catalog.py</code>. Never put game files here, only IDs and names.</p></div>
+  </div>`;
+}
+
+function search(q) {
+  let h = `<div class="head"><div><div class="kicker">Search</div><h2>Results for “${esc(q)}”</h2></div></div>`;
+  let n = 0;
+  for (const s of SECTIONS) {
+    const rows = s.rows.filter(r => matches(r, q));
+    if (!rows.length) continue;
+    n += rows.length;
+    h += `<div class="hit-section"><h3><a href="#${s.id}">${esc(s.title)}</a> <span class="badge">${rows.length}</span></h3>${table(s, rows.slice(0, 50), q)}</div>`;
+  }
+  return n ? h : h + `<div class="card"><div class="empty"><strong>No match</strong>Try a shorter name or the ID without leading zeros.</div></div>`;
+}
+
+function render() {
+  const id = (location.hash || "#overview").slice(1);
+  const q = $("#q").value.trim().toLowerCase();
+  const s = BY_ID[id];
+  nav(s ? id : "overview");
+  $("#scope").textContent = s ? `in ${s.title}` : "in every section";
+  if (!s) { $("#content").innerHTML = overview(q); return; }
+  const rows = s.rows.filter(r => matches(r, q));
+  $("#content").innerHTML = `<div class="head"><div><div class="kicker">${esc(s.group)}</div><h2>${esc(s.title)}</h2></div>
+    <div class="meta"><span>${q ? `${rows.length} of ` : ""}${s.rows.length} entries</span><span>·</span><code>catalog/${esc(s.file)}</code></div></div>
+    <p class="desc">${esc(s.description)}</p>${table(s, rows, q)}`;
+}
+
+document.addEventListener("click", e => {
+  const mb = e.target.closest("[data-more]");
+  if (mb) { expanded[mb.dataset.more] = true; render(); return; }
+  const cl = e.target.closest(".clamp");
+  if (cl && !e.target.closest("[data-copy]")) { cl.classList.toggle("open"); return; }
+  const b = e.target.closest("[data-copy]");
+  if (b) {
+    const v = b.dataset.copy;
+    const done = () => { const t = $("#toast"); t.textContent = `Copied ${v}`; t.classList.add("show"); setTimeout(() => t.classList.remove("show"), 1300); };
+    if (navigator.clipboard) navigator.clipboard.writeText(v).then(done, done); else done();
+    return;
+  }
+  const th = e.target.closest("th[data-col]");
+  if (th) {
+    const sid = th.closest("table").dataset.section, col = +th.dataset.col;
+    const st = sortState[sid];
+    sortState[sid] = st && st.col === col ? {col, dir: -st.dir} : {col, dir: 1};
+    render();
+    return;
+  }
+  if (e.target.closest(".nav a")) $("#app").classList.remove("open");
+});
+$("#q").addEventListener("input", render);
+addEventListener("hashchange", () => { window.scrollTo(0, 0); render(); });
+render();
+</script>
+</body>
+</html>

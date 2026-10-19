@@ -1,0 +1,49 @@
+Batman (0x1A0002E7) fall / get-up RE  -- 2026-10-16
+Tools: S/knock_re/walk.py (node tree walker), S/knock_re/clips.py (clip anim/speed/triggers); also carry_re/smdump.py.
+Lua: S/carry_re/lua_1f000002.bin (Batman behavior script, plain text).
+
+VARIABLES (index: name = initial): 6 Death_Selection = 0 ; 10 Knockup_Selection = 0 ; 11 DisableRagdolls = 1 ;
+  14 Property_BehaviorParams_AnimationSpeedMultiplier = 1.0 (bound to KnockDown + Get_Up clip playbackSpeed)
+BINDINGS (hkbVariableBindingSet, path startStateId):
+  SM_Death.startStateId  <- Death_Selection   (0 Death_A fup_a, 1 Death_B fdown_a, 3 Ragdoll_Death)
+  SM_KnockUp.startStateId<- Knockup_Selection (0 Knockup_FaceDown, 1 Knockup_FlipBack, 2 Knockup_FlipForward)
+  SM_Get_Up.startStateId <- Knockup_Selection (0 Get_Up_FaceDown fdown_a_recover, 1 Get_Up_FaceUp fup_a_recover)
+  No transitions inside SM_Death / SM_KnockUp / SM_Get_Up: state is fixed at activation by the variable.
+LUA (hkbScriptGenerator slots +0x60 onActivate, +0x64 onPreUpdate, +0x6c onHandleEvent, +0x70 onDeactivate):
+  onStandardDeath(): Death_Selection = math.random(0,1)   <- THE RANDOMNESS (50/50 face up/down)
+     called onActivate of Script_Locomotion (every return to Locomotion) and onDeactivate of BatFlight Script
+  onRagdollDeath(): Death_Selection = 3   (onActivate of Script_KnockUp, KnockDown Script, BatFlight Script)
+  onRandomizeKnockUp(): Knockup_Selection = math.random(0,2)  (onActivate KnockUp_Init Script)
+  onSetGetup(): Knockup_Selection = 0  (onActivate Knockup_FaceDownFlip Script = FlipForward state)
+  -> Death_Selection is never touched by the death path itself; Knockup_Selection stays 0 unless a KnockUp ran.
+SM_Main_Machine wildcard events (graph key from table 0x300000A4, raise with 0x100001E3 var 0x780):
+  CbtState_Death_Induce 0x100000AD -> state 15 Death (SM_Death)
+  CbtState_Dead         0x1000010B -> state 93 Dead: Clip_Dead = death_fdown_a_recover.hkx, playbackSpeed 0
+                                      (frozen frame 0 = lying FACE DOWN, same pose Get_Up_FaceDown starts from)
+  CbtState_Knockdown    0x100002F5 -> state 106 KnockDown: KnockDown Script -> clip chr_batman_gaslight_attk_knockdown.hkx
+                                      (single play, no triggers/exit; clip node named "chr batman gaslight attk death fdown a
+                                      recover.hkx" by the designer = meant to be recovered with the fdown get-up)
+  CbtState_KnockUp      0x10000020 -> 74 KnockUp_Init (random sel, clip knockup.hkx, trigger State_To_Busted 0x1000001B)
+                                      -> 72 KnockUp (SM_KnockUp by Knockup_Selection)
+  CbtState_GetUp        0x1000009D -> 75 Get Up (SM_Get_Up by Knockup_Selection); both get-up clips fire
+                                      state_to_locomotion 0x100000BB at t=0.4 -> back to Locomotion
+  CbtState_Death_Recover 0x10000034 not used by any transition in this graph.
+  Not in Batman's graph: CbtState_Death_FaceDown/FaceUp, CinematicDeath_* (raising them does nothing).
+  Main_Machine state 16 'FIXME SkillEventHoldingPen' (dead_fdown_a.hkx loop) has no incoming transition.
+EXE: native code raises 0x100000AD at 0x9B5E55 (else Combat_Idle 0x1000009C) and 0x1000009D at 0x970B31
+  (component update 0x970A80 when flag 0x4 at +0x6C) -- consistent with _Defeat_OnIncapacitated -> Death_Induce
+  (random 50/50 = observed) and revive -> GetUp (always Get_Up_FaceDown since Knockup_Selection=0 -> mismatch
+  after a face-up Death_A). Defeat scriptlet bodies not found in extracted packs (only names).
+
+RECIPE (A, deterministic, most likely right): no _Defeat_* keys.
+  t0 (meteor impact): raise 0x100002F5 CbtState_Knockdown  -> knockdown.hkx fall
+  t0+~1.3..2 s (after the clip ends; tune): raise 0x1000010B CbtState_Dead -> exact face-down rest pose (optional
+       but makes the get-up start pose exact; skip if the knockdown already ends prone)
+  t0+5 s: raise 0x1000009D CbtState_GetUp (+ optional scriptlet 0x10000490 RunScript_Vfx_GetUp) -> Get_Up_FaceDown,
+       auto state_to_locomotion. Keep movement locked until ~1 s after.
+  Precondition: never raise CbtState_KnockUp before (keeps Knockup_Selection=0).
+RECIPE (B, fully deterministic pose, no fall anim): t0 raise 0x1000010B (pop to prone under the blast), t0+5 raise 0x1000009D.
+RECIPE (C, keep current fall): 0x100001FB as now (50% fup), then at +1.5 s raise 0x1000010B to force prone, +5 s 0x1000009D
+  (face-up cases snap over -> visible).
+KnockUp option: 0x10000020 gives face-down landing 2/3 (FaceDown/FlipForward) and get-up auto-matches; random.
+Unverified: direction of knockdown.hkx (anim data not in extracted packs); clip float field +0x78 read as playbackSpeed.

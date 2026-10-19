@@ -1,0 +1,17 @@
+slot	name	key	slot_property	notes
+0	Basic attack		0x100008E3	Rank from element 0 of 0x100000AF.
+1	Power 1	Q	0x100008E8	FirstPowerSetSkill.
+2	Power 2	W	0x100008EA	
+3	Power 3	E	0x100008EC	
+4	Power 4	R	0x100008E6	LastPowerSetSkill.
+5	Passive		0x100008EF	LastRankable.
+6	Recall		0x100008E4	
+7	Secondary 1 (Stolen Power)	D	0x100008F0	Property collection (kind 0x0B) with the skill's whole definition.
+8	Secondary 2 (Stolen Power)	F	0x100008F1	Property collection (kind 0x0B).
+9	Bonus		0x100008F2	
+10	Item 1		0x100008E5	
+11	Item 2		0x100008E7	
+12	Item 3		0x100008E9	
+13	Item 4		0x100008EB	
+14	Item 5		0x100008ED	
+15	Item 6		0x100008EE	

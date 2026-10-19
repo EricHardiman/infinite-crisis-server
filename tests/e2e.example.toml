@@ -1,0 +1,28 @@
+# Test configuration for tests/test_e2e.py and tests/test_jump.py:
+#   python tests\test_e2e.py tests\e2e.example.toml
+# Other ports than the real server, so both can run. Copy it and adjust the paths.
+[game]
+dir = 'C:/Infinite Crisis Steam'
+[server]
+key = 'C:/Infinite Crisis Steam/icserver/keys/server_private.pem'
+soap_port = 18888
+user_port = 19000
+game_port = 19001
+[match]
+player_class = 0x4000007C
+[timing]
+objects_min_delay = 1.0
+objects_max_wait = 6.0
+link_delay = 0.5
+cinematic_delay = 0.5
+ping_lifetime = 1.0
+idle_resend = 1.0
+[combat]
+crit_chance = 0.0
+basic_attack_damage = 200
+attack_interval = 0.2
+corpse_seconds = 0.5
+[account]
+progress_file = 'C:/Infinite Crisis Steam/icserver/logs/progress_test.json'
+[tutorial]
+champion_spawn_hold = 0.0

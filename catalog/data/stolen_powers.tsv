@@ -1,0 +1,66 @@
+id	power	champion	group	icon	targeting	script	server_status
+0x4800056E	Consume	(base power)	0	0x13000DD1	14	0x340001c4	data only
+0x48000815	Consume	Atomic Green Lantern	0	0x130017A2	14	0x340001c4	data only
+0x48000841	Consume	Nightmare Batman	0	0x130017A1	14	0x340001c4	data only
+0x48000A3F	Consume	Mecha Superman	0	0x13002013	14	0x340001c4	data only
+0x48000F3C	Consume	Stargirl	0	0x13002C3F	14	0x340001c4	data only
+0x48000F9B	Consume	Swamp Thing	0	0x13002CD4	14	0x340001c4	data only
+0x4800055F	Detonate	(base power)	1	0x13000DD0	14	0x340001bf	data only
+0x48000E21	Detonate	Atomic Joker	1	0x130028DF	14	0x340001bf	data only
+0x4800109F	Detonate	Deathstroke	1		14	0x340001bf	data only
+0x48000872	Detonate	Harley Quinn	1	0x13001848	14	0x340001bf	data only
+0x4800080C	Detonate	Joker	1	0x130017A0	14	0x340001bf	data only
+0x480007A8	Healing Wave	(base power)	2	0x130016ED	7	0x340002b9	data only
+0x48000869	Healing Wave	Arcane Green Lantern	2	0x1300179D	7	0x340002b9	data only
+0x48001003	Healing Wave	Krypto	2	0x13002D7C	7	0x340002b9	data only
+0x48000846	Healing Wave	Poison Ivy	2	0x1300179C	7	0x340002b9	data only
+0x48000780	Invulnerability	(base power)	3	0x130016EC	5	0x340002a2	data only
+0x48000813	Invulnerability	Doomsday	3	0x1300179B	5	0x340002a2	data only
+0x48000FB1	Invulnerability	Katana	3	0x13002D4C	5	0x340002a2	data only
+0x4800080E	Invulnerability	Shazam	3	0x1300179A	5	0x340002a2	data only
+0x48000D2C	Invulnerability	Supergirl	3	0x130028E0	5	0x340002a2	data only
+0x480005A2	Meteor Drop	(base power)	4	0x13000DCC	1	0x340001d3	data only
+0x48000863	Meteor Drop	Gaslight Joker	4	0x1300179F	1	0x340001d3	data only
+0x4800085F	Meteor Drop	Green Lantern	4	0x1300179E	1	0x340001d3	data only
+0x48000D28	Meteor Drop	Atrocitus	4	0x13002487	1	0x340001d3	data only
+0x48000F05	Meteor Drop	Arcane Supergirl	4	0x13002CD3	1	0x340001d3	data only
+0x48001333	Meteor Drop	Zod	4		1	0x340001d3	data only
+0x48000785	Psychic Assault	(base power)	5	0x130016EE	14	0x340002a3	data only
+0x4800131B	Psychic Assault	Arcane Harley Quinn	5		14	0x340002a3	data only
+0x48001060	Psychic Assault	Arcane Zatanna	5		14	0x340002a3	data only
+0x48001160	Psychic Assault	Raven	5		14	0x340002a3	data only
+0x48000BF2	Psychic Assault	Sinestro	5	0x13001FCB	14	0x340002a3	data only
+0x480009EE	Psychic Assault	Star Sapphire	5	0x13001797	14	0x340002a3	data only
+0x48000EF2	Psychic Assault	Starro	5	0x13002942	14	0x340002a3	data only
+0x48000852	Psychic Assault	Zatanna	5	0x13001796	14	0x340002a3	data only
+0x480003CB	Super Strength	(base power)	6	0x13000CE9	14	0x34000164	data only
+0x48000913	Super Strength	Aquaman	6	0x13001793	14	0x34000164	data only
+0x480012B6	Super Strength	Nightmare Catwoman	6		14	0x34000164	data only
+0x480010E3	Super Strength	Solomon Grundy	6	0x13002F8A	14	0x34000164	data only
+0x48000A3B	Super Strength	Superman	6	0x13001D4E	14	0x34000164	implemented (F)
+0x4800081D	Super Strength	Wonder Woman	6	0x13001792	14	0x34000164	data only
+0x48000529	Super Speed	(base power)	7	0x13000CEA	5	0x3400019f	data only
+0x48000868	Super Speed	Atomic Wonder Woman	7	0x1300190D	5	0x3400019f	data only
+0x48000807	Super Speed	Flash	7	0x13001794	5	0x3400019f	data only
+0x48000F57	Super Speed	Hawkgirl	7	0x13002C01	5	0x3400019f	data only
+0x48000523	Surveillance Camera	(base power)	8	0x13000CE8	1	0x3400019d	data only
+0x48001114	Surveillance Camera	Deadshot	8		1	0x3400019d	data only
+0x48000808	Surveillance Camera	Gaslight Batman	8	0x13001791	1	0x3400019d	implemented (D)
+0x48000AA3	Surveillance Camera	Green Arrow	8	0x13001D74	1	0x3400019d	data only
+0x48000876	Surveillance Camera	Robin	8	0x13001790	1	0x3400019d	data only
+0x48000809	Teleport	(base power)	9	0x13000DCD	14	0x34000304	data only
+0x4800080A	Teleport	Catwoman	9	0x130017A4	14	0x34000304	data only
+0x48000867	Teleport	Cyborg	9	0x130017A3	14	0x34000304	data only
+0x48001253	Teleport	Dex-Starr	9		14	0x34000304	data only
+0x48000A8F	Teleport	Nightmare Superman	9	0x1300246B	14	0x34000304	data only
+0x480007AC	Trap	(base power)	10	0x130016EB	1	0x340002bb	data only
+0x48000804	Trap	Batman	10	0x13001799	1	0x340002bb	data only
+0x48001298	Trap	Huntress	10		1	0x340002bb	data only
+0x48000FD8	Trap	Lex Luthor	10	0x13002D82	1	0x340002bb	data only
+0x4800086C	Trap	Mecha Wonder Woman	10	0x13001798	1	0x340002bb	data only
+0x48001466	Trap	Nightwing	10		1	0x340002bb	data only
+0x48000549	X-Ray Vision	(base power)	11	0x13000DCE	5	0x340001ae	data only
+0x4800088F	X-Ray Vision	Atomic Poison Ivy	11	0x1300178F	5	0x340001ae	data only
+0x48000A8C	X-Ray Vision	Blue Beetle	11	0x1300246A	5	0x340001ae	data only
+0x48000854	X-Ray Vision	Gaslight Catwoman	11	0x1300178E	5	0x340001ae	data only
+0x48000D42	X-Ray Vision	Nightmare Robin	11	0x1300270F	5	0x340001ae	data only

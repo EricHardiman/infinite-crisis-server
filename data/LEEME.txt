@@ -1,0 +1,1 @@
+Pon aquí champions.json (del proyecto anterior, carpeta _server) si no está en <juego>\_server.

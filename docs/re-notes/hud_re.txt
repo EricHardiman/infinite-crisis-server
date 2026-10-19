@@ -1,0 +1,105 @@
+HUD skill bar RE notes (2026-10-16, static, untouched exe + patcher.py PATCHES applied in memory)
+Addresses are VA unless "rva" (= VA-0x400000, tracer). .text file offset = VA-0x400C00 (checked: 0x61C7E4 -> VA 0xa1d3e4).
+.rdata file = VA-0x401C00, .data file = VA-0x401E00.
+
+== IDs: the patcher/doc labels of two GM_Advancement dispatchers are SWAPPED ==
+.data 0x1867114 = 0x1000006A = Query_Advancement__InqCanRankSkill_ID (AS2 getter returns 268435562)
+.data 0x1867110 = 0x10000063 = Query_Advancement__InqSkillRank_ID   (268435555)
+dispatcher 0x90e580 (id 0x1000006A) = InqCanRankSkill(agent,slot,&eError): Flash native 0x924500 (call 0x9245bf) + HUD loop 0xa7c8b1
+dispatcher 0x90e840 (id 0x10000063) = InqSkillRank(agent,slot,&iRank): only Flash native 0x924b00 (call 0x924bca)
+=> cave A (0x9e7924) serves InqCanRankSkill (Flash "+" AttemptToRankUpSkill, QuerySkillRankability, HUD loop) - correct use.
+=> cave E1/E2 (0xb2f7e4 / 0xb1f968) serve InqSkillRank (Flash SkillsPanel.QuerySkillRanks -> m_aRankForSkill -> SetCurrentRank).
+   E2 writes 0 for slots whose 0x100006C1 nibble is 0, else the out stays 0xE7F (= FPU CW|0xC00 left in [ebp+0xc] by the
+   native's arg conversion at 0x924b39) -> Flash rank 0 (grey) or 3711.
+
+== Flash grey state (gameplay.skills2.SkillControl, as2_lib.txt ~465536) ==
+IsSkillButtonDisabled = !viewMatch && (m_bTemporarilyDisabled || (slot != Bonus && !(m_iRank > 0)))
+ m_bTemporarilyDisabled = !bEnable of RecvNotice_EnableSkillButton (only caller C++ 0xa230c0 -> 0x8a0ca0)
+ m_iRank via SetCurrentRank from: (a) RecvNotice_UI_SkillUpdate i_iRank (HUD loop: a6de10 -> GetSkillRank 0x863ce0),
+   (b) SkillsPanel.UpdateSkillRankDisplay with m_aRankForSkill from QuerySkillRanks (InqSkillRank -> cave E) - called in
+   SetupForAgent, OnSkillPointsAdded/Changed, after RankSkill. Last writer wins.
+ Extra overlay: OnSecondaryVitalChange: m_mcNotEnoughVitalOverlay visible if fCost>0 && vital<fCost (vital from
+   GM_Vitals.InqVital at setup + RecvNotice_UI_NotifyVitalChange, C++ sender 0x8a12c0 called at 0xab2153).
+ bSkillCanBeActivated only feeds the tooltip / m_bPassiveSkill (passive look). Not the grey.
+GetSkillRank(agent,slot) 0x863ce0: slot := skill prop 0x10000A16 if present; slot 0 -> 0x860440 (false unless the slot-0
+  skill was overridden) -> array 0x100000AF[0]; 1..5 -> 0x100000AF[slot] (elements kind 0x10); else champion Level 0x10000167.
+  => basic attack rank = 0x100000AF[0]; server sends [0]=0, and no array at all before Q is learned -> slot 0 always grey.
+
+== EnableSkillButton conditions (table [0x1b75928+slot*4] -> {entries(0x18 each, +0 key), cap, count}) ==
+Filled ONLY by server event 0x20A0 (factory 0x880480, exec 0x8bc4a0 -> 0xa6dd10 / 0xa5dbc0, reader 0x8401e0):
+  u8 hdr(0xb0d380) | u32 slot (-2 = all) | u32 ErrorType key | 16 bytes data (0x962ad0) | u8 add(1)/remove(0).
+Keys are ErrorTypes. 0xa1d380 check: 0x1000003B Silenced -> blocks unless slot 0/5 or slot in exempt list
+  [[0xa12d50()+0x90]+0x48] (data +0x60,count +0x68, 0x861480); 0x10000050 Rooted / 0x1000006B Crippled -> blocks iff the skill
+  has bool 0x100007FD (movement skill; Batman E has it =1); any other key -> always blocks (NotUsable 0x66, InvalidTarget 0x3C,
+  NoCharges 0x45, NoValidTargets 0x59, PathBlocked 0x34 ... also read by CanActivate via 0xa235f0).
+Our server never sends 0x20A0 -> table empty -> EnableSkillButton(slot,1) always. Patch 0x61C7E4 is a no-op in practice.
+
+== D / F input path ==
+keymap actions: InputAction_SecondarySkill1 0x10000088 / SmartCast 0x100000B5 / SmartSelfCast 0x1000008B -> slot 7;
+  SecondarySkill2 0x10000087 / 0x100000B6 / 0x1000008A -> slot 8 (map 0xa16f20). Handler 0xa8a8e0 case 0xa8a94d (same as Q).
+ 1 0x85ed00(champ,&slot): champion prop 0x10000B1D blocked-slot list (not sent -> pass)
+ 2 0xa85da0(champ,slot,smart,0,..): 0x85d1f0 slot prop 0x100008F0/F1 present (0x58b1c0) else silently nothing
+ 3 0xa0e500 cast mode; 0x8709e0 CanActivate -> ErrorType:
+   0x10000B4D(skill bool) or can-act 0x9cfaf0 (else 0x54 UserNotAlive); 0x10000B1D (0x66); table 0x66/0x3C;
+   slot!=0,6: GetSkillRank>0 else 0x53 NotRanked (slots 7/8 -> Level, ok); cooldown 0x86ecf0 unless skill bool 0x10000BC3 (0x33);
+   cost: unless exempt/0x10000A6A: fCost cache [0x1b75968+slot*4] (written by HUD loop 0xa7c87d) vs vital (0x55);
+   table 0x45/0x59/0x34; status tags via 0x974940: stunned 0x51, rooted 0x50 / crippled 0x6B (if 0x100007FD), silenced 0x3B;
+   mutex 0x56. Proceeds on 0, 0x56, 0x51(+0x861880).
+ 4 targeting type = slot-collection prop 0x1000003D (0x85f6f0); 0 -> nothing happens (switch default 0xa869c8 / 0xa75d75).
+   Batman: slot0 9, Q/E/R 13, W 1. Camera base 0x48000523: 1 (ground position at cursor). Super Strength base 0x480003CB: 14
+   (target entity: picked under cursor, validated by 0x9d01d0, else self-fallback if [0x1b7591c]).
+ 5 normal press -> aim mode 0xa26420; left click -> 0xa8c190 -> 0x85f880 -> 0xa75d20 -> T1: 0xa70600 / T14: 0xa761a0 ->
+   0xa70030(cmd 2, ability = slot, target, pos) -> 0x48b030 sends 0x20EE. Smart-cast press goes straight (0xa86642 / 0xa8651f).
+
+== "+" on D/F ==
+HUD loop 0xa7c640: per dirty slot, [ebp-0x18]=0 at 0xa7c886, then rank query at 0xa7c8b1 (cave A). Dispatcher has no handler
+and writes nothing; cave A only handles slots 0-6 -> slots 7/8 keep 0 = None_ErrorType -> m_aCanRankSkill=true -> "+".
+Flash hides it only via bNeverRankable, set in SkillsPanel.SetupForAgent for Secondary1/2/Bonus ONLY if those slots are in
+GM_Character.InqCharacterSkills' aSkillSlots at setup time (D/F get their skill later from the server -> not set).
+Other writer: QuerySkillRankability (InqCanRankSkill native -> cave A too). So fixing cave A covers both.
+
+== Proposed exe patches (verified by disassembling hud_re/patched_test.exe) ==
+P1 cave A: file 0x5E6D61 (VA 0x9e7961)  7705e96cf01400 -> 9090e999f01400   (all local-champion slots -> stub)
+P2 stub in cave B tail: file 0x735E01 (VA 0xb36a01) 24x CC ->
+   837d1006 0f86c9ffffff 8b4d14 c70122000010 89f05e5dc3   (slot<=6 -> cave B; else *out = 0x10000022 NotHighEnoughLevel)
+P3 E2 = real rank: file 0x71ED68 (VA 0xb1f968) 51 bytes (patcher's E2) ->
+   8b8800010000 3b4d08 751d 8b8804010000 3b4d0c 7512 ff7510 50 e85943d4ff 83c408 8b4d14 8901 90 89f05e5dc3 + 6x CC
+   (local champion: *iRank = GetSkillRank(champ,slot))
+P4 cave D2 also marks slot 8: file 0xFAA3B8 52 bytes (orig = patcher's 45 + 7 CC) ->
+   e800000000593b91433f960074218991433f9600c781eba97c0001010101c781efa97c0001010101c681f3a97c0001e954166dff
+
+== 2026-10-16 (2) run2 (fase3-ff): Q/W/E dull, D/F no icon + "6", F sends nothing ==
+Helpers: hud_re/da.sh <hexVA> <n> (full.asm slice); hud_re/g3/ = game dir with rp/0xa00000b3 (+37/38), hud_re/g3.toml
+ (e2e.toml + tutorial.props_file=run2/props.txt) -> skilldata.stolen_power() rebuilds exactly what we sent.
+
+-- HUD SkillUpdate data path (local champion): HUD loop 0xa7c640 -> 0xa6de10 -> 0x85d1c0(champ,slot) = slot prop
+   (table 0x15eda28: 7=0x100008F0, 8=0x100008F1) -> 0xa5dc90 -> 0xa18720(collection) reads TOP-LEVEL keys of the slot
+   collection: 0x100001C0 name(0E), 0x10000302 icon(15) -> didIcon, 0x100006B2 bool(16), 0x10000706 damage type(08),
+   0x100004AF/0x100004B9 texts; 0xa53000 walks stat list 0x100004B4 -> 0xa52740: stat type 0x100004B6==3 = COST
+   (fCost written at 0xa52d6d, abs value), ==0xF = cooldown. Rank = 0x863ce0 (slots 7/8 -> Level 0x10000167 = "6").
+   Our D/F collections have the same flat layout as Batman's Q (0x100008E8 in 0xa0000122 rec 0x48000615), icon
+   0x13001791 / 0x13001D4E at top level -> the C++ side is fine.
+-- Batman stat type 3 (cost): Q b7=-40 d2=-10, W -50/-5, E -75/-10, R NONE, basic/passive none. => dull = exactly the
+   skills with a cost => SkillControl.m_mcNotEnoughVitalOverlay (OnSecondaryVitalChange: fCost>0 && vital<fCost).
+   Overlay is only re-evaluated on SkillsPanel.SetupForAgent (vital = GM_Vitals.InqVital(agent, InqSecondaryVitalType
+   or Health)) and on RecvNotice_UI_NotifyVitalChange (C++ sender 0x8a12c0 from 0xab2153, every index on every 0x42,
+   only if byte [vitals+0x64] and type != 3); NOT when RefreshTooltip changes fCost. SetupForAgent ran at link (17:05)
+   before the first 0x42 (17:16.8) -> vital 0. That the 0x42s did not clear it means the notice did not reach Flash
+   (check [ecx+0x64] at 0xab213c) or carried 0. Vitals type->index: 0x96e620/0x96cb50 (2 -> 0, [vit+0x1c] -> 1).
+   Server fix: send champion 0x42 right after the champion create (before the player link) and again after every
+   champion bundle that changes ranks/skills. No champion property feeds Flash's value (it is the vitals component).
+-- D/F no icon: SkillsPanel.SetupForAgent InitData()s only slots in GM_Character.InqCharacterSkills.aSkillSlots
+   (query wrapper 0x9116f0, handler vtbl+0x1c at 0x911779). D/F got their collection later -> never InitData'd ->
+   m_btnSkillButton undefined (RefreshTooltip's SetIcon goes nowhere), m_wtSkillRank never hidden -> shows rank "6".
+   RecvNotice_UI_SkillUpdate InitData()s only the Bonus slot. Fix: have 0x100008F0/F1 in the FIRST champion bundle
+   (before the link -> SetupForAgent), or re-run SetupForAgent by toggling the player's controlled-agent link
+   (RecvEvent_ControlledAgentChanged: different IID -> CleanupAgent + SetupForAgent).
+-- F: type 14 (0x1000003D) -> 0xa75d20 jump table (0xa76304/0xa762ec: 1,16 -> 0xa75d56; 10 -> a75f0d; 11 -> a75d80;
+   13 -> a760db; 14 -> a761a0; others nothing). a761a0: target = picker 0xa376b0 (candidates within 7 m (0x1602f44 =
+   49 = r^2), each validated by 0x9d01d0); none + option byte [0x1b7591c]=0 -> error feedback 0x1b99d812, no order.
+   9d01d0 for the car: relation mask skill 0x10000448 (=7 ok); needs target bool 0x10000AA7 (16) != 0 (0x9cfac0) since the
+   skill lacks 0x100007A7; then target unit flags (component+0xa4 or prop 0x1000019D, kind 13) & 0x82 with skill mask
+   0x1000068D=0x82 -> accept, else target 0x100001C3 (08) != 0 + status tags 0x974940 + alive (0x96e9c0 == 4).
+   Our car carrier has none of these -> no candidate -> nothing sent.
+   Fix (simplest): send Super Strength with 0x1000003D = 1 (ground target, like the camera) -> 0x20EE cmd 2 ability 8 + pos;
+   alt: car props 0x10000AA7=1 (16) + 0x1000019D=0x80 (13).

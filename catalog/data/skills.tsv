@@ -1,0 +1,267 @@
+id	champion	slot	key	name	icon	targeting	script	stats	server_status	notes
+0x48000911:0	Aquaman	0	Basic	Basic Attack	0x1300197A	9	0x34000374	18=1	data only	
+0x48000911:1	Aquaman	1	Q	Trident of the King	0x13001979	13	0x34000394	22=1 5=50(+25/rank) 1=100(+50/rank) 3=-30(-15/rank) 15=6 18=11 30=13.5	data only	
+0x48000911:2	Aquaman	2	W	Stagger	0x13001975	14	0x34000396	5=45(+35/rank) 14=1.5 19=4 21=0.6 18=1.75 3=-55(-10/rank) 15=14	data only	
+0x48000911:3	Aquaman	3	E	Undertow	0x13001978	13	0x3400037A	5=30(+25/rank) 3=-40(-20/rank) 18=3 22=1 30=15 14=4 15=12(-1/rank)	data only	
+0x48000911:4	Aquaman	4	R	Might of Atlantis	0x13001977	5	0x34000397	5=60(+40/rank) 1=50(+25/rank) 12=0.175(+0.025/rank) 20=75(+50/rank) 14=4 15=30(-3/rank)	data only	
+0x48000911:5	Aquaman	5	Passive	Rising Tide	0x13001976		0x34000395	14=4 5=20(+15/rank) 8=10(+5/rank)	data only	
+0x4800076A:0	Arcane Green Lantern	0	Basic	Basic Attack	0x13001506	9	0x34000295	18=1	data only	
+0x4800076A:1	Arcane Green Lantern	1	Q	Construct Champion	0x13001504	13	0x34000293	22=2 5=60(+35/rank) 3=-65(-10/rank) 14=1.25 18=8.5 30=7.5 15=13(-1/rank)	data only	
+0x4800076A:2	Arcane Green Lantern	2	W	Shackles	0x13001503	7	0x34000294	18=3.25 17=5.25 15=15 14=3 9=-0.25(-0.05/rank) 19=0.8(+0.15/rank) 3=-70(-5/rank)	data only	
+0x4800076A:3	Arcane Green Lantern	3	E	Emerald Lantern	0x130014FE	1	0x34000290	5=50(+40/rank) 18=2.5 17=5 30=11 23=6 15=9 12=3 3=-30(-10/rank)	data only	
+0x4800076A:4	Arcane Green Lantern	4	R	Deny the Black	0x13001502	14	0x34000291	14=5 19=1.5 21=5 18=60 17=45 12=4500 10=250(+125/rank) 15=165(-15/rank)	data only	
+0x4800076A:5	Arcane Green Lantern	5	Passive	Emerald Light	0x13001505		0x34000292	42=10(+5/rank) 8=30(+10/rank) 14=3 19=4 18=5 15=8	data only	
+0x48000EA8:0	Arcane Supergirl	0	Basic	Basic Attack	0x13002A6B	9	0x3400054A	18=5.2 44=0.065 30=18	data only	
+0x48000EA8:1	Arcane Supergirl	1	Q	Breath of Rao	0x13002A9E	13	0x3400054E	5=70(+40/rank) 18=9 17=14 30=12 4=20 14=1.25 12=0.3 15=9(-1/rank) 3=-60(-15/rank) 22=2	data only	
+0x48000EA8:2	Arcane Supergirl	2	W	Firewall	0x13002A6C	1	0x3400054C	5=25.7143(+20/rank) 1=90(+70/rank) 22=6 23=6 18=1 17=1 14=3.5 19=0.1 21=0.3 9=-0.2(-0.05/rank) 3=-25(-5/rank) 15=13 12=2	data only	
+0x48000EA8:3	Arcane Supergirl	3	E	Pyrolyze	0x13002A6D	13	0x3400054B	5=80(+40/rank) 14=1 19=0.3 30=15 22=1 18=9 15=8 3=-75(-25/rank)	data only	
+0x48000EA8:4	Arcane Supergirl	4	R	Rao's Wrath	0x13002A6E	1	0x3400054D	5=100(+25/rank) 32=3 18=2 23=18 30=23 14=6 19=0.3 15=75	data only	
+0x48000EA8:5	Arcane Supergirl	5	Passive	Daughter of Rao	0x13002A6F		0x34000550	5=40(+35/rank) 14=4 19=4 15=6	data only	
+0x480007A2:0	Atomic Green Lantern	0	Basic	Basic Attack	0x1300165D	9	0x340002B6	18=1	data only	
+0x480007A2:1	Atomic Green Lantern	1	Q	Grab	0x1300165C	13	0x340002B5	5=60(+40/rank) 22=1 14=0.35 3=-75(-5/rank) 15=16(-2/rank) 18=7 30=16	data only	
+0x480007A2:2	Atomic Green Lantern	2	W	Scorched Earth	0x13001662	1	0x340002B2	5=40(+25/rank) 14=1.5 1=40(+25/rank) 18=1.75 23=2 3=-35(-5/rank) 15=6.5(-0.5/rank)	data only	
+0x480007A2:3	Atomic Green Lantern	3	E	Shards of Will	0x13001663	7	0x340002B1	5=1 14=5 10=50(+25/rank) 12=0.2 22=0.05 2=0.5 3=-40(-10/rank) 18=5.5 15=10	data only	
+0x480007A2:4	Atomic Green Lantern	4	R	Meltdown	0x13001661	14	0x340002B4	5=30(+15/rank) 17=2.25 18=6 23=4 14=6 30=4 33=15 4=5 19=1 21=6 15=120	data only	
+0x480007A2:5	Atomic Green Lantern	5	Passive	Radiation Sickness	0x1300165B		0x340002B3	14=6 1=40(+40/rank) 9=-0.4 19=3 12=4 15=4	data only	
+0x48000D37:0	Atomic Joker	0	Basic	Basic Attack	0x130024D1	9	0x340004DF	18=5.25 44=0.03 30=18	data only	
+0x48000D37:1	Atomic Joker	1	Q	Hot Potato	0x130024D0	14	0x340004DD	5=0.5(+0.1/rank) 1=1.25(+0.15/rank) 20=0.5(+0.1/rank) 12=1.25(+0.15/rank) 18=5.25 17=4 22=1 24=170 30=17 3=-20(-5/rank) 15=7	data only	
+0x48000D37:2	Atomic Joker	2	W	Plutonium Peel	0x130024CD	1	0x340004DC	23=6 18=0.6 22=1.2 14=25(+5/rank) 19=0.75 21=3 30=1.2 32=3 12=3 31=20(-2/rank) 15=1 3=-35	data only	
+0x48000D37:3	Atomic Joker	3	E	Acid Balloon	0x130024CE	1	0x340004DB	5=50(+20/rank) 1=10(+10/rank) 23=9 18=1.5 14=4 19=0.5 15=9 3=-35(-10/rank)	data only	
+0x48000D37:4	Atomic Joker	4	R	Jack in the Box	0x130024CF	7	0x340004DA	5=60(+30/rank) 1=240(+120/rank) 18=6.5 30=12 12=0.06(+0.03/rank) 15=120(-10/rank) 14=1 19=8 33=2 32=4	data only	
+0x48000D37:5	Atomic Joker	5	Passive	The Punch Line	0x130024CC		0x340004DE	5=25(+20/rank) 1=200(+160/rank) 18=2.5 14=5.36 19=0.67 21=2 4=5.5	data only	
+0x48000883:0	Atomic Poison Ivy	0	Basic	Basic Attack	0x130018AE	9	0x34000352	18=1	data only	
+0x48000883:1	Atomic Poison Ivy	1	Q	Poisoned Earth	0x130018AF	7	0x34000354	5=40(+30/rank) 12=0.5 3=-25(-5/rank) 15=4(-0.3333/rank) 18=2.5	data only	
+0x48000883:2	Atomic Poison Ivy	2	W	Bramble Rapture	0x130018B0	14	0x34000353	5=50(+50/rank) 18=3.75 14=1.25 19=1.5 3=-70(-10/rank) 15=18(-1/rank) 4=0.2 30=10	data only	
+0x48000883:3	Atomic Poison Ivy	3	E	Wall of Thorns	0x130018B1	1	0x34000356	5=70(+40/rank) 9=-0.4(-0.1/rank) 22=7 33=700 3=-45(-5/rank) 23=7 18=1 14=3 19=3 21=3 4=1 15=15 12=0.675	data only	
+0x48000883:4	Atomic Poison Ivy	4	R	Secrets of the Forest	0x130018B4	7	0x34000355	18=4.5 14=10 12=10(+10/rank) 15=90(-10/rank)	data only	
+0x48000883:5	Atomic Poison Ivy	5	Passive	Toxic Growth	0x130018B2		0x34000357	10=60(+55/rank) 14=10 19=5	data only	
+0x480006D4:0	Atomic Wonder Woman	0	Basic	Basic Attack	0x13001307	9	0x34000257	12=0.11 18=1.25	data only	
+0x480006D4:1	Atomic Wonder Woman	1	Q	Vault	0x13001304	1	0x34000256	5=50(+30/rank) 18=1.75 23=6 15=18(-1/rank) 14=4	data only	
+0x480006D4:2	Atomic Wonder Woman	2	W	Smite	0x13001305	5	0x34000255	5=30(+25/rank) 1=40(+30/rank) 15=8(-1/rank) 14=4.5 18=0.5	data only	
+0x480006D4:3	Atomic Wonder Woman	3	E	Savage Sweep	0x13001303	13	0x34000254	5=40(+30/rank) 1=20(+15/rank) 9=-0.15(-0.1/rank) 15=10(-1/rank) 18=3.2 17=0.75 24=90 14=2 19=2	data only	
+0x480006D4:4	Atomic Wonder Woman	4	R	Reclaimer	0x13001302	14	0x34000253	5=175(+70/rank) 18=40 15=145(-10/rank) 14=12	data only	
+0x480006D4:5	Atomic Wonder Woman	5	Passive	Rev	0x13001306		0x34000265	1=-0.25(-0.25/rank) 14=6 12=2	data only	
+0x48000D01:0	Atrocitus	0	Basic	Basic Attack	0x1300245E	9	0x340004CC	18=1 12=0.11	data only	
+0x48000D01:1	Atrocitus	1	Q	Crimson Slash	0x13002482	5	0x340004CD	5=30(+20/rank) 14=5 19=2 21=0.8 9=-0.3(-0.0333/rank) 18=1.75 17=0.5 15=8(-1/rank)	data only	
+0x48000D01:2	Atrocitus	2	W	Come At Me	0x13002483	7	0x340004CE	23=4.5 14=4 19=4 5=2(+1/rank) 1=0.5(+0.3/rank) 21=0.5 12=0.1 15=12	data only	
+0x48000D01:3	Atrocitus	3	E	Overwhelming Rage	0x13002484	14	0x340004CF	5=65(+35/rank) 15=15 18=3.75 30=12 14=0.65(+0.15/rank) 19=0.3 12=-0.75	data only	
+0x48000D01:4	Atrocitus	4	R	Plasma Wave	0x13002485	13	0x340004D0	5=200(+70/rank) 18=6.5 24=60 15=120 14=6 12=20 1=0.15	data only	
+0x48000D01:5	Atrocitus	5	Passive	Red Lantern's Rage	0x13002486		0x340004D1	39=5 40=2.5 12=-2.5 14=10 3=-50 5=30(+10/rank) 18=2.5 15=5(-1/rank)	data only	
+0x480005C9:0	Batman	0	Basic	Basic Attack	0x130012B2	9	0x34000178	18=1	data only	
+0x480005C9:1	Batman	1	Q	Batarang	0x130012B1	13	0x34000244	5=40(+40/rank) 1=30(+30/rank) 18=7 9=-0.6 14=2 30=16 22=1 3=-40 15=6 19=6 12=20	data only	
+0x480005C9:2	Batman	2	W	Martial Arts	0x130012AE	14	0x34000243	3=-25 18=4.5 5=45(+25/rank) 32=2 31=15(-2/rank) 12=25 15=0.5 14=-5	data only	
+0x480005C9:3	Batman	3	E	Cape Sweep	0x130012B0	7	0x34000242	5=50(+35/rank) 18=3 14=4 27=-0.15(-0.05/rank) 19=4 15=9 3=-35	data only	
+0x480005C9:4	Batman	4	R	The Dark Knight	0x130012AD	7	0x34000248	14=2 19=1.5 21=6 5=100(+50/rank) 18=3 32=0.3 23=7 4=0.1(+0.0333/rank) 12=10 15=90	data only	
+0x480005C9:5	Batman	5	Passive	Watching, Waiting	0x130012AF		0x340002AE	38=0.05(+0.05/rank)	data only	
+0x48000A8B:0	Blue Beetle	0	Basic	Basic Attack	0x13001DC5	9	0x34000457	18=5.25 17=1 44=0.09 30=18	data only	
+0x48000A8B:1	Blue Beetle	1	Q	Energy Cannon	0x13001DDF	13	0x34000451	5=75(+45/rank) 1=50(+30/rank) 3=-40(-15/rank) 15=7 22=1 18=10 17=2.5 30=16.5	data only	
+0x48000A8B:2	Blue Beetle	2	W	Scarab Scanner	0x13001DE0	1	0x34000454	18=4.5 45=1.5 30=9 23=8 14=30 19=6 3=-30(-5/rank) 15=20(-4/rank)	data only	
+0x48000A8B:3	Blue Beetle	3	E	Stick And Move	0x13001DE2	13	0x34000455	5=25(+20/rank) 1=0.5 33=4 30=11.5 12=12 3=-70(-10/rank) 15=18(-2/rank) 22=1 23=5.75 18=4.75	data only	
+0x48000A8B:4	Blue Beetle	4	R	Infiltrator Mode	0x13001DE5	5	0x3400044F	15=3 4=0.2 12=1(+1/rank)	data only	
+0x48000A8B:5	Blue Beetle	5	Passive	Reach Directive: Disrupt	0x13001DE4		0x34000456	1=30(+20/rank) 15=12(-2/rank) 14=6	data only	
+0x4800072A:0	Catwoman	0	Basic	Basic Attack	0x13001467	9	0x34000279	18=1	data only	
+0x4800072A:1	Catwoman	1	Q	Whip Strike	0x13001464	14	0x34000276	5=70(+35/rank) 18=5.25 17=4.5 22=2.5 15=4 3=-30(-10/rank)	data only	
+0x4800072A:2	Catwoman	2	W	Cat's Paw	0x13001465	14	0x34000277	5=60(+40/rank) 18=4.5 19=2 9=-0.3(-0.05/rank) 3=-85(-20/rank) 15=12	data only	
+0x4800072A:3	Catwoman	3	E	Acrobat	0x1300146A	13	0x3400027B	18=3.5 22=1 14=5 12=0.25(+0.05/rank) 19=0.5(+0.1/rank) 3=-30(-5/rank) 15=8	data only	
+0x4800072A:4	Catwoman	4	R	Bad Kitty	0x13001468	5	0x3400027A	5=60(+30/rank) 19=3 1=40(+30/rank) 14=8 12=2 15=120	data only	
+0x4800072A:5	Catwoman	5	Passive	Cat Burglar	0x13001466		0x34000278	15=12(-2/rank) 3=5(+5/rank) 22=45	data only	
+0x480006A4:0	Cyborg	0	Basic	Basic Attack	0x1300124B	9	0x34000238	30=18 44=0.08 18=5.25	data only	
+0x480006A4:1	Cyborg	1	Q	Tracer Shot	0x13001249	13	0x34000236	5=50(+20/rank) 18=9 30=14 12=5(+10/rank) 15=8(-1/rank) 3=-35(-10/rank) 14=5 22=1	data only	
+0x480006A4:2	Cyborg	2	W	Charged Burst	0x13001248	7	0x34000235	5=45(+45/rank) 9=-0.35 1=-0.5 18=2.5 17=2.5 19=0.35 14=1 15=19(-1/rank) 3=-75(-10/rank)	data only	
+0x480006A4:3	Cyborg	3	E	Cascade	0x13001247	5	0x34000234	4=0.2 27=0.1(+0.1/rank) 14=2 19=5(+1/rank) 15=15 3=-75(-15/rank)	data only	
+0x480006A4:4	Cyborg	4	R	Plasma Cannon	0x13001246	13	0x34000233	5=200(+50/rank) 18=9.5 22=2.2 14=10 15=110(-10/rank)	data only	
+0x480006A4:5	Cyborg	5	Passive	Cybernetic Targeting	0x1300124A		0x34000237	12=4 5=0.02(+0.02/rank) 33=80(+80/rank)	data only	
+0x4800061B:0	Doomsday	0	Basic	Basic Attack	0x13000A0D	9	0x340000A9	18=1.25	data only	
+0x4800061B:1	Doomsday	1	Q	Pummeling Assault	0x13000A0F	1	0x340000DF	5=30(+15/rank) 18=1.75 23=2.25 19=0.75 15=9(-1/rank)	data only	
+0x4800061B:2	Doomsday	2	W	Berserk	0x13000C61	7	0x3400015D	38=10(+5/rank) 5=20(+10/rank) 1=80(+40/rank) 18=2.5 14=4 4=0.1 15=12	data only	
+0x4800061B:3	Doomsday	3	E	Charge	0x13000A10	14	0x340000E0	5=40(+30/rank) 1=60(+40/rank) 18=3.5 17=4 30=16 14=0.8 32=250 15=15(-2/rank)	data only	
+0x4800061B:4	Doomsday	4	R	Kryptonian Rage	0x13000A11	5	0x340000E1	12=7(+1/rank) 31=3.5(+0.5/rank) 7=0.1(+0.05/rank) 13=0.1(+0.02/rank) 15=2 3=-100	data only	
+0x4800061B:5	Doomsday	5	Passive	Revenge	0x13000DC1		0x340000E6	8=10(+5/rank) 12=10(+10/rank) 33=300 14=15 32=300 5=0.03(+0.01/rank) 11=-0.03(-0.01/rank)	data only	
+0x48000670:0	Flash	0	Basic	Basic Attack	0x13001135	9	0x3400021A	18=1	data only	
+0x48000670:1	Flash	1	Q	Flash Attack	0x13001134	1	0x3400021B	5=60(+35/rank) 3=-25(-15/rank) 30=17 15=9 23=6.5 22=1 12=0.4 2=2.5	data only	
+0x48000670:2	Flash	2	W	F=MA	0x13001133	5	0x34000219	5=20(+10/rank) 4=3.5 14=3 19=4 21=0.25 3=-75(-25/rank) 15=10(-1/rank)	data only	
+0x48000670:3	Flash	3	E	Hyper Vibration	0x13001132	5	0x34000218	14=3(+1/rank) 9=-0.2 19=2 42=5(+5/rank) 3=-60(-10/rank) 15=13(-1/rank)	data only	
+0x48000670:4	Flash	4	R	Speed Storm	0x13001130	7	0x34000217	5=40(+30/rank) 1=60(+40/rank) 18=4.5 15=120 14=2 19=0.5 21=1	data only	
+0x48000670:5	Flash	5	Passive	Speed Force	0x13001131		0x34000216	14=2.5 4=0.025(+0.01/rank) 12=5 39=0.001	data only	
+0x48000615:0	Gaslight Batman	0	Basic	Basic Attack	0x13000372	9	0x34000037	30=18 44=0.08 18=5.35	implemented	Alternating right/left shots, shot VFX 0x10000188 / 0x10000189. Rank = element 0 of property 0x100000AF.
+0x48000615:1	Gaslight Batman	1	Q	Sonic Batarang	0x13000374	13	0x3400003B	5=60(+25/rank) 18=9 30=14 17=4 22=1.25 2=1(+1/rank) 15=5 3=-40(-10/rank)	implemented	Ricochets to the nearest enemy (2 bounces). Cost stat type 3: 40 base.
+0x48000615:2	Gaslight Batman	2	W	Sonic Shell	0x13000377	1	0x3400003A	5=70(+40/rank) 18=2 23=8.5 30=10 15=8 3=-50(-5/rank)	implemented	Area blast at the cursor. Cost 50 base.
+0x48000615:3	Gaslight Batman	3	E	Bat Flight	0x13000373	13	0x34000038	5=40(+40/rank) 22=1.1 18=7.5 30=12 15=20(-2/rank) 3=-75(-10/rank)	implemented	Leap to the cursor. Cost 75 base. Movement skill (0x100007FD).
+0x48000615:4	Gaslight Batman	4	R	Bat Scream	0x13000375	13	0x34000039	5=225(+125/rank) 18=230 30=15 22=3 15=110(-10/rank)	implemented	60 m line through walls. The tutorial uses a 10 s cooldown.
+0x48000615:5	Gaslight Batman	5	Passive	Echoes	0x13000DC2		0x34000048	27=0.1 14=2.5 12=2(+1/rank) 5=0.1(+0.05/rank) 1=0.1(+0.05/rank)	shown only	
+0x48000627:0	Gaslight Catwoman	0	Basic	Basic Attack	0x13000CF1	9	0x3400018E	18=1	data only	
+0x48000627:1	Gaslight Catwoman	1	Q	Steampowered Claws	0x13000CF2	13	0x340001B7	5=50(+35/rank) 18=6.5 30=13.5 15=11 3=-55(-20/rank) 14=1 19=5 22=0.75	data only	
+0x48000627:2	Gaslight Catwoman	2	W	Shred	0x13001895	14	0x3400034C	5=10(+10/rank) 1=0.02(+0.02/rank) 15=12(-2/rank) 12=0.5 3=-35(-20/rank) 18=1.6 33=280	data only	
+0x48000627:3	Gaslight Catwoman	3	E	Blood Hunt	0x13000CF4	7	0x340001C6	15=25(-3/rank) 14=2.5 12=0.5 5=40(+20/rank) 3=-80(-10/rank) 4=0.3 18=25	data only	
+0x48000627:4	Gaslight Catwoman	4	R	Predator's Grace	0x13000CF5	14	0x340001CE	5=125(+75/rank) 1=0.5 18=4 15=30(-2/rank) 12=0.5	data only	
+0x48000627:5	Gaslight Catwoman	5	Passive	Sharpened Claws	0x13000D8A			5=30(+30/rank) 14=5	data only	
+0x48000652:0	Gaslight Joker	0	Basic	Basic Attack	0x1300102E	9	0x34000200	12=0.11 18=1	data only	
+0x48000652:1	Gaslight Joker	1	Q	Fetid Cleaver	0x1300102F	5	0x34000205	5=40(+20/rank) 8=0.02(+0.01/rank) 15=5 14=5 18=0.5	data only	
+0x48000652:2	Gaslight Joker	2	W	Ham Toss	0x13001030	1	0x3400020A	5=50(+45/rank) 18=2 30=14 23=9 14=3 19=0.7(+0.2/rank) 15=12 3=-30(-10/rank)	data only	
+0x48000652:3	Gaslight Joker	3	E	Snack Time!	0x13001031	5	0x34000202	14=1 19=2 15=17(-2/rank) 3=-45 4=0.2(+0.1/rank)	data only	
+0x48000652:4	Gaslight Joker	4	R	Rat Swarm	0x13001032	7	0x34000201	5=30(+20/rank) 1=-0.3 9=-0.15 12=-22(-14/rank) 3=-36(-24/rank) 18=3 15=3	data only	
+0x48000652:5	Gaslight Joker	5	Passive	Blood Money	0x13001033		0x34000203	8=15(+15/rank) 12=3(+3/rank) 19=90(+90/rank) 14=5 15=10	data only	
+0x48000A27:0	Green Arrow	0	Basic	Basic Attack	0x13001CBC	9	0x34000411	18=5.25 44=0.03 30=18	data only	
+0x48000A27:1	Green Arrow	1	Q	Superfoam Arrows	0x13001CBD	13	0x3400040E	9=-0.1(-0.05/rank) 15=14(-2/rank) 14=2 4=0.1 3=-70(-10/rank) 30=12 18=4 19=2 22=1 21=4	data only	
+0x48000A27:2	Green Arrow	2	W	Ballistic Arrows	0x13001CBE	5	0x3400040D	15=7 5=10(+20/rank) 43=3(+3/rank) 14=4 3=-25(-5/rank)	data only	
+0x48000A27:3	Green Arrow	3	E	Thermite Arrows	0x13001CBF	5	0x34000410	5=40(+35/rank) 1=20(+30/rank) 3=-25(-5/rank) 15=7 18=1.5 17=1.5 14=3 19=4	data only	
+0x48000A27:4	Green Arrow	4	R	Bullseye	0x13001CC0	13	0x3400040C	5=65(+45/rank) 1=85(+75/rank) 15=16 18=7 17=13.5 14=2 19=4 9=-0.15 30=16.5 22=1	data only	
+0x48000A27:5	Green Arrow	5	Passive	Adaptable Ammo	0x13001CC1		0x34000412	14=2 27=0.04(+0.04/rank) 19=1(+0.5/rank)	data only	
+0x4800062E:0	Green Lantern	0	Basic	Basic Attack	0x13000F34	9	0x340001E7	30=18 44=0.08 18=5.25	data only	
+0x4800062E:1	Green Lantern	1	Q	Slam	0x13000F35	14	0x340001E6	5=60(+40/rank) 1=10(+10/rank) 18=5.25 15=8(-1/rank) 3=-40(-25/rank)	data only	
+0x4800062E:2	Green Lantern	2	W	Constrict	0x13000F36	14	0x340001E4	5=50(+25/rank) 18=5.25 14=1(+0.5/rank) 19=-1.5 15=14 3=-70(-40/rank) 9=-0.7	data only	
+0x4800062E:3	Green Lantern	3	E	Missile Barrage	0x13000F37	13	0x340001E3	22=1 5=30(+15/rank) 18=8 17=1.5 30=15 15=16(-2/rank) 3=-70(-20/rank) 14=3 19=5 12=-6	data only	
+0x4800062E:4	Green Lantern	4	R	Green Lantern's Light	0x13000F38	1	0x340001E2	5=175(+125/rank) 18=3.5 17=1.75 14=1 23=6 15=120(-5/rank)	data only	
+0x4800062E:5	Green Lantern	5	Passive	Indomitable Will	0x13000F39		0x340001E5	5=0.07(+0.01/rank) 12=0.005(+0.005/rank) 32=0.05(+0.01/rank) 4=-1 15=12	data only	
+0x48000871:0	Harley Quinn	0	Basic	Basic Attack	0x13001839	9	0x34000343	30=18 44=0.065 18=5	data only	
+0x48000871:1	Harley Quinn	1	Q	Pies!	0x1300183A	7	0x34000342	5=50(+40/rank) 18=6.5 30=14 15=9(-1/rank) 3=-25(-10/rank) 33=3	data only	
+0x48000871:2	Harley Quinn	2	W	Back Off	0x1300183B	14	0x34000341	18=2.5 17=4 5=80(+45/rank) 15=16 14=0.33 19=0.75 21=1.5 9=-0.25 32=100 3=-65(-5/rank)	data only	
+0x48000871:3	Harley Quinn	3	E	Best Medicine	0x1300183C	14	0x3400033F	18=6 8=40(+30/rank) 15=10 3=-60(-30/rank)	data only	
+0x48000871:4	Harley Quinn	4	R	Puddin' Time!	0x1300183D	13	0x3400033E	5=175(+50/rank) 14=1 19=6 18=7 24=55 15=120(-10/rank)	data only	
+0x48000871:5	Harley Quinn	5	Passive	BFFs	0x1300183E	7	0x34000340	14=3 18=6 4=0.1(+0.025/rank) 32=333 27=0.1(+0.025/rank)	data only	
+0x48000EEA:0	Hawkgirl	0	Basic	Basic Attack	0x13002B22	9	0x34000579	18=1 12=0.11	data only	
+0x48000EEA:1	Hawkgirl	1	Q	Mace Throw	0x13002B23	13	0x34000574	22=0.75 5=60(+35/rank) 1=30(+17.5/rank) 20=30(+15/rank) 3=-25(-5/rank) 15=8 18=8.5 17=15 30=16 14=5 19=0.2	data only	
+0x48000EEA:2	Hawkgirl	2	W	Soar	0x13002B24	5	0x34000575	4=0.15(+0.05/rank) 14=5 3=-40(-5/rank) 15=18(-1/rank)	data only	
+0x48000EEA:3	Hawkgirl	3	E	Haymaker	0x13002B25	5	0x34000576	5=40(+10/rank) 20=0.02 12=225 3=-35(-5/rank) 15=6 18=2.25 17=0.5 14=5	data only	
+0x48000EEA:4	Hawkgirl	4	R	Howling Eye	0x13002B26	14	0x34000577	5=175(+55/rank) 1=50(+25/rank) 8=40(+10/rank) 15=120(-10/rank) 14=1 19=0.5 23=3.5 18=1.5 17=3	data only	
+0x48000EEA:5	Hawkgirl	5	Passive	Thrill of Battle	0x13002B43		0x34000578	40=4(+2/rank) 14=5 33=4	data only	
+0x48000F6B:0	Katana	0	Basic	Basic Attack	0x13002CA2	9	0x340005BB	18=1 12=0.11	data only	
+0x48000F6B:1	Katana	1	Q	Slash	0x13002CA3	13	0x340005B8	5=50(+35/rank) 24=150 18=2.25 15=3.5	data only	
+0x48000F6B:2	Katana	2	W	Cross Step	0x13002CA4	13	0x340005B7	18=1.5 22=1 14=4 30=14 5=6(+3/rank) 14=5 19=3 15=3.5	data only	
+0x48000F6B:3	Katana	3	E	Kendo	0x13002CA5	5	0x340005BA	5=60(+40/rank) 1=40(+35/rank) 32=10(+10/rank) 38=0.02 7=1 33=6 12=0.5(+0.5/rank) 19=1.5 7=1 20=10(+5/rank) 9=-0.35 21=12 15=8	data only	
+0x48000F6B:4	Katana	4	R	Thousand Cuts	0x13002CA6	14	0x340005B6	5=160(+100/rank) 1=0.75 18=2.75 17=5.5 22=40 14=0.468 19=0.1 30=16 12=2 32=5 15=140	data only	
+0x48000F6B:5	Katana	5	Passive	Soultaker	0x13002CA7		0x340005B9	38=2.5(+2.5/rank) 8=0.02(+0.01/rank) 14=0.5	data only	
+0x48000FCF:0	Krypto	0	Basic	Basic Attack	0x13002DA2	9	0x340005F5	18=1	data only	
+0x48000FCF:1	Krypto	1	Q	Fetch!	0x13002DA3	1	0x340005EE	5=65(+45/rank) 23=7.5 18=16 22=1.6 17=20 30=22 27=14 9=-0.3(-0.05/rank) 14=3 19=5 3=-35(-15/rank) 15=12(-1/rank)	data only	
+0x48000FCF:2	Krypto	2	W	Man's Best Friend	0x13002DA6	14	0x340005F2	10=50(+50/rank) 14=3 30=20 22=1 18=4 17=7 3=-45(-35/rank) 15=16(-1/rank)	data only	
+0x48000FCF:3	Krypto	3	E	On The Hunt	0x13002DA4	7	0x340005F0	27=-0.15(-0.05/rank) 18=5 14=5 3=-85(-10/rank) 15=18(-1/rank)	data only	
+0x48000FCF:4	Krypto	4	R	Piercing Howl	0x13002DA5	13	0x340005F1	5=150(+75/rank) 18=8 22=4 30=8 15=100	data only	
+0x48000FCF:5	Krypto	5	Passive	Vigilance	0x13002DA7		0x340005EF	5=10(+5/rank) 10=0.25(+0.05/rank) 1=50(+40/rank) 14=3 21=0.5(+0.25/rank)	data only	
+0x48000F5F:0	Lex Luthor	0	Basic	Basic Attack	0x13002C81	9	0x340005AD	18=5.15 30=18 44=0.12	data only	
+0x48000F5F:1	Lex Luthor	1	Q	LexCorp Sentry	0x13002C80	1	0x340005AB	5=20(+15/rank) 1=30(+20/rank) 32=3 33=3 14=16 19=0.85 21=0.2 12=3 31=12 23=5.5 18=4.5 3=-30(-10/rank) 9=-0.2 15=1.25	data only	
+0x48000F5F:2	Lex Luthor	2	W	Tactical Disruption	0x13002C7F	1	0x340005A9	5=60(+40/rank) 14=3 21=1 18=1.25 23=7 30=10 4=20 9=-0.2 3=-75(-25/rank) 15=12 19=1 12=3	data only	
+0x48000F5F:3	Lex Luthor	3	E	Critical Mass	0x13002C7E	13	0x340007CB	18=7 5=50(+50/rank) 1=30(+20/rank) 17=2.5 30=14 15=8 3=-50(-20/rank) 12=3 22=1	data only	
+0x48000F5F:4	Lex Luthor	4	R	Orbital Remediation	0x13002C7D	16	0x340005A8	1=175(+120/rank) 23=60 18=11 22=3 30=14 14=1 15=120	data only	
+0x48000F5F:5	Lex Luthor	5	Passive	Neural Networking	0x13002C7C		0x340005AC	5=20(+10/rank) 14=5 18=7	data only	
+0x480009F7:0	Mecha Superman	0	Basic	Basic Attack	0x13001C46	9	0x340003ED	18=1.3	data only	
+0x480009F7:1	Mecha Superman	1	Q	Drill Attack	0x13001C4B	13	0x340003F0	5=60(+55/rank) 3=-40(-10/rank) 14=1(+0.2/rank) 19=0.2 17=2.5 18=4.5 22=1.5 15=8	data only	
+0x480009F7:2	Mecha Superman	2	W	Sunstone Eruption	0x13001C51	1	0x340003EF	5=55(+40/rank) 3=-30(-5/rank) 14=1 19=0.5 17=2.5 18=1.75 23=6 15=12(-2/rank)	data only	
+0x480009F7:3	Mecha Superman	3	E	Fissure	0x13001C4A	1	0x340003F1	23=8 18=1 22=5 14=2(+0.3333/rank) 3=-85(-5/rank) 15=22(-2/rank)	data only	
+0x480009F7:4	Mecha Superman	4	R	Terraformer	0x13001C48	7	0x340003F2	5=60(+20/rank) 1=360(+120/rank) 14=6 19=1 18=4 15=120(-10/rank)	data only	
+0x480009F7:5	Mecha Superman	5	Passive	Agent of Hope	0x13001C4C		0x340003E6	14=5 19=10 18=4 42=5(+5/rank) 40=5(+5/rank) 8=2(+1/rank)	data only	
+0x480007C1:0	Mecha Wonder Woman	0	Basic	Basic Attack	0x13001698	9	0x340002CC	30=18 44=0.07 18=5.35	data only	
+0x480007C1:1	Mecha Wonder Woman	1	Q	Glaive Storm	0x13001696	13	0x340002CB	5=10(+20/rank) 18=10 30=14 15=8(-1/rank) 3=-50(-5/rank) 22=0.75	data only	
+0x480007C1:2	Mecha Wonder Woman	2	W	Afterburn	0x13001699	1	0x340002CA	5=30(+30/rank) 1=90(+90/rank) 30=14 23=6.5 3=-85(-10/rank) 15=20(-2/rank) 14=3	data only	
+0x480007C1:3	Mecha Wonder Woman	3	E	Celerity	0x13001697	5	0x340002C9	15=16 12=0.2(+0.1/rank) 14=4 19=1 32=3 3=-60(-15/rank)	data only	
+0x480007C1:4	Mecha Wonder Woman	4	R	Tempest	0x13001694	13	0x340002C8	5=150(+65/rank) 1=300(+130/rank) 18=9.5 24=45 15=120 14=2	data only	
+0x480007C1:5	Mecha Wonder Woman	5	Passive	Implacable Judgement	0x13001695		0x340002C7	5=10(+10/rank) 14=3 12=3	data only	
+0x4800060B:0	Nightmare Batman	0	Basic	Basic Attack	0x130000B5	9	0x340000C8	12=0.11 18=1	data only	
+0x4800060B:1	Nightmare Batman	1	Q	Silver Batarang	0x130000B7	13	0x340000C4	5=50(+25/rank) 18=7.5 30=12.6 9=-0.2 14=1 22=1 15=5 3=-50(+5/rank)	data only	
+0x4800060B:2	Nightmare Batman	2	W	Bat Swarm	0x130000B8	5	0x340000C5	5=-15(-10/rank) 18=2.5 17=0.5 19=2 21=4 12=0.5 32=4 15=10 3=-30	data only	
+0x4800060B:3	Nightmare Batman	3	E	Savagery	0x130000B6	5	0x340000C9	5=0.2(+0.05/rank) 14=3 21=1 12=8 4=0.15 32=100 19=5 15=22(-2/rank) 3=-30	data only	
+0x4800060B:4	Nightmare Batman	4	R	Feral Embrace	0x130000B9	14	0x340000C6	20=75(+35/rank) 5=75(+35/rank) 1=150(+70/rank) 12=0.3 18=2.5 15=120	data only	
+0x4800060B:5	Nightmare Batman	5	Passive	Eternal Hunger	0x13000DBD		0x340000C7	12=4(+1/rank) 1=2(+0.5/rank) 32=3 14=4	data only	
+0x48000CE0:0	Nightmare Robin	0	Basic	Basic Attack	0x1300239C	9	0x340004B9	12=0.11 18=1	data only	
+0x48000CE0:1	Nightmare Robin	1	Q	Arcing Blades	0x130023A6	1	0x340004B7	5=40(+25/rank) 23=8 12=20 30=13 22=0.75 14=1 18=0.35 45=0.5 3=15 15=12(-1/rank)	data only	
+0x48000CE0:2	Nightmare Robin	2	W	Impale	0x130023A5	5	0x340004B6	5=40(+15/rank) 14=3 11=-0.5 19=5 3=15 18=0.5 15=8(-1/rank)	data only	
+0x48000CE0:3	Nightmare Robin	3	E	Unnatural Reflexes	0x130023A2	14	0x340004B5	18=4.5 27=0.2(+0.05/rank) 12=0.4(+0.1/rank) 14=3 3=15 15=17(-1/rank)	data only	
+0x48000CE0:4	Nightmare Robin	4	R	Feed the Beast	0x130023A4	14	0x340004B4	5=175(+75/rank) 1=0.1(+0.05/rank) 3=10 8=0.1 18=3 30=16 3=30 15=90	data only	
+0x48000CE0:5	Nightmare Robin	5	Passive	The Hunger	0x130023A3		0x340004B8	3=-10 14=12 12=0.04(+0.02/rank) 20=0.05(+0.05/rank) 4=0.1(+0.05/rank) 32=10(+5/rank)	data only	
+0x48000A3A:0	Nightmare Superman	0	Basic	Basic Attack	0x13001D21	9	0x3400041F	18=5.25 44=0.08 30=18	data only	
+0x48000A3A:1	Nightmare Superman	1	Q	Phantom Collector	0x13001D26	1	0x3400041B	5=60(+40/rank) 23=9.25 18=3 22=1 30=14 14=0.425 19=5 21=5 39=-4(-2/rank) 40=2(+1/rank) 32=333 3=-25(-10/rank) 15=5	data only	
+0x48000A3A:2	Nightmare Superman	2	W	Vortex	0x13001D22	1	0x3400041A	5=30(+20/rank) 1=60(+40/rank) 23=6.5 30=12 12=2 20=200 18=2 14=3 19=0.5 9=-0.2 32=100 3=-55(-10/rank) 15=15(-1/rank) 4=0.25	data only	
+0x48000A3A:3	Nightmare Superman	3	E	Siphon/Infuse	0x13001D23	14	0x3400041D	5=60(+50/rank) 9=30(+25/rank) 10=60(+50/rank) 1=30(+25/rank) 3=-70(-15/rank) 15=12 18=5.5 17=6.5 14=3	data only	
+0x48000A3A:4	Nightmare Superman	4	R	Condemn	0x13001D24	14	0x3400041E	9=-0.5 12=0.08(+0.01/rank) 32=100 14=1.5(+0.25/rank) 15=120(-10/rank) 19=2 23=4 18=4.5	data only	
+0x48000A3A:5	Nightmare Superman	5	Passive	Possession	0x13001D25		0x3400041C	15=180 12=0.3(+0.05/rank) 32=150 14=6 40=-15(-10/rank) 42=-15(-10/rank)	data only	
+0x48000618:0	Poison Ivy	0	Basic	Basic Attack	0x13000783	9	0x3400009D	30=18 44=0.075 18=5	data only	
+0x48000618:1	Poison Ivy	1	Q	Root Strike	0x1300077F	1	0x34000095	5=50(+50/rank) 18=2 23=9 30=9 14=0.8(+0.2/rank) 3=-35(-5/rank) 15=14(-2/rank)	data only	
+0x48000618:2	Poison Ivy	2	W	Blow Kiss	0x13000782	14	0x34000099	5=60(+50/rank) 18=5 14=1.5(+0.25/rank) 3=-45(-15/rank) 15=14(-2/rank)	data only	
+0x48000618:3	Poison Ivy	3	E	Thorn Shield	0x13000C5A	14	0x34000158	10=55(+45/rank) 18=6 14=3 9=-0.2 19=1(+0.25/rank) 3=-65(-15/rank) 15=10	data only	
+0x48000618:4	Poison Ivy	4	R	Deadly Flora	0x13000781	1	0x34000097	5=50(+25/rank) 1=250(+125/rank) 15=120 18=3.5 23=5 14=5 9=-0.3 32=100	data only	
+0x48000618:5	Poison Ivy	5	Passive	Healthy Glow	0x13000DBF		0x34000098	12=4 18=3 14=4 8=17.5(+7/rank) 1=70(+28/rank)	data only	
+0x48000817:0	Robin	0	Basic	Basic Attack	0x13001744	9	0x3400030E	18=1	data only	
+0x48000817:1	Robin	1	Q	Vault Kick	0x13001745	1	0x3400030D	5=70(+45/rank) 3=-50(-20/rank) 15=13(-1/rank) 23=5.5 22=1 14=3 19=3 30=15	data only	
+0x48000817:2	Robin	2	W	Bo Master	0x13001746	5	0x3400030C	13=0.3 12=1 14=4 9=-0.075(-0.025/rank) 19=2 3=-65(-10/rank) 15=12(-1/rank)	data only	
+0x48000817:3	Robin	3	E	Dynamic Duo	0x13001747	14	0x3400030B	18=5 4=0.09(+0.01/rank) 12=0.04(+0.02/rank) 1=0.06(+0.03/rank) 14=5 2=0.25 3=-30(-10/rank) 15=12	data only	
+0x48000817:4	Robin	4	R	Emergent Leader	0x13001748	7	0x3400030A	5=175(+80/rank) 17=3 18=5 12=12(+6/rank) 14=8 19=2 21=3 15=120	data only	
+0x48000817:5	Robin	5	Passive	This Guy!	0x13001749		0x34000309	14=6 5=30(+15/rank) 12=15(+5/rank) 3=30(+15/rank) 15=12(-2/rank)	data only	
+0x48000641:0	Shazam	0	Basic	Basic Attack	0x13000F86	9	0x340001F6	18=1	data only	
+0x48000641:1	Shazam	1	Q	Mystic Power	0x13000F83	13	0x34000756	5=60(+45/rank) 1=30(+30/rank) 3=-40 15=10(-1/rank) 18=7 22=1 30=18 2=3 17=3	data only	
+0x48000641:2	Shazam	2	W	Mystic Defense	0x13000F84	5	0x34000757	42=15(+10/rank) 14=3 3=-35 15=8	data only	
+0x48000641:3	Shazam	3	E	Lightning Field	0x13000F85	7	0x340001F5	5=25(+15/rank) 1=75(+45/rank) 3=-35 18=3 14=3 15=4	data only	
+0x48000641:4	Shazam	4	R	SHAZAM!	0x13000F81	1	0x340001F8	5=200(+75/rank) 14=1 18=3 23=8 15=120	data only	
+0x48000641:5	Shazam	5	Passive	Power of Zeus	0x13000F82		0x340001FD	32=2 21=10 19=0.5(+0.25/rank) 12=1.25(+0.25/rank) 9=-0.4(-0.1/rank)	data only	
+0x48000AAC:0	Sinestro	0	Basic	Basic Attack	0x13001F74	9	0x3400046F	18=4.75 30=18 44=0.05	data only	
+0x48000AAC:1	Sinestro	1	Q	Saw-blade	0x13001F75	13	0x3400046C	5=60(+50/rank) 18=8.5 22=1 30=16 3=-40(-20/rank) 15=8(-1/rank)	data only	
+0x48000AAC:2	Sinestro	2	W	Dread Scythe	0x13001F76	13	0x3400046A	5=50(+40/rank) 24=50 18=5.5 3=-70(-15/rank) 15=8	data only	
+0x48000AAC:3	Sinestro	3	E	Cull the Weak	0x13001F96	1	0x3400046E	5=55(+45/rank) 23=5 18=2 30=20 12=55(+12.5/rank) 3=-80(-5/rank) 15=18(-1/rank)	data only	
+0x48000AAC:4	Sinestro	4	R	Fear Incarnate	0x13001F77	1	0x3400046B	1=75(+75/rank) 5=175(+75/rank) 12=15 14=1 19=0.5 30=3 23=9 18=2 22=1 15=120(-5/rank)	data only	
+0x48000AAC:5	Sinestro	5	Passive	Yellow Impurity	0x13001F78		0x3400046D	1=0.04(+0.02/rank) 33=320 19=1(+0.25/rank) 5=30(+30/rank) 14=4	data only	
+0x48001097:0	Solomon Grundy	0	Basic	Basic Attack	0x13002F6D	9	0x3400066C	18=1 30=15	data only	
+0x48001097:1	Solomon Grundy	1	Q	Clobber	0x13002F7D	13	0x34000666	5=55(+40/rank) 3=-30(-10/rank) 15=7 9=-0.15(-0.05/rank) 14=1.5 19=0.5 21=0.2 12=5.5 17=0.5 44=8 30=12 12=15 18=3.5 22=1	data only	
+0x48001097:2	Solomon Grundy	2	W	Crush	0x13002F7E	7	0x34000665	5=40(+30/rank) 3=-20(-10/rank) 15=6 18=2.5 14=0.5 19=1 12=0.25	data only	
+0x48001097:3	Solomon Grundy	3	E	The March	0x13002F7F	5	0x34000664	5=30(+25/rank) 3=-65(-10/rank) 15=18(-2/rank) 14=3 19=1 4=0.15 42=0.25 40=0.25 18=12	data only	
+0x48001097:4	Solomon Grundy	4	R	Buried on Sunday	0x13002F80	7	0x34000663	5=0.01(+0.01/rank) 14=7 19=3 18=1 8=0.004(+0.002/rank) 15=100(-10/rank)	data only	
+0x48001097:5	Solomon Grundy	5	Passive	Born on a Monday	0x13002F81		0x34000662	8=1 14=1.75 19=5(+1/rank)	data only	
+0x4800093B:0	Star Sapphire	0	Basic	Basic Attack	0x130019F4	9	0x34000390	30=18 44=0.08 18=5.25	data only	
+0x4800093B:1	Star Sapphire	1	Q	Crystal Bomb	0x130019F1	1	0x3400038D	5=40(+25/rank) 18=1.25 14=2 30=12 15=4.5(-0.5/rank) 3=-35(-10/rank) 23=8.5	data only	
+0x4800093B:2	Star Sapphire	2	W	Violet Harvest	0x130019EF	7	0x3400038A	1=0.04(+0.01/rank) 20=100 30=13.5 3=-80(-20/rank) 15=10 14=5 19=3 17=2.5 18=2.5 33=280	data only	
+0x4800093B:3	Star Sapphire	3	E	Bonds of Love	0x130019F2	13	0x3400038E	15=14 1=70(+30/rank) 14=4 18=7.5 30=15 27=13 4=14 23=5 12=4 19=0.75 3=-100(-5/rank) 22=1	data only	
+0x4800093B:4	Star Sapphire	4	R	Manifest	0x130019F0	7	0x3400038B	1=100(+50/rank) 18=3 15=120 14=25 19=1 43=60(+20/rank) 8=1000(+500/rank) 5=15(+15/rank)	data only	
+0x4800093B:5	Star Sapphire	5	Passive	Glimpse of the Predator	0x130019F3		0x3400038C	4=0.2 12=20 18=9.5 17=16 5=30(+40/rank)	data only	
+0x48000F02:0	Stargirl	0	Basic	Basic Attack	0x13002B33	9	0x3400056A	18=5.25 30=18 44=0.08	data only	
+0x48000F02:1	Stargirl	1	Q	Cosmic Blast	0x13002B34	13	0x3400056E	5=90(+60/rank) 18=9.5 22=0.9 3=-45(-15/rank) 15=9(-1/rank)	data only	
+0x48000F02:2	Stargirl	2	W	Shooting Stars	0x13002B35	14	0x3400056D	5=50(+30/rank) 1=25(+20/rank) 18=7 17=14 22=1 30=14 4=18 32=4 14=0.4 3=-60(-20/rank) 15=12(-1/rank)	data only	
+0x48000F02:3	Stargirl	3	E	Gravity Well	0x13002B36	1	0x3400056C	23=7.75 18=1.75 3=-85(-5/rank) 30=15 9=-0.35 5=0.1(+0.05/rank) 14=4 19=1.5 15=18(-2/rank)	data only	
+0x48000F02:4	Stargirl	4	R	Energy Conversion	0x13002B37	14	0x3400056B	5=200(+125/rank) 18=3 17=5.5 14=3 19=3 21=0.7 10=0.75 1=150(+93.75/rank) 15=120	data only	
+0x48000F02:5	Stargirl	5	Passive	Family Heirlooms	0x13002B38		0x3400056F	5=0.025(+0.025/rank) 14=5 18=0.15(+0.05/rank) 15=10	data only	
+0x48000E69:0	Starro	0	Basic	Basic Attack	0x13002927	9	0x3400052B	18=5.25 30=18 44=-0.01	data only	
+0x48000E69:1	Starro	1	Q	Star Shot	0x13002923	13	0x34000530	5=65(+40/rank) 1=25(+20/rank) 3=-30(-5/rank) 15=8.5(-0.5/rank) 18=10.5 30=9.5 22=2.2 17=0.4	data only	
+0x48000E69:2	Starro	2	W	Parasite	0x13002924	13	0x34000531	22=0.8 18=7 30=15.5 5=0.05 33=500 14=3 32=3 31=16(-2/rank) 19=120 21=5 17=10 8=125(+75/rank) 4=2.5 3=-30(-5/rank) 15=1.5 12=1	data only	
+0x48000E69:3	Starro	3	E	Telepathic Warlord	0x13002922	7	0x3400052E	5=60(+60/rank) 10=60(+35/rank) 4=0.2(+0.05/rank) 9=-0.2(-0.05/rank) 14=2.5 3=-45(-10/rank) 18=10 15=10	data only	
+0x48000E69:4	Starro	4	R	Mind Control	0x13002925	14	0x3400052D	14=2(+0.4/rank) 15=90 18=4.25	data only	
+0x48000E69:5	Starro	5	Passive	The Conqueror Comes	0x13002926		0x34000532	8=20(+10/rank) 7=0.05(+0.02/rank)	data only	
+0x48000B72:0	Supergirl	0	Basic	Basic Attack	0x130021BA	9	0x34000481	12=0.11 18=1	data only	
+0x48000B72:1	Supergirl	1	Q	Worldbreaker	0x130021B6	5	0x34000483	5=15(+15/rank) 24=60 18=5.5 17=0.5 12=1.75 14=4 15=9(-0.5/rank) 3=-30(-5/rank)	data only	
+0x48000B72:2	Supergirl	2	W	Bounding Strike	0x130021B8	13	0x3400047F	5=60(+40/rank) 18=5 22=1 30=12.5 14=0.75 15=18(-1.5/rank) 3=-60(-10/rank)	data only	
+0x48000B72:3	Supergirl	3	E	Determination	0x130021B5	5	0x34000482	10=60(+30/rank) 4=0.15(+0.05/rank) 14=3 19=4 12=0.4(+0.2/rank) 15=14 3=-40(-20/rank)	data only	
+0x48000B72:4	Supergirl	4	R	Comet	0x130021B9	14	0x34000480	5=175(+90/rank) 1=85(+45/rank) 18=3 17=6 4=20 30=16 14=1 19=1 15=90(-5/rank)	data only	
+0x48000B72:5	Supergirl	5	Passive	Solar Furnace	0x130021B7		0x3400047E	5=5(+5/rank) 32=100 27=0.035(+0.01/rank) 12=0.14(+0.04/rank) 33=4 14=2	data only	
+0x4800060E:0	Superman	0	Basic	Basic Attack	0x13000123	9	0x3400000C	18=1 12=0.11	data only	
+0x4800060E:1	Superman	1	Q	Kryptonian Might	0x13001BC1	5	0x340003D7	5=20(+15/rank) 31=8 3=-20(-5/rank) 15=1 32=2 18=0.5 14=5	data only	
+0x4800060E:2	Superman	2	W	Frost Breath	0x13001BC2	13	0x340000F7	5=40(+35/rank) 9=-0.3 32=100 18=4.5 17=2 24=60 15=12(-1/rank) 3=-50(-15/rank) 14=2 19=0.7	data only	
+0x4800060E:3	Superman	3	E	Heat Vision	0x13001BC3	14	0x340003D6	5=25(+20/rank) 1=50(+40/rank) 18=3 3=-60(-10/rank) 15=13 14=2.5 30=10 17=6	data only	
+0x4800060E:4	Superman	4	R	Speeding Bullet	0x13001BC4	14	0x340003D5	5=175(+100/rank) 1=80(+60/rank) 15=150(-10/rank) 30=25 18=40 17=4 14=1 19=10	data only	
+0x4800060E:5	Superman	5	Passive	Man of Steel	0x13001BC5		0x340000F8	10=15(+15/rank) 12=3 14=6 15=25(-2/rank)	data only	
+0x48000F1A:0	Swamp Thing	0	Basic	Basic Attack	0x13002BD4	9	0x3400057F	18=1 30=15	data only	
+0x48000F1A:1	Swamp Thing	1	Q	Vine Leash	0x13002BCF	13	0x34000582	5=40(+40/rank) 9=-0.2(-0.05/rank) 3=-20(-5/rank) 15=11(-1/rank) 22=1 18=7.5 17=9 14=3 19=3 21=0.5 12=1 30=13 4=0.1 32=0.2	data only	
+0x48000F1A:2	Swamp Thing	2	W	Husk	0x13002BD0	11	0x34000581	8=1 10=2 32=2 33=2 14=2 19=300 21=6 12=0.5 31=35(-5/rank) 23=60 17=3(+0.5/rank) 44=3 3=-80 15=60(-5/rank)	data only	
+0x48000F1A:3	Swamp Thing	3	E	Earth Strike	0x13002BD2	1	0x34000584	5=60(+50/rank) 14=1.5 19=0.65 33=1 21=0.4 17=2.5 18=2 12=0.5 23=7 9=-0.3(-0.05/rank) 3=-50(-10/rank) 15=12	data only	
+0x48000F1A:4	Swamp Thing	4	R	Warrior King	0x13002BD1	5	0x34000580	5=30(+10/rank) 8=200(+100/rank) 27=0.25(+0.05/rank) 14=10 15=120(-15/rank) 18=1.25 17=0.75	data only	
+0x48000F1A:5	Swamp Thing	5	Passive	Bio-regenerative Formula	0x13002BD3		0x34000583	12=0.08 8=0.75(+0.1/rank) 14=4 15=50(-5/rank)	data only	
+0x48000621:0	The Joker	0	Basic	Basic Attack	0x13000B0C	9	0x3400011C	30=18 44=0.065 18=5.25	data only	
+0x48000621:1	The Joker	1	Q	Mr. Punchy	0x13000B0A	13	0x3400010A	22=1.25 14=0.3 5=70(+50/rank) 18=10 30=14 15=6 3=-40(-15/rank)	data only	
+0x48000621:2	The Joker	2	W	Surprise!	0x13000B09	1	0x34000114	18=2.5 30=12 23=5 14=0.75 19=4 21=2 12=0.5 5=40(+30/rank) 20=30(+20/rank) 9=-0.2 3=-75(-25/rank) 15=16(-2/rank)	data only	
+0x48000621:3	The Joker	3	E	Vanish	0x13000B08	1	0x34000111	18=2.5 17=2.5 23=4 14=5 19=2 3=-100 15=22(-2/rank)	data only	
+0x48000621:4	The Joker	4	R	Last Laugh	0x13000B0B	1	0x3400011B	18=3.25 30=12 23=5.5 5=75(+35/rank) 1=50(+25/rank) 20=250(+125/rank) 14=0.5 19=5 21=1 17=3.25 15=120	data only	
+0x48000621:5	The Joker	5	Passive	Sadist	0x13000DC0		0x34000110	8=0.05(+0.025/rank) 12=1(+1/rank) 14=5(+1/rank) 18=10	data only	
+0x48000624:0	Wonder Woman	0	Basic	Basic Attack	0x13000C98	9	0x3400017E	18=1	data only	
+0x48000624:1	Wonder Woman	1	Q	Lasso Grab	0x13000C95	13	0x34000185	22=1 5=75(+50/rank) 3=-75(-5/rank) 14=1 18=9 30=16 15=16(-2/rank)	data only	
+0x48000624:2	Wonder Woman	2	W	Protection	0x13000C94	14	0x34000192	10=40(+25/rank) 18=4 17=12 15=12 3=-55(-10/rank) 14=4 12=-2	data only	
+0x48000624:3	Wonder Woman	3	E	Amazonian Prowess	0x13000C99	7	0x3400018C	5=50(+30/rank) 32=2 31=14(-2/rank) 15=1 3=-30(-5/rank) 18=2.25	data only	
+0x48000624:4	Wonder Woman	4	R	Blocking Bracers	0x13000C97	7	0x3400017D	14=1.5 19=0.3 5=40(+40/rank) 20=60(+60/rank) 1=80(+60/rank) 42=0.5 18=3.5 17=3.5 4=9 15=120	data only	
+0x48000624:5	Wonder Woman	5	Passive	Child of Olympus	0x13000C96		0x34000189	8=0.12(+0.04/rank) 15=120 14=10 12=0.25	data only	
+0x4800061E:0	Zatanna	0	Basic	Basic Attack	0x13000A5A	9	0x340000ED	30=18 44=0.075 18=5	data only	
+0x4800061E:1	Zatanna	1	Q	Skewer	0x13000A56	1	0x340000E9	5=50(+40/rank) 18=1.375 23=8.6 15=4(-0.5/rank) 3=-25(-5/rank)	data only	
+0x4800061E:2	Zatanna	2	W	Dash / Dazzle	0x13000A58	14	0x340000EC	4=0.3(+0.0333/rank) 32=100 18=6.5 9=-0.3(-0.0333/rank) 15=19(-2/rank) 3=-55(-5/rank) 14=3	data only	
+0x4800061E:3	Zatanna	3	E	Protect / Punish	0x13000A57	14	0x340000EB	10=60(+50/rank) 18=5 8=0.55 5=35(+35/rank) 11=0.5 15=10 3=-70(-10/rank) 14=2.5	data only	
+0x4800061E:4	Zatanna	4	R	Be a Rabbit	0x13000A59	14	0x340000EA	14=2(+0.25/rank) 18=4 5=0.1(+0.05/rank) 32=100 15=60	data only	
+0x4800061E:5	Zatanna	5	Passive	Stage Presence	0x13000DBC		0x34000107	12=0.1(+0.0333/rank) 32=200 40=5(+5/rank) 18=5	data only	
+0x48000808	(Stolen Power)	7	D	Gaslight Batman's Surveillance Camera	0x13001791	1	0x3400019D	18=10	implemented	Ground target (type 1). 3 charges in the tutorial.
+0x48000A3B	(Stolen Power)	8	F	Superman's Super Strength	0x13001D4E	14	0x34000164	12=6(+0.5/rank)	implemented	Lift and throw a car. Sent as ground target (type 1; the original is 14).
+0x480013E4:0	John Stewart	0	-	Basic attack					data only	Uses the generic basic attack (Batman's attack keys); his own basic attack script is 0x340007A6 (targeting 9).
+0x480013E4:1	John Stewart	1	Q	full_auto					implemented	Unreleased champion: placeholder numbers (40 damage +40/rank, 30 Will +10/rank). Server: 8 shots in 2 s at the first enemy within 11 m x 2 m along the aim; graph event Wildcard_QSkill.
+0x480013E4:2	John Stewart	2	W	claymore_mine					implemented	Server: mine at the aim (<= 9 m), arms in 1 s, lasts 30 s, full damage to enemies within 3.5 m; Wildcard_WSkill, Claymore_Phase_Stop when it goes off.
+0x480013E4:3	John Stewart	3	E	forward_base					implemented	Server: base at the aim (<= 6 m) for 12 s; inside 5 m John regains 12 health and 6 Will per second; Wildcard_ESkill, Forward_Base_Dismantle at the end.
+0x480013E4:4	John Stewart	4	R	omni_turret					implemented	Server: turret at the aim (<= 8 m) for 20 s, shoots the nearest enemy within 12 m every second for 35 % of the damage (Turret_<rank>_Fire); Wildcard_RSkill.
+0x480013E4:5	John Stewart	5	-	architects_will					data only	Passive; scriptlets Vfx_Jst_Architect_Start/Active/Stop.

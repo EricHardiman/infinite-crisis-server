@@ -1,0 +1,41 @@
+id	name	entity	server_status	notes
+0x10000079	Vfx_OnExplode	paddy wagons 0x2E00034D / 0x2E00034E; drones	implemented	The cars' own explosion (car_explode_keys) once they carry 0x7D2; also played on drones in the blast (blast_keys). Used by the intro cinematic 0x35000026 on both wagons and by 0x35000033 on Drone_01. Other name: AttackMove.
+0x100005B4	Vfx_Stp_Detonate_Matter_Explosion_Hit	drones in the car blast	sent	The Detonate Stolen Power's blast (blast_keys). Accepted by the drones but nothing showed (fase3-ee).
+0x100001A0	Vfx_Inf_Explode	drones in the car blast	sent	In blast_keys; the drones' table rejects it (0x80070057).
+0x10000173	Vfx_Bmg_Scream	Gaslight Batman	implemented	R, with 0x10000162 (R_CAST_KEYS). Other name: InductionChanneling.
+0x10000176	Vfx_Bmg_Scream_Stop	Gaslight Batman	implemented	End of R (R_STOP_KEYS). In the animation-graph name table the same number is SuperStrength_InitCarPickup.
+0x10000171	Vfx_Bmg_Batarang	Gaslight Batman	implemented	Q projectile, with 0x10000164 (BATARANG_CAST_KEYS).
+0x1000017B	Vfx_Bmg_Batarang_Stop	Gaslight Batman	implemented	End of Q after the last ricochet.
+0x10000177	Vfx_Bmg_Sonic_Shell	Gaslight Batman	implemented	W, with 0x10000163.
+0x10000178	Vfx_Bmg_Flight	Gaslight Batman	implemented	E, with 0x10000165 and 0x10000182.
+0x10000182	Vfx_Bmg_Flight_Active	Gaslight Batman	implemented	E while flying.
+0x1000016F	Vfx_Bmg_Flight_Stop	Gaslight Batman	implemented	E landing (E_STOP_KEYS).
+0x10000188	Vfx_Bmg_Basic_Ranged_Right	Gaslight Batman	implemented	Basic attack shot, right, with 0x10000195.
+0x10000189	Vfx_Bmg_Basic_Ranged_Left	Gaslight Batman	implemented	Basic attack shot, left, with 0x10000196.
+0x10000170	Vfx_Bmg_Basic_Stop	Gaslight Batman	implemented	Ends the pistol shot where it reaches the drone (shot_stop_keys, distance / 20 m/s); else it flew on through.
+0x10000187	Vfx_Bmg_Basic_Hit	Gaslight Batman (target in 0x108)	implemented	Shot impact (shot_hit_keys).
+0x1000017E	Vfx_Bmg_Crit	Gaslight Batman	data only	Critical effect; visible in the action tour, not used by combat yet.
+0x1000017C	Vfx_Bmg_Crit_Stop	Gaslight Batman	data only	
+0x10000181	Vfx_Bmg_Spawn	Gaslight Batman	off	Spawn effect; visible in the action tour (TOUR_CORE). With SpawnIdle / FX_Spawn on Batman at the tutorial start (fase3-gq..gw) the tester saw a rope going up from him (grapple spawn): not part of Tutorial 1, off since fase3-gx.
+0x10000223	VFX_CBT_Hit_Shared	drones, Batman, target drones	implemented	Shared hit effect: on drones hit by Batman (hit_keys, skills), on Batman hit by a drone (BATMAN_HIT_KEYS).
+0x10000032	Vfx_Spawn	drones; Destroyer	implemented	Teleport-in at 0.1 s (spawn_sequence); with CinematicCharacter_State01 when the Destroyer cinematic ends.
+0x10000033	Vfx_Fade_In	drones	implemented	Teleport-in at 0.9 s and 1.6 s. Other name: Destructible_State0.
+0x100000EC	Vfx_Min_Basic_Melee	drones	implemented	Drone swing effect, sent with 0x10000124 (DRONE_ATTACK_KEYS); alone it showed nothing.
+0x10000008	Vfx_Min_Basic_Melee_Active	drones	off	Rejected by the drones' table (diag 21:52).
+0x10000F80	Vfx_GuideArrow	Gaslight Batman (aimed at the guide ping)	sent	Arrows at Batman's feet (GUIDE_KEYS); accepted, nothing visible in variants A/B/C. Game guide script 0x1E00055B (AlertArrowScriptlet) plays it.
+0x10000F86	Vfx_GuideArrow_Ping	Gaslight Batman / guide ping	sent	Ground circle of the guide marker (AlertPingScriptlet); accepted, nothing visible. A player ping stands in.
+0x10000078	Vfx_OnInit	gate light wall 0x2E0010F4; paddy wagons (car_init_keys, 0.5 s after they appear)	sent	Gate key 1 (gate_keys); the wall stays white.
+0x1000034F	Object_Closed	gate light wall 0x2E0010F4	sent	Gate key 2.
+0x100000EB	Vfx_Active	gate light wall 0x2E0010F4	sent	Gate key 3. Was once taken for Combat_Special_Attack_2 (wrong name table) and sent with the Batarang.
+0x1000018E	Vfx_Startup	gate wall, meteor, crater, sphere, blast	sent	Gate key 4; first probe of METEOR_PROBE_KEYS / CRATER_KEYS / SPHERE_KEYS (rejected where the table is empty).
+0x10000347	Vfx_Spawn_Alt01	meteor, crater, sphere, blast	sent	Probe key.
+0x10000076	Vfx_Event1	meteor, crater, sphere, blast	sent	Probe key.
+0x10000999	Vfx_Status_Stun_Active	Gaslight Batman	data only	Tour: nothing visible alone.
+0x10000201	_Advancement_LevelUp	Gaslight Batman	data only	Level-up effect; tour: nothing visible alone.
+0x100009FB	Vfx_Item_Time_Anchor_Teleport_Active	Gaslight Batman	data only	Teleport; tour: nothing visible.
+0x100005D4	Vfx_Stp_Bend_Spacetime_Target_Active	Gaslight Batman	off	Tried as a carry state (RunScript_SuperStrength_Object_Active, the other name); it is a Stargirl effect and breaks the carry pose.
+0x3400053C	Map Ping effect (scriptlet DID)	guide ping property set 0x1D0007A9	off	Element 0x30E of property 0x8E; sent with a marker it crashed the client (rva 0x561d1): marker_vfx = [].
+0x34000600	Map Ping effect 2 (scriptlet DID)	guide ping property set 0x1D0007A9	off	Same list as 0x3400053C.
+0x10000016	Vfx_OnCollision	paddy wagons 0x2E00034D / 0x2E00034E	sent	Thrown car at impact, 0.2 s before Vfx_OnExplode (thrown-object script 0x34000167). Candidate for the missing fire and debris.
+0x1000087A	Vfx_OnThrown	paddy wagons	sent	0.3 s into the throw (thrown-object script 0x34000167).
+0x1000013E	Vfx_OnFire	objects run by script 0x3400015F	data only	The fire step of the destructible explosion script; the paddy wagons table (0x5, 0x10000079 only) does not list it.

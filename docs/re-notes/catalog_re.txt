@@ -1,0 +1,75 @@
+Artifacts / Amplifiers catalog RE (2026-10-16, static, local packs only)
+=========================================================================
+Scripts (scratchpad/catalog_re): load.py (string-table + record reader), build_tsv.py -> artifacts.tsv,
+augments.tsv, mods.tsv, stat_keys.tsv. Cached: en.pkl (English strings), b3_49.pkl (parsed 0x49 records).
+TSVs contain game texts (names/effects): keep private, do not commit.
+
+Everything lives in pack 0xA00000B3 (already local, also holds Stolen Powers).
+
+ID convention: lists name the 0x40 class DID; the data is in the 0x49 twin (same low 24 bits),
+record header "u32 did | u32 0 | u32 count | entries" (skilldata.read_record format).
+
+1. Catalog / list records (pack 0xA00000B3)
+   0x48000A49  key 0x1000099F (array) of 0x100009A0 (DID) -> 162 AUGMENTS (0x40000649..0x400006E8)
+   0x48000A4A  key 0x1000099F (array) of 0x100009A0 (DID) -> 172 MODS     (0x40000821..0x40000BEB)
+   Artifact Foundry configs: key 0x1000042C (array) of 0x10000693 (DID) = artifacts offered,
+               key 0x10000844 = filter categories (stat names, see stat_keys.tsv)
+       0x48000163 (228 artifacts), 0x48000EA9 / 0x48000EAA / 0x4800118B / 0x480007B0 (210 each)
+       referenced by property 0x1000081E from map/encounter records (per mode foundry). Union = 229
+       = every 0x49 record with key 0x10000372.
+   Neither 0x48000A49/A4A nor the foundry DIDs appear in the exe; who points at A49/A4A is unknown
+   (not referenced in any local pack) -> scanner should use the DIDs directly, fall back to scanning.
+
+2. Record layouts (value kinds from props.txt; all keys below parse with BUILTIN_KINDS+props.txt)
+ ARTIFACT (0x49 twin of a foundry list entry)
+   0x10000372 str  name (table 0x2B000097), "(n)" suffix = tier
+   0x10000825 str  description (0x2B000097)
+   0x10000436 DID  icon 0x13...
+   0x1000048A enum category 1 Attack 2 Defense 3 Power 4 Utility (= foundry filter group 0x10000843)
+   0x1000036C f32  build cost (credits);  0x1000045E f32 salvage value
+   0x10000698 DID  upgrade-from (previous tier's 0x40 class); absent for tier 1
+   0x10000684 arr  stat bonuses: 0x10000683{0x1000068B op (9 = add, 10 = add %), 0x1000068C table{statkey: f32}}
+   0x100004EA arr  passives/keywords: 0x100004EB{0x1000037D -> 0x48 effect record}
+   0x100008E1 DID  active ability record 0x48... (0x100008E5 skill block like Stolen Powers: 0x100001C0 name,
+                   0x10000302 icon, 0x100004AF texts, 0x100004B4 stats, 0x10000328 script)
+   0x10000845 arr  extra filter keys (0x10000839 stat key)
+   0x10000827 int 1..3 (unknown), 0x10000B5E bool, 0x1000036E str ("None"), 0x10000697/0x100008DC flags
+ AUGMENT (client item type 8: has 0x100009EF = true)
+   0x10000951 str  name "<b>{Brand} Augment</b> <br>Codename: X" (table 0x2B0000B4)
+   0x10000953 str  description (empty; tooltip built from stats)
+   0x10000956 enum brand 3 Kord, 4 S.T.A.R. Labs, 5 Lex Corp, 6 Queen, 7 Holt, 8 Wayne
+   0x10000950 arr  stats: 0x10000955{0x10000952 op 9/10, 0x10000958 stat key, 0x10000954 f32, 0x10000B23 1..3 (unknown)}
+ MOD (client item type 9: has 0x100009F0 = true)
+   0x1000097D str  name "<b>{Brand} Mod</b><br/>{Discounted|Enhanced|Empowered|...} {artifact}" (0x2B0000B7)
+   0x1000097C str  effect text (0x2B0000B7)
+   0x1000097B enum brand (same values as augments)
+   0x10000989 arr  per target artifact 0x10000987{0x1000098B artifact 0x40 DID, then one of:
+                   0x1000098C f32 credit discount | 0x10000986 op + 0x10000985 stat key + 0x10000984 f32 |
+                   0x10000988 keyword record 0x48 (+ 0x1000098A replaced keyword)}
+ Stat keys (from foundry 0x48000163 filters): see stat_keys.tsv. Health 0x10000426, Will 0x10000486,
+   Attack Damage 0x10000B76, Power Damage 0x10000B75, Attack Armor 0x10000B84, Power Armor 0x10000B7A,
+   Attack Speed 0x100006FE, Move Speed 0x100005E4, Health Regen 0x10000140, Will Regen 0x10000483,
+   Crit 0x10000B46/0x10000B80, CDR 0x10000B7B, Resilience 0x100004AA, Att Pen 0x10000B83/B7D,
+   Pow Pen 0x10000B7E/B82, Att Lifesteal 0x10000B7C, Pow Lifesteal 0x10000B7F, Credits 0x10000852.
+
+3. Item type function VA 0x86E830 (DID, class):
+   in collection manager (0xa1a040/0x85df40): flag ? 7 : 10;  class != [0x1B74A0C] -> 4;
+   record missing -> 0; has 0x10000AB9 -> 3; 0x100009EF true -> 8 (augment); 0x100009F0 true -> 9 (mod);
+   0x10000AB4 true -> 1; 0x10000AB3 true -> 2; 0x10000B38 == 1 -> 5, == 2 -> 6; else 0.
+   No DID ranges / lookup table. Artifacts are not ownables (in-match), so they have no type here.
+   Keys AB9/AB4/AB3/B38 do not occur in local packs (types 1,2,3,5,6 unknown: boosts/bundles/costumes?).
+
+4. Champion base stats (partial)
+   Character variant twin 0x49xxxxxx key 0x10000165 -> stat sheet 0x48 with the stat keys above
+   (e.g. 0xA0000257: drone sheet 0x480014B4 = AD 45, AS 0.59, Health 1500, MoveSpeed 3).
+   Gaslight Batman variant 0x49000086 (pack 0xA0000076) -> 0x10000165 = 0x4800092D (in 0xA00000B3), but that
+   sheet only has 0x10000934=1, 0x7EB=0xF, 0x10000CC8 (no value): real champion numbers probably in the champion
+   record/template (0x48000617 / 0x48000732, pack 0xA00000B8, not local). Unresolved.
+
+5. String tables: tools/skills.py tail_tables/parse_table is incomplete:
+   - each tail stream is chunked like the payload (0x20000 blocks, last 4 bytes trailer) starting at the stream
+     start; the tail start formula overshoots (b3: real 0x1AF0C00, computed 0x1AF1000) so it misses streams;
+   - a stream is ONE language holding MANY tables back to back (b3: 112 tables, 6490 strings); 4 streams =
+     English, French, German, Russian (in that order); the "lang" word is not the language;
+   - each UTF-16 part is padded to 4 bytes; streams can also embed non-0x2B records (images) between tables.
+   load.py tail_blobs()/parse_blob()/english() handle all of this (8547 English strings from local packs).

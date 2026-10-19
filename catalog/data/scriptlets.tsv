@@ -1,0 +1,401 @@
+id	probable_name	entity	used_by_server	notes
+0x10000162	Batman_Gaslight_The_Bat_Scream	Gaslight Batman	yes	R
+0x10000163	Batman_Gaslight_Sonic_Shell	Gaslight Batman	yes	W
+0x10000164	Batman_Gaslight_Sonic_Batarang	Gaslight Batman	yes	Q
+0x10000165	Batman_Gaslight_Bat_Flight	Gaslight Batman	yes	E
+0x1000016F	Vfx_Bmg_Flight_Stop	Gaslight Batman		
+0x10000170	Vfx_Bmg_Basic_Stop	Gaslight Batman		
+0x10000171	Vfx_Bmg_Batarang	Gaslight Batman		
+0x10000173	Vfx_Bmg_Scream	Gaslight Batman		
+0x10000176	Vfx_Bmg_Scream_Stop	Gaslight Batman		
+0x10000177	Vfx_Bmg_Sonic_Shell	Gaslight Batman		
+0x10000178	Vfx_Bmg_Flight	Gaslight Batman		
+0x1000017B	Vfx_Bmg_Batarang_Stop	Gaslight Batman		
+0x1000017C	Vfx_Bmg_Crit_Stop	Gaslight Batman	yes	critical shot VFX stop (crit_stop_keys)
+0x1000017E	Vfx_Bmg_Crit	Gaslight Batman	yes	critical shot VFX (crit_keys)
+0x10000181	Vfx_Bmg_Spawn	Gaslight Batman		
+0x10000182	Vfx_Bmg_Flight_Active	Gaslight Batman		
+0x10000188	Vfx_Bmg_Basic_Ranged_Right	Gaslight Batman	yes	basic shot VFX (right)
+0x10000189	Vfx_Bmg_Basic_Ranged_Left	Gaslight Batman	yes	basic shot VFX (left)
+0x100000EB	Combat_Special_Attack_2	Gaslight Batman		
+0x10000128	Combat_Basic_Attack	Gaslight Batman		
+0x100002FD	_Combat_GoToLocomotion	Gaslight Batman		
+0x100005B4	Basic_Attack_Range4	Gaslight Batman		
+0x100005B5	Basic_Attack_Range3	Gaslight Batman		
+0x10000622	Vfx_Cbt_Hit_Blood_Crit	Gaslight Batman		
+0x100000E9	CbtState_StrafeRight	Gaslight Batman		
+0x100001E3	_HFSM_BehaviorRaiseEventAction	Gaslight Batman		
+0x100001F3	Engagement_SideStep_Right	Gaslight Batman		
+0x10000209	_HFSM_TargetHitAction_PhysicalReaction	Gaslight Batman		
+0x10000218	RunScript_Vfx_Death_A	Gaslight Batman		
+0x1000032A	RunScript_ArcGreenLantern_Lantern_Knockup_Back	Gaslight Batman		
+0x100003AF	CbtState_DisableHit	Gaslight Batman		
+0x100005B6	CbtState_ChainSwingActive	Gaslight Batman		
+0x10000843	_CDefeatSystem_DeathOverlay	Gaslight Batman		
+0x10000999	Vfx_Status_Stun_Active	Gaslight Batman		
+0x10000CDE	Vfx_Ssr_Bonds_Knockback	Gaslight Batman		
+0x10000D61	CbtState_Aggro	Gaslight Batman		
+0x10000D62	CbtState_Aggro_Active	Gaslight Batman		
+0x10000119	FX_Spawn	Gaslight Batman		
+0x10000183	SpawnIdle	Gaslight Batman		
+0x100001E4	_Selection_SoftSelection_Valid	Gaslight Batman		
+0x100001E6	_Selection_SoftSelection_Invalid	Gaslight Batman		
+0x100001E8	_Player_OnAgentControlledByPlayer	Gaslight Batman		
+0x100001F9	_Defeat_StartupIncapacitated	Gaslight Batman		
+0x100001FA	_Defeat_OnDead	Gaslight Batman		
+0x100001FB	_Defeat_OnIncapacitated	Gaslight Batman		
+0x100001FC	_Defeat_OnRespawn	Gaslight Batman		
+0x100001FD	_Defeat_OnRevive	Gaslight Batman		
+0x100001FE	_Defeat_OnFade	Gaslight Batman		
+0x100001FF	_Team_SetTeamIndicator	Gaslight Batman		
+0x10000200	_Encounter_OnAgentControlledByPlayer	Gaslight Batman		
+0x10000201	_Advancement_LevelUp	Gaslight Batman		
+0x1000065D	_Advancement_UltimateUnlocked	Gaslight Batman		
+0x10000764	Vfx_Cbt_Tgt_Mark_Player_Retreat_Stop	Gaslight Batman		
+0x10000765	Vfx_Cbt_Tgt_Mark_Player_Retreat_Active	Gaslight Batman		
+0x10000766	Vfx_Cbt_Tgt_Mark_Player_Alert_Stop	Gaslight Batman		
+0x10000767	Vfx_Cbt_Tgt_Mark_Player_Alert_Active	Gaslight Batman		
+0x10000809	_Entity_OnSwap	Gaslight Batman		
+0x100009FB	Vfx_Item_Time_Anchor_Teleport_Active	Gaslight Batman		
+0x100009FC	Vfx_Item_Bleed_Tunnel_Teleport_Active	Gaslight Batman		
+0x100001D2	Emote_Taunt_Stop	Gaslight Batman		
+0x100001D3	Emote_Laugh_Start	Gaslight Batman		
+0x100001F2	Emote_Abort	Gaslight Batman		
+0x1000020E	Fidget_D	Gaslight Batman		
+0x1000020F	Fidget_C	Gaslight Batman		
+0x10000210	Fidget_B	Gaslight Batman		
+0x10000211	Fidget_A_Transition	Gaslight Batman		
+0x10000214	Fidget_E	Gaslight Batman		
+0x10000216	RunScript_Vfx_Fidget_A	Gaslight Batman		
+0x10000217	RunScript_Vfx_Fidget_B	Gaslight Batman		
+0x10000223	Fidget_F	Gaslight Batman		
+0x10000320	Fidgets_Disable	Gaslight Batman		
+0x10000321	Fidgets_Enable	Gaslight Batman		
+0x10000432	Vfx_Jkr_Last_Laugh_Active	Gaslight Batman		
+0x100004BA	RunScript_Vfx_Fidget_B_Melee	Gaslight Batman		
+0x100004BD	RunScript_Vfx_Fidget_A_Ranged	Gaslight Batman		
+0x100004C4	Fidget__F	Gaslight Batman		
+0x100004D3	Vfx_Status_Taunt_Active	Gaslight Batman		
+0x100004D6	StopScript_Vfx_Fidget_C_Melee	Gaslight Batman		
+0x100004DB	Vfx_Status_Taunt_Stop	Gaslight Batman		
+0x10000555	Vfx_Status_Taunt_Hit	Gaslight Batman		
+0x1000058C	Vfx_WW_Blocking_Bracers_Taunt_Stop	Gaslight Batman		
+0x100005E2	Cloth_Idle	Gaslight Batman		
+0x10000641	Vfx_Chr_Emote_Dance	Gaslight Batman		
+0x10000643	Vfx_Chr_Emote_Joke	Gaslight Batman		
+0x1000115E	Emote_Oath_Start	Gaslight Batman		
+0x10000195	Footstep_Right_Walk	Gaslight Batman	yes	basic attack (right)
+0x10000196	Footstep_Left_Walk	Gaslight Batman	yes	basic attack (left)
+0x10000198	Footstep_Left_Sprint	Gaslight Batman		
+0x10000329	RunScript_ArcGreenLantern_Lantern_Recover_Facedown	Gaslight Batman		
+0x1000033F	Footstep_Alt_Back	Gaslight Batman		
+0x10000490	RunScript_Vfx_GetUp	Gaslight Batman		
+0x100004CC	RunScript_Vfx_Blu_RubbleThrow	Gaslight Batman		
+0x100004DD	RunScript_MovingActive	Gaslight Batman		
+0x1000058E	RunScript_Vfx_Kta_Show_Blade	Gaslight Batman		
+0x100001B1	Vfx_Status_Fire_Stop	Gaslight Batman		
+0x100001B2	Vfx_Status_Fire_Active	Gaslight Batman		
+0x100001B3	Vfx_Status_Fire_Hit	Gaslight Batman		
+0x1000020D	Vfx_Status_Buff_Monster_Yellow	Gaslight Batman		
+0x10000212	Vfx_Status_Buff_Monster_Red	Gaslight Batman		
+0x10000213	Vfx_Status_Buff_Monster_Blue_Stop	Gaslight Batman		
+0x10000215	Vfx_Status_Buff_Monster_Purple_Stop	Gaslight Batman		
+0x10000291	Vfx_Status_Heal_Stop	Gaslight Batman		
+0x10000292	Vfx_Status_Heal_Active	Gaslight Batman		
+0x10000293	Vfx_Status_Heal_Hit	Gaslight Batman		
+0x10000343	Vfx_Status_Haste_Active	Gaslight Batman		
+0x100003CC	Vfx_Status_Slow_Active	Gaslight Batman		
+0x100003CD	Vfx_Status_Slow_Stop	Gaslight Batman		
+0x100003D5	Vfx_Status_Poison_Stop	Gaslight Batman		
+0x100003D6	Vfx_Status_Poison_Hit	Gaslight Batman		
+0x100003D7	Vfx_Status_Poison_Active	Gaslight Batman		
+0x100004B6	Vfx_Ivy_Thorn_Shield_Stop	Gaslight Batman		
+0x100004C3	Vfx_Status_Target_Retreat_Stop	Gaslight Batman		
+0x100004D1	Husk_Take_Root	Gaslight Batman		
+0x100004E0	Vfx_Status_Fear_Stop	Gaslight Batman		
+0x10000517	Vfx_Status_Target_Friend_Stop	Gaslight Batman		
+0x10000518	Vfx_Status_Target_Friend_Active	Gaslight Batman		
+0x10000519	Vfx_Status_Target_Friend_Hit	Gaslight Batman		
+0x100005A4	Vfx_Status_Silence_Active	Gaslight Batman		
+0x1000061C	Vfx_Status_Bleed_Stop	Gaslight Batman		
+0x1000061E	Vfx_Status_Bleed_Active	Gaslight Batman		
+0x10000648	Vfx_Status_Stealth_Active	Gaslight Batman		
+0x100006AD	Vfx_Status_Supercharge_Hit	Gaslight Batman		
+0x100006B0	Vfx_Status_Target_Retreat_Friend_Stop	Gaslight Batman		
+0x100006B1	Vfx_Status_Target_Retreat_Friend_Active	Gaslight Batman		
+0x100006B7	Vfx_Status_Slow_Hit	Gaslight Batman		
+0x100006B8	Vfx_Status_Freeze_Active	Gaslight Batman		
+0x100006B9	Vfx_Status_Freeze_Stop	Gaslight Batman		
+0x100006BA	Vfx_Status_Haste_Hit	Gaslight Batman		
+0x100006BB	Vfx_Status_Freeze_Hit	Gaslight Batman		
+0x1000076C	Vfx_Glt_Missiles_Debuff_3_Active	Gaslight Batman		
+0x1000076D	Vfx_Glt_Missiles_Debuff_2_Active	Gaslight Batman		
+0x1000076E	Vfx_Glt_Missiles_Debuff_1_Active	Gaslight Batman		
+0x10000803	Vfx_Bat_Batarang_Debuff_Active	Gaslight Batman		
+0x1000080F	Vfx_Bat_Dark_Knight_DeBuff_Active	Gaslight Batman		
+0x10000838	Vfx_Ivy_Healthy_Glow_Active	Gaslight Batman		
+0x10000851	Vfx_Arc_Glt_Rooted_Target_Active	Gaslight Batman		
+0x1000086C	Vfx_Arc_Glt_Shield_Aura_Active	Gaslight Batman		
+0x10000913	Vfx_Rbn_EmergentLeader_Buff_Active	Gaslight Batman		
+0x10000917	Vfx_Rbn_ThisGuy_Debuff_Active	Gaslight Batman		
+0x1000093F	Vfx_Status_Reveal_Active	Gaslight Batman		
+0x1000097E	Vfx_Atm_Ivy_Toxic_Growth_Debuff_Active	Gaslight Batman		
+0x1000098E	Vfx_Atm_Ivy_Poison_Tgt_Active	Gaslight Batman		
+0x100009B5	Vfx_Arc_Glt_Emerald_Light_Heal_Active	Gaslight Batman		
+0x100009BC	Vfx_Status_Will_Regen_Active	Gaslight Batman		
+0x100009BE	Vfx_Status_Power_Buff_Active	Gaslight Batman		
+0x100009BF	Vfx_Status_Attack_Buff_Active	Gaslight Batman		
+0x100009C0	Vfx_Status_Energy_Regen_Active	Gaslight Batman		
+0x10000A02	Vfx_Item_Response_Shield_Active	Gaslight Batman		
+0x10000A5C	Vfx_Ssr_Bonds_Debuff_Beam	Gaslight Batman		
+0x10000A5D	Vfx_Ssr_Bonds_Buff_Beam	Gaslight Batman		
+0x10000A64	Vfx_Ssr_Harvest_Buff_Active	Gaslight Batman		
+0x10000AA2	Vfx_Item_Protection_Shield_Active	Gaslight Batman		
+0x10000AA3	Vfx_Status_Debuff_Monster_EMP	Gaslight Batman		
+0x10000B1F	Vfx_Status_Armor_Mixed_Debuff	Gaslight Batman		
+0x10000B20	Vfx_Status_Armor_Attack_Buff	Gaslight Batman		
+0x10000B21	Vfx_Status_Armor_Power_Buff	Gaslight Batman		
+0x10000B22	Vfx_Status_Armor_Mixed_Buff	Gaslight Batman		
+0x10000B23	Vfx_Status_Armor_Attack_Debuff	Gaslight Batman		
+0x10000B24	Vfx_Status_Armor_Power_Debuff	Gaslight Batman		
+0x10000B5F	Vfx_Gar_Ballistic_Debuff_Active	Gaslight Batman		
+0x10000BDC	Vfx_Gar_Foam_Debuff_Active	Gaslight Batman		
+0x10000C18	Vfx_Status_Wound_Active	Gaslight Batman		
+0x10000D19	Vfx_Status_MonitorTech_Disabled	Gaslight Batman		
+0x10000D8C	Vfx_Status_Buff_Monster_Orange_Stop	Gaslight Batman		
+0x10000D8D	Vfx_Status_Buff_Monster_Orange	Gaslight Batman		
+0x10000D9B	Vfx_Sto_Parasite_Debuff_Active	Gaslight Batman		
+0x10000E0A	Vfx_Stg_Star_Debuff_Active	Gaslight Batman		
+0x10000EC0	Vfx_Test_Krp_Vigilance_Shield_Active	Gaslight Batman		
+0x10000EC8	Vfx_Krp_Vigilance_Shield_Active	Gaslight Batman		
+0x10000025	Skill1	Gaslight Batman		
+0x10000033	UIBasic_LS	Gaslight Batman		
+0x1000003D	UIBasic_DRight	Gaslight Batman		
+0x10000050	Vfx_Env_Rain	Gaslight Batman		
+0x1000005D	Vfx_Active_State0	Gaslight Batman		
+0x1000006A	Vfx_Fade_Out	Gaslight Batman		
+0x100000B8	SmartCastItem1	Gaslight Batman	yes	critical basic attack (arms, crit_keys)
+0x10000104	VariableAnimation00	Gaslight Batman		
+0x1000011F	Vfx_Vbm_Embrace_Active	Gaslight Batman		
+0x1000012E	vfx_env_ash	Gaslight Batman		
+0x10000130	attk	Gaslight Batman		
+0x100001F4	SetBehaviorVariable_Float	Gaslight Batman		
+0x1000026E	Vfx_Ivy_Deadly_Flora	Gaslight Batman		
+0x10000270	Vfx_Ivy_Pheromones_Active	Gaslight Batman		
+0x100002A4	VFX_CBT_Hit_Shared_ClientOnly	Gaslight Batman		
+0x100002E3	Vfx_Zat_Rabbit_Hit	Gaslight Batman		
+0x1000030F	Channeling_OnInit	Gaslight Batman		
+0x10000310	Channeling_OnEnd	Gaslight Batman		
+0x10000315	Channeling_OnInit_ClientOnly	Gaslight Batman		
+0x1000032E	VFX_CBT_Hit_Shared_ReplicateOnly	Gaslight Batman		
+0x10000330	(sin nombre)	Gaslight Batman		
+0x10000331	AtomicGreenLantern_Grab_Hit	Gaslight Batman		
+0x10000355	MechaWonderWoman_Afterburn	Gaslight Batman		
+0x100003B0	Active	Gaslight Batman		
+0x100003D0	Fissure	Gaslight Batman		
+0x100003D1	Drill_Attack	Gaslight Batman		
+0x100003E8	Start_Banish	Gaslight Batman		
+0x100003E9	Vfx_Zat_Protect_Aoe	Gaslight Batman		
+0x100003EA	_ExecuteScriptlet	Gaslight Batman		
+0x100003F8	(sin nombre)	Gaslight Batman		
+0x100003F9	(sin nombre)	Gaslight Batman		
+0x100003FA	(sin nombre)	Gaslight Batman		
+0x100003FE	Stick_And_Move_Right	Gaslight Batman		
+0x10000401	Leathal_Measures	Gaslight Batman		
+0x10000402	Hypersonics	Gaslight Batman		
+0x10000406	Stick_And_Move	Gaslight Batman		
+0x10000407	Infiltraitor_Deactivate	Gaslight Batman		
+0x10000409	Enter	Gaslight Batman		
+0x10000423	a_SkillHoldHook	Gaslight Batman		
+0x10000424	a_SkillHold	Gaslight Batman		
+0x1000042A	Entrance	Gaslight Batman		
+0x1000042C	NMR_Backstab	Gaslight Batman		
+0x1000042D	NMR_Arcing_Blades	Gaslight Batman		
+0x1000042F	VFX_CBT_Hit_Shared_GameReplicate	Gaslight Batman		
+0x10000492	wildcard_mace_throw_dash	Gaslight Batman		
+0x10000493	Vfx_Atr_Overwhelm_Rage_GroundHit_Hit4	Gaslight Batman		
+0x10000497	(sin nombre)	Gaslight Batman		
+0x100004C6	_Ping_Alert	Gaslight Batman		
+0x100004C7	UnSheath_Blade	Gaslight Batman		
+0x100004C8	Sheath_Blade	Gaslight Batman		
+0x100004C9	_Ping_Retreat	Gaslight Batman		
+0x100004CA	_Ping_Alert_Friendly	Gaslight Batman		
+0x100004CB	_Ping_Retreat_Enemy	Gaslight Batman		
+0x100004CD	a_SoundEvent	Gaslight Batman		
+0x100004E5	StopScript_Vfx_Basic_Left	Gaslight Batman		
+0x100004EC	Vfx_Glc_Blood_Hunt_Target_Hit	Gaslight Batman		
+0x100004F0	StopScript_Vfx_Min_OutOfCombat	Gaslight Batman		
+0x100004F4	Katana_Thousand_Cuts_2	Gaslight Batman		
+0x100004FA	Wildcard_QSkill_1	Gaslight Batman		
+0x10000557	Vfx_WW_Protect_Target_Hit	Gaslight Batman		
+0x10000569	Vfx_Stp_Super_Speed_Stop	Gaslight Batman		
+0x1000056C	Vfx_Stp_Super_Speed_Hit	Gaslight Batman		
+0x1000056F	Vfx_Stp_Super_Speed_Active	Gaslight Batman		
+0x1000058D	Cloth_Wind	Gaslight Batman		
+0x100005B0	_gmSUsageComponent_Proximity_OnChanneling	Gaslight Batman		
+0x100005B1	_gmSUsageComponent_Proximity_OnInduction	Gaslight Batman		
+0x100005B7	Vfx_Stp_Consume_Matter_Consume_Hit	Gaslight Batman		
+0x100005D0	Vfx_Stp_Detonate_Matter_Damaged_Hit	Gaslight Batman		
+0x100005D4	Vfx_Stp_Bend_Spacetime_Target_Active	Gaslight Batman		
+0x100005D5	Vfx_Stp_Bend_Spacetime_Success_Hit	Gaslight Batman		
+0x100005D6	Vfx_Stp_Bend_Spacetime_Active	Gaslight Batman		
+0x100005E8	Staff_Activate	Gaslight Batman		
+0x100005F0	Vfx_Bat_Cape_Sweep_Target_Stop	Gaslight Batman		
+0x100005F3	Vfx_Bat_Cape_Sweep_Target_Hit	Gaslight Batman		
+0x1000060E	Vfx_Stp_Bend_Spacetime_Stop	Gaslight Batman		
+0x1000060F	Vfx_Stp_Detonate_Matter_Opacity_Hit	Gaslight Batman		
+0x10000611	Vfx_Stp_Bend_Spacetime_Target_Stop	Gaslight Batman		
+0x10000623	Vfx_Cbt_Hit_Blood	Gaslight Batman		
+0x10000624	Vfx_Stp_Consume_Matter_Opacity_Hit	Gaslight Batman		
+0x10000626	Vfx_Stp_Consume_Matter_Beam_Hit	Gaslight Batman		
+0x10000629	Vfx_Dom_Revenge_Start	Gaslight Batman		
+0x10000658	Vfx_Zat_Status_Punish_Hit	Gaslight Batman		
+0x10000659	Vfx_Zat_Status_Protect_Hit	Gaslight Batman		
+0x1000065A	Vfx_Zat_Status_Dazzle_Hit	Gaslight Batman		
+0x1000065B	Vfx_Zat_Status_Dash_Hit	Gaslight Batman		
+0x10000665	Vfx_Glt_Constrict_Target_Active	Gaslight Batman		
+0x10000676	Vfx_Stp_XRay_Vision_Detected	Gaslight Batman		
+0x10000679	Vfx_Stp_XRay_Vision_Active	Gaslight Batman		
+0x100006DB	Vfx_Stp_XRay_Vision_Detected_Stop	Gaslight Batman		
+0x100006F4	Vfx_Stp_Mindlink_Target_Stop	Gaslight Batman		
+0x100006F5	Vfx_Stp_Mindlink_Target_Active	Gaslight Batman		
+0x100006F6	Vfx_Stp_Mindlink_Cast_Stop	Gaslight Batman		
+0x100006F7	Vfx_Stp_Mindlink_Cast_Active	Gaslight Batman		
+0x10000713	Vfx_Shz_Shazam_Hit	Gaslight Batman		
+0x10000718	Vfx_Gjk_Filth_Rat_Swarm_Bonus_Active	Gaslight Batman		
+0x1000071C	Vfx_Gjk_Filth_Active	Gaslight Batman		
+0x10000726	Vfx_Gjk_Filth_Stop	Gaslight Batman		
+0x10000728	Vfx_Gjk_Filth_Rat_Swarm_Bonus_Stop	Gaslight Batman		
+0x1000076F	Vfx_Shz_Lightning_Field_Hit_Stop	Gaslight Batman		
+0x10000770	Vfx_Shz_Lightning_Field_Hit_Active	Gaslight Batman		
+0x10000781	Vfx_Cbg_Paralyzing_Shock_Active	Gaslight Batman		
+0x10000783	Vfx_Cbg_Trace_Energy_Active	Gaslight Batman		
+0x100007A0	SuperStrength_ThrowObject	Gaslight Batman		
+0x100007A1	SuperStrength_PickupObject	Gaslight Batman	yes	car lift
+0x100007A2	SuperStrength_InitObjectPickup	Gaslight Batman	yes	car lift
+0x10000805	_SUpgradeSystem_OnCurrencyGained	Gaslight Batman		
+0x1000085D	Vfx_Arc_Glt_Shackles_Target_Active	Gaslight Batman		
+0x1000086E	Vfx_Arc_Glt_Emerald_Light_Target_Active	Gaslight Batman		
+0x10000889	Vfx_Atm_Glt_Meltdown_Tgt_Active	Gaslight Batman		
+0x1000088E	Vfx_Atm_Glt_Rads_Tgt_Active_1	Gaslight Batman		
+0x1000088F	Vfx_Atm_Glt_Rads_Tgt_Active_2	Gaslight Batman		
+0x10000892	Vfx_Atm_Glt_Rads_Tgt_Sickness_Active	Gaslight Batman		
+0x10000893	Vfx_Atm_Glt_Rads_Tgt_Active_3	Gaslight Batman		
+0x100008B2	Vfx_Stp_Psychic_Assault_Start	Gaslight Batman		
+0x100008B3	Vfx_Stp_Psychic_Assault_Stop	Gaslight Batman		
+0x100008B4	Vfx_Stp_Psychic_Assault_Active	Gaslight Batman		
+0x100008B5	Vfx_Stp_Invulnerability_Active	Gaslight Batman		
+0x100008B6	Vfx_Stp_Invulnerability_Stop	Gaslight Batman		
+0x100008B7	Vfx_Stp_Invulnerability_Start	Gaslight Batman		
+0x100008D7	Vfx_Mec_WW_Judge_Tgt_Active_1	Gaslight Batman		
+0x100008DA	Vfx_Mec_WW_Judge_Tgt_Active_2	Gaslight Batman		
+0x100008DD	Vfx_Mec_WW_Afterburn_Tgt_Active	Gaslight Batman		
+0x100008E6	Vfx_Arc_Glt_Deny_Target_Active	Gaslight Batman		
+0x100008F6	Vfx_Aww_Reclaimer_Mark_Active	Gaslight Batman		
+0x10000938	Vfx_Stp_Trap_Target_Active	Gaslight Batman		
+0x10000946	Vfx_Har_Bff_Preview_Active	Gaslight Batman		
+0x10000948	Vfx_Har_Bff_Target_Active	Gaslight Batman		
+0x10000954	Vfx_Fade_Out_ClientOnly	Gaslight Batman		
+0x10000955	Vfx_Fade_In_ClientOnly	Gaslight Batman		
+0x1000096D	Vfx_Glc_Predators_Mark_Active	Gaslight Batman		
+0x10000980	Vfx_Atm_Ivy_Bramble_Tgt_Active	Gaslight Batman		
+0x10000995	Vfx_Atm_Ivy_Bramble_Toxic_Tgt_Active	Gaslight Batman		
+0x100009B2	Vfx_Atm_Ivy_Thorn_Wall_Toxic_Tgt_Active	Gaslight Batman		
+0x100009BA	Vfx_Item_Store_Aoe_Shrapnel_Active	Gaslight Batman		
+0x100009C1	Vfx_Item_Sword_of_Beowulf_Active	Gaslight Batman		
+0x100009C2	Vfx_Item_Shrapnel_Active	Gaslight Batman		
+0x100009EB	Cinematic_Hidden	Gaslight Batman	yes	Cinematic_Hidden: action type 0x737 with SpawnIdle; makes Batman invisible (fase3-is, 23:19); not used
+0x100009EC	Cinematic_Intro	Gaslight Batman	yes	Cinematic_Intro: graph event Spawn through action type 0x737 + Vfx_Bmg_Spawn; the only thing that lights the antennas (23:29), but its spawn rope shows; off since fase3-ix
+0x100009ED	Vfx_Item_Mystical_Inversion_Active	Gaslight Batman		
+0x100009EE	Vfx_Item_Desperate_Endurance_Active	Gaslight Batman		
+0x100009EF	Vfx_Item_Aura_Pos_Power_Armor_Active	Gaslight Batman		
+0x100009F0	Vfx_Item_Stasis_Active	Gaslight Batman		
+0x100009F1	Vfx_Item_Lazarus_Effect_Active	Gaslight Batman		
+0x100009F2	Vfx_Item_Bastion_Active	Gaslight Batman		
+0x100009F3	Vfx_Item_Aura_Neg_Power_Armor_Active	Gaslight Batman		
+0x100009F5	Vfx_Item_Iron_Will_Active	Gaslight Batman		
+0x100009F6	Vfx_Item_Intensity_Active	Gaslight Batman		
+0x100009F7	Vfx_Item_Frenzy_Active	Gaslight Batman		
+0x100009F8	Vfx_Item_Desperate_Speed_Active	Gaslight Batman		
+0x100009FA	Vfx_Item_Aura_Pos_Attack_Armor_Active	Gaslight Batman		
+0x100009FD	Vfx_Item_Aura_Pos_Power_Damage_Active	Gaslight Batman		
+0x100009FE	Vfx_Item_Aura_Neg_Attack_Speed_Active	Gaslight Batman		
+0x100009FF	Vfx_Item_Aura_Pos_Attack_Speed_Active	Gaslight Batman		
+0x10000A01	Vfx_Item_Skill_Block_Active	Gaslight Batman		
+0x10000A4C	Vfx_Item_Disintegration_Active	Gaslight Batman		
+0x10000A92	Vfx_Ssr_Manifest_Active	Gaslight Batman		
+0x10000A96	Vfx_Item_Burning_Core_Active	Gaslight Batman		
+0x10000A9E	Cinematic_Victory	Gaslight Batman		
+0x10000B0C	Vfx_Mec_Sup_Terraformer_Target_Active	Gaslight Batman		
+0x10000B36	Vfx_Gar_Thermite_Active	Gaslight Batman		
+0x10000CDA	Vfx_Atr_Plasma_Target_Active	Gaslight Batman		
+0x10000D5F	Vfx_Atm_Jkr_Acid_Mark_Active	Gaslight Batman		
+0x10000D67	Vfx_Item_Mystical_Surge_Active	Gaslight Batman		
+0x10000D6E	Vfx_Item_Blood_Bargain_Active	Gaslight Batman		
+0x10000D9E	Vfx_Sto_Parasite_Slave_Active	Gaslight Batman		
+0x10000DBA	Vfx_Atr_Overwhelm_Rage_Target_Active	Gaslight Batman		
+0x10000DCC	Vfx_Arc_Sug_Daughter_Active	Gaslight Batman		
+0x10000E0B	Vfx_Stg_Conversion_Target_Active	Gaslight Batman		
+0x10000E0C	Vfx_Stg_Blast_Target_Active	Gaslight Batman		
+0x10000E58	Cinematic_FadeToBlack_Stop	Gaslight Batman		
+0x10000E59	Cinematic_FadeToBlack	Gaslight Batman		
+0x10000EAD	Vfx_Test_Krp_Stick_Tgt_Active	Gaslight Batman		
+0x10000EB4	Vfx_Test_Krp_Friend_Tgt_Active	Gaslight Batman		
+0x10000EC1	Vfx_Test_Krp_Hunt_Tgt_Active	Gaslight Batman		
+0x10000EC9	Vfx_Krp_Stick_Tgt_Active	Gaslight Batman		
+0x10000ECA	Vfx_Krp_Hunt_Tgt_Active	Gaslight Batman		
+0x10000ECB	Vfx_Krp_Friend_Tgt_Active	Gaslight Batman		
+0x10000EDD	Vfx_Sug_Comet_Target_Active	Gaslight Batman		
+0x10000F80	Vfx_GuideArrow	Gaslight Batman		
+0x10000F86	Vfx_GuideArrow_Ping	Gaslight Batman		
+0x1000108B	Vfx_Stp_Detonate_Matter_Beam_Hit	Gaslight Batman		
+0x1000108F	Vfx_Fade_Out_Instant	Gaslight Batman		
+0x100010C6	Vfx_Kta_Cuts_Primary_Target_Mark	Gaslight Batman		
+0x100010CF	Vfx_Kta_Cuts_Primary_Target_Mark_Stop	Gaslight Batman		
+0x100010D0	Vfx_Kta_Cuts_Primary_Target_Mark_Active	Gaslight Batman		
+0x10000124	Robot_Minion_Melee_Attack	drones 0x40000A5C / 0x40000A5D; thug 0x40000C71	yes	Drone swing (with 0x100000EC) on Batman, the thug, gates and cars; the thug's swing back. Other name: Basic.
+0x100000EC	Vfx_Min_Basic_Melee	drones	yes	Other name: Combat_Special_Attack_1.
+0x10000128	Combat_Basic_Attack	drones	no	Rejected by the drones' table.
+0x10000008	Vfx_Min_Basic_Melee_Active	drones	no	Rejected. Other names a_EventHook, CinematicCamera.
+0x10000209	_HFSM_TargetHitAction_PhysicalReaction	drones, thug, target drones (also Batman)	yes	Hit reaction (flinch) with 0x10000223.
+0x10000223	VFX_CBT_Hit_Shared	drones, thug, target drones	yes	Hit effect.
+0x100001FA	_Defeat_OnDead	drones	yes	death_keys. CbtState_Death_Induce (0x100000AD) is not in the drones' table.
+0x10000032	Vfx_Spawn	drones, target drones, Destroyer	yes	Teleport-in; Destroyer opening.
+0x10000033	Vfx_Fade_In	drones, target drones	yes	Teleport-in.
+0x10000079	Vfx_OnExplode	paddy wagons; drones	yes	Accepted by the drones and (with 0x7D2) by the wagons.
+0x100005B4	Vfx_Stp_Detonate_Matter_Explosion_Hit	drones	yes	Accepted, no visible effect.
+0x100001A0	Vfx_Inf_Explode	drones	yes	Rejected.
+0x100007EB	Cinematic_Startup	Destroyer 0x40000EB2	yes	destroyer_start_keys.
+0x100009EB	Cinematic_Hidden	Destroyer 0x40000EB2	no	In its 6-group table.
+0x10000E5B	CinematicCharacter_State00	Destroyer; cinematic Gate / PowerCore actors	yes	Closed sphere.
+0x10000E5C	CinematicCharacter_State01	Destroyer; PowerCore actor	yes	destroyer_open_keys.
+0x10000063	Destructible_AdvanceState	street vehicle 0x2E000AAB	no	Rejected: the vehicle's table has 0 groups. Also tried as an int property (1, 2) on the cars: nothing; no client code reads it. In table 0x33000000 the number is Superman_Heat_Vision; in the patcher notes it is a GM_Advancement dispatcher id.
+0x10000010	Destructible_Damage	destructibles	no	Kind 1 in the property descriptors. Other names UIBasic_LSDown, CinematicCamera_NoSkip.
+0x100003A9	Destructible_OnBreak	paddy wagons	no	Rejected while the wagon had no 0x7D2; no longer sent.
+0x10000290	Destructible_OnCompletelyDestroyed	paddy wagons	no	As 0x100003A9.
+0x100001DD	_EventHook_OnCollision_RaiseBehaviorEvent	paddy wagons	no	Tried at landing (fase3-el); rejected.
+0x100001E3	_HFSM_BehaviorRaiseEventAction	Gaslight Batman (also tried on wagons)	yes	Raises the graph event in script variable 0x780 (enum); used for CarPickup 0x10000246.
+0x1000018E	Vfx_Startup	gate wall, meteor rock, crater, sphere, dust cloud	yes	Probe / gate key.
+0x10000347	Vfx_Spawn_Alt01	meteor rock, crater, sphere, dust cloud	yes	Probe key.
+0x10000076	Vfx_Event1	meteor rock, crater, sphere, dust cloud	yes	Probe key.
+0x100002F5	_Entity_OnEnterWorld_Default	crater	yes	Crater probe (0 groups). Graph name CbtState_Knockdown.
+0x10000078	Vfx_OnInit	gate light wall (tables 0x1D00073F / 0x1D00038B)	yes	gate_keys.
+0x1000034F	Object_Closed	gate light wall	yes	gate_keys. Object_Open is in the same tables.
+0x100000EB	Vfx_Active	gate light wall	yes	gate_keys.
+0x10000F86	Vfx_GuideArrow_Ping	guide ping 0x40000A9C (variant C)	yes	Normally in Batman's table.
+0x1000010F	CinematicCombatBasicAttack	cinematic drone / thug actors (0x35000033)	no	
+0x10000320	Fidgets_Disable	Batman actor of 0x35000034	no	
+0x34000037	Basic attack (scriptlet DID)	Gaslight Batman	no	Scriptlet records (0x34) are not accepted by 0x8D (0x80070057): the key names (0x10...) are.
+0x34000038	Bat Flight (scriptlet DID)	Gaslight Batman	no	
+0x34000039	The Bat Scream (scriptlet DID)	Gaslight Batman	no	
+0x3400003A	Untargeted skill (scriptlet DID)	Gaslight Batman	no	
+0x3400003B	Sonic Batarang (scriptlet DID)	Gaslight Batman	no	
+0x34000048	Passive with stacks (scriptlet DID)	Gaslight Batman	no	
+0x34000164	Super Strength server script	skill 0x48000A3B	no	With 0x34000161: InitObjectPickup 0x100007A2, PickupObject 0x100007A1 (also on the object), ThrowObject 0x100007A0 (also on the object), _Combat_GoToLocomotion. Skill property 0x10000328.
+0x34000161	Super Strength server script (2)	skill 0x48000A3B	no	
+0x3400019D	Surveillance Camera skill script	skill 0x48000808	no	Skill property 0x10000328.
+0x1E00055B	Guide script (AlertPingScriptlet / AlertArrowScriptlet)	guide ping	no	Plays Vfx_GuideArrow_Ping and Vfx_GuideArrow aimed at the ping; its parameters are unknown.
+0x39000001	GM_Advancement handler registration script	pack 0xA0000038	no	Uses natives 0xE70012 / 0xE70006 / 0xE70009; registers nothing in matches, hence the rank caves.
+0x1000092F	(unnamed; meteor event)	anchor with template 0x1D00019C	no	Rejected on the anchor (0x80070057, 20:08 diag: the template's group allows only 0x5). The only key of template 0x1D00019C's scriptlet map (property 0x78). Its tracks create the warning 0x2E0004E5, the rock 0x2E0005F7 / 0x2E000BB3, 8 x 0x2E0006DA, 0x2E0004E7 / 0x2E0004ED / 0x2E0006DE, the dust 0x2E0007D4 and play mse_Meteor sounds (fase3-gh, untested in game).
+0x00000005	(small key in every template group)	meteor event anchor (template 0x1D00019C); paddy wagons	yes	The only key the meteor template 0x1D00019C adds (20:08 diag); also allowed on the paddy wagons. Tried as the meteor event's start in fase3-gi.
+0x10000039	(unnamed; explosion start in the event)	meteor event explosion 0x2E0004E7	no	The key template 0x1D00019C runs on 0x2E0004E7 at the big impact. Rejected (0x80070057) on our carrier-built copy (diag 2026-10-16 23:27); not sent since fase3-gt.

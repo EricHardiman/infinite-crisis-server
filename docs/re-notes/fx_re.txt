@@ -1,0 +1,45 @@
+fx_re notes (static, 2026-10-16). Tools here: rec.py/idx.py (gamedata), st.py (dump record by pack order),
+dw.py / nd.py (word dump with names), findv.py (find u32 in local packs). Dumps: rec_*.bin, d*.txt.
+
+== Server-script (0x34) node format (inferred, not interpreted by the client exe) ==
+ RunScriptlet action = node type 0x10000034; operand "key | 0x00004DD4 | 2 | 0" = run KEY on SELF,
+   "key | 0x00BAD844 | 1 | var" = run on the entity held in a variable. Delay = 0x10000010 followed by f32 seconds.
+ Apply-skill node: "<0x48......> | var(TargetIID) | var(param)". Effects: "<0x1E......> x2 | var(duration) | var(target)".
+ Variable refs: "hash | 1 | slot offset". Names table for variables at the end of each record.
+ 0x34000164/161 (Super Strength, caster): InitObjectPickup 0x7A2 (self), CancelPickup 0x10C3 (self),
+   PickupObject 0x7A1 (self + ObjectIID), ThrowObject 0x7A0 (self + ObjectIID), _Combat_GoToLocomotion 0x2FD,
+   VFX_CBT_Hit_Shared 0x223 and 0x100002F8 on a variable target, _gmCameraSystem_DamageNotice 0x3AE.
+   Vars: ObjectIID, ObjectPickupScriptlet, MissileVelocity, TossDuration, BlastRadius, SkillDamage, DropObject...
+ 0x34000167 = THROWN-OBJECT script (in effect list 0x8E/0x30E of throwable templates, e.g. Rock 0x1D0002A7 ->
+   [0x34000167, 0x34000347]; also started by 0x34000177). Everything below runs on the OBJECT (SELF) unless noted:
+   start: Delay 0.3 s -> Vfx_OnThrown 0x1000087A
+   fizzle (no hit within FizzleDuration): Vfx_Fade_Out 0x1000006A
+   collision: Vfx_OnCollision 0x10000016; skill 0x48000295 on TargetIID with SkillDamage
+     (0x48000295: Destructible_AdvanceState 0x10000063=1, script 0x34000131 = knockdown/stun w/ GetupTime);
+     VFX_CBT_Hit_Shared 0x10000223 on TargetIID; effects 0x1E000017 + 0x1E00001A for KnockDownDuration on TargetIID;
+     Vfx_OnExplode 0x10000079; destruction impulse (DestructionMagnitude / DestructionRadius at CollisionPosition);
+     last: 0x1000001C on self.   Vars: CollisionPosition, ShooterIID@0x30, TargetIID@0x38, KnockDownDuration@0x40?,
+     SkillDamage@0x44, FizzleDuration.
+ 0x340003BD (another missile object): Vfx_OnCollision -> Delay 0.2 s -> Vfx_OnExplode -> 0x10000078 (self).
+ Never referenced by any local script or object table (graph-event / other-table number collisions, don't send):
+   0x1000057A, 0x100002DC, 0x1000041F, 0x1000005B, 0x100002B3, 0x1000079F.
+ Destructible object table analog: 0x1D0008EF (inline 0x462 element of a tutorial world state, pack 0xA0000256):
+   keys Vfx_OnInit 0x10000078, Vfx_OnCollision 0x10000016 (x6), Vfx_OnExplode 0x10000079, _HFSM_DestroyEntityAction,
+   SuperStrength_InitObjectPickup (x10); hooks spawn particle records 0x180006C3/C4 and debris GfxObj 0x170001C6.
+ Layout 0x1D000771: PaddyWagonA/B placements carry "trigger 0x1D9 / 0x1DA -> Vfx_OnExplode" (cinematic wiring).
+ 0x1D0000BA/BB, 0x1C000021, 0x2E00034D/E are NOT in local packs.
+
+== Victory sound ==
+ Flash: WinLossBillboard.UpdateFrame only gotoAndStop('win'|'loss'|'tie'|'team1victory'|...); no EM_Sound call;
+   gfx 0x20000015 has no DefineSound/StartSound tags. 274 AS_* Wwise ids (FNV-1 of the AS_ name, all verified,
+   wwise_ui.json): none for victory/defeat.
+ DialogElementKey enum (same number space as the tutorial conversation keys): CODE_UI_ANC_Congratulations_Victory = 0x250,
+   Congratulations 0x25E, Excellent 0x233. Flash plays UI dialog elements with local notice 0x100003C6
+   (GM_Dialog.PlayUIDialogElement, handler 0x936CC0 -> 0x915250). Exe callers of 0x915250 only use 0x272, 0x264,
+   0x25A (lobby). Nobody references 0x250. GM_Dialog registration (0x8C3A26) registers event 0x2001 (start
+   conversation, exec 0x8A8CF0) next to notice 0x100003C6 -> same dialog system.
+ Banks in the tutorial pack: Announcer_General 0x52000010 (bank id 0xD8CB9CA3), Music_Divided 0x5200005B,
+   VO_Tutorial_Hero 0x5200008F. Wwise event names for in-match announcer not recoverable (hash guessing gives only
+   random hits in 100+ MB packs).
+ Cinematic_Victory 0x10000A9E: accepted by Batman (batman_actions.tsv) but its hooks are in a shared table that is
+   not in local packs; Cinematic_Announcement 0x10000A50 is in 0x18000A89 (pack 0xA0000256).
