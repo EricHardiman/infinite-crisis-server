@@ -401,7 +401,7 @@ class Session:
                          "keys\\server_private.pem do not match: run  python ic.py patch", self)
         self.send("welcome (0x40000)", M.hello_reply(time.time()))
         events = M.initial_events(self.server.roster, self.cfg["account"]["level"],
-                                  self.cfg["account"]["player_name"])
+                                  self.cfg["account"]["player_name"], self._hidden_encounters())
         done = progress.completed(self.cfg)
         if self.cfg["tutorial"].get("send_achievements", True):
             # the training achievements' progress (scorecard.py): Tutorial n done
@@ -485,7 +485,12 @@ class Session:
             packs = [int(p) for p in m.map_cfg["packs"]]
             # fase3-hb: a map's own event packs (Tutorial 2's lab: the meteor event 0xA000009A),
             # only with the exe's two zone slots, as [match] event_packs
-            m.event_packs = event_packs(self.cfg, m.map_cfg.get("event_packs") or [])
+            wanted = m.map_cfg.get("event_packs") or []
+            if m.map_cfg.get("lab") and str(self.cfg["debug"].get("lab_tour", "")).startswith("models1"):
+                # 2026-10-18 12:47 (tester: show Tutorial 1's models in Tutorial 2): Tutorial 1's zone pack in
+                # the second zone slot instead of the meteor event's ([debug] lab_models1_packs)
+                wanted = self.cfg["debug"].get("lab_models1_packs") or [0xA000024C]
+            m.event_packs = event_packs(self.cfg, wanted)
             packs += [p for p in m.event_packs if p not in packs]
         else:
             packs = list(self.cfg["match"]["packs"])
@@ -1406,6 +1411,12 @@ class Session:
             msgs = lab.lab_start(time.time())
             self.later(self.cfg["timing"]["tutorial_start_delay"], lambda: self.send_many(msgs), m.group)
             log.info(f"lab started on encounter {m.encounter:#x}", self)
+
+    def _hidden_encounters(self):
+        """[match] hide_missing_maps: the encounters left out of the login's encounter info (0x2024)."""
+        if not self.cfg["match"].get("hide_missing_maps", True):
+            return ()
+        return M.MISSING_MAP_ENCOUNTERS
 
     def _amplifier_messages(self):
         """0x2090 (the amplifier sets: none saved, `amplifier_set_slots` slots) and 0x2107 (the store's

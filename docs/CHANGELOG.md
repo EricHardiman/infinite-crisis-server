@@ -3600,3 +3600,120 @@ the server could not answer the tab.
 - `tests/test_collections.py`: the 0x2115 check now looks at the 16 entries.
 - Not seen in the game yet. A wrong layout would show as a broken Stats tab or a client error in the log.
 
+## fase3-jk — search for the purple sphere (documentation only)
+
+11:18 (tester): search the game files for a model like our sphere, to find the purple one.
+
+- Full install (616 packs) searched; results in `docs/reverse-engineering.md`, "Looking for the purple sphere in the
+  whole install".
+- The yellow sphere we use is the Gotham Divided drop pod (env_pvp_drop_pod_a). There is no other colour of it.
+- The only other pod is the phase pod 0x2E001157 (Tutorial 1's own pack), which the server shows as the "crater
+  ring". It has a fall (entrance_a) and an opening (raider_open_a) in its graph 0x1A000E0B. It is the candidate for
+  the purple sphere; to confirm with the tester (is the ring purple?).
+- `tools/world_scan.py` re-run on the full install: `world_states.tsv` unchanged.
+- No code changes.
+
+## fase3-jl — the phase pod is not the purple sphere (documentation only)
+
+11:49 (tester): the crater ring is the crater we use, not the purple sphere.
+
+- No other sphere or pod model exists in the install (fase3-jk). Next test, from `config.toml` only: add the pod's
+  three untried scriptlets to `[tutorial] sphere_cinematic_keys`, to see if one of them is the purple look:
+  `[[0.6, 0x1000087D], [1.0, 0x1000005D], [1.55, 0x1000087E], [2.5, 0x10000CCE], [3.0, 0x100000DC], [4.0,
+  0x10000076]]`.
+
+## fase3-jm — the sphere's animation with the three new effects as default
+
+11:56 (tester, fase3-jl test from `config.toml`): "the animation looks good, but it is the same yellow sphere".
+
+- `[tutorial] sphere_cinematic_keys` default is now [[0.6, Vfx_SpawnIdle 0x1000087D], [1.0, Vfx_Active_State0
+  0x1000005D], [1.55, Vfx_Spawn_Hit 0x1000087E], [2.5, Object_Activate 0x10000CCE], [3.0, Vfx_Event10 0x100000DC],
+  [4.0, Vfx_Event1 0x10000076]]. The tester can remove the same line from `config.toml`, it is now the default.
+- None of the drop pod's effects makes it purple. The pod has no other effects in its table, and the install has no
+  other sphere model (fase3-jk / jl). So the purple sphere is not in this install as far as the files show.
+
+## fase3-jn — the list of every Tutorial 1 and Tutorial 2 model
+
+12:00 (tester): detect every model of Tutorial 1 and 2 and keep them in a list, so we know where to look for what.
+
+- New `tools/tutorial_models.py` (`python ic.py tutorial-models`) writes `catalog/data/tutorial_models.tsv` and a new
+  catalog section "Tutorial models". It has 807 world states: 429 in Tutorial 1 (packs 0xA000024C, 0xA0000256) and
+  609 in Tutorial 2 (0xA00002E5-E7), plus the ones their layouts place. Columns: tutorial, packs, entity, model name,
+  kind, templates, graph set, names in the layouts, where the server uses it, notes (kept between runs).
+- Static map meshes carry no asset names (their .entity only points to mesh / collision records). For those, kind
+  says what the record shows: 476 static scenery, 258 scripted objects (templates), 22 animated objects (graph set).
+  Two header forms exist: `did | 7 | .entity` and `did | 2 | .entity` (zone pack map pieces such as 0x2E0002A7).
+- New candidates for the purple sphere, found by name: the doomsday device 0x2E000A3B (env_pvp_doomsday_device_a,
+  in both tutorials) and the alien base iris 0x2E00103B. To show them: `[debug] model_tour = [0x2E000A3B,
+  0x2E00103B]` in Tutorial 1.
+- Catalog: records 0x4000094C (encounter stats totals entry) added.
+
+## fase3-jo — the Tutorial 2 lab shows the tutorial models one by one
+
+12:43 (tester): show the models in Tutorial 2.
+
+- `[debug] lab_tour` "models" (new default; was "batman"): Tutorial 2's models from
+  `catalog/data/tutorial_models.tsv`, without the static map pieces. That is 240 models, named ones first, then by
+  kind: pods, PowerCores, characters, drones, turrets, gates, meteors, then animated and scripted objects. Models
+  that close the game (`MODEL_TOUR_CRASHES_BARE`, `logs/model_tour.json`) are left out.
+  - Each model is shown bare (`lab_models_modes` ["bare"], new) every `lab_interval` s next to the start point.
+  - The objective text reads "Model n/N a 0x2E... name" (the model or layout name from the table), and server.log
+    gives the name and kind.
+  - Other values: "models:all" (all 599 of Tutorial 2), "models:pod", "models:scripted object" and so on (one
+    kind). `lab_from` starts at an entry; by default the tour goes on after the last model shown.
+  - "batman" still gives the champion animation tour.
+- `tutorial1.tutorial_models()` reads the table. `tests/test_lab.py` checks the models tour too (10 checks with
+  `lab_tour = "models:pod"`).
+
+## fase3-jp — Tutorial 1's models shown in the Tutorial 2 lab
+
+12:47 (tester): "not that one: load Tutorial 1's models in Tutorial 2".
+
+- `[debug] lab_tour` "models1" (new default; was "models"): Tutorial 1's models from `tutorial_models.tsv`,
+  without the static map pieces. That is 144 models, named ones first: the yellow sphere, the phase pod, Batman,
+  Catwoman, the Joker, the thug, drones, meteors, the foundry, the alien base iris, the doomsday device, then the
+  rest by kind. "models1:all" (420) and "models1:<kind>" also work.
+- So the client can build them, the lab loads Tutorial 1's zone pack 0xA000024C in the second zone slot instead
+  of the meteor event's 0xA000009A (`[debug] lab_models1_packs`, new; needs the two-zone-slot exe patch).
+  - 420 of Tutorial 1's 429 models have their record there.
+  - The other 9 sit only in the placement pack 0xA0000256 or in packs of other maps: 0x2E00033A, the Joker
+    0x2E00095E, the Destroyer 0x2E000AB5, the yellow sphere 0x2E000FC7, 0x2E0010D8, the drones 0x2E001167 /
+    0x2E001168, 0x2E0012B7 and the thug 0x2E0012BB. They may not show.
+- `tests/test_lab.py` checks the pack swap and that every listed model is created (10 checks with
+  `lab_tour = "models1:pod"`; also with "models:pod" and "start").
+
+## fase3-jq — model tours skip whole crash families; how much is catalogued
+
+14:15 (tester): the game still closes while the models load. Asks: have we found everything in the game (maps,
+items, champions, animations, sounds, music...)?
+
+- server.log 12:58: the "models1" tour showed 70 models; 0x2E00061E closed the game 5 s after it appeared. Its
+  siblings 61D / 61F / 621 / 622 (first template 0x1D000168) were already on the crash list, it was not.
+  - It is on `MODEL_TOUR_CRASHES_BARE` now.
+  - `model_tour_list` ("models*") leaves out every model whose first template belongs to a model that closed the
+    game, from the crash list or from `logs/model_tour.json`. That removes 0x2E000620 / 623 and 0x2E00086A-870
+    before they are tried: "models1" has 141 models (was 144), "models" 235 (was 240).
+- A models tour keeps its place when the list changes. The saved key is the tour's name and spot, and the tour goes
+  on after the last world state shown (`last_ws` in `logs/model_tour.json`), not after an entry number.
+- `docs/FINDINGS.md`, "How much of the install is catalogued": a table of the install's records against the catalog.
+  Complete: maps, the collection items, sounds and music IDs, behavior graphs. Mostly missing: effects (40 of
+  3136), cinematics (5 of 30), scriptlets (446 keys of 875 records), the 10 extra champions' skills.
+- `tools/catalog_scan.py` re-run on the full install: John Stewart's skill rows were added to `skills.tsv`;
+  the other tables are unchanged.
+
+## fase3-jr — deeper scan; maps without data hidden from the play menu
+
+16:54 (tester, logs): Metropolis Skyway can be picked and tries to load (stays at 10 %). Search the files more
+deeply: what else can be found?
+
+- Deep scan of all 616 packs (`docs/reverse-engineering.md`, "Deep scan of the install"). Metropolis Skyway has only
+  its menu icon; Crime Alley and Apokolips Causeway have nothing. No other unreleased champion. The NPC packs of the
+  Gotham maps (0xA0000161 / 0xA000016E) hold their minions and the Leviathan. The Joker's pack holds his punching
+  bag / gift box props. There are 30 cinematics.
+- `[match] hide_missing_maps` (new, on): the six encounters without map data
+  (`messages.MISSING_MAP_ENCOUNTERS`: Crime Alley 1vAI Tutorial, Crime Alley v AI, the three Clash maps,
+  Metropolis Skyway) are left out of the login's encounter info 0x2024, so the play menu should not offer them.
+  False = as before. To check in the game that they are gone from the menu.
+- Catalog: `cinematics.tsv` lists all 30 cinematics (25 new rows, with their map).
+- `tests/test_collections.py`: 12 checks (0x2024 without 0x40000C28).
+

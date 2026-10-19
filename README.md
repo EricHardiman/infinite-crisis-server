@@ -160,6 +160,7 @@ Code layout:
 | `icserver/patcher.py` | Exe patches (each one documented in the source and in `docs/reverse-engineering.md`). |
 | `icserver/config.py` | Every setting with its default and the reason for it. |
 | `tools/split_file.py` | Splits a big file (a video) into 300 MB parts. |
+| `tools/tutorial_models.py` | Every model of Tutorial 1 and 2 into `catalog/data/tutorial_models.tsv` (`python ic.py tutorial-models`). |
 
 ## Status
 

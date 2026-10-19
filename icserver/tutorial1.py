@@ -174,7 +174,10 @@ MODEL_TOUR_CRASHES_BARE = (0x2E000F03, 0x2E000F04, 0x2E000F05, 0x2E000EFE, 0x2E0
                            0x2E000877,
                            # 17:02 (tester): its sibling 0x2E000872 closed it too (3.4 s); the whole family
                            # (same templates 0x1D00025E-0x1D000261, property 0x800) is left out
-                           0x2E000872, 0x2E000873, 0x2E000874, 0x2E000875, 0x2E000876)
+                           0x2E000872, 0x2E000873, 0x2E000874, 0x2E000875, 0x2E000876,
+                           # 2026-10-18 12:58 (tester, lab "models1" model 70): 0x2E00061E closed the game 5 s
+                           # after it appeared, as its siblings 61D / 61F / 621 / 622 (template 0x1D000168)
+                           0x2E00061E)
 MODEL_TOUR_EVENT_ONLY = (0x2E0004E5, 0x2E0004E7, 0x2E0005F7, 0x2E0005FB, 0x2E0006DA, 0x2E00069E, 0x2E00069C)
 
 
@@ -262,6 +265,31 @@ def _tour_state(cfg, state=None):
     return state
 
 
+def tutorial_models(tutorial=None):
+    """2026-10-18 12:43: catalog/data/tutorial_models.tsv (tools/tutorial_models.py) as
+    [(world state, tutorial, model name, kind, placed names)], or [] when the table is missing."""
+    import csv
+    import os
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "catalog", "data",
+                        "tutorial_models.tsv")
+    out = []
+    try:
+        with open(path, encoding="utf-8") as f:
+            for r in csv.reader(f, delimiter="\t"):
+                if not r or not r[0].startswith("0x") or len(r) < 9:
+                    continue
+                if tutorial and tutorial not in r[1]:
+                    continue
+                out.append((int(r[0], 16), r[1], r[4], r[5], r[8], r[6].split()[0] if r[6] else ""))
+    except OSError:
+        pass
+    return out
+
+
+MODEL_KIND_ORDER = ("pod", "powercore", "character", "drone", "turret", "gate", "meteor", "crater", "explosion",
+                    "vehicle", "animated object", "scripted object", "static scenery", "no record")
+
+
 def model_tour_list(cfg, raw=None):
     """The world states of [debug] model_tour (or raw): "candidates", "lab", "pack:0xA000024C"
     (every world state of that pack, in id order) or a list of ids."""
@@ -278,6 +306,33 @@ def model_tour_list(cfg, raw=None):
         return list(LAB_SPHERE)
     if raw == "start":
         return list(LAB_START)
+    if isinstance(raw, str) and raw.startswith("models"):
+        # 12:43 (tester: show the models in Tutorial 2): "models" = Tutorial 2's models from
+        # tutorial_models.tsv except the static map pieces; "models:all" = all of them; "models:<kind>" =
+        # one kind (pod, scripted object, ...). Named / animated ones first. Models that close the game
+        # are left out.
+        # 12:47 (tester: load Tutorial 1's models in Tutorial 2): "models1..." = the same for Tutorial 1's
+        # models; the lab then loads Tutorial 1's zone pack in the second zone slot ([debug] lab_models1_packs)
+        what = raw.partition(":")[2]
+        rows = tutorial_models("1" if raw.startswith("models1") else "2")
+        if what == "all":
+            pass
+        elif what:
+            rows = [r for r in rows if r[3] == what]
+        else:
+            rows = [r for r in rows if r[3] not in ("static scenery", "no record")]
+        order = {k: i for i, k in enumerate(MODEL_KIND_ORDER)}
+        rows.sort(key=lambda r: (0 if r[2] else 1, order.get(r[3], 9), r[0]))
+        # 14:15 (tester: the game still closes while models load): every model that closed it shares its first
+        # template with its siblings (0x1D000168: 61D-623, 0x1D000260/261: 86A-877, ...), so a model whose
+        # first template belongs to one that closed the game is left out too, without trying it
+        crashed = set(MODEL_TOUR_CRASHES_BARE)
+        try:
+            crashed |= {int(x[0], 16) for x in (_tour_state(cfg).get("lab") or {}).get("crashed", [])}
+        except (TypeError, ValueError):
+            pass
+        bad = {r[5] for r in tutorial_models() if r[0] in crashed and r[5]}
+        return [r[0] for r in rows if r[0] not in crashed and not (r[5] and r[5] in bad)]
     if isinstance(raw, str) and raw.startswith("pack:"):
         from . import gamedata
         name = f"{int(raw[5:], 16):#010x}.rp"
@@ -1404,7 +1459,17 @@ class Tutorial:
             self.log("lab: pack 0xA000009A is not loaded (exe without the two zone slots?): "
                      "the meteor event pieces are left out")
             ids = [w for w in ids if w not in MODEL_TOUR_EVENT_ONLY and w != 0x2E0004ED and w != 0x2E0007D4]
-        modes = [str(v) for v in (dc.get("lab_modes") or ["keys"])]
+        tour_name = str(dc.get("lab_tour", ""))
+        if tour_name.startswith("models1"):
+            # the models whose record is in none of the loaded packs cannot be built: say which
+            loaded = set(getattr(m, "enter_packs", []) or [])
+            if 0xA000024C not in loaded:
+                self.log("lab: Tutorial 1's zone pack 0xA000024C is not loaded (exe without the two zone slots? "
+                         "python ic.py patch): its models will not show")
+        modes = [str(v) for v in ((dc.get("lab_models_modes") or ["bare"]) if tour_name.startswith("models")
+                                  else (dc.get("lab_modes") or ["keys"]))]
+        names = {w: (name or placed.split(" ")[0] if placed else name, kind)
+                 for w, _t, name, kind, placed, _tmpl in tutorial_models()} if tour_name.startswith("models") else {}
         entries = []                      # (world state, mode, key or 0, label suffix)
         for ws in ids:
             for mode in modes:
@@ -1428,11 +1493,19 @@ class Tutorial:
         lab = state.get("lab") or {}
         # 09:49: the spot is part of the key: a new lab_offset starts from model 1 again
         key = f"{len(entries)}:{sum(ids) & 0xFFFFFFF:x}:{off[0]:g},{off[1]:g}:{'+'.join(modes)}"
+        if tour_name.startswith("models"):
+            # 14:15: a models tour keeps its place when its list changes (a model left out after it closed the
+            # game): the key is the tour's name and the spot, and it goes on after the last model shown
+            key = f"{tour_name}:{off[0]:g},{off[1]:g}:{'+'.join(modes)}"
         if lab.get("key") != key:
             lab = {"key": key, "last": 0, "crashed": lab.get("crashed", [])}
         state["lab"] = lab
         skip = {tuple(x) for x in lab.get("crashed", [])}
         first = int(dc.get("lab_from", 0)) or int(lab.get("last", 0)) + 1
+        last_ws = lab.get("last_ws")
+        if tour_name.startswith("models") and not int(dc.get("lab_from", 0)) and last_ws:
+            pos = [i for i, en in enumerate(entries, 1) if f"{en[0]:#x}" == last_ws]
+            first = pos[0] + 1 if pos else first
         if first > len(entries):
             first = 1
         gap = float(dc.get("lab_interval", 5.0))
@@ -1462,11 +1535,16 @@ class Tutorial:
 
             def show(e=e, n=n, ws=ws, mode=mode, run_key=run_key, suffix=suffix, parts=parts):
                 label = f"Model {n}/{total}{suffix} {ws:#010X}" if not run_key else f"Model {n}/{total}{suffix}"
+                nm, kind = names.get(ws, ("", ""))
+                if nm or kind:
+                    # 12:43: the name (or the layout name) and kind from tutorial_models.tsv
+                    label += f" {(nm or kind)[:28]}"
                 with_scripts = mode != "bare"
                 self.log(f"lab {e}/{len(entries)}: model {n}/{total}{suffix} world state {ws:#x} ({mode})"
+                         + (f" {nm or '-'} [{kind}]" if (nm or kind) else "")
                          + (f", particles {parts}" if parts else ""))
                 self.tour_last = (n, ws, time.time(), mode)
-                lab.update(last=e)
+                lab.update(last=e, last_ws=f"{ws:#x}")
                 _tour_state(m.cfg, state)
                 eid, msg = self._prop_object(ws, at, time.time(), 0, 1.0, f"lab {n}{suffix}", scripts=with_scripts,
                                              raw_graph=with_scripts)

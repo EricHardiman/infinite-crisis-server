@@ -46,6 +46,7 @@ maps the install has, what is missing) and `docs/AI_GUIDE.md` (where everything 
 | `icserver/webapp.py`, `textures.py`, `social.py`, `interface.py`, `winctl.py`, `emotes.py`, `webui/` | The companion app (`python ic.py app`, served on the SOAP port at `/app`, `/api/*`, `/tex/<did>.png`); pictures decoded from the install and cached in `data/texcache/` |
 | `icserver/config.py` | Every setting with its default and the reason for it |
 | `tools/diag.py` + `tools/tracer.py` | Breakpoint logger for the running client (`--scripts`, `--skills`, `--reward`, `--replay`, `--props`, ...) |
+| `tools/tutorial_models.py` | Every model of Tutorial 1 and 2 -> `catalog/data/tutorial_models.tsv` (`ic.py tutorial-models`) |
 | `tools/split_file.py` | Splits a big file (a video) into 300 MB parts so it can be sent to the cloud session |
 | `tools/build_catalog.py`, `tools/catalog_scan.py`, `tools/world_scan.py` | The ID catalog page, the full-install scanner and the world-state inventory (`ic.py worlds`) |
 | `catalog/` | `data/*.tsv` (source of truth) and the generated `index.html` |
@@ -57,9 +58,9 @@ maps the install has, what is missing) and `docs/AI_GUIDE.md` (where everything 
 - `python tests\test_patcher_layout.py [InfiniteCrisis.exe]` — no two exe patches overlap; with the exe, the
   whole patch applies (run it after every change to `patcher.py`).
 - `python tests\test_e2e.py tests\e2e.example.toml` (178 checks) and `python tests\test_jump.py tests\e2e.example.toml`
-  (24), `tests\test_lab.py` (10, real packs; 9 with `lab_tour = "batman"` and a small `champion_tour_interval`), `tests\test_collections.py` (11), `tests\test_lobby.py` (19, champion select + free play), `tests\test_kits.py` (16, John Stewart's Q W E R), `tests\test_movie_queue.py` (17) and `tests\test_app.py` (30) — a simulated client against the server; adjust the paths in the example config first. They use other
+  (24), `tests\test_lab.py` (10, real packs; 9 with `lab_tour = "batman"` and a small `champion_tour_interval`), `tests\test_collections.py` (12), `tests\test_lobby.py` (19, champion select + free play), `tests\test_kits.py` (16, John Stewart's Q W E R), `tests\test_movie_queue.py` (17) and `tests\test_app.py` (30) — a simulated client against the server; adjust the paths in the example config first. They use other
   ports than the real server.
-- Then the user tests in the game. Build tags continue from `fase3-jj` (next: `fase3-jk`).
+- Then the user tests in the game. Build tags continue from `fase3-jr` (next: `fase3-js`).
 
 ## Facts that are easy to get wrong
 
@@ -96,12 +97,17 @@ maps the install has, what is missing) and `docs/AI_GUIDE.md` (where everything 
 - `gamedata` reads only u32-sized values; vector properties (0x24E, 0x667, 0x4B9) stop it. Use
   `world_state(did, partial=True)` when only the first entries (such as 0x7D2) are needed.
 - Some world states close the client ~3 s after being created on a carrier, bare or not (0x2E000F03-F05, EFE,
-  61D-622, 296, and the meteor set pieces 872-877: tutorial1.MODEL_TOUR_CRASHES_BARE); never spawn them.
+  61D-623, 296, and the meteor set pieces 872-877: tutorial1.MODEL_TOUR_CRASHES_BARE); never spawn them. They come
+  in families sharing their first template; the lab's models tours skip the whole family (fase3-jq).
 - Each map needs its own zone pack (category 0xd, two slots with the patch): `[match] maps` per encounter. Never send
   Tutorial 1's zone pack with another map.
-- `catalog/data/world_states.tsv` (python ic.py worlds) lists every world state with its model names and the packs it
+- `catalog/data/tutorial_models.tsv` (python ic.py tutorial-models) lists every model of the two tutorials;
+  `catalog/data/world_states.tsv` (python ic.py worlds) lists every world state with its model names and the packs it
   needs: look there first for a model. `stp_` names belong to Stolen Powers (pack 0xA00000B3, always loaded); the
   tutorial's falling meteors are nevertheless stp_meteor 0x2E000928 (tester 2026-10-17).
+- The lab's default tour is `[debug] lab_tour = "models1"`: Tutorial 1's models from tutorial_models.tsv, bare,
+  named in the objective text, with Tutorial 1's zone pack 0xA000024C in the second zone slot (fase3-jp).
+  "models" = Tutorial 2's (fase3-jo); "batman" = the champion animation tour.
 - Tutorial 2 (0x40000A81) is the model lab while its `[match] maps` entry has `"lab": true` (`Match.lab`, not
   `Match.tutorial`). A world state's 0x5B5 graph can sit after a vector property: read the raw triplet.
 - A cinematic (0x35) creates its own actors from its record; an entity the server spawns with the same world state
@@ -130,12 +136,16 @@ maps the install has, what is missing) and `docs/AI_GUIDE.md` (where everything 
   nothing (fase3-ir); Cinematic_Hidden (SpawnIdle) makes Batman invisible (fase3-is, 23:19): never on the player.
 - skilldata reads skill records with the kinds of props.txt, its BUILTIN_KINDS and catalog/data/properties.tsv; a key
   of unknown kind makes the whole record read as empty (the throw skill until fase3-iq).
+- The yellow sphere 0x2E000FC7 is the Gotham Divided drop pod (env_pvp_drop_pod_a); no other sphere/pod model exists in the
+  install; the phase pod 0x2E001157 is the crater, not the purple sphere (tester 11:49, fase3-jl); none of the pod's scriptlets
+  makes it purple (fase3-jm): the purple sphere is not in this install.
 - The Destroyer's closed sphere 0x2E000FC7 never opens if it got Vfx_Spawn 0x10000032; the open model 0x2E00101D
   does not show when swapped in (23:34). Keep the closed sphere and open it with Object_Activate + Vfx_Event1.
 - Champion select (2026-10-18): an encounter's twin 0x49xxxxxx says if it has one (no SkipsLobby 0x10000B0E: all
   PvP / v AI maps and Tutorial 3). The client shows it only when 0x204C's number of teams is not 0, and loads the map
   on 0x2016: send 0x2016 only after the lock (`[match] maps` "lobby"). Crime Alley, Apokolips Causeway and
-  Metropolis Skyway have no map data in the install.
+  Metropolis Skyway have no map data in the install (only Metropolis's menu icon; deep scan fase3-jr); they are
+  left out of 0x2024 (`[match] hide_missing_maps`).
 - With a champion select, 0x20AF (the match's champions + packs) goes after the lock with the locked champion and the
   bot's; the controlled object's class is `Match.agent_class` (fase3-ja).
 - The Amplifiers tab opens only after 0x2090 (sets), 0x2107 (store data) and the item statuses. Its Flash managers

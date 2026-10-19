@@ -29,6 +29,7 @@ it says where everything is and the rules that keep the project shareable.
 | How a system works (HUD, rewards, replay, props, minimap...) | `docs/reverse-engineering.md` |
 | History of every change and test result | `docs/CHANGELOG.md` |
 | What works, which maps the install has, what is missing | `docs/FINDINGS.md` |
+| Which models Tutorial 1 / 2 have, and where | `catalog/data/tutorial_models.tsv` (`python ic.py tutorial-models`) |
 | Exe patches | `icserver/patcher.py`, `catalog/data/exe_patches.tsv` |
 | Reading game data from an install | `icserver/gamedata.py` (`Game(rp_dir).record(did)`, `.text(...)`), `icserver/rp.py` |
 

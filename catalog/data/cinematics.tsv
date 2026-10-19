@@ -16,3 +16,28 @@ id	name	duration_s	server_status	notes
 0x10000E5F	CinematicCharacter_State04 (scriptlet)		data only	PowerCore of 0x35000025 at frame 300.
 0x1000010F	CinematicCombatBasicAttack (scriptlet)		data only	Cinematic actors' attack (0x35000033); also named Vfx_Cbt_Hit_Melee_Knock_Up.
 0x10000320	Fidgets_Disable (scriptlet)		data only	Spawn script of Batman's actor in 0x35000034.
+0x3500000D	Cinematic of Gotham Heights (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA000016B. Not played by the server.
+0x3500000E	Cinematic of Gotham Heights (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA000016B. Not played by the server.
+0x3500000F	Cinematic of Gotham Heights (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA000016B. Not played by the server.
+0x35000012	Cinematic of Coast City (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA0000162. Not played by the server.
+0x35000013	Cinematic of Coast City (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA0000162. Not played by the server.
+0x35000014	Cinematic of Gotham Divided (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA0000168. Not played by the server.
+0x35000015	Cinematic of Gotham Divided (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA0000168. Not played by the server.
+0x35000020	Cinematic of Coast City (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA0000162. Not played by the server.
+0x35000023	Cinematic of Gotham Heights (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA000016B. Not played by the server.
+0x35000024	Cinematic of Gotham Divided (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA0000168. Not played by the server.
+0x35000029	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x3500002A	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x3500002B	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x3500002C	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x3500002D	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x3500002E	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x3500002F	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x35000030	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x35000031	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x35000032	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x35000038	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x35000039	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x3500003A	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x3500003B	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.
+0x3500003C	Cinematic of Tutorial 2 (mission pack)		data only	Found in the full-install scan (2026-10-18); record in pack 0xA00002E6. Not played by the server.

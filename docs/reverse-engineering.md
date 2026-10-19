@@ -1732,3 +1732,79 @@ Tester: the Amplifiers tab keeps loading and never shows the amplifiers.
   StringInfo (+0x20c) | 21 x u64 (+0x138..+0x1d8) | 2 x u32. That is 481 bytes plus the two StringInfos.
 - VA 0xa57170 sends 0x2116 only while +0x1b1 is 0 (cleared at VA 0xa1aa7d). Otherwise it rebuilds from the cache.
 
+## Looking for the purple sphere in the whole install (2026-10-18 11:18)
+
+Tester: search the game files for a model like the sphere we use, to find the right (purple) one.
+
+- All 616 packs of the tester's install were searched for asset names with pod / sphere / orb / capsule / boom tube /
+  destroyer (`/tmp` script, names only). The only pod- or sphere-like world objects are:
+  - **env_pvp_drop_pod_a**, the sphere we use (world state 0x2E000FC7, entity 0x2D000D3F). It lives in packs
+    0xA0000168 (Gotham Divided), 0xA0000256 (Tutorial 1) and 0xA00002E6/7 (Tutorial 2). Its behavior graph
+    `env_pvp_drop_pod_a_behavior` has the states Entrance (clip entrance_a), Active_Idle (idle_a), Explode (explode_a),
+    Spawn_Idle and Ring_Indicator (ring_indicator), and the events Spawn 0x10000154, SpawnIdle 0x10000183 and
+    CbtState_Death_Induce 0x100000AD. The emitter variant env_pvp_drop_pod_a_emitter (0x2E000FAB) is a different
+    object. There is no drop_pod_b or other colour variant.
+  - **env_pvp_phase_pod** (world state 0x2E001157, entity 0x2D000E7F: body, door, plates, thumper, top). It lives
+    in packs 0xA0000256 (Tutorial 1) and 0xA00002E5, with its behavior graph 0x1A000E0B in 0xA0000168 / 0xA0000256.
+    The graph has the clips entrance_a (the fall), raider_open_a / raider_open_a_idle (opening), active_idle_a,
+    attackable_idle_a (+ gethit), die_a, phasepod_destruction_a and three leviathan clips. Its events are Spawn,
+    Activate 0x100001C1, Deactivate 0x10000419, death, OpenIdle 0x100004A5, ClosedIdle 0x100004A6 and the hook
+    RunScript_Vfx_Event1 0x10000066.
+  - env_pvp_powercore_a (0x2E000AC5 / 0x2E0013EE), the PowerCore of the last cinematic.
+  - Champion props: Atomic Joker's pod and tank, Lex Luthor's pod. They are not world objects of the tutorial.
+- So the only candidate for the purple sphere is the **phase pod 0x2E001157**. It is the object the server places as
+  the "crater ring", and it sits in Tutorial 1's own pack.
+  - Sent bare (no graph set), it shows in one fixed pose, and the ring the tester sees is probably the landed /
+    open pod.
+  - No world state's graph set (0x5B5) points to its graph. In the original it was spawned by a cinematic actor's
+    template on CinematicCharacter_State02 / State03 (fase3-ho), which then carries the graph.
+  - Its fall (entrance_a) and its opening (raider_open_a) need that graph.
+- The drop pod we use also has its own fall (Entrance / entrance_a), reached through the graph event Spawn.
+  0x100001E3 (graph events) is not in its scriptlet table (fase3-hs), and Vfx_Spawn 0x10000032 probably plays it
+  (fase3-hu: it then did not open).
+- 11:49 (tester): the crater ring (the phase pod) is the crater we already use, not a purple sphere. So no world object
+  in this install is the purple sphere. Either the purple comes from an effect played on the same drop pod, or the
+  model is not in this install. Still untried on the pod are three scriptlets of its table (fase3-hs):
+  Vfx_SpawnIdle 0x1000087D, Vfx_Active_State0 0x1000005D and Vfx_Event10 0x100000DC.
+- 11:56 (tester): with Vfx_SpawnIdle, Vfx_Active_State0 and Vfx_Event10 added, the animation looks good but the
+  sphere stays yellow. Every scriptlet of the pod's table has now been tried. The purple sphere is not in this install
+  as far as the files show (fase3-jm makes the six-scriptlet sequence the default).
+
+## Tutorial models list (2026-10-18 12:00)
+
+- `catalog/data/tutorial_models.tsv` (tools/tutorial_models.py) lists every world state of the tutorials' packs and
+  every one their layouts / cinematics place. The entity comes from the world state header, which has two forms:
+  `did | 7 | .entity | 0 | count | entries`, and `did | 2 | .entity | 0 | ...` for some zone-pack map pieces.
+- Asset names come only from animated / rigged entities (rig bones). Static map meshes point to mesh (0x19),
+  collision (0x11) and Havok (0x17) records with no names.
+- Named objects worth knowing besides the ones already used: env_pvp_doomsday_device_a 0x2E000A3B (both
+  tutorials), env_pvp_alien_base_iris 0x2E00103B, env_pvp_power_relay_a 0x2E000D12,
+  vfx_env_pvp_health_pack_a 0x2E000FBB, env_pvp_artifact_foundry 0x2E001037 (Foundry) and env_pvp_powercore_a
+  0x2E0013EE. Tutorial 2's layouts also place champion actors: Superman 0x2E0000DD, Green Lantern 0x2E000156,
+  Doomsday 0x2E000157, Wonder Woman 0x2E000652, Harley Quinn 0x2E000BE5 and the Corrupted GasBot 0x2E0011C1.
+
+## Deep scan of the install (2026-10-18 16:54)
+
+Tester: Metropolis Skyway can be picked and tries to load, so is it really missing? Search more deeply.
+
+- server.log 16:52: joining Metropolis Skyway (0x40000C28) sent the stand-in packs of `[match] maps` (Gotham's zone
+  0xA00000FC, start of Gotham Heights). The client stayed at 10 % until the tester left.
+- Every one of the 616 packs was decompressed and searched for "metropolis" / "skyway" (8-bit and UTF-16 text).
+  The only hit is `Icon-Map-Metropolis-Skyway_png` in the UI pack 0xA00000D0, the menu picture. The map is
+  offered because its encounter record exists, but none of its data is installed.
+- Environment asset families present (prefix_set: occurrences, packs): env_pvp (5401, 8), env_artifact (4580, 5),
+  env_event (382, 10), env_gas / env_gaslight (Tutorials 1 / 2), env_got / env_gotham (the Gotham maps), env_cst /
+  env_coastcity (Coast City, 0xA00000D2), lev_meteor (Gotham Divided). Nothing for Metropolis, Crime Alley or
+  Apokolips. Music banks: Music_CoastCity, Music_Divided, Music_GothamHeights and the three FE_Music_Lobby_*.
+  Tutorial 1's placement pack carries Music_Divided.
+- Character rigs (chr_*_main / rig / behavior): every champion in the roster plus John Stewart; no other
+  unreleased champion. The non-champion rigs are:
+  - Gotham Divided / Heights NPC packs 0xA0000161 and 0xA000016E: minion_siege, minion_raider, minion_mauler,
+    minion_scrapper, minion_agile and minion_leviathan (Gotham Divided's Leviathan); doomsday_guardian (the
+    Destroyer, 0xA0000161 only).
+  - Tutorials: minion_thug and mobile_ward (0xA0000257), minion_raider / siege (0xA00002E7).
+  - The Joker's skill props in his pack 0xA000011B: chr_giftbox, chr_punchingbag (PunchingBagIID) and chr_baby.
+  - Starro's minis (0xA000026E, 0xA00002C7, 0xA000035D).
+- Cinematics: all 30 records (0x35) are now in `cinematics.tsv`. They belong to Tutorial 1 (5), Tutorial 2 (17,
+  mission pack 0xA00002E6), Gotham Divided (4), Coast City (2) and Gotham Heights (2).
+

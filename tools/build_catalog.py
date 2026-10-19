@@ -60,6 +60,11 @@ SECTIONS = [
         ("world-objects", "World objects", "world_objects.tsv",
          "Props and scenery: world states (0x2E), their entities, what the server sends (carrier classes 0x4A...), "
          "scriptlet tables and where they are used."),
+        ("tutorial-models", "Tutorial models", "tutorial_models.tsv",
+         "Every model (world state 0x2E) of Tutorial 1 (packs 0xA000024C, 0xA0000256) and Tutorial 2 (0xA00002E5-E7), "
+         "and every one their layouts place (python ic.py tutorial-models). Static map meshes carry no asset "
+         "names, so kind says what the record shows: animated object (graph set), scripted object (templates) or "
+         "static scenery. 'server' = where the code / config uses it; 'notes' are kept between runs."),
         ("world-states", "World states (all)", "world_states.tsv",
          "Inventory of every world state (0x2E) in the install (python ic.py worlds): packs, .entity, model names "
          "(rig bones, .hkx / .hkb files), a kind guessed from those names, templates, graphs, particles, names in the "

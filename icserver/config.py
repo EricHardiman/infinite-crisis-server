@@ -206,6 +206,12 @@ DEFAULTS = {
                            "spawn": [1, 0x1B, 0xF3, 0, 18.39, 50.08, 252.5]},
         },
         "event_packs_unchecked": False,
+        # 2026-10-18 16:54 (tester: Metropolis Skyway can be picked and tries to load; it stayed at 10 %). A
+        # search of all 616 packs finds only its menu icon (Icon-Map-Metropolis-Skyway, UI pack): no terrain,
+        # zone, mission, sounds or env_ assets, as for Crime Alley and Apokolips Causeway. True = those six
+        # encounters (messages.MISSING_MAP_ENCOUNTERS) are left out of the login's encounter info (0x2024), so the
+        # play menu should not offer them; False = listed as before.
+        "hide_missing_maps": True,
         # Other champions the match must load: Gaslight Catwoman (variant 0x40000262)
         # for the cinematic where she breaks the vehicle (2026-10-13: dialogue but no model).
         "extra_champions": [0x40000262],
@@ -1066,7 +1072,11 @@ DEFAULTS = {
         # 23:34 (tester's video 23:32, fase3-it: the sphere never opened, Vfx_Event1 at 4.0 s showed nothing; in
         # the 21:49 video it opened when Vfx_Spawn had gone to a fall step and never to the sphere on the ground;
         # 16:19 too): no Vfx_Spawn on it (was [0.55, 0x10000032] first)
-        "sphere_cinematic_keys": [[1.55, 0x1000087E], [2.5, 0x10000CCE], [4.0, 0x10000076]],
+        # 2026-10-18 11:56 (tester, fase3-jl test from config.toml): with the pod's three untried scriptlets
+        # added (Vfx_SpawnIdle 0.6 s, Vfx_Active_State0 1.0 s, Vfx_Event10 3.0 s) "the animation looks good",
+        # still the yellow sphere. Was [[1.55, 0x1000087E], [2.5, 0x10000CCE], [4.0, 0x10000076]].
+        "sphere_cinematic_keys": [[0.6, 0x1000087D], [1.0, 0x1000005D], [1.55, 0x1000087E], [2.5, 0x10000CCE],
+                                  [3.0, 0x100000DC], [4.0, 0x10000076]],
         # graph events on it: Spawn 0x10000154 at 0.6 s, OpenIdle 0x100004A5 at frame 115
         # 15:13 (tester: the sphere appears as if teleported, no fall, no opening): the closed sphere's
         # rig is env_pvp_drop_pod_a (graph 0x1A000CDC: Spawn -> Entrance, Idle, Explode; clips entrance_a,
@@ -1274,7 +1284,17 @@ DEFAULTS = {
         # 2026-10-17 19:18 (tester): "batman" = every Gaslight Batman animation / effect on the player's
         # champion (icserver/champion_fx.py: graph events, then the scriptlets the client accepts on him),
         # labelled "G n/N name" / "S n/N name" (was "start")
-        "lab_tour": "batman",
+        # 2026-10-18 12:43 (tester: show the Tutorial 2 models in the lab): "models" = tutorial_models.tsv's
+        # Tutorial 2 models without the static map pieces, named / animated first ("models:all", "models:pod",
+        # "models:scripted object", ... also work), each shown lab_models_modes ("bare" = the model alone) with
+        # its name in the objective text. Was "batman".
+        # 12:47 (tester: "load Tutorial 1's models in Tutorial 2"): "models1" = Tutorial 1's models the same
+        # way (420 of its 429 have their record in its zone pack 0xA000024C, which the lab then loads in the
+        # second zone slot instead of 0xA000009A: lab_models1_packs; needs the two-zone-slot exe patch).
+        # "models1:all", "models1:pod" ... also work. Was "models".
+        "lab_tour": "models1",
+        "lab_models_modes": ["bare"],
+        "lab_models1_packs": [0xA000024C],
         "champion_tour_interval": 8.0,     # 19:52: 6 s (was 3) for the short list; 23:19: 8 (Spawn lasts ~5 s)
         "champion_tour_stop_after": 2.4,
         "champion_tour_from": 0,

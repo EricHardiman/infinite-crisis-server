@@ -560,9 +560,19 @@ def cmd_worlds(cfg, args):
     return 0
 
 
+def cmd_tutorial_models(cfg, args):
+    """tutorial-models -> catalog/data/tutorial_models.tsv: every model (world state) of Tutorial 1 and 2
+    (tools/tutorial_models.py; 2026-10-18)."""
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
+    import tutorial_models
+    tutorial_models.main(args.args[0] if args.args else cfg.game_dir)
+    print("Now: python ic.py catalog")
+    return 0
+
+
 def main(argv):
     p = argparse.ArgumentParser(description="Infinite Crisis preservation server")
-    p.add_argument("command", choices=["doctor", "patch", "server", "play", "app", "legacy", "sounds", "worlds", "client-args", "layout", "variants", "entities", "dump", "carriers",
+    p.add_argument("command", choices=["doctor", "patch", "server", "play", "app", "legacy", "sounds", "worlds", "tutorial-models", "client-args", "layout", "variants", "entities", "dump", "carriers",
                                         "stolen-powers", "catalog", "find"])
     p.add_argument("args", nargs="*")
     p.add_argument("--config")
@@ -581,7 +591,7 @@ def main(argv):
         cfg["match"]["player_class"] = 0x40000086
         print("Classic mode: the player object is Batman (0x40000086) again.")
     return {"doctor": cmd_doctor, "patch": cmd_patch, "server": cmd_server,
-            "play": cmd_play, "app": cmd_app, "legacy": cmd_legacy, "sounds": cmd_sounds, "worlds": cmd_worlds, "client-args": cmd_client_args, "layout": cmd_layout,
+            "play": cmd_play, "app": cmd_app, "legacy": cmd_legacy, "sounds": cmd_sounds, "worlds": cmd_worlds, "tutorial-models": cmd_tutorial_models, "client-args": cmd_client_args, "layout": cmd_layout,
             "variants": cmd_variants, "entities": cmd_entities, "dump": cmd_dump,
             "carriers": cmd_carriers, "stolen-powers": cmd_stolen_powers,
             "catalog": cmd_catalog, "find": cmd_find}[args.command](cfg, args)

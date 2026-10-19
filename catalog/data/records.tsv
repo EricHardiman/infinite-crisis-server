@@ -26,3 +26,4 @@ id	name	pack	kind	notes
 0x3400072D	Destruction impulse script	0xA000024C	server script	Vars DestructionMagnitude, DestructionRadius; referenced by 0x490001BD..0x490001CA. Not sent yet.
 0x35000013	Coast City mission layout	0xA0000162	layout	Holds the map's Player01 spawn (landblock 0x23E3), used for the Coast City maps' "spawn" in [match] maps.
 0x480007FC	Meteor damage area skill		skill	Used by the meteor template's damage areas (with 0x480007FD); read from the template HFSM, not cast by the server.
+0x4000094C	Account encounter stats: totals entry		encounter	The 0x2115 exec puts the entry with this encounter first (probably the totals of all modes); the server sends sample counters for it (fase3-jj).

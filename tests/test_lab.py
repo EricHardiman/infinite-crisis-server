@@ -21,7 +21,9 @@ T.check("match found", u.wait_for(lambda e: e[0] >= t0 and e[2] == 0x20FA))
 u.send_event(T.SVC, 0x20CA, b""); time.sleep(0.3)
 g = T.Client(cfg["server"]["game_port"], "game"); g.sock.sendall(b"\x00" * 40)
 enter = u.wait_for(lambda e: e[0] >= t0 and e[2] == 0x20AF)
-T.check("enter match carries 2E5 and 9A", enter and struct.pack("<I", 0xA00002E5) in enter[-1][3] and struct.pack("<I", 0xA000009A) in enter[-1][3])
+SECOND = 0xA000024C if str(cfg["debug"].get("lab_tour", "")).startswith("models1") else 0xA000009A
+T.check(f"enter match carries 2E5 and {SECOND:#X}", enter and struct.pack("<I", 0xA00002E5) in enter[-1][3]
+        and struct.pack("<I", SECOND) in enter[-1][3])
 g.send_event(T.SVC, 0x20F2, b""); u.wait_for(lambda e: e[2] == 0x206D)
 g.send_event(T.SVC, 0x20D5, struct.pack("<I", 25)); time.sleep(cfg["timing"]["objects_min_delay"] + 1)
 t1 = time.monotonic()
@@ -45,15 +47,19 @@ if str(dc.get("lab_tour", "")) == "batman":
 logtxt = open(os.path.join(cfg.log_dir, "server.log"), encoding="utf-8").read()
 m_ = re.findall(r"lab: \d+ models, (\d+) entries", logtxt)
 n_entries = int(m_[-1]) if m_ else 0
-T.check(f"lab has entries ({n_entries})", n_entries > 5)
+MODELS = str(cfg["debug"].get("lab_tour", "")).startswith("models")    # 2026-10-18: the Tutorial 2 models tour
+T.check(f"lab has entries ({n_entries})", n_entries >= 1 if MODELS else n_entries > 5)
 time.sleep(float(dc["lab_interval"]) * n_entries + 1.5)
 created = [e for e in u.events if e[0] >= t1]
-seen = {ws for ws in tuple(__import__("icserver.tutorial1", fromlist=["x"]).LAB_CANDIDATES) + tuple(__import__("icserver.tutorial1", fromlist=["x"]).LAB_SPHERE) + tuple(__import__("icserver.tutorial1", fromlist=["x"]).LAB_START) if any(e[2]==4 and T.object_class(e[3]) & 0xFFFFFF == ws & 0xFFFFFF for e in created)}
 tut = __import__("icserver.tutorial1", fromlist=["x"])
 wanted = set(tut.model_tour_list(cfg, cfg["debug"].get("lab_tour", "start"))) - set(tut.MODEL_TOUR_CRASHES_BARE)
+seen = {ws for ws in wanted if any(e[2] == 4 and T.object_class(e[3]) & 0xFFFFFF == ws & 0xFFFFFF for e in created)}
 T.check(f"every lab model shown ({len(seen & wanted)}/{len(wanted)})", wanted <= seen)
 runs = [e for e in u.events if e[0] >= t1 and e[2] == 0x8D]
-T.check(f"scriptlets run ({len(runs)})", len(runs) >= 1)
+if MODELS:
+    T.check("models tour: bare models, named in the log", not runs and "[pod]" in logtxt)
+else:
+    T.check(f"scriptlets run ({len(runs)})", len(runs) >= 1)
 T.check("objective updates", len([e for e in u.events if e[0] >= t1 and e[2] == 0x2009]) >= min(n_entries, len(runs)))   # fase3-hy: models that closed the game are skipped
 print(f"{sum(ok for _, ok in T.CHECKS)}/{len(T.CHECKS)} checks passed")
 os._exit(0 if all(ok for _, ok in T.CHECKS) else 1)

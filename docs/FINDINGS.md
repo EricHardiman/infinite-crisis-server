@@ -20,9 +20,11 @@ the findings worth knowing before touching the code. The details and the evidenc
 - Known gaps, decided with the tester:
   - **No electricity between Batman's gun antennas.** The only effect that lights them is the cinematic
     scriptlet Cinematic_Intro (`0x100009EC`), and it also plays a voice line and shows a rope.
-  - **The Destroyer's sphere is the wrong one.** We use `0x2E000FC7`, which is yellow. The original one is
-    purple and probably carries the falling animation; it is not found yet. The yellow one lands together with
-    the crater and the dust wave.
+  - **The Destroyer's sphere is the wrong one.** We use `0x2E000FC7`, the yellow drop pod of Gotham Divided
+    (env_pvp_drop_pod_a). The original is purple. The whole install has only one other pod: the phase pod
+    `0x2E001157` in Tutorial 1's own pack, which we show as the crater ring. Its graph has a fall and an opening,
+    but the tester confirmed it is the crater, not the purple sphere. No other sphere model exists in
+    this install, and none of the pod's effects turns it purple (fase3-jm). The fall and opening look right.
   - **The throw's aim ring on the ground does not show** (the yellow area around Batman when he lifts a car).
 - Positions in the bridge and the finale were estimated from videos.
 
@@ -46,6 +48,9 @@ the sound banks. We checked the tester's full `rp` folder (about 590 packs).
 So:
 - **Can be built:** Tutorials 1 and 2, and every Coast City, Gotham Divided and Gotham Heights mode (PvP and
   versus AI).
+- **Metropolis Skyway shows in the play menu** because its encounter record exists, but a search of every pack
+  finds only its menu icon. Since fase3-jr the server leaves the six maps without data out of the list it sends
+  (`[match] hide_missing_maps`).
 - **Cannot be built with this install:** Tutorial 3 (Crime Alley 1vAI), Crime Alley v AI and the three Clash
   maps. Their terrain, zones, missions and sounds are missing. The encounter definition alone is not enough,
   and nothing can be done on the server side without those files.
@@ -92,6 +97,14 @@ So:
 - The companion app (`python ic.py app`) shows the champions with art, abilities and skins, the profile icons,
   the arsenal, friends and a chat. The game's own menus can still be used (`[app]` / Ctrl+Shift+U).
 
+## Where to look for a model
+
+`catalog/data/tutorial_models.tsv` (catalog section "Tutorial models") lists the 807 models of Tutorial 1 and 2:
+what each one is when the files name it, whether it is animated, where the layouts place it and where the server
+uses it. Map pieces have no names in the files, only IDs. To see them in the game, play Tutorial 2. It shows
+Tutorial 1's 144 non-static models one by one with their names (`[debug] lab_tour = "models1"`, fase3-jp), or
+Tutorial 2's 240 (`"models"`).
+
 ## Still not found or not understood
 
 - **Effects and animations:** the antenna electricity without the cinematic, the purple sphere, the throw's
@@ -127,3 +140,39 @@ The full list is in [`reverse-engineering.md`, "Open questions"](reverse-enginee
   match's champions and must carry the locked one.
 - **Never put game files in the repository:** no `.rp` packs, no `.exe`, no images, no extracted texts.
   IDs, short names and numbers are fine. The server reads everything else from each player's own install.
+
+## How much of the install is catalogued (2026-10-18 14:15)
+
+Counted on the tester's full install (616 packs). "In the install" is the number of records of that type. Rows
+marked "all" have every item listed in the catalog.
+
+| What | In the install | In the catalog | Status |
+|---|---|---|---|
+| Maps / modes (encounters) | 15 | 15 (`stages.tsv`) | all; 5 maps have their files (see "Maps") |
+| Champions | 43 + 11 found by the server | 43 (`champions.tsv`) | the 11 extra are in the roster, not yet in the table |
+| Champion skills | 54 skill sets | 266 rows (44 champions) | the 10 extra champions' skills are missing |
+| Stolen Powers, artifacts, amplifiers | 65 / 228 / 334 | same | all |
+| Profile icons | 134 | 134 | all |
+| Models (world states 0x2E) | 2165 | 2064 (`world_states.tsv`); 807 of the tutorials (`tutorial_models.tsv`) | ~95 %; map pieces have no names, only IDs |
+| Animation graphs (.hkb) | 182 | 182 (`animation_graphs.tsv`) | all; the clips (.hkx) are listed under each graph |
+| Named animation / graph events | — | 148 (`animations.tsv`) | only the ones used so far |
+| Effects (particles 0x18) | 3136 | 40 (`vfx.tsv`) | **mostly missing** |
+| Cinematics (0x35) | 30 | 30 (`cinematics.tsv`) | all listed (fase3-jr); only Tutorial 1's are played |
+| Sound events / sound banks (incl. music) | 1687 / 161 | 1687 / 164 | all IDs; the server plays none itself (music and sounds come from the client) |
+| Conversations (voice lines) | — | 110 | the tutorial's |
+| Scriptlets (0x34) | 875 | 446 keys | about half |
+| Images (0x13) | 7603 | not listed | the companion app decodes them on demand |
+| Network events | — | 103 | the ones seen or decoded so far |
+
+So the catalog is complete for the tutorial, the collection screens and the sounds, but not for effects,
+cinematics and scriptlets. Those are listed only as far as the tutorial needed them.
+
+### Models that close the game
+
+Some models close the game about 3 to 5 s after they appear (`tutorial1.MODEL_TOUR_CRASHES_BARE`). They come in
+families that share their first template. 0x1D000168 is 0x2E00061D-623, 0x1D00025E-261 is 0x2E000872-877 and
+0x2E00086A-870, and 0x1D00060D/611/612/615 is 0x2E000EFE / F03-F05.
+
+The lab's model tours leave out the whole family of any model that closed the game. They also go on after the
+last model shown, even when the list changes (fase3-jq).
+

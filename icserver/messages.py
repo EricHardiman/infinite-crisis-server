@@ -167,7 +167,12 @@ def _setting(name, value):
             + struct.pack("<I", len(value)) + value.encode())
 
 
-def initial_events(roster, account_level, player_name):
+# 2026-10-18 16:54: encounters whose map data is not in the install (only their menu entry and icon):
+# Crime Alley (Tutorial 3, v AI, the Clash maps), Apokolips Causeway, Metropolis Skyway
+MISSING_MAP_ENCOUNTERS = (0x40000CA6, 0x40000C82, 0x40000E68, 0x40000E74, 0x40000EC0, 0x40000C28)
+
+
+def initial_events(roster, account_level, player_name, hidden=()):
     """Everything the client needs between login and the landing screen.
     ORDER MATTERS (see the old server's comments): 0x20b8 + 0x20ED before
     0x209D, and 0x2080 last (it opens the landing-screen gate)."""
@@ -193,12 +198,13 @@ def initial_events(roster, account_level, player_name):
         n_meta += 1
     champ_data = (bytes([0]) + struct.pack("<I", len(roster)) + groups
                   + bytes([0]) + pack_compact(n_meta) + meta)
-    n = len(ENCOUNTERS)
+    shown = [(e, name) for e, name in ENCOUNTERS if e not in set(hidden)]
+    n = len(shown)
     encounters = (b"\x00"
-                  + struct.pack("<I", n) + b"".join(struct.pack("<I", e) for e, _ in ENCOUNTERS)
+                  + struct.pack("<I", n) + b"".join(struct.pack("<I", e) for e, _ in shown)
                   + struct.pack("<I", n) + b"".join(
                       struct.pack("<I", 0 if "Tutorial" in name else (1 << 21) | (1 << 17))
-                      for _, name in ENCOUNTERS)
+                      for _, name in shown)
                   + struct.pack("<I", n) + b"\x00" * n
                   + struct.pack("<I", n) + b"\x00\x00\x00\x00" * n
                   + struct.pack("<I", 0)

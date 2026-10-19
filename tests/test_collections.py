@@ -12,6 +12,9 @@ cfg = config_mod.load(sys.argv[1]); log.setup(cfg.log_dir, False)
 server = Server(cfg); server.start()
 u = T.login_and_menu(cfg, server)
 order = [e[2] for e in u.events]
+b24 = [e[3] for e in u.events if e[2] == 0x2024]
+T.check("0x2024 leaves out the maps not in the install (Metropolis Skyway 0x40000C28)",
+        b24 and struct.pack("<I", 0x40000C28) not in b24[0] and struct.pack("<I", 0x40000B6A) in b24[0])
 T.check("login sends 0x2090 and 0x2107 before 0x2080",
         0x2090 in order and 0x2107 in order and 0x2080 in order
         and order.index(0x2090) < order.index(0x2080) and order.index(0x2107) < order.index(0x2080))
