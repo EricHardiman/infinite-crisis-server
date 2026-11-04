@@ -57,6 +57,17 @@ CAST_RECOVERY = 0.15                 # s from the cast point to the cast's end (
 UPDATE_INTERVAL = 0.1                # s between runs of a state's update chain (the server's tick)
 ANY_NO_REENTER = True                # [ics] polled_any_no_reenter (set by the server)
 EXIT_REENTRY_GUARD = True            # [ics] exit_chain_reentry_guard (agl-e-r.md)
+STOP_LEFT_SUBGRAPHS = True           # [ics] stop_left_subgraphs (Atomic Joker's R, 2026-11-02)
+GRAPH_ENTER_FIRST = True             # [ics] graph_enter_before_children (Superman's E knockback, 2026-11-02)
+STATUS_RECORD_FLAGS = True           # [ics] status_record_flags (Superman's W root, 2026-11-02)
+LOCAL_FRAMES = True                  # [ics] local_frames (Superman's E punch target, 2026-11-03)
+SLOT_COOLDOWN_VARS = True            # [ics] slot_cooldown_vars (Blue Beetle's per-form cooldowns, 2026-11-03)
+HEADING_FROM_VECTOR = True           # [ics] heading_from_vector (Superman's E knockback direction, 2026-11-03)
+GRAPH_DONE_WAITS = True              # [ics] graph_done_waits (Superman's E punch animation, 2026-11-03)
+LAUNCH_SETS_TARGET = True            # [ics] spawn_event_after_chain (Blue Beetle's E shots, 2026-11-03)
+HANDLE_RUNS = True                   # [ics] scriptlet_handle_runs (a StopScriptlet stops its own run, 2026-11-03)
+SKILL_ECHO_NODE = True               # [ics] skill_echo_node (Blue Beetle's passive, 2026-11-03)
+SKILL_USED_EVERY_USE = True          # [ics] skill_used_every_use (Blue Beetle's W detonation, 2026-11-03 23:24)
 STATUS_TIMER_FIRST_WAIT = {0x340002BF}  # [ics] status_timer_first_wait: status script DIDs (agl-qer-lift.md 3)
 # [ics] missile_destroy_delay_scripts: missile scripts whose own DestroyEntity(SELF, delay) decides when a homing missile
 # that reached its target goes (agl-r-impact-q-e.md 3.2)
@@ -496,6 +507,10 @@ class Missile:
             for inst in list(scripts_on(self.world, self.carried)):
                 if not inst.var_by_name("ShooterIID"):
                     inst.vars_by_name("ShooterIID", self.owner)      # its damage checks CheckRelation(Shooter, ...)
+                if LAUNCH_SETS_TARGET and "TargetIID" in aim and not inst.var_by_name("TargetIID"):
+                    # 2026-11-03 (Blue Beetle's E shot 0x340004AA checks IsAlive($TargetIID) as soon as it is launched,
+                    # before 0x100000EE below; P, [ics] spawn_event_after_chain)
+                    inst.vars_by_name("TargetIID", aim["TargetIID"])
             raise_event(self.world, self.carried, EVENT_SPAWN)
             raise_event(self.world, self.carried, EVENT_MISSILE_TARGET, aim)
         self.fly_to(self.target)
@@ -941,12 +956,25 @@ class Instance:
             return None if op.value == 0 else op.value
         if op.source == 0 and op.value in self.params:
             return self.params[op.value]        # the current event's parameter block
+        if LOCAL_FRAMES and op.source >= 3 and op.value in _split_locals(self.script):
+            key = (op.source, op.value)
+            if key in self.vars:
+                return self.vars[key]
+            snap = getattr(self, "defaults_snapshot", {}) or {}
+            return snap.get(op.value, 0)
         if op.value in self.vars:
             return self.vars[op.value]
         if op.source == 2 and OWNER_BLOCK:
             block = getattr(self.owner, "_owner_block", None)
             if block and op.value in block:
                 return block[op.value]
+        if (op.source == 2 and SLOT_COOLDOWN_VARS and isinstance(op.slot, int) and 0x20 <= op.slot < 0x20 + 8 * 16
+                and op.slot % 8 == 0 and hasattr(self.world, "cooldown_end")):
+            # 2026-11-03 (tester report 2026-11-03 00:34: Blue Beetle's ranged and melee Q / W / E share their cooldowns):
+            # the owner block's f64 at 0x20 + 8 x slot is that slot's cooldown end (game time), written by the engine
+            # (no script writes 0x28 / 0x30 / 0x38; Blue Beetle's 0x34000451 / 454 / 455 read them as "end - now" to keep
+            # each form's cooldown in 0xD0 / 0xD8 / 0xE0 across a swap) ([ics] slot_cooldown_vars)
+            return self.world.cooldown_end(self.owner, (op.slot - 0x20) // 8)
         if op.source == 1 and op.slot == 0 and op.value not in self.script.names:
             return op.value                 # literal held in a "value | 1 | 0" operand
         return 0
@@ -964,6 +992,10 @@ class Instance:
         return num(self.get(op))
 
     def set(self, op, value):
+        if (op is not None and not op.is_unset() and LOCAL_FRAMES and op.source >= 3
+                and op.value in _split_locals(self.script)):
+            self.vars[(op.source, op.value)] = value  # a local of one frame (2026-11-02, [ics] local_frames)
+            return
         if op is not None and not op.is_unset():
             self.vars[op.value] = value
             if op.source == 2 and OWNER_BLOCK and not op.is_self():
@@ -1127,7 +1159,7 @@ class Region:
 
     def enter(self, index):
         inst = self.inst
-        if inst.removed:
+        if inst.removed or self.__dict__.get("_dead"):
             return
         depth = getattr(inst, "depth", 0)
         if depth >= BURST_LIMIT:
@@ -1171,7 +1203,7 @@ class Region:
         self.child = None
         if st is None:
             return
-        if st.is_graph:
+        if st.is_graph and not GRAPH_ENTER_FIRST:
             self.child = Region(inst, st, self)
             self.child.start()
         if st.slots[1] is not None:
@@ -1197,6 +1229,14 @@ class Region:
                 Chain(inst, st.slots[0], lambda code: self.finished(index, code)).run()
             else:
                 self.finished(index, RESULT_DONE)
+        if st.is_graph and GRAPH_ENTER_FIRST and self.state == index and self.visit == visit and self.child is None:
+            # 2026-11-02 (tester report 2026-11-02 02:20: Superman's E Heat Vision does not push the enemy back): a
+            # graph state's own enter chain runs before its sub-graph starts, as a hierarchical state machine enters a
+            # parent before its child. The knockback status 0x340003F8 sets EffectSource and KnockbackDistance (6 m) in
+            # its graph's enter; its sub-state S2, entered at once, dashed 0 m with them still unset
+            # ([ics] graph_enter_before_children; false = the sub-graph first, as before)
+            self.child = Region(inst, st, self)
+            self.child.start()
 
     def _polled(self, index):
         """Transitions from this state whose condition can change without an event (checked every update)."""
@@ -1211,6 +1251,15 @@ class Region:
         """Run the current state's exit chain (and its sub-graph's, innermost first)."""
         if self.state is None or self.state >= len(self.graph.states):
             return
+        if self.__dict__.get("_own_anim_cast") == self.state:
+            # 2026-11-03 (tester report 2026-11-03 16:09: after Superman's E punch he cannot move for about 2 s; headless:
+            # the punch state's cast kept casting = 1 for good after the timed fallback, cast_holds_movement held him):
+            # the cast graph_done_waits started for this state ends with it (later timers of it are void)
+            self._own_anim_cast = None
+            inst = self.inst
+            inst.cast_id = getattr(inst, "cast_id", 0) + 1
+            inst.casting = 0
+            inst.graph_casting = 0
         st = self.graph.states[self.state]
         if (EXIT_UPDATE and st.slots[1] is not None and self.__dict__.get("_event_leave")
                 and self.__dict__.get("_updated_at", 1e18) < self.inst.world.time - 1e-9 and not self.inst.removed):
@@ -1224,6 +1273,8 @@ class Region:
                 return
         if self.child is not None:
             self.child.leave()
+            if STOP_LEFT_SUBGRAPHS:
+                self.child.halt()
             self.child = None
         if st.slots[2] is not None:
             # 2026-10-25 19:28 (tester: AGL's R does not keep hitting; agl-e-r.md, C: the passive 0x340002B3's exit chain
@@ -1236,6 +1287,15 @@ class Region:
             finally:
                 self._leaving = False
 
+    def halt(self):
+        """A sub-graph its parent left: its pending polls, update chains and timers find it stopped.
+        2026-11-02 (tester report 2026-11-02 01:43: Atomic Joker's R never stops dealing damage, even after his death):
+        the parent's T0 left the burst graph after 8 s, but the left Region kept its state, so its own timer poll fired
+        the next burst forever ([ics] stop_left_subgraphs; false = as before)."""
+        self.state = None
+        self.visit += 1
+        self._dead = True
+
     def finished(self, index, code):
         if self.state != index:
             return
@@ -1244,8 +1304,29 @@ class Region:
                 # 2026-10-22: an instant skill without a Cast node (Poisoned Earth 0x34000354: BeginSkill + a graph
                 # event) waits for the cast point / finished codes all the same: the animation's, timed like a cast
                 start_cast(self.inst)
+            elif GRAPH_DONE_WAITS and self._waits_for_done_of_own_animation(index):
+                # 2026-11-03 (tester report 2026-11-03 14:40: Superman's E punch never shows; the run: Heat Vision S8 ->
+                # S2 one ms after S8's enter): S8 raises the finisher's graph event and waits for OnCastSignal 2; the
+                # chain's own result (RESULT_DONE is 2 too) fired it before the animation. A state that raises its own
+                # animation and waits for 2 waits for that animation's end, as a cast does ([ics] graph_done_waits)
+                start_cast(self.inst)
+                self._own_anim_cast = index      # ended when the state is left (Region.leave)
             else:
                 self.check(code=code)        # no cast running: the chain's own result (passives, delays)
+
+    def _waits_for_done_of_own_animation(self, index):
+        """The state waits for OnCastSignal 2, its enter chain raises a graph event, and the owner's animation graph
+        hooks this script (so the graph will send the 2)."""
+        waits = any((not t.sources or index in t.sources) and t.trigger is not None and t.trigger.type_id == 0x10000019
+                    and t.trigger.values and t.trigger.values[-1] == RESULT_DONE for t in self.graph.transitions)
+        if not waits:
+            return False
+        st = self.graph.states[index] if index < len(self.graph.states) else None
+        first = st.slots[0] if st is not None else None
+        if first is None or not any(n.type_id == 0x1000004E for n in first.chain()):
+            return False
+        g = graph_of(self.inst.world, self.inst.owner)
+        return g is not None and g.hooks_script(getattr(self.inst.script, "did", 0))
 
     def _waits_for_cast(self, index):
         for t in self.graph.transitions:
@@ -1271,7 +1352,7 @@ class Region:
         """Fire the first transition that matches. An event can fire one transition only: it is consumed
         before the target state runs, so a state entered because of it does not see it again."""
         inst = self.inst
-        if inst.removed or self.__dict__.get("_leaving"):
+        if inst.removed or self.__dict__.get("_leaving") or self.__dict__.get("_dead"):
             return False
         saved = inst.current_event
         saved_code = inst.current_code
@@ -1696,7 +1777,14 @@ def _heading(inst, n, kids):
 
 def _with_heading(inst, n, kids):
     a, b = _num2(inst, kids)
-    angle = num(b) if _degrees_flag(n) else math.degrees(num(b))
+    if HEADING_FROM_VECTOR and isinstance(b, tuple) and len(b) >= 2 and not isinstance(b, Frame) \
+            and abs(num(b[0])) + abs(num(b[1])) > 1e-9:
+        # 2026-11-03 (tester report 2026-11-03 14:4x: Superman's E pushes every target the same way; the original pushes
+        # it on along the line from Superman): the knockback 0x340003F8 overwrites KnockbackHeading with Offset(source,
+        # target), a vector, before this node; its heading is the vector's direction ([ics] heading_from_vector, P)
+        angle = math.degrees(math.atan2(num(b[1]), num(b[0])))
+    else:
+        angle = num(b) if _degrees_flag(n) else math.degrees(num(b))
     if isinstance(a, Frame):
         return Frame(a, angle)
     x, y, z = _vec(a)                              # a plain vector: rotated by the angle
@@ -1989,10 +2077,13 @@ def _load_stats(inst, n, ops, chain):            # 0x1000009F: LoadSkillStats(ow
 
 def _face(inst, n, ops, chain):                  # 0x1000003F: FaceTarget(target, -, FacingIDVariable)
     target = inst.get(ops[0]) if ops else None
-    if target:
+    h = Handle("facing", inst.owner) if len(ops) > 2 else None
+    if target and h is not None and hasattr(inst.world, "lock_facing"):
+        inst.world.lock_facing(inst.source(), target, h)       # held until ReleaseFacing (2026-11-02, [ics] facing_locks)
+    elif target:
         inst.world.face(inst.source(), target)
-    if len(ops) > 2:
-        inst.set(ops[2], Handle("facing", inst.owner))
+    if h is not None:
+        inst.set(ops[2], h)
     return False
 
 
@@ -2326,8 +2417,15 @@ def _graph_cast(inst, hooks):
 
 def _cooldown(inst, n, ops, chain):              # 0x10000007: StartCooldown(duration, SourceEntityDID, ...)[slot]
     slot = n.values[0] if n.values and isinstance(n.values[0], int) else 0xFFFFFFFF
-    slot = inst.slot if slot in (0xFFFFFFFF, -1) else slot
+    explicit = slot not in (0xFFFFFFFF, -1)
+    slot = inst.slot if not explicit else slot
     seconds = inst.number(ops[0]) if ops else 0.0
+    if explicit and SLOT_COOLDOWN_VARS and hasattr(inst.world, "restore_cooldown"):
+        # 2026-11-03 (Blue Beetle's form swap, 0x34000451 / 454 / 455 graph S2): StartCooldown(TimeRemaining)[slot] puts
+        # back the other form's saved cooldown, 0 = ready; it is a remaining time already reduced when it started
+        inst.world.restore_cooldown(inst.source(), seconds, slot)
+        _subs(inst, n, chain)
+        return False
     try:
         inst.world.start_cooldown(inst.source(), seconds, slot=slot)
     except TypeError:
@@ -2528,7 +2626,19 @@ def _start_scriptlet(inst, n, ops, chain):       # 0x10000103: StartScriptlet(en
         if hasattr(ent, "__dict__"):
             ent.__dict__.pop("hold_next_scriptlet", None)
     if ops:
-        inst.set(ops[-1], ("scriptlet", key, ent))   # the handle: what StopScriptlet names
+        run = None
+        w = getattr(inst.world, "w", None)
+        if HANDLE_RUNS and key and w is not None and hasattr(ent, "eid"):
+            # 2026-11-03 (tester report 2026-11-03 15:27: Superman's E target beacon and Blue Beetle's form effects; the
+            # run: Heat Vision's StopScriptlet($ActiveScriptHandle) stopped the target's newest 0x10000223 run 0x16, not
+            # its own 0x14): the handle names its own run ([ics] scriptlet_handle_runs)
+            run = getattr(w, "live_scriptlets", {}).get((ent.eid, key))
+        orders = getattr(w, "__dict__", {}).get("scriptlet_orders") if key and w is not None else None
+        if orders is not None and hasattr(ent, "eid"):
+            # 2026-11-03 (tester report 2026-11-03 22:16: Blue Beetle's passive particles gone; every 0x8D order ends
+            # the runs earlier orders started, C 0x627E4D): the run rides along until its stop (ics/scriptlet_orders.py)
+            orders.hold(ent, key, getattr(w, "live_scriptlets", {}).get((ent.eid, key)))
+        inst.set(ops[-1], ("scriptlet", key, ent, run) if run is not None else ("scriptlet", key, ent))
     return False
 
 
@@ -2561,7 +2671,7 @@ HANDLERS = {
     0x100000E2: _set_value, 0x10000026: _cast, 0x10000007: _cooldown,
     0x10000031: _spend, 0x10000010: _destroy, 0x1000006A: _mark,
     0x10000058: _set_variable, 0x10000024: _detected, 0x1000005A: _offset, 0x10000062: _redirect,
-    0x10000195: _noop,      # SkillEcho? (P: notify "skill used"; no listener needs it yet)
+    0x10000195: lambda inst, n, ops, chain: _skill_echo(inst, n, ops, chain),  # SkillEcho: 0x10000196 {Slot} to the owner's scripts ([ics] skill_echo_node)
 }
 COND_ACTIONS = {}            # action nodes that give a result when used as a condition (script_nodes.py)
 EVENT_TRIGGERS = {0x1000013B, 0x10000055, 0x100000B1, 0x1000002C, 0x10000049, 0x1000017D, 0x1000003B,
@@ -2731,6 +2841,32 @@ def raise_event(world, ent, ev, params=None):
 _SHARED_LOCALS = {}
 
 
+_SPLIT_LOCALS = {}
+
+
+def _split_locals(script):
+    """Names a script uses in two or more local frames (operand source 3, 4, 5 ... = the nesting depth of the variable
+    block). 2026-11-02 (tester report 2026-11-03 00:32: Superman's E punch hit Swamp Thing, which the dash only touched):
+    Heat Vision 0x340003D6 keeps its target in graph S1's TargetIID (source 3) and what the dash collides with in graph
+    S7's own TargetIID (source 5); the original's frames are separate memory, ics kept one variable per name, so the
+    collision replaced the target. These names are kept per (source, name) ([ics] local_frames; 95 scripts)."""
+    did = getattr(script, "did", None)
+    if did not in _SPLIT_LOCALS:
+        srcs = collections.defaultdict(set)
+
+        def walk(n):
+            for o in getattr(n, "operands", ()):
+                if isinstance(o.source, int) and 3 <= o.source < 16:
+                    srcs[o.value].add(o.source)
+            for c in getattr(n, "children", ()):
+                walk(c)
+        raw = getattr(script, "raw", None)
+        if raw is not None:
+            walk(V.Node(raw))
+        _SPLIT_LOCALS[did] = {h for h, s in srcs.items() if len(s) > 1}
+    return _SPLIT_LOCALS[did]
+
+
 def _shared_locals(script):
     """Hashes declared by more than one state's locals, or by the script's own variables (RESET_LOCALS keeps them)."""
     did = script.did
@@ -2861,6 +2997,7 @@ def apply_status(world, source, target, status, params, skill_world=None, count=
         scripts_on(world, target).append(current)
         if hasattr(world, "status_mirror"):
             world.status_mirror(target, current, True)
+        _record_flags_on(world, target, status, current, source)
         current.start()
     if source is not None:
         current.effect_source = source             # a refresh: the latest applier (acting_entity)
@@ -2925,12 +3062,46 @@ def remove_status(world, target, status, inst=None, by_time=False):
                 r.leave()
                 r.state = None
     inst.removed = True
+    comb = getattr(world, "combat", None)
+    for h, attr in getattr(inst, "record_mods", ()):
+        if comb is not None:
+            comb.remove_modifier(target, h, attr)
+    inst.record_mods = []
     if hasattr(world, "status_mirror"):
         world.status_mirror(target, inst, False)
     try:
         scripts_on(world, target).remove(inst)
     except ValueError:
         pass
+
+
+def _record_flags(status):
+    """The flag attributes a status record sets for its whole duration: its list 0x1000046F of {0x10000450 attribute,
+    0x10000453 op, 0x100004C3 value}, the op-6 (set) entries with a value (Rooted 0x100007FE, Stunned 0x100003F3,
+    Crippled 0x10000B39, 0x100006F3 ...; 31 of the 232 status records with a list). Cached per status."""
+    cache = _record_flags.__dict__.setdefault("cache", {})
+    if status not in cache:
+        out = []
+        lst = RECORD_RESOLVER(status, 0x1000046F) if RECORD_RESOLVER else None
+        for _k, _kind, m in lst if isinstance(lst, list) else ():
+            if not isinstance(m, list):
+                continue
+            md = {k: v for k, _kd, v in m}
+            if md.get(0x10000453) == 6 and md.get(0x10000450) and md.get(0x100004C3) is not None:
+                out.append((int(md[0x10000450]), bool(md[0x100004C3])))
+        cache[status] = out
+    return cache[status]
+
+
+def _record_flags_on(world, target, status, inst, source):
+    """2026-11-02 (tester report 2026-11-02 01:45: Superman's W Frost Breath roots nobody in its inner cone): the root
+    0x48000A06 is data only (its script 0x340002A9 shows the ice and the icon); the record's 0x1000046F sets Rooted.
+    ics read none of these lists: each op-6 flag is now a modifier for the status' lifetime ([ics] status_record_flags)."""
+    comb = getattr(world, "combat", None)
+    if not STATUS_RECORD_FLAGS or comb is None:
+        return
+    inst.record_mods = [(comb.add_modifier(target, attr, 6, value, source), attr)
+                        for attr, value in _record_flags(status)]
 
 
 def status_instances(world, target):
@@ -2986,15 +3157,60 @@ def activate(inst, target=None, point=None):
     ref = inst.world.skill_ref(inst.owner) if hasattr(inst.world, "skill_ref") else None
     if ref is not None:
         params["SourceEntityDID"] = ref
+    inst.use_echoed = inst.echo_raised = False
     taken = bool(inst.event(EVENT_ACTIVATE, params))
     if SKILL_USED_BROADCAST and isinstance(inst.slot, int) and 1 <= inst.slot <= 4 \
-            and (taken or not SKILL_USED_BROADCAST_TAKEN):
+            and (taken or not SKILL_USED_BROADCAST_TAKEN)             and (SKILL_USED_EVERY_USE or not (SKILL_ECHO_NODE and _has_echo(inst.script)))             and not (SKILL_USED_EVERY_USE and inst.echo_raised):
         # 2026-10-25 (kit-audit-2.md 4: Huntress / Flash / Green Lantern / Nightmare Catwoman passives count it): a Q/W/
         # E/R use raises 0x10000196 {Slot} on all the owner's scripts. 2026-10-28 15:00 (tester report; test-2026-10-28-
         # 1439-sweep.md S5: 10 of 16 Smite uses were ignored by the script): only a use the script took ([ics]
         # skill_used_broadcast_taken; false = every use, fase3-ie)
         raise_event(inst.world, inst.owner, 0x10000196, {"Slot": inst.slot})
+        # 2026-11-03 (tester report 23:24: in the original the ranged W also starts Blue Beetle's passive when it is
+        # detonated, a second press the script takes with no SkillEcho after it): every taken use raises the notice; the
+        # use's own SkillEcho then adds no second one ([ics] skill_used_every_use; false = anim-22: SkillEcho only)
+        inst.use_echoed = True
     return taken
+
+
+_HAS_ECHO = {}
+
+
+def _has_echo(script):
+    """The script calls SkillEcho 0x10000195 itself (221 skill scripts, right after their cast point)."""
+    did = getattr(script, "did", None)
+    if did not in _HAS_ECHO:
+        found = []
+
+        def walk(n):
+            if found:
+                return
+            if n.type_id == 0x10000195:
+                found.append(True)
+                return
+            for c in n.children:
+                walk(c)
+        raw = getattr(script, "raw", None)
+        if raw is not None:
+            walk(V.Node(raw))
+        _HAS_ECHO[did] = bool(found)
+    return _HAS_ECHO[did]
+
+
+def _skill_echo(inst, n, ops, chain):            # 0x10000195 SkillEcho(entity)
+    """2026-11-03 (tester report 2026-11-03 16:11: Blue Beetle's passive does not start on his melee E / W): the
+    original's "skill used" notice. 221 skill scripts call it right after their cast point; Blue Beetle's passive
+    0x34000456 waits for 0x10000196 and reads its parameter Slot (0x5A364) to count the uses. It raises 0x10000196
+    {Slot} on the owner's scripts (P: no client half; the meaning from its place and its listeners). ics raised the
+    event at the activation, only when the script took the use; a script with this node raises it here
+    ([ics] skill_echo_node)."""
+    if SKILL_ECHO_NODE and isinstance(inst.slot, int) and 1 <= inst.slot <= 4 and getattr(inst, "status", None) is None:
+        if SKILL_USED_EVERY_USE and getattr(inst, "use_echoed", False):
+            inst.use_echoed = False          # this use's activation already raised it
+            return False
+        raise_event(inst.world, inst.owner, 0x10000196, {"Slot": inst.slot})
+        inst.echo_raised = True              # raised inside the activation: it adds no second one
+    return False
 
 
 def use_skill(script, owner, world, target=None, point=None):

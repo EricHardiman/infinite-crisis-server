@@ -16,6 +16,9 @@ from . import messages as M
 from . import records
 from . import script_model as V
 from . import script_runtime as R
+from . import prewarm
+from . import scriptlet_orders
+from . import skill_slots
 from .wire import KIND_ARRAY, KIND_BOOL, KIND_DID, KIND_ENUM, KIND_F32, KIND_IID, KIND_INT, KIND_TABLE, KIND_U32
 from .wire import pack_property
 
@@ -105,6 +108,7 @@ class World:
         self.encounter = encounter
         self.origin = tuple(spawn[:4])     # region, landblock x, landblock y, cell
         self.send, self.schedule, self.log = send, schedule, log
+        scriptlet_orders.install(self)     # one 0x8D per object and moment, held runs ride along ([ics] scriptlet_orders)
         self.entities = {}
         self._next = ENTITY_BASE_ID
         self.in_world = False
@@ -311,6 +315,13 @@ class World:
             # a skill in its cast (not the basic attack) holds the champion; the last order runs when the cast ends
             ent.pending_move = tuple(point)
             return True
+        if self.ic.get("basic_attack_holds_movement", True) and self._basic_attack_animating(ent):
+            # 2026-11-04 (tester report 2026-11-04 00:56: he walks before the basic attack's animation ends; the graph
+            # data: the attack states (Ranged_Basic_Left 104 ...) have no Lua early-out on movement, their Cosmetic tail
+            # has onCosmeticEarlyOut): a move ordered while the graph is in the basic attack's state waits for its exit
+            # (code 2, the clip's basicattack_to_basicattack), then runs ([ics] basic_attack_holds_movement, P)
+            ent.pending_move = tuple(point)
+            return True
         if self.nav is None or not self.ic.get("pathing", True):
             ent.dest, ent.path = [point[0], point[1], z], []
             return True
@@ -398,6 +409,7 @@ class World:
                 # the fog of war's vision source radius (movement-collision-fog-map.md 2: 0x10000133, default -1)
                 props.append((PROP_VISION_RADIUS, KIND_F32, vision))
             props += [(STOLEN_PROPERTIES[slot], KIND_TABLE, block) for slot, block in sorted(ent.stolen.items())]
+            props += skill_slots.properties(ent)          # swapped / overridden buttons (2026-11-02, [ics] slot_tables)
             if getattr(ent, "recall_block", None):
                 props.append((RECALL_PROPERTY, KIND_TABLE, ent.recall_block))
             for slot, block in sorted((getattr(ent, "item_blocks", None) or {}).items()):
@@ -461,6 +473,7 @@ class World:
         self.start_kit(ent)
         self.champion_init_event(ent)
         self.log(f"bot champion {ent.name} ({variant:#x}) team {team}, id {ent.eid:#x}")
+        prewarm.champion(self, ent)        # its statuses read now, not at their first hit ([ics] prewarm_statuses)
         return ent
 
     def bot_properties(self, ent):
@@ -564,6 +577,31 @@ class World:
         self.vitals(ent)
         self.emit("bot_level", ent=ent, level=ent.level)
 
+    def apply_facing_lock(self, ent):
+        """A held facing lock (CastWorld.lock_facing) while the heading follows a movement: the model's yaw stays on the
+        locked target through facing_offset. A lock runs out after [ics] facing_lock_max_seconds or at death."""
+        lock = getattr(ent, "facing_lock", None)
+        if lock is None:
+            return
+        if time.time() > lock["until"] or not ent.alive:
+            self.drop_facing_lock(ent, "expired")
+            return
+        t = lock["target"]
+        if t is not None and t.alive and abs(t.pos[0] - ent.pos[0]) + abs(t.pos[1] - ent.pos[1]) > 1e-3:
+            lock["yaw"] = math.atan2(t.pos[1] - ent.pos[1], t.pos[0] - ent.pos[0])
+        off = math.remainder(lock["yaw"] - ent.heading, math.tau)
+        ent.facing_offset = off if abs(off) > 1e-3 else None
+
+    def drop_facing_lock(self, ent, why):
+        """The lock ends (ReleaseFacing, time limit, death): a standing champion's heading takes the model's yaw."""
+        ent.facing_lock = None
+        off = getattr(ent, "facing_offset", None)
+        if off:
+            ent.facing_offset = None
+            if ent.dest is None:
+                ent.heading = math.remainder(ent.heading + off, math.tau)
+            self.update(ent, f"{ent.name}: facing lock {why}")
+
     def motion_due(self, ent):
         """bot-champions.md 3.5: a bot's movement goes when its velocity changes (start, stop, a new path corner,
         heading > 10 deg) or every 1 s while it moves; True = time to send a state (and it is noted as sent)."""
@@ -575,6 +613,16 @@ class World:
             return False
         ent._motion_sent = (key, ent.heading, now)
         return True
+
+    def forced_motion_label(self, ent):
+        """2026-11-04 (tester report 03:15: the first Heat Vision knockback looked like a teleport; the per-tick motion
+        states go unlabelled, so traffic.log never showed them): a label for the state of an entity in a forced movement
+        (knockback / dash), None otherwise; the bytes are the same ([ics] log_forced_motion)."""
+        c = self.__dict__.get("_combat")
+        if not self.ic.get("log_forced_motion", True) or c is None or R._key(ent) not in c.states                 or c.of(ent).motion is None:
+            return None
+        return (f"{ent.name}: forced movement state ({ent.pos[0]:.2f}, {ent.pos[1]:.2f}) speed {float(ent.speed or 0):.1f}"
+                f" heading {math.degrees(ent.heading):.0f}")
 
     def motion_update(self, ent):
         """A bot's throttled movement (motion_due) as a small state (0x4 with only 0xB0); None = nothing to send."""
@@ -600,7 +648,9 @@ class World:
     def bundle(self, ent, now=None):
         self.snap_to_ground(ent)
         ent.sequence += 1
-        now = now or time.time()
+        # 2026-11-04 ([ics] spawn_state_backdate): a standing spawned skill object's creation state, stamped that much
+        # earlier, is placed by the client at once (it replays states >= 0.1 s old, client-movement.md 0)
+        now = now or (time.time() - float(ent.__dict__.pop("create_backdate", 0.0) or 0.0))
         props = self.properties(ent)
         if self.delta_mode():
             self.remember_full(ent, props, now)
@@ -736,6 +786,8 @@ class World:
             parts.append(f"0x6 x{len(changed)}")
         if gone:
             parts.append("0x86 " + " ".join(f"{p:#x}" for p in gone))
+        if msgs and not label and parts and parts[0] == "0xb0":
+            label = self.forced_motion_label(ent)
         if msgs:
             self.send(f"{label} [delta: {', '.join(parts)}]" if label else None, b"".join(msgs))
         elif label:
@@ -1083,15 +1135,19 @@ class World:
         self.graph_feed(ent, key, variables)
         return True
 
-    def signal_scriptlet(self, ent, key):
+    def signal_scriptlet(self, ent, key, run=None, script=False):
         """2026-10-23 23:30 (tester: Scorched Earth's circle stays on the ground forever; skill-second-stages.md 3):
         StopScriptletKey signals the live run of that key; 0x8D with the run's own instance number and a signal bit
         ([ics] stop_scriptlet_signal, P: 1 as the client's own 0x57C4B0) signals it instead of starting a new run."""
         bit = self.ic.get("stop_scriptlet_signal", 1)
-        (self.__dict__.get("looping_scriptlets") or {}).pop((ent.eid, key), None)   # a held run stops with it
-        run = self.live_scriptlets.pop((ent.eid, key), None)
+        if run is None:
+            (self.__dict__.get("looping_scriptlets") or {}).pop((ent.eid, key), None)   # a held run stops with it
+            run = self.live_scriptlets.pop((ent.eid, key), None)
         if bit is None or bit is False or run is None or ent.eid not in self.entities and ent is not self.champion:
             return False
+        orders = self.__dict__.get("scriptlet_orders") if script else None
+        if orders is not None:
+            return orders.stop(ent, key, run)          # a script's StopScriptlet: 0x11F (ics/scriptlet_orders.py)
         name = self.data.scriptlet_names().get(key, f"{key:#x}")
         self.send(f"{ent.name}: stop {name} (0x8d signal {int(bit)}, run {run})",
                   M.start_scriptlets(ent.eid, [(key, run)], 0, signals=1 << int(bit)))
@@ -1467,6 +1523,7 @@ class World:
         self.champion_init_event(ent)
         self.log(f"champion {ent.name} ({variant:#x}): " + ", ".join(f"{s}={sk.name}" for s, sk in
                                                                       sorted(ent.kit.items())))
+        prewarm.champion(self, ent)        # its statuses read now, not at their first hit ([ics] prewarm_statuses)
         return ent
 
     def placements(self, enc):
@@ -1794,7 +1851,8 @@ class World:
             if g:
                 g.set_moving(ent.dest is not None)          # Propel: the graph's Lua early-outs
             pend = getattr(ent, "pending_move", None)
-            if pend is not None and not self.casting_skill(ent):
+            if pend is not None and not self.casting_skill(ent) and not (
+                    self.ic.get("basic_attack_holds_movement", True) and self._basic_attack_animating(ent)):
                 ent.pending_move = None             # the move ordered during a cast (cast_holds_movement)
                 if ent.alive and self.walk_to(ent, pend):
                     changed.append(ent)
@@ -1840,6 +1898,8 @@ class World:
                     ent.speed = ent.move_speed
             else:
                 ent.heading = math.atan2(dy, dx)
+                if getattr(ent, "facing_lock", None) is not None:
+                    self.apply_facing_lock(ent)          # the model keeps the locked yaw (CastWorld.lock_facing)
                 ent.pos = [ent.pos[0] + dx * step / dist, ent.pos[1] + dy * step / dist, ent.pos[2]]
                 ent.speed = ent.move_speed
             self.snap_to_ground(ent)
@@ -1974,11 +2034,29 @@ class World:
             # its chase (which sets dest past cast_holds_movement) wait while one of its skills is in its cast
             # ([ics] attack_waits_for_cast)
             return False
+        c = self.__dict__.get("_combat")
+        queued = getattr(ent, "attack_queued_until", 0.0)
+        if queued and now > queued:
+            ent.attack_queued_until = queued = 0.0
+        if queued and self.ic.get("attack_waits_for_action_lock", True) and (self.casting_skill(ent)
+                                                                             or self._skill_animating(ent)):
+            # 2026-11-03 (tester report 2026-11-03 00:32: Superman's E punch has no animation; the run: its finisher graph
+            # event at 00:32:34.295, the queued basic attack's 0x10000128 at .324 over it): the client holds an order
+            # while a skill holds the action (full-combat-skills.md 1.4, C: 0x863860 buffers it), so the attack
+            # QueueOrder 0x100000DB asks for starts when the skill's cast ends (its animation's end hook), as the bots'
+            # attack_waits_for_cast. The action lock itself is not used: ics can leave one held (Wonder Woman's Q S6)
+            return False
         if not target.alive or (target is not self.champion and target.eid not in self.entities):
             ent.attack_target = None
             return False
         basic = ent.kit.get(0)
         reach = basic.stat(18, 1) if basic and basic.stat(18, 1) > 0 else float(self.ic["basic_attack_range"])
+        ov = (c.of(ent).stat_overrides.get(0) or {}).get(18) if c is not None and R._key(ent) in c.states else None
+        if ov and float(ov) > 0 and self.ic.get("attack_range_override", True):
+            # 2026-11-03 (tester report 2026-11-03 00:34: Blue Beetle's melee basic attack kept the ranged reach): his basic
+            # attack 0x34000457 sets its own range with SetSkillStatOverride(IntendedRange)[-1, 18] at each re-init,
+            # stat 17 (1 m) in melee form, 18 (5.25 m) in ranged ([ics] attack_range_override)
+            reach = float(ov)
         radii = ent.kind == "champion" and self.ic.get("attack_range_radii", True)
         if radii:
             # 2026-10-29 tester report 18:31 (the champion chased a fleeing enemy champion inside its basic-attack
@@ -2009,7 +2087,11 @@ class World:
         ent.dest, ent.speed = None, 0.0
         if radii:
             ent.path = []           # in range: the rest of the chase path goes too (it is re-planned if the target leaves)
-        ent.heading = math.atan2(target.pos[1] - ent.pos[1], target.pos[0] - ent.pos[0])
+        if not (self.ic.get("attack_face_by_script", True) and ent.kind == "champion"):
+            ent.heading = math.atan2(target.pos[1] - ent.pos[1], target.pos[0] - ent.pos[0])
+        # 2026-11-04 (tester report 2026-11-04 00:56: he shoots with his back to the target): a champion's basic attack
+        # script faces the target itself (FaceTarget($TargetIID)[1 0 0.15] in its S1, e.g. 0x34000457); the heading set
+        # here first made that FaceTarget see no turn, so no facing reached the client ([ics] attack_face_by_script)
         if basic and now >= max(ent.next_attack, ent.ready_at.get(0, 0.0)):
             # the basic attack's own script sets its cooldown (1 / attack speed); next_attack only keeps the
             # orders from piling up while its cast runs
@@ -2202,6 +2284,14 @@ class World:
             # 2026-10-23 18:50 (tester: inside the white base zone a champion cannot be hurt): Match._auras_tick
             self.log(f"{target.name}: no damage inside the base aura")
             return
+        c = self.__dict__.get("_combat")
+        if (amount >= target.health and c is not None and R._key(target) in c.states and 0 in c.guarded(target)
+                and self.ic.get("defeat_guard_all_damage", True)):
+            # 2026-11-02 (tester report 2026-11-02 01:43: Atomic Joker's passive The Punch Line did not start when a
+            # turret killed him): turrets, minions, bosses and objectives hit through here, past script_nodes.deal_damage's
+            # defeat guard; a type-0 guard stops the lethal hit and raises 0x1000011B {KillerIID} the same way
+            R.raise_event(CastWorld(self, target, None), target, 0x1000011B, {0x032C3FD4: source})
+            amount = max(0.0, target.health - 1.0)
         target.health = max(0, target.health - amount)
         attacker = source
         if isinstance(attacker, Entity) and getattr(attacker, "missile", None) is not None:
@@ -2496,6 +2586,25 @@ class World:
         naked = base + per * (e.level - 1)
         return (naked + add) * (1.0 + pct) - naked
 
+    def _skill_animating(self, ent):
+        """2026-11-03 (tester report 2026-11-03 14:40: Superman's E punch still cut; the run: the stage's cast-end signal
+        came 1 ms after its finisher state and the queued attack's 0x10000128 went 30 ms before the finisher's end hook):
+        the champion's animation graph (the server's copy of the original's graph) is still in a state a slot skill's
+        script hooks ([ics] queued_attack_waits_graph)."""
+        if not self.ic.get("queued_attack_waits_graph", True):
+            return False
+        g = ent.__dict__.get("graph_rt") or None
+        if not g:
+            return False
+        return any(slot and not inst.removed and g.in_state_of(inst.script.did)
+                   for slot, inst in (getattr(ent, "skill_insts", None) or {}).items())
+
+    def _basic_attack_animating(self, ent):
+        """The entity's graph is in a state its basic attack's script hooks (the swing, before its Cosmetic tail)."""
+        g = ent.__dict__.get("graph_rt") or None
+        inst = (getattr(ent, "skill_insts", None) or {}).get(0)
+        return bool(g and inst is not None and not inst.removed and g.in_state_of(inst.script.did))
+
     def casting_skill(self, ent):
         """A skill of the entity (slot > 0) is in its cast (Cast node until the cast end)."""
         return any(slot and getattr(inst, "casting", 0) > 0 and not inst.removed
@@ -2766,6 +2875,10 @@ class CastWorld:
     def heading(self, ent):
         e = self._ent(ent)
         if isinstance(e, Entity):
+            if getattr(e, "facing_lock", None) is not None and getattr(e, "facing_offset", None):
+                # 2026-11-02: under a facing lock the scripts' facing is the model's (Blue Beetle's E aims its four
+                # shots with FindTargets' box along his facing, back toward the enemies he hops away from)
+                return e.heading + getattr(e, "facing_offset", 0.0)
             return e.heading
         return math.radians(getattr(ent, "yaw", 0.0))
 
@@ -2998,6 +3111,53 @@ class CastWorld:
                 owner.dest, owner.speed = None, 0.0
             self.w.update(owner, f"{owner.name} faces the target")
 
+    def lock_facing(self, owner, target, handle):
+        """FaceTarget 0x1000003F with an out handle ($FacingIDVariable): the champion faces the target until ReleaseFacing
+        0x10000057 frees that handle (full-combat-skills.md 1.8: "drop the facing lock created by FaceTarget so movement
+        steers the champion again"). 2026-11-02 (tester report 2026-11-02 01:48: Blue Beetle's E Stick And Move goes
+        facing the direction; its script 0x34000455 faces the point behind his start, StartPosition - (Target - Start),
+        right after DashToPosition): a moving champion keeps the heading of travel (the client moves him along it) and
+        turns only the model (facing_offset, as a held prop's spin); a standing one turns as before ([ics] facing_locks)."""
+        ent = self._ent(owner)
+        if not isinstance(ent, Entity) or not self.w.ic.get("facing_locks", True):
+            self.face(owner, target)
+            return
+        moving = ent.dest is not None or self.combat.of(ent).motion is not None
+        if not moving:
+            self.face(owner, target)
+        p = self.position(target)
+        if p is None or abs(p[0] - ent.pos[0]) + abs(p[1] - ent.pos[1]) <= 1e-3:
+            yaw = ent.heading + (getattr(ent, "facing_offset", None) or 0.0)
+        else:
+            yaw = math.atan2(p[1] - ent.pos[1], p[0] - ent.pos[0])
+        tgt = self._ent(target)
+        ent.facing_lock = {"handle": handle, "target": tgt if isinstance(tgt, Entity) else None, "yaw": yaw,
+                           "until": time.time() + float(self.w.ic.get("facing_lock_max_seconds", 6.0) or 1e9)}
+        if moving:
+            if ent.dest is not None:
+                ent.heading = math.atan2(ent.dest[1] - ent.pos[1], ent.dest[0] - ent.pos[0])
+            self.w.apply_facing_lock(ent)
+            self.w.update(ent, f"{ent.name} faces {math.degrees(yaw):.0f} deg while moving (facing lock)")
+
+    def slot_presentation(self, ent, slot, values):
+        """SetSkillStatOverride 0x100000FA on a slot: its button's fields (ics/skill_slots.py)."""
+        ent = self._ent(ent)
+        if isinstance(ent, Entity) and slot is not None:
+            skill_slots.present(self.w, ent, slot, values)
+
+    def clear_slot_presentation(self, ent, slot):
+        ent = self._ent(ent)
+        if isinstance(ent, Entity) and slot is not None:
+            skill_slots.cleared(self.w, ent, slot)
+
+    def release_facing(self, owner, handle):
+        """ReleaseFacing 0x10000057: the lock of that handle ends; the champion keeps the yaw its model has."""
+        ent = self._ent(owner)
+        lock = getattr(ent, "facing_lock", None) if isinstance(ent, Entity) else None
+        if lock is None or (handle not in (None, 0) and lock["handle"] is not handle and lock["handle"] != handle):
+            return
+        self.w.drop_facing_lock(ent, "released")
+
     def run_scriptlet(self, ent, key, target=None, variables=None):
         """variables: [(property, value)] the script passes (e.g. 0x10000030 target, 0x100009EB shot speed);
         sent as the scriptlet's variable table, typed by the property's kind (catalog properties.tsv)."""
@@ -3146,10 +3306,22 @@ class CastWorld:
                 self.w.graph_feed(ent, key, feed_vars)
             self.w.send(label, msg)
 
-    def stop_scriptlet(self, ent, key=None, handle=None):
+    def stop_scriptlet(self, ent, key=None, handle=None, run=None):
         """The client stops a scriptlet run itself when its script copy runs StopScriptlet; the 0x8D form that stops a
-        run by instance is not known (full-combat-skills.md S3.9): logged."""
+        run by instance is not known (full-combat-skills.md S3.9): logged. run: the handle's own run (StopScriptlet)."""
         ent = self._ent(ent)
+        if run is not None and key and isinstance(ent, Entity):
+            # 2026-11-03 ([ics] scriptlet_handle_runs): the run the handle started, not the key's newest; the key's
+            # record is dropped only when it is that run
+            if self.w.live_scriptlets.get((ent.eid, key)) == run:
+                self.w.live_scriptlets.pop((ent.eid, key), None)
+                (self.w.__dict__.get("looping_scriptlets") or {}).pop((ent.eid, key), None)
+            defer = float(self.w.ic.get("champion_scriptlet_delay", 0.06) or 0)
+            if ent is self.w.champion and defer > 0 and self.w.ic.get("champion_stop_deferred", True):
+                self.w.schedule(defer, lambda: self.w.signal_scriptlet(ent, key, run=run, script=True))
+            else:
+                self.w.signal_scriptlet(ent, key, run=run, script=True)
+            return
         defer = float(self.w.ic.get("champion_scriptlet_delay", 0.06) or 0)
         if (key and isinstance(ent, Entity) and ent is self.w.champion and defer > 0
                 and self.w.ic.get("champion_stop_deferred", True)):
@@ -3157,10 +3329,20 @@ class CastWorld:
             # skill's Vfx_Atm_Glt_Smash_Active start left champion_scriptlet_delay late, its stop at once, so the stop
             # landed 2 ms after the start and cut the smash): the champion's stops keep the starts' delay, in order
             # ([ics] champion_stop_deferred; false = sent at once as in fase3-ig)
-            self.w.schedule(defer, lambda: self.w.signal_scriptlet(ent, key) or self.log(
+            if self.w.ic.get("stop_takes_run_at_call", True):
+                # 2026-11-03 (tester report 2026-11-03 14:42: Blue Beetle's form effects stay; the run: the passive
+                # 0x34000456 stopped and restarted 0x10000BC6 at 14:42:50.380, the deferred stop then took the NEW run's
+                # record, so the buff's end at 56.231 found nothing to stop): the run to stop is the one live now, sent
+                # later ([ics] stop_takes_run_at_call)
+                run = self.w.live_scriptlets.pop((ent.eid, key), None)
+                (self.w.__dict__.get("looping_scriptlets") or {}).pop((ent.eid, key), None)
+                self.w.schedule(defer, lambda: self.w.signal_scriptlet(ent, key, run=run, script=True) or self.log(
+                    f"{ent.name}: stop scriptlet {key:#x}"))
+                return
+            self.w.schedule(defer, lambda: self.w.signal_scriptlet(ent, key, script=True) or self.log(
                 f"{ent.name}: stop scriptlet {key:#x}"))
             return
-        if key and isinstance(ent, Entity) and self.w.signal_scriptlet(ent, key):
+        if key and isinstance(ent, Entity) and self.w.signal_scriptlet(ent, key, script=True):
             return
         self.log(f"{getattr(ent, 'name', ent)}: stop scriptlet {key:#x}" if key else
                  f"{getattr(ent, 'name', ent)}: stop scriptlet run")
@@ -3189,6 +3371,21 @@ class CastWorld:
                 if owner.ready_at.get(slot, 0.0) <= time.time() + 0.01:
                     self.w.send(f"{name} ready (0x20f8)", M.skill_cooldown(slot, time.time()))
             self.w.schedule(seconds + 0.05, ready)
+
+    def cooldown_end(self, ent, slot):
+        """A slot's cooldown end (game time; 0 = never started): the owner block's 0x20 + 8 x slot (Instance.get)."""
+        ent = self._ent(ent)
+        return float(ent.ready_at.get(slot, 0.0)) if isinstance(ent, Entity) else 0.0
+
+    def restore_cooldown(self, owner, seconds, slot):
+        """StartCooldown with an explicit slot: the slot's cooldown becomes `seconds` from now, 0 = ready (0x20F8 with
+        the end time either way). 2026-11-03, [ics] slot_cooldown_vars: Blue Beetle's forms keep their own cooldowns."""
+        owner = self._ent(owner)
+        if not isinstance(owner, Entity) or slot is None:
+            return
+        now = time.time()
+        end = now + max(0.0, float(seconds or 0.0))
+        self.combat.set_cooldown(owner, slot, end)         # on_cooldown sends the 0x20F8
 
     def on_cooldown(self, ent, slot, end):
         ent = self._ent(ent)
@@ -3233,6 +3430,20 @@ class CastWorld:
             self.w.schedule(delay, hook)
             return
         self.w.scriptlet(ent, "_HFSM_DestroyEntityAction")
+        linger = float((self.w.ic.get("destroy_network_linger") or {}).get(f"0x{ent.class_id:08X}", 0) or 0)
+        if linger > 0:
+            # 2026-11-04 (tester report 02:47: Blue Beetle's Q exploded in 5 of 13 casts; same messages and timings each
+            # time; the explosion is particle 0x18000BDB (6 emitters, 0.1-0.5 s) on 0x40000CD8, removed 0.3 s after its
+            # Vfx_OnCollision by DestroyEntity [0.3, 0]): experiment, P. The object leaves the server's world at the
+            # script's time; its network removal (0x3) waits linger s more ([ics] destroy_network_linger {class: s})
+            def gone():
+                if ent.eid in self.w.entities:
+                    self.w.entities.pop(ent.eid, None)
+                    self.w.set_blocking(ent, False)
+                    self.w.schedule(linger, lambda: self.w.send(f"{ent.name} destroyed (0x3, {linger:g} s after)",
+                                                                M.remove_object(ent.eid)))
+            self.w.schedule(delay, gone)
+            return
         self.w.schedule(delay, lambda: self.w.remove(ent, f"{ent.name} destroyed (0x3)") if ent.eid in self.w.entities
                         else None)
 
@@ -3263,6 +3474,12 @@ class CastWorld:
             w.log(f"spawn {cls:#x}: failed\n{traceback.format_exc()}")
             return None
         ent.team = getattr(owner, "team", 0)
+        if self.skill is not None and getattr(self.skill, "slot", None) is not None \
+                and w.ic.get("spawned_entity_skill_slot", True):
+            # 2026-11-03 (tester report 14:43: Blue Beetle's E shots hit for 0; the shot 0x340004AA loads Damage with
+            # LoadSkillStats($ShooterIID)[5 1, slot -1]): a skill's spawned object reads "this slot" as the slot of the
+            # skill that made it, as a missile does (_stat_slot; P) ([ics] spawned_entity_skill_slot)
+            ent.slot = self.skill.slot
         if f"0x{ent.class_id:08X}" in {str(c).upper().replace("0X", "0x") for c in w.ic.get("spawned_inert_classes") or ()}:
             # 2026-10-25 23:22 (tester: the game closed after the middle camp; diag: access violation at rva 0x6B1BD9 the
             # moment AGL's W hit the jungle heavy drop 0x400005E1, which attacked him and got vitals / status icons):
@@ -3294,6 +3511,14 @@ class CastWorld:
                 w.send(f"{e.name}: team 0 (0x6)", M.set_property(e.eid, 0x1000009C, KIND_INT, 0)),
                 w.send(f"{e.name}: team {t} (0x6)", M.set_property(e.eid, 0x1000009C, KIND_INT, t)))
                 if e.eid in w.entities else None)
+        back = float(w.ic.get("spawn_state_backdate", 0.1) or 0.0)
+        if back > 0 and not ent.speed:
+            # 2026-11-04 (tester report 2026-11-04 15:23: Blue Beetle's Q explosion shown in 2 of 16 casts; diag
+            # --particles: its emitter 0x18000BDB started on the client in casts it did not show; client-movement.md 0,
+            # C: the client places a network object by its movement states and replays only those >= 0.1 s old, so a
+            # just-created object is not placed yet when its Vfx_OnCollision arrives 5-118 ms later): the creation
+            # state of a standing spawned object is stamped 0.1 s earlier (the client's replay delay)
+            ent.__dict__["create_backdate"] = back
         w.update(ent, f"spawn {ent.name}")
         if not w.data.entity_scripts(ent.class_id):
             w.spawned_effects(ent)
@@ -3326,7 +3551,15 @@ class CastWorld:
             if w.ic.get("spawned_entity_events", True):
                 # 2026-10-22 (Sonic Shell's shell 0x40000093, script 0x34000042: S0 -> S5 on 0x10000049 when it is
                 # created, S5 -> S4 on 0x10000049 again when launched): a created entity's scripts get 0x10000049
-                R.raise_event(self, ent, R.EVENT_SPAWN)
+                if w.ic.get("spawn_event_after_chain", True):
+                    # 2026-11-03 (tester report 2026-11-03 14:43: Blue Beetle's E shots never fly; the run: each shot
+                    # 0x400008C4 destroyed 77 ms after its creation): its script 0x340004AA goes S0 -> S5 -> S3 on this
+                    # event and destroys itself in S3 while its TargetIID is unset; the LaunchMissile of the same chain
+                    # (0x34000455) brings the target. The event now comes after the spawning chain, as the client
+                    # evaluates once per update (P) ([ics] spawn_event_after_chain)
+                    self.after(0.0, lambda e=ent: R.raise_event(self, e, R.EVENT_SPAWN) if e.eid in w.entities else None)
+                else:
+                    R.raise_event(self, ent, R.EVENT_SPAWN)
             thrown = (w.ic.get("thrown_spawn_classes") or {}).get(f"0x{ent.class_id:08X}")
             if thrown is not None:
                 self._thrown_fall(ent, owner, thrown)
@@ -3488,6 +3721,10 @@ class CastWorld:
         if (slot == 0 and isinstance(ent, Entity) and isinstance(target, Entity) and target.alive
                 and self.hostile(ent, target)):
             ent.attack_target = target
+            # 2026-11-03: this queued attack waits for the skill's EndSkill (World._attack_step); only a queued one, and
+            # at most [ics] queued_attack_lock_wait s (ours, a safety: Wonder Woman's Q 0x34000185 can stay in S6 with
+            # the lock in ics)
+            ent.attack_queued_until = time.time() + float(self.w.ic.get("queued_attack_lock_wait", 2.0) or 0.0)
 
     def slot_instance(self, ent, slot):
         ent = self._ent(ent)
@@ -3531,6 +3768,7 @@ class CastWorld:
             if inst is not None:
                 inst.world.skill = new
             w.log(f"{ent.name}: slot {slot} -> {did:#x} (no script: same state machine, stats overlaid)")
+            skill_slots.swapped(w, ent, slot, did)
             return True
         new = copy.copy(sk)
         new.slot = slot
@@ -3549,6 +3787,7 @@ class CastWorld:
             w.log(f"{ent.name}: slot {slot} swap to {did:#x} failed\n{traceback.format_exc()}")
             return True
         w.log(f"{ent.name}: slot {slot} -> {did:#x} (script {new.script:#x})")
+        skill_slots.swapped(w, ent, slot, did)
         R.raise_event(cw, ent, 0x100000A9, {"SkillSlot": slot, 0x31D944: slot, 0x17AF14: new.script})
         return True
 
@@ -3574,6 +3813,7 @@ class CastWorld:
         if inst is not None:
             ent.skill_insts[slot] = inst
         self.w.log(f"{ent.name}: slot {slot} restored ({sk.script if sk else 0:#x})")
+        skill_slots.reverted(self.w, ent, slot)
         R.raise_event(CastWorld(self.w, ent, None), ent, 0x100000A9,
                       {"SkillSlot": slot, 0x31D944: slot, 0x17AF14: sk.script if sk else 0})
 
@@ -3586,7 +3826,8 @@ class CastWorld:
         if not (ent is w.champion or getattr(ent, "client_vitals", False)):
             return                          # only objects with an attribute component (champion, variants)
         floaty = (w.ic.get("cc_floaty_status") or {}).get(f"0x{attr:08X}")
-        if added and floaty and (attr != 0x100005E4 or float(getattr(mod, "value", 0) or 0) < 0):
+        if (added and floaty and (attr != 0x100005E4 or float(getattr(mod, "value", 0) or 0) < 0)
+                and (ent is w.champion or not w.ic.get("cc_floaty_local_only", True))):
             # 2026-10-26 (deep-scan-s2c.md 2, C: the client shows "Stunned" / "Rooted" / ... over a head only on the
             # server's 0x20BD): a CC attribute modifier added -> its floaty status ([ics] cc_floaty_status: attr -> type)
             w.send(f"{ent.name}: floaty status {int(floaty)} (0x20bd)", M.floaty_status(ent.eid, int(floaty)))

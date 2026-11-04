@@ -76,7 +76,9 @@ handlers) -> def+0x1C, list **4** (end) -> def+0x2C. So a key present in several
 * If the run has no live child (`run[0x17]==0`) it is flagged finished (0x40) and removed at once (`0x57BAF0`:
   out of both lists, `0x516F80` stops whatever is left). Otherwise it lives until its children end or a signal /
   stop ends it; the end list (4) runs then.
-* **Replacing**: there is no "new scriptlet replaces the old one" rule in this code. A new key starts a second run
+* **Replacing** (corrected 2026-11-03, anim-23: the list handler `0x627E20` first stops every network-started run on
+  the object, `0x627E4D` -> `0x57CB60`; docs/reverse-engineering.md "Every 0x8D replaces the server's runs"). Within
+  the entry loop itself there is no "new scriptlet replaces the old one" rule. A new key starts a second run
   next to the first; the same instance number signals the existing run. What removes attachments is (a) the run
   ending, (b) an explicit stop action in the data (P: type 0x17 / the `Vfx_Stop` keys), (c) the object being
   destroyed. Data authors chain states (`Vfx_Startup` -> `Vfx_Active_State1` via a type 5 action with a delay).

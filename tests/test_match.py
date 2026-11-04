@@ -194,6 +194,28 @@ def scriptlet_of(body):
     return (body[q] << 24) | lo, read_compact(body, r)[0]
 
 
+def entry_run(body, key):
+    """The run of key's entry in a 0x8D body, or None: a champion's order may hold several entries (one order per object
+    and moment, ics/scriptlet_orders.py); an entry is u8 key >> 24 | compact low 24 bits | compact run | u32 flags 0."""
+    from ics.wire import pack_compact, read_compact
+    first, run = scriptlet_of(body)
+    if first == key:
+        return run
+    pat = bytes([key >> 24]) + pack_compact(key & 0xFFFFFF)
+    k = body.find(pat, 2)
+    while k >= 0:
+        run, q = read_compact(body, k + len(pat))
+        if body[q:q + 4] == bytes(4):
+            return run
+        k = body.find(pat, k + 1)
+    return None
+
+
+def stop_key(body):
+    """The scriptlet key a 0x11F body stops (u8 0 | u32 key | u32 run | u8 flag)."""
+    return struct.unpack_from("<I", body, 1)[0]
+
+
 def graph_var(body):
     """The 0x780 graph event in a 0x8D's variable table (u32 0x780 | 07 80 | enum: u8 high byte, compact rest), or None."""
     from ics.wire import read_compact
@@ -271,14 +293,14 @@ def death_animation(cfg, data):
         return next((i for i, e, b in rows if e == ev and i > after and pred(b)), None)
 
     def keyed(rows, key):
-        return [i for i, e, b in rows if e == 0x8D and scriptlet_of(b)[0] == key]
+        return [i for i, e, b in rows if e == 0x8D and entry_run(b, key) is not None]
 
     def bare(rows):
-        return [i for i, e, b in rows if e == 0x8D and scriptlet_of(b)[0] == RAISE_EVENT and graph_var(b) == 0x100000AD]
+        return [i for i, e, b in rows if e == 0x8D and entry_run(b, RAISE_EVENT) is not None and graph_var(b) == 0x100000AD]
 
     def overlay_or_stop(n):
         return [(i, e) for i, _l, _d, e, b in frames(s, n)
-                if e == 0x11F or (e == 0x8D and scriptlet_of(b)[0] == DEATH_OVERLAY)]
+                if (e == 0x11F and stop_key(b) == DEATH_OVERLAY) or (e == 0x8D and entry_run(b, DEATH_OVERLAY) is not None)]
     n = die()
     rows = seq(n)
     dead = first(rows, 0x4, lambda b: life(b) == 2)
@@ -324,27 +346,27 @@ def death_animation(cfg, data):
     s.run_due()
     rows = seq(n)
     dead, fall = first(rows, 0x4, lambda b: life(b) == 2), keyed(rows, ON_DEAD)
-    over = [(i, scriptlet_of(b)[1]) for i, e, b in rows if e == 0x8D and scriptlet_of(b)[0] == DEATH_OVERLAY]
+    over = [(i, entry_run(b, DEATH_OVERLAY)) for i, e, b in rows if e == 0x8D and entry_run(b, DEATH_OVERLAY) is not None]
     check("death_overlay_scriptlets opt-in: _CDefeatSystem_DeathOverlay 0x10000843 on the champion after the fall",
-          dead is not None and len(fall) == 1 and len(over) == 1 and dead < fall[0] < over[0][0], (dead, fall, over))
+          dead is not None and len(fall) == 1 and len(over) == 1 and dead < fall[0] <= over[0][0], (dead, fall, over))   # <=: one order, the fall first
     s.clock += 30
     s.run_due()
     rows = seq(n)
-    ups, stops = keyed(rows, ON_RESPAWN), [(i, b) for i, e, b in rows if e == 0x11F]
+    ups, stops = keyed(rows, ON_RESPAWN), [(i, b) for i, e, b in rows if e == 0x11F and stop_key(b) == DEATH_OVERLAY]
     check("opt-in: at the respawn, after the get-up, 0x11F stops that run (u8 0 | 0x10000843 | its run | u8 0)",
           over and len(ups) == 1 and len(stops) == 1 and ups[0] < stops[0][0]
           and stops[0][1] == b"\x00" + struct.pack("<IIB", DEATH_OVERLAY, over[0][1], 0), (ups, stops))
     n = die()
     s.clock += 0.5
     s.run_due()
-    over = [scriptlet_of(b)[1] for i, e, b in seq(n) if e == 0x8D and scriptlet_of(b)[0] == DEATH_OVERLAY]
+    over = [entry_run(b, DEATH_OVERLAY) for i, e, b in seq(n) if e == 0x8D and entry_run(b, DEATH_OVERLAY) is not None]
     m.end(2, "death test")
-    stops = [b for i, e, b in seq(n) if e == 0x11F]
+    stops = [b for i, e, b in seq(n) if e == 0x11F and stop_key(b) == DEATH_OVERLAY]
     s.clock += 30
     s.run_due()
     check("opt-in: the match end stops it (the original's grey ended at its end cinematic), and only once",
           len(over) == 1 and stops == [b"\x00" + struct.pack("<IIB", DEATH_OVERLAY, over[0], 0)]
-          and len([e for i, e, b in seq(n) if e == 0x11F]) == 1, (over, stops))
+          and len([e for i, e, b in seq(n) if e == 0x11F and stop_key(b) == DEATH_OVERLAY]) == 1, (over, stops))
 
     # 2026-10-29 (fase3-if review): in Clash the local death that takes the last team health ends the match inside
     # World.damage, before its fall is scheduled; the fall still plays, the opt-in death screen does not start after the
@@ -367,6 +389,7 @@ def death_animation(cfg, data):
     w.ic["death_overlay_skip_after_end"] = False
     n = len(s.sent)
     w.death_overlay(ch, True)
+    s.run_due()                                 # the moment's orders (ics/scriptlet_orders.py), no time passes
     check("death_overlay_skip_after_end = false: a death screen may start after the end (the fase3-if review's case)",
           [e for i, e in overlay_or_stop(n)] == [0x8D], overlay_or_stop(n))
     w.ic["death_overlay_skip_after_end"] = True
@@ -426,6 +449,7 @@ def death_animation(cfg, data):
     bot.safe_zone = False
     n = len(s.sent)
     w.damage(w.champion, bot, (bot.health or 0) + 1)
+    s.run_due()                                 # the moment's orders (ics/scriptlet_orders.py), no time passes
     rows = seq(n, bot)
     stop, prop = first(rows, 0x4, lambda b: life(b) == 2), first(rows, 0x6, lambda b: life(b) == 2)
     fall = keyed(rows, ON_DEAD)
@@ -447,6 +471,7 @@ def death_animation(cfg, data):
     bot.safe_zone = False
     n = len(s.sent)
     w.damage(w.champion, bot, (bot.health or 0) + 1)
+    s.run_due()                                 # the moment's orders (ics/scriptlet_orders.py), no time passes
     rows = seq(n, bot)
     check("death_scriptlets = []: a bot's fall is the bare graph event 0x100001E3 + 0x780 = 0x100000AD (fase3-ie)",
           len(bare(rows)) == 1 and not keyed(rows, ON_DEAD), rows[-3:])
@@ -1112,7 +1137,7 @@ def _log_sweep(cfg, data):
           ok and bot.attack_target is None and w.casting_skill(bot), (ok, bot.attack_target))
     labels = s.labels(n)
     stop = next((i for i, lbl in enumerate(labels) if "stops to cast" in lbl and bot.name in lbl), None)
-    scr = next((i for i, lbl in enumerate(labels) if "0x8d" in lbl and bot.name in lbl), None)
+    scr = next((i for i, lbl in enumerate(labels) if ("0x8d" in lbl or "0x2073" in lbl) and bot.name in lbl), None)
     check("S4/S5: a taken activation keeps its stop state before the cast's scriptlets (deep-scan-animations.md 5)",
           stop is not None and scr is not None and stop < scr, (stop, scr, labels[:6]))
     bot.attack_target = ch                          # an attack order while the cast runs

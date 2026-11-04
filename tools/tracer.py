@@ -777,7 +777,7 @@ class Tracer:
         n = self.counts[va] = self.counts.get(va, 0) + 1 if name else 0
         # 2026-10-29 (gh-ca-floor-spawn.md 1: the --moves lines were muted after 100 clicks on the first map, so the
         # Gotham Heights run that followed logged none): MOVE steps get a 6000-hit budget
-        if name and n <= (4000 if name == 'SCRIPT CALL' else 6000 if name.startswith('MOVE:') else 3000 if name.startswith(('HOT ', 'HOVER:')) else 400 if name.startswith(('PACK LOAD', 'UI state')) else 100):
+        if name and n <= (4000 if name == 'SCRIPT CALL' else 6000 if name.startswith('MOVE:') else 3000 if name.startswith(('HOT ', 'HOVER:', 'PARTICLES')) else 400 if name.startswith(('PACK LOAD', 'UI state')) else 100):
             parts = []
             for label, expr in fields:
                 try:

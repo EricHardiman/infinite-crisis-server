@@ -213,6 +213,7 @@ def _clear_stat_override(inst, n, ops, chain):   # 0x1000008E ClearSkillStatOver
     ent = _real(_ent(inst, ops, 0))
     slot = _slot(inst, _val(n, 0, 0xFFFFFFFF))
     _combat(inst).of(ent).stat_overrides.pop(slot, None)
+    _call(inst, "clear_slot_presentation", ent, slot)     # 2026-11-02 (ics/skill_slots.py)
     if slot in getattr(ent, "slot_base", {}) and hasattr(inst.world, "revert_slot_skill"):
         # skill-mechanics-recipes.md 2 (C): every swapping script reverts its slot with this node
         inst.world.after(0.0, lambda: inst.world.revert_slot_skill(ent, slot))
@@ -866,6 +867,11 @@ def _skill_stat_override(inst, n, ops, chain):   # 0x100000FA SetSkillStatOverri
     slot = _val(n, 0)
     _msg(inst, "skill_stat_override (P, not sent)", _real(_ent(inst, ops, 0)),
          slot=("this" if slot == 0xFFFFFFFF else slot), tfx=f"{_val(n, 11):#x}", pair=(_val(n, 13), _val(n, 14)))
+    # 2026-11-02: the button's presentation (name, description, icon, targeting) goes to the client as the slot's table
+    # (ics/skill_slots.py; [ics] slot_tables)
+    own = slot in (0xFFFFFFFF, -1, None)
+    if not (own and inst.slot is None):                   # a status script's "this skill" has no button
+        _call(inst, "slot_presentation", _real(_ent(inst, ops, 0)), _slot(inst, slot), list(n.values))
     return False
 
 
@@ -1206,8 +1212,12 @@ def _refresh_icon(inst, n, ops, chain):          # 0x10000116 RefreshStatusIcon(
 def _stop_scriptlet(inst, n, ops, chain):        # 0x10000102 StopScriptlet(entity, handle)[fx] (C client half)
     ent = _real(_ent(inst, ops, 0))
     h = inst.get(ops[1]) if len(ops) > 1 else None
-    key = h[1] if isinstance(h, tuple) and len(h) == 3 and h[0] == "scriptlet" else None
-    _call(inst, "stop_scriptlet", ent, key=key)
+    key = h[1] if isinstance(h, tuple) and len(h) in (3, 4) and h[0] == "scriptlet" else None
+    run = h[3] if isinstance(h, tuple) and len(h) == 4 and h[0] == "scriptlet" else None
+    if run is not None:
+        _call(inst, "stop_scriptlet", ent, key=key, run=run)     # that handle's own run (2026-11-03)
+    else:
+        _call(inst, "stop_scriptlet", ent, key=key)
     fx = _val(n, 0)
     if fx:
         inst.world.run_scriptlet(ent, 0x100003EA, variables=[(0x1000050A, fx)])
@@ -2038,7 +2048,9 @@ def _controller_mode(inst, n, ops):              # 0x100000DC IsInControllerMode
 
 def _can_see(inst, n, ops):                      # 0x1000003C CanSee(observer, target)[flag] (P: no vision model)
     a, b = inst.get(ops[0]) if ops else None, inst.get(ops[1]) if len(ops) > 1 else None
-    if ops and ops[0].is_self():
+    if ops and (ops[0].is_self() or ops[0].is_unset() and _cfg(inst, "can_see_default_self", True)):
+        # 2026-11-02 (tester report 2026-11-02 01:48: Blue Beetle's E fired none of its shots; 0x34000455 asks
+        # CanSee(-, $LoopingIID)): an unset observer is SELF, as the other entity operands ([ics] can_see_default_self)
         a = inst.owner
     return a not in (None, 0) and b not in (None, 0) and inst.world.alive(_real(b))
 
@@ -2249,6 +2261,13 @@ def _true(inst, n, ops):
     return True
 
 
+def _release_facing(inst, n, ops, chain):       # 0x10000057 ReleaseFacing(handle) (full-combat-skills.md 1.8, C)
+    """2026-11-02: frees the facing lock FaceTarget took with that handle (CastWorld.release_facing; was a logged no-op)."""
+    h = inst.get(ops[0]) if ops else None
+    _call(inst, "release_facing", inst.source(), h)
+    return False
+
+
 def _logged(name):
     """A node whose meaning is unknown (or that has no server effect): a no-op that logs once per script."""
     def h(inst, n, ops, chain):
@@ -2374,7 +2393,7 @@ ACTIONS = {
     0x100000DB: _queue_order, 0x1000000B: _add_skill_target, 0x10000005: _attached_skill,
     0x10000105: _flag_node("primed"), 0x10000136: _activate_slot, 0x10000148: _get_targeting,
     0x100000F5: _slot_of_script, 0x10000169: _set_charges, 0x1000016B: _get_charges, 0x10000065: _grant_currency,
-    0x10000075: _logged("SetTargetingMode? 0x10000075"), 0x10000057: _logged("ReleaseFacing 0x10000057"),
+    0x10000075: _logged("SetTargetingMode? 0x10000075"), 0x10000057: _release_facing,
     # attributes, vitals, damage
     0x10000008: _add_modifier, 0x10000033: _remove_modifier, 0x100000CE: _get_vital, 0x10000093: _add_temp_vital,
     0x10000092: _remove_temp_vital, 0x10000040: _start_vot, 0x10000009: _stop_vot, 0x10000149: _add_redirect,

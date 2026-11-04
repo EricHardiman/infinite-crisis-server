@@ -312,7 +312,7 @@ def main():
               and "--throwpress" not in sys.argv and "--scorecard" not in sys.argv
               and "--fogpoly" not in sys.argv and "--nofog" not in sys.argv and "--layers" not in sys.argv
               and "--strip" not in sys.argv and "--bodytest" not in sys.argv
-              and "--heads" not in sys.argv
+              and "--heads" not in sys.argv and "--orders" not in sys.argv and "--particles" not in sys.argv
               and not mapload)
 
     cfg = config_mod.load()
@@ -411,8 +411,10 @@ def main():
             0x5E7943: ("rank: local champion", [("agent", "eax"), ("iid_lo", "[eax+100]"), ("iid_hi", "[eax+104]")]),
             0x7369E5: ("rank: property 0x100006C1 (cave B)", [("read", "eax"), ("value", "[esp]")]),
             0x725A8B: ("rank: recommended, property (cave C)", [("read", "eax"), ("value", "edx")]),
-            0x71F97A: ("can rank up? property (cave E)", [("read", "eax"), ("value", "edx"),
-                                                               ("slot", "[ebp+10]")]),
+            # 2026-11-04 (the game closed at loading twice with --ranks, access violation rva 0x18B360 after cave E2):
+            # cave E2 was rewritten 2026-10-16 and 0x71F97A fell inside "cmp ecx, [ebp+0xc]" (0x71F979-B), so the
+            # breakpoint byte broke the instruction. Now right after its GetSkillRank call (eax = the rank)
+            0x71F987: ("rank for the UI (cave E2)", [("rank", "eax"), ("slot", "[ebp+10]")]),
             0xFAAFC6: ("HUD: the property changed, refresh skills (cave D)", [("value", "edx")]),
             0x67C8B6: ("HUD skill: rank", [("slot", "edi"), ("rank", "[ebp+ffffffe8]")]),
             0x67C8CD: ("HUD skill: recommended", [("slot", "edi"), ("recommended", "[ebp+ffffffe0]")]),
@@ -1224,6 +1226,27 @@ def main():
             # fase3-hk: a 0x8D entry with a live instance number signals that run (StopScriptletKey on the wire, P)
             0x17B510: ("GRAPH 0x8d signals a live scriptlet run (stop)", []),
             0x17C4B0: ("GRAPH scriptlet run signalled by key", []),
+        })
+    if "--orders" in sys.argv:
+        # 2026-11-03 (anim-24, docs/reverse-engineering.md "Every 0x8D replaces the server's runs"): the 0x2073 handler
+        # 0xA883F0 starts its list directly (0xA22DA0, no stop-all) only when the object's +0x110 equals the global
+        # 0x1B759EC; logs both for every 0x8D list (0x627E20: ecx = script component, [ecx+4] = its object) and 0x2073.
+        bps.update({
+            0x227E20: ("ORDERS 0x8d list", [("iid_lo", "[[ecx+4]+100]"), ("obj_110", "[[ecx+4]+110]"),
+                                            ("none_1b759ec", "[base+17759ec]")]),
+            0x6883F0: ("ORDERS 0x2073 received", [("iid_lo", "[[esp+4]+100]"), ("obj_110", "[[esp+4]+110]"),
+                                                  ("none_1b759ec", "[base+17759ec]")]),
+            0x622DA0: ("ORDERS 0x2073 started directly (no stop-all)", []),
+            0x688423: ("ORDERS 0x2073 went to the other manager's list (not started here)", []),
+        })
+    if "--particles" in sys.argv:
+        # 2026-11-04 (anim-29, docs/reverse-engineering.md "Energy Cannon's explosion"): the scriptlet action type 0x11
+        # (particle emitter, vtable 0x15CECD8, execute slot +0x28 = 0x67F650): one line per emitter the client starts,
+        # with a few words of the action (one of them is the particle record, e.g. 0x18000BDB for Blue Beetle's Q)
+        bps.update({
+            0x27F650: ("PARTICLES type 0x11 emitter started", [("a20", "[ecx+20]"), ("a24", "[ecx+24]"),
+                                                               ("a28", "[ecx+28]"), ("a2c", "[ecx+2c]"),
+                                                               ("a30", "[ecx+30]"), ("a34", "[ecx+34]")]),
         })
     if "--anims" in sys.argv:
         # Havok behavior linking (static analysis 2026-10-18, function rva 0x899de0, the one that logs

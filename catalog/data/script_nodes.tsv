@@ -6,7 +6,7 @@ id	name	size	factory	vtable	unpack	uses	scripts	server_status	notes
 0x10000004		0x40	0x9973B0	0x15FAF44	{r4} r4 r4 O O O	1	1	data only	
 0x10000005	SetSkillAttached	0x28	0x99C9A0			0	0	handled	fase3-hk: raises 0x10000022 (a live skill target is set) or 0x10000014 on its own script; Grab missile 0x340002C1 T12 -> S9 (attach + shooter pull graph event 0x10000331) (P)
 0x10000006		0x3C	0x9987A0	0x15FB6C4	B O O	2	2	data only	
-0x10000007	StartCooldown	0x58	0x99D1E0	0x15FD638	B O O O r4 O O O O O r4 r1 O	181	145	partial	run by the new server (ics/script_runtime.py)
+0x10000007	StartCooldown	0x58	0x99D1E0	0x15FD638	B O O O r4 O O O O O r4 r1 O	181	145	partial	run by the new server (ics/script_runtime.py); With an explicit slot: that slot's remaining time, 0 = ready (Blue Beetle's form swap; anim-19, [ics] slot_cooldown_vars)
 0x10000008		0x4C	0x9CA6F0	0x15FE0A4	{B O O r1 r1 r1 r1 O r4 r4} r4 O O {r4}	56	49	data only	
 0x10000009		0x3C	0x99C8C0			8	5	data only	
 0x1000000A		0x10	0x981EE0			30	20	partial	run by the new server (ics/script_runtime.py)
@@ -24,7 +24,7 @@ id	name	size	factory	vtable	unpack	uses	scripts	server_status	notes
 0x10000016		0xBC	0x99A850	0x15FC44C	B r4 r4 r4 r4 r4 r4 O O O O O O r1 r4	2	1	data only	
 0x10000017		0x1C	0x9B78C0			1	1	data only	
 0x10000018		0x78	0x99D2B0	0x15FD6C8	B O r4 O	67	62	partial	RemoveStatus, run by the new server (ics/script_nodes.py). The self form (-, -, -, -)[0 0 0] removes the running status once the current chain has run, so the nodes after it still run (Meltdown's jump decrements the pulses left; 10 status scripts have such nodes; P for the VM rule; meltdown-moving-target.md 6.5, fase3-if)
-0x10000019		0x10	0x980E70			323	241	data only	
+0x10000019		0x10	0x980E70			323	241	data only	anim-20: a state whose enter chain raises a graph event and waits for code 2 waits for the graph's 2 (its animation's end), not the chain's result (also 2); Heat Vision S8
 0x1000001A		0x44	0x99BE80	0x15FCDFC	B O O O O r4 r1 r4 r1 O	10	6	data only	
 0x1000001B		0x24	0x99C810			2	2	data only	
 0x1000001C		0x20	0x99C2E0			0	0	data only	
@@ -53,10 +53,10 @@ id	name	size	factory	vtable	unpack	uses	scripts	server_status	notes
 0x10000039		0x34	0x9B74E0	0x15FC6EC	B r4 r1 O O	362	50	data only	
 0x1000003A		0x10	0xAB5550			6	1	data only	
 0x1000003B		0x10	0xAB5450			99	27	data only	
-0x1000003C		0x3C	0x997630	0x15FB004	B O O r1	11	3	data only	
+0x1000003C	CanSee	0x3C	0x997630	0x15FB004	B O O r1	11	3	implemented	An unset observer operand is SELF (Blue Beetle E 0x34000455 CanSee(-, $LoopingIID); anim-18, [ics] can_see_default_self)
 0x1000003D		0x24	0x998FE0			15	5	data only	
 0x1000003E	IsAlive	0x20	0x99C010			103	90	partial	run by the new server (ics/script_runtime.py)
-0x1000003F	FaceTarget	0x5C	0x99C470	0x15FD0F8	B O r4 {r1 r4 r4 {V V V V *loop} {r1}} r4 r4 r1 r4 r4 r4 r4 r4 r4 r4 r4	6	5	partial	run by the new server (ics/script_runtime.py)
+0x1000003F	FaceTarget	0x5C	0x99C470	0x15FD0F8	B O r4 {r1 r4 r4 {V V V V *loop} {r1}} r4 r4 r1 r4 r4 r4 r4 r4 r4 r4 r4	6	5	implemented	run by the new server (ics/script_runtime.py); With an out handle ($FacingIDVariable) it holds a facing lock until ReleaseFacing 0x10000057; while moving only the model turns (facing_offset) and the scripts' facing is the model's (anim-18, [ics] facing_locks)
 0x10000040		0xC4	0x9B76A0	0x15FDEC0	{B r4 O O r1 O} O O r4 O	118	33	data only	
 0x10000042		0x3C	0x99BFB0	0x15FCF78	O O r4 O r4	12	12	data only	
 0x10000043		0x10	0xAB55D0			0	0	data only	
@@ -78,7 +78,7 @@ id	name	size	factory	vtable	unpack	uses	scripts	server_status	notes
 0x10000054		0x90	0x9CAC30	0x15FE248	B O {r4} O r4 r4	0	0	data only	
 0x10000055		0xC	0x981C90			2	2	data only	
 0x10000056	ShowTargetingIndicator	0x28	0x99B530			0	0	data only	Client node: starts a skill's range indicator (0xab62d0 -> 0xa5dab0), on 0x10000023 (targeting-indicator-and-structures.md).
-0x10000057		0x24	0x99C700			23	20	partial	run by the new server (ics/script_runtime.py)
+0x10000057	ReleaseFacing	0x24	0x99C700			23	20	implemented	run by the new server (ics/script_runtime.py); Frees the FaceTarget lock of that handle; the champion keeps the model's yaw (anim-18; was a logged no-op)
 0x10000058	SetVariable	0x3C	0x999C10	0x15FBF38	B O O r4	849	494	partial	run by the new server (ics/script_runtime.py)
 0x10000059		0x194	0x9CABC0	0x15FE210	{B r4 O O {r4} r1 r1} O O r1 r4 r4	0	0	data only	
 0x1000005A	Offset	0x58	0x9984C0	0x15FB5A4	B O r4 r1	8	8	partial	run by the new server (ics/script_runtime.py)
@@ -124,10 +124,10 @@ id	name	size	factory	vtable	unpack	uses	scripts	server_status	notes
 0x10000086		0x28	0x99AC50			0	0	data only	
 0x10000087		0x40	0x99A740	0x15FC44C	B r4 r4 r4 r4 r4 r4 O O O O O O r1 r4	0	0	data only	
 0x10000088		0x24	0x9986F0			1	1	data only	
-0x10000089	SetSlotSkill	0x5C	0x99DEE0	0x15FDC9C	B O O	3	3	implemented	Slot = the record's 0x100000E6; stats over the base slot's; base instance kept; 0x100000A9 after (fase3-ht)
+0x10000089	SetSlotSkill	0x5C	0x99DEE0	0x15FDC9C	B O O	3	3	implemented	Slot = the record's 0x100000E6; stats over the base slot's; base instance kept; 0x100000A9 after (fase3-ht); The local champion's slot table (0x100008E3..) goes to the client with the record's block (anim-18, ics/skill_slots.py)
 0x1000008A		0x28	0x99A970			0	0	data only	
 0x1000008B		0x44	0x99A630	0x15FC44C	B r4 r4 r4 r4 r4 r4 O O O O O O r1 r4	0	0	data only	
-0x1000008E	ClearSkillStatOverride	0x28	0x99DF40			6	6	implemented	Also restores a swapped slot (SetSlotSkill revert, fase3-ht)
+0x1000008E	ClearSkillStatOverride	0x28	0x99DF40			6	6	implemented	Also restores a swapped slot (SetSlotSkill revert, fase3-ht); Also clears the slot's presentation override (anim-18)
 0x1000008F	AttachEntity	0xAC	0x998230	0x15FB454	B O O r4 O r4 r1 O r1 O O	7	7	data only	AttachEntity(SELF = the holder, object, local offset, out handle) [attach point, u8, u8, u8]. Client side the containment attach (0xB0 flag 0x04, reader 0x55E290) carries only u32 point, u8, bool: the offset (vehicle (0, 0, 2.5), rock (0, 1.4, 1.4)) never reaches the client (vehicles-carry-collision.md 1.2).
 0x10000090		0x2C	0x99A110	0x15FC11C	B O O r4 r4 r4	6	6	data only	
 0x10000092		0x3C	0x9B7960			2	2	data only	
@@ -138,8 +138,8 @@ id	name	size	factory	vtable	unpack	uses	scripts	server_status	notes
 0x1000009C		0x28	0x981710			25	7	data only	
 0x1000009E		0x40	0x99B840	0x15FCB30	B r4 O O O O O O r4 O O r1 r1 r4	0	0	data only	
 0x1000009F	LoadSkillStats	0x38	0x9CAD70			118	95	partial	run by the new server (ics/script_runtime.py)
-0x100000A0		0xA4	0x9CA750	0x15FE33C	B r1 r4 O r4 {r4}	5	5	data only	
-0x100000A1		0x3C	0x99A0B0	0x15FC0BC	B r4 r4 r4 r1 r4 r4 r4 r4 O O O O	0	0	data only	
+0x100000A0		0xA4	0x9CA750	0x15FE33C	B r1 r4 O r4 {r4}	5	5	data only	anim-20: the spawned object's 0x10000049 comes after the spawning chain and it takes the spawning skill's slot for LoadSkillStats -1 (Blue Beetle E shot 0x400008C4 / 0x340004AA; P)
+0x100000A1		0x3C	0x99A0B0	0x15FC0BC	B r4 r4 r4 r1 r4 r4 r4 r4 O O O O	0	0	data only	Atomic Joker The Punch Line 0x340004DE: (HeadIID, SELF) after spawning the head 0x40000A68, (-, SELF) at its end; no client half. P (tester's original: the HUD shows the head's 1/1 health and 8 jumps, the player controls the head): makes the head the player's controlled agent. ics: logged no-op (anim-19)
 0x100000A3		0x40	0x99B5E0	0x15FCA14	B O O O O O O O r4 r1 O	11	11	data only	
 0x100000A4	HasStatus	0x58	0x99C1D0	0x15FD008	O O O O O r1 r1	9	9	partial	run by the new server (ics/script_runtime.py)
 0x100000A5		0x24	0x998A30			14	14	data only	
@@ -188,7 +188,7 @@ id	name	size	factory	vtable	unpack	uses	scripts	server_status	notes
 0x100000D8		0x2C	0x99CCC0	0x15FD454	B O r4 r4	12	11	data only	
 0x100000D9	AddStacks	0xBC	0x9B79D0	0x15FD5D4	B r4 O O O O O O r1	0	0	implemented	Sets the ABSOLUTE stack count of a one-instance status (the decays pass --GetStackCount); 0 removes it (status_stack_model, skill-mechanics-recipes.md 1, fase3-ht)
 0x100000DA		0x3C	0x99D180	0x15FD5D4	B r4 O O O O O O r1	4	4	data only	
-0x100000DB		0x48	0x999B50	0x15FBEA8	B O O	8	8	data only	
+0x100000DB		0x48	0x999B50	0x15FBEA8	B O O	8	8	data only	anim-19: the queued basic attack waits while a skill holds the action lock (client buffer 0x863860, C); Heat Vision's punch animation was cut ([ics] attack_waits_for_action_lock)
 0x100000DC		0x24	0x998F30			0	0	data only	
 0x100000DD		0xE4	0x9B7850	0x15FDF20	{B O O O O r1 r4 O O O} r4 O r1 r4 r4	0	0	data only	
 0x100000DE		0x3C	0x997D90	0x15FB2D4	B r4 O r1 O r4	0	0	data only	
@@ -212,15 +212,15 @@ id	name	size	factory	vtable	unpack	uses	scripts	server_status	notes
 0x100000F6		0x3C	0x996F40	0x15FAD64	B O O	0	0	data only	
 0x100000F7		0x40	0x996EE0	0x15FAD34	B O O r1	0	0	data only	
 0x100000F9		0x3C	0x9981D0	0x15FB454	B O O r4 O r4 r1 O r1 O O	0	0	data only	
-0x100000FA	SetSkillStatOverride (P)	0x9C	0x99C5E0	0x15FD158	B O O O O r1 r4 O O O	25	20	ignored (logged, nothing sent)	Server-only: vtable slots 7 and 10 are purecall 0x134D420 (no client execute). Values: 0 = skill slot (0xFFFFFFFF = this skill), 11 = a TFX DID (AWW passive 0x34000265: slots 1-3 with 0x1300148F-91, the empowered-skill effects; counterpart ClearSkillStatOverride), 13 / 14 = a pair (Super Strength 0x34000164: (1, 1) then (1, 13)). Not a floaty text (ics ran it as ShowFloatyStatus until fase3-if). Wire message O (test-2026-10-28-1439-sweep.md S11).
+0x100000FA	SetSkillStatOverride	0x9C	0x99C5E0	0x15FD158	B O O O O r1 r4 O O O	25	20	implemented (P)	Server-only: vtable slots 7 and 10 are purecall 0x134D420 (no client execute). Values: 0 = skill slot (0xFFFFFFFF = this skill), 11 = a TFX DID (AWW passive 0x34000265: slots 1-3 with 0x1300148F-91, the empowered-skill effects; counterpart ClearSkillStatOverride), 13 / 14 = a pair (Super Strength 0x34000164: (1, 1) then (1, 13)). Not a floaty text (ics ran it as ShowFloatyStatus until fase3-if). Wire message O (test-2026-10-28-1439-sweep.md S11).; anim-18: the button's presentation, read from all 61 nodes against the slot blocks: 2/3 name 0x100001C0, 7/8 description 0x1000003E, 11 icon 0x10000302, 12 0x100002A3, 14 targeting 0x1000003D (only 1/5/7/13/14 occur; 5 = cast on the key press). Sent as the local champion's slot table (ics/skill_slots.py, [ics] slot_tables); 13/16/17/18/19 not placed (O)
 0x100000FB		0x48	0x99CFA0	0x15FD544	B r4 O O	15	10	data only	
 0x100000FC		0x2C	0x99D060	0x15FD5A4	B O O	4	4	data only	
 0x100000FD		0x28	0x9995A0			0	0	data only	
 0x100000FE	GetStackCount	0x40	0x99BA80	0x15FCC7C	B O O O	10	6	implemented	Sum of the running instances' stack counts (fase3-ht)
 0x10000100		0x2C	0x99ADB0	0x15FC6EC	B r4 r1 O O	0	0	data only	
 0x10000101		0x28	0x99ABA0			0	0	data only	
-0x10000102		0x40	0x999D80	0x15FC0BC	B r4 r4 r4 r1 r4 r4 r4 r4 O O O O	25	24	data only	
-0x10000103	StartScriptlet	0x70	0x9CAA40	0x15FE36C	B O {r4} r4 r4 r1 r1 O r1 r4	19	16	partial	run by the new server (ics/script_runtime.py)
+0x10000102		0x40	0x999D80	0x15FC0BC	B r4 r4 r4 r1 r4 r4 r4 r4 O O O O	25	24	data only	anim-21: stops the run its handle started (not the key's newest run on the entity; [ics] scriptlet_handle_runs)
+0x10000103	StartScriptlet	0x70	0x9CAA40	0x15FE36C	B O {r4} r4 r4 r1 r1 O r1 r4	19	16	partial	run by the new server (ics/script_runtime.py); anim-21: the handle keeps its run (Heat Vision's beacon fx 0x1E0003F5 on the target)
 0x10000105		0x10	0x981F50			2	2	data only	
 0x10000108		0x40	0x9993C0	0x15FBB44	B O O	0	0	data only	
 0x10000109		0x78	0x9B70C0			0	0	data only	
@@ -274,7 +274,7 @@ id	name	size	factory	vtable	unpack	uses	scripts	server_status	notes
 0x10000150		0x40	0x99D0C0	0x15FD5A4	B O O	0	0	data only	
 0x10000151		0xC	0x981C20			1	1	data only	
 0x10000152		0x24	0x99A8C0			0	0	data only	
-0x10000153		0x2C	0x99CE90	0x15FD514	B O r4 r1 r1	5	5	data only	
+0x10000153		0x2C	0x99CE90	0x15FD514	B O r4 r1 r1	5	5	data only	Blue Beetle's basic attack 0x34000457 sets its slot-0 stat 18 (melee 17 / ranged 18); the attack step reads it (anim-19, [ics] attack_range_override)
 0x10000154		0xE8	0x99B8A0			5	5	data only	
 0x10000155		0x34	0x9CA7C0	0x15FE33C	B r1 r4 O r4 {r4}	8	8	data only	
 0x10000157		0x44	0x99AF30	0x15FC7DC	B r4 r4 {r1 r4 r4 {V V V V *loop} {r1}} r4 r4 r4 O O O O O O r4 r1	0	0	data only	
@@ -330,7 +330,7 @@ id	name	size	factory	vtable	unpack	uses	scripts	server_status	notes
 0x10000191		0x54	0x99B3A0	0x15FC8CC	B O O	0	0	data only	
 0x10000193		0x18	0x981610			0	0	data only	
 0x10000194		0x10	0x981970			0	0	data only	
-0x10000195		0x24	0x99CD80			17	14	partial	run by the new server (ics/script_runtime.py)
+0x10000195	SkillEcho	0x24	0x99CD80			17	14	implemented (P)	run by the new server (ics/script_runtime.py); anim-22: raises 'skill used' 0x10000196 {Slot 0x5A364} on the owner's scripts (Blue Beetle's passive 0x34000456 reads it; [ics] skill_echo_node); anim-24: only when the use's activation did not raise it (every taken use raises it again, the W's detonation too; [ics] skill_used_every_use)
 0x10000197		0x28	0x997000			0	0	data only	
 0x10000198		0x40	0x999A90	0x15FBE48	B O O r4 r4 r1 r1 r1	0	0	data only	
 0x10000199		0x34	0x9CA620	0x15FE2DC	B O O O r1 r4 r4 r4 r4 r4 r4 r4 {r4} {r4} r1 r4 r1	0	0	data only	

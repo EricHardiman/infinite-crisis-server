@@ -191,6 +191,108 @@ DEFAULTS = {
         "reset_state_locals": True,
         # 2026-10-25 19:28 (agl-e-r.md, C): a graph fires no transition while its own exit chain runs
         "exit_chain_reentry_guard": True,
+        # 2026-11-02 (tester report 2026-11-02 01:43: Atomic Joker's R never stops, it kept hitting after his death and
+        # respawn): a sub-graph its parent leaves stops; its pending polls / timers kept firing it (false = as before)
+        "stop_left_subgraphs": True,
+        # 2026-11-02 (tester report 2026-11-02 02:20: Superman's E does not push the enemy back): a graph state's enter
+        # chain runs before its sub-graph starts (the knockback status 0x340003F8 set its distance after its sub-state
+        # had already dashed 0 m). false = the sub-graph first, as before
+        "graph_enter_before_children": True,
+        # 2026-11-02 (tester report 2026-11-02 01:45: Superman's W roots nobody in its inner cone): a status record's own
+        # flag attributes (list 0x1000046F, op 6: Rooted, Stunned, Crippled ...) hold while the status lasts; the root
+        # 0x48000A06 has nothing else that roots (false = only what the status scripts add, as before)
+        "status_record_flags": True,
+        # 2026-11-03 (tester report 2026-11-03 00:32: Superman's E punch hit the enemy the dash only touched): a name used
+        # in two local frames (operand source 3, 4, 5 ...) is two variables, as the original's frames are separate
+        # memory (Heat Vision's target vs the dash's collider, both "TargetIID"; 95 scripts). false = one per name
+        "local_frames": True,
+        # 2026-11-03 (tester report 2026-11-03 00:32: Superman's E punch had no animation, a basic attack cut it): the
+        # basic attack a skill queues (QueueOrder 0x100000DB) waits while one of the champion's skills is in its cast, as
+        # the client buffers orders during an action (full-combat-skills.md 1.4, C). false = at once, as before
+        "attack_waits_for_action_lock": True,
+        # 2026-11-03 (tester report 14:40: the punch still cut): the queued attack also waits while the champion's
+        # animation graph is in a state a slot skill hooks (false = the cast only)
+        "queued_attack_waits_graph": True,
+        "queued_attack_lock_wait": 2.0,   # s at most a queued attack waits (ours, a safety; 0 = no wait)
+        # 2026-11-03 (tester report 2026-11-03 00:34: Blue Beetle's ranged and melee Q / W / E share cooldowns; they must
+        # be independent): the owner block's 0x20 + 8 x slot reads that slot's cooldown end (the engine's; no script
+        # writes it) and StartCooldown with an explicit slot sets that slot to the given remaining time, 0 = ready (the
+        # form swap puts back the other form's). false = as before
+        "slot_cooldown_vars": True,
+        # 2026-11-03 (tester: Blue Beetle's melee basic attack has the ranged reach): the basic attack's reach takes the
+        # slot-0 stat 18 override its script sets (SetSkillStatOverride 0x10000153). false = the record's stat 18
+        "attack_range_override": True,
+        # 2026-11-03 (tester report 2026-11-03 14:4x: Superman's E pushes the target in a fixed direction; the original
+        # pushes it on, away from Superman): a "with heading" expression (0x41) given a vector takes its direction (the
+        # knockback 0x340003F8 passes Offset(source, target)); P. false = the vector read as 0 degrees, as before
+        "heading_from_vector": True,
+        # 2026-11-03 (tester report 14:40: Superman's E punch never shows): a state that raises its own animation and
+        # waits for OnCastSignal 2 waits for that animation's end (the graph's code 2), not for its chain's end (also 2).
+        # false = the chain's end fires it, as before
+        "graph_done_waits": True,
+        # 2026-11-03 (tester report 14:43: Blue Beetle's E shots never fly, each destroyed 77 ms after its creation): a
+        # script-spawned entity's 0x10000049 comes after the spawning chain, and LaunchMissile of an entity gives its
+        # scripts TargetIID before its events (P: the client evaluates once per update). false = at once, as before
+        "spawn_event_after_chain": True,
+        # 2026-11-03 (tester: Blue Beetle's E shots hit for 0): a skill's spawned object reads LoadSkillStats' "this slot"
+        # as the slot of the skill that spawned it (P; false = no slot, stats 0)
+        "spawned_entity_skill_slot": True,
+        # 2026-11-03 (tester: Blue Beetle's form effects stay after a swap): a deferred scriptlet stop takes the run live
+        # at the call, not at the send (a restart in between kept its run). false = at the send, as before
+        "stop_takes_run_at_call": True,
+        # 2026-11-03 (tester report 15:27: Superman's E beacon missing, Blue Beetle's form effects stay; the run: a
+        # StopScriptlet(handle) stopped the key's newest run on the entity, not the handle's): a StartScriptlet handle
+        # keeps its run and StopScriptlet stops that run. false = the key's newest run, as before
+        "scriptlet_handle_runs": True,
+        # 2026-11-03 (tester report 2026-11-03 16:11: Blue Beetle's passive does not start on his melee E / W): SkillEcho
+        # 0x10000195, called by 221 skill scripts after their cast point, raises "skill used" 0x10000196 {Slot} (P); the
+        # activation's broadcast stays for the scripts without it. false = the activation's broadcast only, as before
+        "skill_echo_node": True,
+        # 2026-11-03 (tester report 23:24: in the original the ranged W starts Blue Beetle's passive when launched or
+        # detonated; the detonation is a second press with no SkillEcho): every taken use raises "skill used" 0x10000196
+        # at its activation again; SkillEcho raises it only when the use's activation did not (false = anim-22)
+        "skill_used_every_use": True,
+        # 2026-11-03 (tester report 2026-11-03 22:16-22:20: Blue Beetle's passive particles gone in ranged form, his
+        # yellow blaster stayed after the buff until he fired; C: every 0x8D order first stops every run earlier orders
+        # started on the object, 0x627E4D -> 0x57CB60, and an 0x8D "stop" of a dead run starts it again): one 0x8D per
+        # object and moment, StartScriptlet runs ride along in the object's later orders until stopped (P), and stops
+        # go as event 0x11F (the client's own stop, mode 1). ics/scriptlet_orders.py. false = one order per scriptlet
+        # and 0x8D signal stops, as before
+        "scriptlet_orders": True,
+        "scriptlet_orders_skip_encounters": ["0x40000991"],   # Tutorial 1 keeps its own orders
+        # 2026-11-04 (tester report 01:59: Superman's beam middle missing sometimes; vitals / modifier / status icon
+        # messages between two steps of Heat Vision split them into two 0x8D, the second ended the beam): those messages
+        # no longer send a champion's waiting orders (false = any message, anim-23..26)
+        "scriptlet_orders_quiet_messages": True,
+        # 2026-11-04 (tester report 03:15: a knockback looked like a teleport; motion states are unlabelled): a forced
+        # movement's (knockback / dash) motion states get a label, so traffic.log shows them (same bytes; false = not)
+        "log_forced_motion": True,
+        # 2026-11-04 (tester report 15:25: the first Heat Vision knockback of the match looked like a teleport; its
+        # status started 0.13 s late, while its script was looked up in the packs for the first time): the statuses a
+        # champion's kit can apply are read at its creation (loading screen) (false = at their first use, as before)
+        "prewarm_statuses": True,
+        # 2026-11-05 (tester report: Blue Beetle's Q explosion missing at the first cast only; the first SpawnEntity of
+        # 0x40000CD8 read its class data for 69 ms, the script's collision delay ran out meanwhile): the object classes
+        # the kit's scripts create, and their scripts, are read at the champion's creation too (false = on first use)
+        "prewarm_spawn_classes": True,
+        # 2026-11-04 (tester report 15:23: Blue Beetle's Q explosion in 2 of 16 casts; its emitter started on the client
+        # before the explosion object was placed: the client replays movement states >= 0.1 s old, client-movement.md
+        # 0, C): a standing spawned skill object's creation state is stamped this many s earlier (0 = now, as before)
+        "spawn_state_backdate": 0.1,
+        "scriptlet_orders_scope": "champions",                 # "all" = every object (units, props: a later PR)
+        # 2026-11-03 (tester report 23:22: Superman's punch sound still missing, Blue Beetle's melee wing glow missing; the
+        # run: the next order 0.25 s later (a basic attack) ended the punch's Vfx_Sup_Heat_Vision_Dash_Stop): "0x2073"
+        # sends a champion's orders with the client's additive start (no stop-all, live runs skipped), so nothing ends a
+        # run before its time. 2026-11-04 (diag --orders 00:51-00:56, C: the champion's +0x110 = 0x1B759EC = 0, so
+        # 0xA883F0 takes the direct path 0xA22DA0): the default. 2026-11-04 (tester report 01:32: with it the heat vision
+        # eyes and the basic attacks' streaks never went away, and the punch sound, the Q explosion and the wing glow
+        # still missing; 0x11F stops softly, 0x52D790 with x = 0, while the 0x8D's stop-all ends at once): back to
+        # "0x8D" (anim-23, held runs ride along); "0x2073" = the anim-25 experiment
+        "scriptlet_orders_event": "0x8D",
+        # 2026-11-02 (tester report 2026-11-02 01:43: Atomic Joker's passive did not start when a turret killed him): a
+        # type-0 defeat guard (0x10000162) also stops the direct hits of turrets / minions / bosses / objectives
+        # (World.damage) and raises 0x1000011B, as script damage does (false = only script damage, as before)
+        "defeat_guard_all_damage": True,
         # 2026-10-29 tester report 2026-10-29 14:40 (R: the first pulse fires at once, the detonation is hardly seen;
         # docs/re-notes/agl-qer-lift.md 3, C log 14:28:21.105-.239 + original video 61.0-66.0 s: pulses ~1 s apart, the
         # first ~1 s after the impact): in these status scripts a timer the update chain tests before it was ever started
@@ -272,11 +374,22 @@ DEFAULTS = {
         # 2026-10-26 (tester: Bat Scream cast while moving slides the champion; it should stay put): while a skill (not the
         # basic attack) is in its cast, move orders wait and the last one runs at the cast's end
         "cast_holds_movement": True,
+        # 2026-11-04 (tester report 00:56: he walks before the basic attack's animation ends; the graph's attack states
+        # have no movement early-out, their Cosmetic tails do): a move ordered while the graph is in the basic attack's
+        # state waits for its exit (P; false = moves at once, as before)
+        "basic_attack_holds_movement": True,
+        # 2026-11-04 (tester report 00:56: he shoots with his back to the target): a champion's attack step no longer
+        # turns him on the server first; his basic attack script's FaceTarget does, and sends it (false = as before)
+        "attack_face_by_script": True,
         # 2026-10-26 (deep-scan-s2c.md 1, C: floating damage / heal numbers and the shield layer come only from 0x42's
         # third / second lists, which were always empty): damage and heals queued per target, sent with its next vitals
         "vitals_floaty_numbers": True,
         "vitals_shield_layer": True,
         # CC attribute -> floaty status type (deep-scan-s2c.md 2: 1 Silence, 2 Stun, 5 Slow, 10 Root, 16 Crippled; map P)
+        # 2026-11-03 (tester report 2026-11-03 00:32, from the original game: "Slow" / "Root" / "Wounded" show only over
+        # the player's own champion; ics showed them over every champion hit): the CC floaty goes for the local
+        # champion only (false = every entity, as before)
+        "cc_floaty_local_only": True,
         "cc_floaty_status": {"0x100003F3": 2, "0x100005A3": 1, "0x100007FE": 10, "0x10000B39": 16, "0x100005E4": 5},
         # 2026-10-26 (deep-scan-s2c.md 3: _Advancement_LevelUp 0x10000201 was never sent): the level-up effect
         "level_up_scriptlet": 0x10000201,
@@ -522,6 +635,28 @@ DEFAULTS = {
         # 2026-10-28 10:19 (tester: the shield still vanishes when attacking): no facing bundle for a standing champion
         # already within this many degrees of its target (0 = a bundle on every FaceTarget as before)
         "face_min_turn_degrees": 20.0,
+        # 2026-11-02 (tester report 2026-11-02 01:48: Blue Beetle's E goes facing the dash; its script 0x34000455 faces
+        # the point behind his start and frees it with ReleaseFacing at the landing): FaceTarget with an out handle holds
+        # the model's yaw on its target until ReleaseFacing 0x10000057; while moving only the model turns
+        # (facing_offset), and the scripts' facing (FindTargets' box) is the model's. false = one turn, as before
+        "facing_locks": True,
+        "facing_lock_max_seconds": 6.0,   # a lock nobody frees runs out (safety; 0 = never)
+        # 2026-11-02 (same report: Blue Beetle's E shots never left; 0x34000455 asks CanSee(-, $LoopingIID)): CanSee
+        # 0x1000003C with an unset observer looks from SELF (false = never sees, as before)
+        "can_see_default_self": True,
+        # 2026-11-02 (tester report 2026-11-02: AGL's Q teleport, Superman's E punch and Blue Beetle's W detonation
+        # waited for a click instead of the key; Blue Beetle's Infiltrator Mode kept the ranged buttons): SetSlotSkill
+        # 0x10000089 and SetSkillStatOverride 0x100000FA (name / description / icon / targeting type) change the local
+        # champion's slot table (0x100008E3 / E8 / EA / EC / E6) the HUD reads; ClearSkillStatOverride puts it back
+        # (ics/skill_slots.py). false = server only, as before
+        "slot_tables": True,
+        # 2026-11-03 (tester: the swapped buttons were drawn only when the slot's cooldown ended; P): a slot table change
+        # also toggles the rank property the HUD re-reads (false = the table alone)
+        "slot_table_hud_refresh": True,
+        # 2026-11-03 (tester report 23:26: after R the buttons still waited ~2-3 s; six slot refreshes toggled the rank
+        # property six times, back to its value): one toggle when the tables stop changing (false = per slot, anim-19)
+        "slot_table_hud_refresh_once": True,
+        "slot_table_hud_refresh_delay": 0.1,   # s after the last table change (P: our value)
         # 2026-10-28 13:5x (tester: an emote while moving slides the champion to the point): the emote stops the champion
         "emote_stops_movement": True,
         # 2026-10-28 13:52 (tester: back in the lobby after a match the champions, the last played champion and its

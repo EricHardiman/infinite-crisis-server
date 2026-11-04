@@ -4120,3 +4120,355 @@ Details: `docs/re-notes/turret-heads-coredeath.md`.
   `match_structure_death_scriptlets` turret / inner_turret = ["_Defeat_OnDead", "Vfx_Stop"] (Vfx_Stop `0x10000130`,
   base `0x1D000372`: stops Vfx_Active, Vfx_Targeting, Vfx_Event1, Vfx_AI_Active = head + hum). The dampener already
   plays Object_Deactivate + graph Death (graph `0x1A000B15`, Deactivate clip 1.0 s); unchanged.
+
+## Skill buttons, facing locks, left sub-graphs, status record flags (2026-11-02, anim-18)
+
+Tester's game test 2026-11-02 01:39-02:20 (Arcane Green Lantern, Atomic Joker, Superman, Blue Beetle on the Coast City
+sandbox). Evidence: `logs/server.log` / `traffic.log` of that run, the decoded trees (`python -m ics.script_model`),
+the records read by kind, and `tests/test_kit_fixes.py` (29 checks). C = read in the data / the run, P = probable.
+
+- **SetSkillStatOverride 0x100000FA is the button's presentation (C for the fields, P for the wire).** Read across the
+  61 nodes of the 875 trees against the slot blocks (`0x100008E8` ...): field 2 / 3 = a string pair (id, table
+  `0x2B......`) like the block's name `0x100001C0`; 7 / 8 the description `0x1000003E`; 11 an icon `0x1300....`
+  (`0x10000302`; Blue Beetle R's 0x13001DE6 / DFE / DFF); 12 `0x100002A3` (0x48000154 / 0x48000156, the values of
+  Blue Beetle's base Q and melee Q blocks); 14 the targeting type `0x1000003D` (only 1, 5, 7, 13, 14 occur; 5 in AGL's Q
+  teleport window 0x34000293 S4, Superman's E punch window 0x340003D6 S4 and Blue Beetle's W detonation 0x34000454; 13
+  in Super Strength's throw 0x34000164). Fields 13 / 16 / 17 / 18 / 19 (1 or 2) are open. The node has no client half
+  (vtable slots 7 / 10 purecall), so the original server sent it. ics sends the local champion's slot table (kind 0x0B,
+  the whole block, as the Stolen Powers' `0x100008F0` / `F1`): the skill set's block, a SetSlotSkill record's block
+  over it (entries by id, stats by stat id) and these fields (`ics/skill_slots.py`). The run showed why it matters: AGL
+  pressed Q again at 01:40:49.182 (`0x20EA`) and the client opened the aim indicator (targeting 13) instead of
+  casting; the click came at 50.623, after the construct was gone (49.70), and the indicator stayed.
+- **SetSlotSkill's client half (P).** The client re-reads a slot's skill when its slot property changes (listener
+  `0xA5E150` -> `0xA4F6B0`, client-skill-instances.md 2); Blue Beetle's R records 0x48000A97 / A95 / A96 carry their own
+  icon, targeting (melee Q: 14, a leap at an entity) and script. The run kept the ranged buttons.
+- **FaceTarget's facing lock (C from the script).** Blue Beetle's E 0x34000455 S1: `DashToPosition(SELF, Target)`,
+  `GetPosition(SELF, Start)`, `Offset(Start, Target) -> PositionOffset`, `FacingPosition = Start + vec3(-x, -y, 0)`
+  (0x3E / 0x3D are x / y), `FaceTarget(FacingPosition, -, $FacingIDVariable)`; S3 (the landing) `ReleaseFacing`. So
+  the original hops with its back to the dash because the script faces the point behind the start, not by a rule of
+  ours. Its shots look along that facing: `FindTargets` box of length (travelled + TargetRadius 5.75) and width 11.5
+  from the champion along his facing = the path he left, where the enemies are; `CanSee(-, $LoopingIID)` with an unset
+  observer (= SELF), one shot per target (`AddToList` / `IsInList`). `Stick_And_Move_Right` 0x100003FE / `_Left`
+  0x10000404 are raised per shot, alternating hands (not side hops as anim-16 read them). ics: a lock on the entity
+  while moving keeps the heading of travel (the client moves along it) and turns the model with `facing_offset`;
+  `CastWorld.heading` returns the model's yaw under a lock; ReleaseFacing drops it.
+- **Left sub-graphs kept running (C, simulated).** Atomic Joker's R 0x340004DA: graph S1 `T0: S1 -> S0` on NOT
+  IsAlive / BurstCount >= TotalNumBursts (4) / MaxTimer (8 s) fired at 8 s, but the left burst graph kept its state,
+  so its own timer poll fired a burst every 1.1 s for ever (in the run: 01:43:10 -> 01:44:14, after his death and
+  respawn). `Region.leave` now halts the left child.
+- **A graph state's enter chain runs before its sub-graph (P from the knockback, C for the run).** Status 0x340003F8
+  (Superman's E knockback): graph S1's enter sets EffectSource and KnockbackDistance (stat 17 of the source's slot 3 = 6
+  m, minus the distance); its sub-state S2, entered at once, runs `DashToPosition(SELF, TargetPosition, speed,
+  KnockbackDistance)`. ics started the sub-graph first: the dash went 0 m. Top-level graph chains already ran before
+  the first state (`[ics] top_graph_chains`). The champion_check run with the new order changed 11 slots; Nightwing's
+  R 0x34000794 no longer explodes the bike at the first press (S5's enter now runs before its sub-graph; the second
+  press launches it).
+- **Status records carry their own flags (C).** 232 status records hold list `0x1000046F` of `{0x10000450 attribute,
+  0x10000453 op, 0x100004C3 bool | 0x100008A7 number}`; ics read none. Superman's W root 0x48000A06 roots only through
+  it (Rooted 0x100007FE, op 6); its script 0x340002A9 shows the ice (`0x100003EA`, fx 0x1E000257) and the icon
+  0x48000792, and leaves S1 at once by a trigger-less `[2, 0]` transition (the run: icon at 01:45:46.144, removed at
+  .146). The op-6 flags now hold for the status' lifetime; numeric entries (op 7 / 9 / 10) wait for their value's
+  source. Open: the meaning of a trigger-less transition's b = 0 (38 of them; the basic attack's impact pulse
+  0x34000037 graph S2 needs it to fire, the root's icon would need it not to).
+- **Defeat guards and direct hits (C).** Atomic Joker's passive 0x340004DE holds a type-0 guard and waits for
+  0x1000011B; a turret killed him at 01:43:45 through `Units._direct_attack` -> `World.damage`, past the guard check of
+  `script_nodes.deal_damage`. `World.damage` now applies it too.
+- **Atomic Joker's R rank bonus (C).** 0x340004DA S0's exit adds `RangeIncrease` (stat 12 = 0.06, +0.03 per rank) to
+  attribute 0x10000A9F on himself: the original's +6 / 9 / 12 % range for every skill and the basic attack.
+- Stargirl's W 0x3400056D also asks `CanSee(-, $TargetIID)`: its small stars now home on a visible target (131.8
+  damage on the dummy, was 6.8).
+
+## Local frames, per-form cooldowns, the champion bundle's facing, The Punch Line's needs (2026-11-03, anim-19)
+
+Tester's game test 2026-11-03 00:29-00:40 of anim-18 (`logs/server.log`, `traffic.log`). C = read in the data / the run,
+P = probable.
+
+- **Operand sources are variable frames (C from the data).** An operand is `value (name hash) | source | slot`; source 1
+  = the script's variables, 2 = the owner block, 3, 4, 5 ... = the local blocks of nested graphs / states by depth (the
+  slot is the offset inside that block). Heat Vision 0x340003D6 uses TargetIID at source 3 (graph S1: the cast's target,
+  the punch's ApplyDamage) and at source 5 (graph S7's sub-graph: `SetVariable($TargetIID<src 5>, #Collider)` on each
+  dash collision). ics stored variables by name only, so a collision replaced the punch target (run: the punch hit Swamp
+  Thing, 00:32:34.158). 95 scripts use a name in two or more local frames; ics now keeps those names per (source, name).
+- **The owner block's cooldown array (C from the data, P for the writer).** Blue Beetle's Q / W / E graph S2 (the form
+  swap) reads `<0xABD05A2 src 2 slot 0x28>` / `<0xABD0592 slot 0x30>` / `<0xABD0582 slot 0x38>` as "end - now" and saves
+  them in 0xD0 / 0xD8 / 0xE0; only 0x3400040D / 40E / 410 also read 0x28-0x38, and no script writes them: the engine's
+  f64 at 0x20 + 8 x slot = the slot's cooldown end (the client's per-agent cooldown store, full-combat-skills.md 1.3).
+  `StartCooldown(TimeRemaining)[slot]` then puts the other form's remaining cooldown back, 0 = ready (ics ignored 0).
+- **Blue Beetle's basic reach (C).** 0x34000457 graph S0's exit: `LoadSkillStats(RangedRange 18, MeleeRange 17)`,
+  IntendedRange by the owner flag 0xE8 (the form), `SetSkillStatOverride(IntendedRange)[-1, 18]` when it differs; it
+  re-inits on 0x100000A9 (raised after every slot swap).
+- **The champion bundle's facing (C, ics).** `Session._objects` (the local champion's bundle in "bundle" mode) did not
+  pass `World.tilt`, so a facing lock's `facing_offset` never left the server.
+- **QueueOrder and the action lock (C for the client's buffer, P for the server).** Heat Vision's S8 runs the finisher's
+  graph event and `QueueOrder(SELF, $TargetIID)[2 0 ...]`; the basic attack's 0x10000128 went 30 ms after the graph event
+  and replaced the animation. The client holds orders while an action lock is held (0x863860); the server's attack step
+  now waits while a skill of the champion is in its cast (the action lock itself can stay held in ics: Wonder
+  Woman's Q 0x34000185 S6).
+- **Blue Beetle's Energy Cannon area (P).** The missile 0x34000489 explodes in S7 (both casts in the run) and spawns its
+  area object 0x40000CD8 at the collision in S1; its 0x10000016 scriptlet left 5 ms after the object's creation in the
+  first cast (110 ms in the second). Open whether the client drops a scriptlet on so new an object.
+- **The Punch Line 0x340004DE (C for the nodes, O for the control switch).** S0: `SetDefeatType(Handle)[1, 0]` (type 0).
+  On 0x1000011B -> S2: `SpendCost(-100 %)[vital 2, percent]` (health to 0), `AddAttributeModifier` x3: 0x10000249
+  (attackable) = $False, 0x10000140 (health regen) = $HealthRegenRate, 0x10000786 = $HealthLock; S2 -> S1 on
+  NOT HasStatus(flags 0x2000). S1: SpawnEntity head 0x40000A68 (team, level), `node_100000A1($HeadIID, SELF)`; exit:
+  `node_100000A1(-, SELF)`, the head's 0x10000130 and DestroyEntity unless smitten. 0x100000A1 has no client half
+  (full-combat-skills.md: "SetOwner / link"); the tester's original (HUD 1/1 health, 8/8 jumps on the second bar, a
+  counter bar under the name, control of the head) says it makes the head the player's controlled agent. ics: the node
+  is a logged no-op, 0x10000786 / 0x10000249 are not honoured (the next turret shot killed him, 00:37:47.929).
+
+## Knockback heading, own-animation waits, spawned objects' first events, deferred stops (2026-11-03, anim-20)
+
+Tester's game test 2026-11-03 14:39-14:56 of anim-19. C = read in the data / the run, P = probable.
+
+- **0x41 "with heading" takes a vector (C for the data, P for the rule).** Status 0x340003F8 (Superman's E knockback):
+  `KnockbackHeading = heading(EffectSourcePosition)`, then inside the If `Offset(EffectSourcePosition, EntityPosition) ->
+  KnockbackHeading` (a vector), then `TargetPosition = transform(with_heading(EntityPosition, KnockbackHeading),
+  vec3(0, KnockbackDistance, 0))`. ics turned the vector into the number 0: every target went toward +x. A vector now
+  gives its own direction, which sends the target on along Superman -> target (what the tester sees in the original).
+- **A state that raises its own animation waits for its end (C for the run).** Heat Vision 0x340003D6 S8: RaiseGraphEvent
+  0x100003CA (finisher), ApplyDamage, QueueOrder; `T15: S8 -> S2 on OnCastSignal 2`. With no Cast node running,
+  `Region.finished` gave the chain's result RESULT_DONE (= 2) and T15 fired at once (14:40:52.643); the finisher's hook
+  2 came at .812, the queued attack's 0x10000128 at .811. A state whose enter chain raises a graph event and that waits
+  for code 2 now starts the cast path (the graph's code 2 when its state is left).
+- **Spawned objects' first events (C for the run, P for the order).** Blue Beetle's E (0x34000455 S1 of graph S2):
+  SpawnEntity 0x400008C4 then LaunchMissile($MissileIID, $TargetIID). The shot's script 0x340004AA: S0 -> S5 on
+  0x10000049, S5 -> S3, `S3 -> S2 on NOT IsAlive($TargetIID)` (S2 = DestroyEntity(SELF) after 0.06 s), `S3 -> S6 on
+  0x100000EE` (sets TargetIID). ics raised 0x10000049 inside SpawnEntity, so the shot died before the launch's
+  0x100000EE. Its damage: `LoadSkillStats($ShooterIID, Damage, ReducedDamageMult)[5 1, slot -1]` in an object with no
+  slot read 0.
+- **Deferred stops (C, ics).** `CastWorld.stop_scriptlet` for the local champion is sent champion_scriptlet_delay late;
+  it looked up the live run at the send. Blue Beetle's passive S6 update stops ActiveVFXHandle and starts 0x10000BC6 in
+  one step on a form change (14:42:50.380); the stop then took the new run, and S3's stop at the buff's end (56.231) was
+  only logged.
+- Open: what redraws the skill buttons after a slot table change (the tester: only at R's cooldown end); whether Blue
+  Beetle's graph takes Infiltraitor_Activate / _Deactivate 0x10000405 / 0x10000407 (the blasters).
+
+## Scriptlet handles and runs; the graph takes Blue Beetle's form events (2026-11-03, anim-21)
+
+- **A StartScriptlet handle names one run (C for the run, C for ics).** ics keeps one live run per (entity, key) and
+  `StopScriptlet(handle)` stopped that newest run. Heat Vision 0x340003D6 runs three 0x10000223 on its target (the laser
+  `StartScriptlet[$ActiveScriptHandle] fx 0x1E000389`, HitEffect fx 0x1E00038A, the knockback's HitEffect without fx),
+  then `StopScriptlet($TargetIID, $ActiveScriptHandle)`: the run stopped was 0x16 (traffic 15:27:48.977), not the
+  laser's 0x14. The beacon is `StartScriptlet($TargetIID, $HeatVisionActiveHandle)[0x10000223, fx 0x1E0003F5]` (S3
+  exit; stopped in S2 / S6); the R 0x340003D5 holds `0x10000AC7` on Superman (variable 0x10000030 = target) and
+  `0x10000223 fx 0x1E00038B` on the target. The handle now keeps its run and the stop names it.
+- **Blue Beetle's form graph events (C, diag --graph 15:33:15 / 15:33:30).** Infiltraitor_Activate 0x10000405 reaches
+  his graph at index 0x54 and _Deactivate 0x10000407 at 0x55 (flags 0x49, delivered); the ToMelee scriptlet 0x10000BD7
+  raises 0x10000405 itself as well. The blasters' visibility is not this event alone (open).
+
+## SkillEcho 0x10000195 and the punch's cast (2026-11-03, anim-22)
+
+- **SkillEcho (P).** 221 skill scripts run node 0x10000195 (no client half) right after their cast point; Blue Beetle's
+  passive 0x34000456 graph S1 waits for 0x10000196 (T7) and sets `$SkillSlot = #0x5A364` (ELF hash of "Slot") to count
+  Q / W / E / R uses. The node now raises 0x10000196 {Slot} on the owner's scripts; ics's own broadcast at the activation
+  (kit-audit-2.md 4) stays for scripts without the node. In the run the melee E / W fell in the passive's 12 s cooldown.
+- **The punch's cast (C, ics).** anim-20's own-animation wait starts a cast for Heat Vision's S8; after the graph's
+  "no state entered" fallback (16:09:02.176) its timed cast kept `casting = 1` once the state was left, so
+  cast_holds_movement held Superman about 2 s. Leaving the state ends that cast.
+- **Heat Vision's beacon (C for the server, O for the client).** `0x10000223` with variable 0x1000050A = 0x1E0003F5 on
+  the target, its own run (16:08:59.655), stopped at 16:09:02.257: sent as the script says; not drawn.
+
+## Every 0x8D replaces the server's runs; 0x11F stops one; 0x2073 adds (2026-11-03, anim-23)
+
+Game test 2026-11-03 22:14-22:21 (Superman, Blue Beetle on Coast City PvP): the punch sound missing; Blue Beetle's
+passive particles (Vfx_Blu_Rdirective_Disruption_Active 0x10000BC3) gone in ranged form; his yellow blaster stayed
+after the buff until he fired again.
+
+- **0x8D stops before it starts (C).** The list handler 0x627E20 (from 0x634F20) calls 0x57CB60 at 0x627E4D with a
+  filter object on the stack (vtable 0x15C9750: +4 = 0x6272D0 `return run->ctx->byte_60`, +8 = 0x55B9C0 `return 0`).
+  0x57CB60 walks the script component's runs (array comp+0x18, count comp+0x0C), collects those the filter picks and
+  calls 0x57C4B0(&r, 0, 1, run number, 1) for each: 0x57B920 -> 0x52D790 (ends the run; state 5 runs are unlinked from
+  both lists). 0x6279D0 sets ctx+0x60 = 1 on every run a network order starts (client-scriptlets-graphs.md 1.2 step 5),
+  so every 0x8D first ends every run earlier server orders started on that object, then starts / signals its own
+  entries. A later entry whose run number is no longer alive is a new run (step 4). This is anim-09's finding for Green
+  Arrow's quiver (tag minha-versao-icserver, "The anim-09 game test of 2026-10-27 01:13"); the 1.4 note "no new
+  scriptlet replaces the old one" covered the entry loop only.
+- **Consequences seen.** 22:16:44.474: Disruption_Start 0x10000BC4 and _Active 0x10000BC3 went in two orders and the
+  Energy Cannon's stop (an 0x8D with signal 1) followed in a third: the loop lived 0 ms. 22:19:50.770: the buff's stop
+  (an 0x8D, signal 1, run 26) found the run dead and started the loop again: the yellow blaster until the next shot's
+  order. 22:15:11.802: Superman's Vfx_Sup_Heat_Vision_Dash_Stop 0x10000B25 (the punch, with its sound) was followed 1 ms
+  later by a graph event 0x100001E3 in an order of its own.
+- **0x11F (C).** Exec 0x675280 -> 0x57C4B0(key, mode = the u8, run): stops one run (0xFFFFFFFF = every run of the key)
+  without touching the others. The client's own StopScriptlet 0x588A80 passes mode 1.
+- **0x2073 (C, unused).** Handler 0xA883F0: when the object's +0x110 equals the global 0x1B759EC (bss, compared all
+  over 0xA1....-0xA8.... like a "none" DID), 0xA22DA0 starts the entries with 0x6279D0 and skips live run numbers
+  (0x57B510), with no stop-all; otherwise the list goes to a per-IID map of the manager 0xA12D50 (0xA82DF0 /
+  0x588D40). Runs it starts still carry ctx+0x60, so a later 0x8D ends them too. To read +0x110 and 0x1B759EC with diag
+  before using it.
+- **What ics does (P for the policy).** ics/scriptlet_orders.py wraps World.send: consecutive 0x8D messages to one
+  champion go as one order (until another message or the end of the scheduler step), a StartScriptlet run rides along
+  after the new entries of every later order to that champion until its StopScriptlet, and a script's StopScriptlet is
+  0x11F mode 1. The original server's policy is not known; it kept such loops (the tester remembers the particles for
+  the whole buff). A held run is restarted by each order (stop-all, then a new run with the same number): a short
+  blink. The blink-free way would be the script component's replicated state (OnSync 0x627C70, anim-09 item 9) or
+  0x2073 if its direct path applies to champions.
+- **Blue Beetle's passive cooldown (C, script 0x34000456).** S3 `StartCooldown($CooldownDuration)` runs when the buff
+  ends (S6 -> S3 on its timer, or S1 -> S3 after the bonus hit), so the next trigger is 6 + 12 s after the last one at
+  rank 1; the melee Q at 22:17:54.886 was 3.8 s after the buff's end (22:17:51.077).
+
+## Button redraws, skill used, the punch sound and 0x2073 (2026-11-03, anim-24)
+
+Game test 2026-11-03 23:21-23:27 (Superman, Blue Beetle on Coast City PvP).
+
+- **Button redraws (C traffic, P fix).** The HUD skill loop redraws only slots marked dirty; the patched client's
+  code cave D marks slots 0-8 when champion property 0x100006C1 differs from its last read (every frame). A form swap
+  refreshes six slot tables in a few steps over ~0.12 s (23:26:54.666-.785); anim-19 toggled the property's top nibble
+  1 <-> 2 at each, so six toggles left it unchanged and the buttons waited for R's 0x20F8 "ready" (3 s). The skill
+  bar also redraws on the overlay notice 0x1000015A (Skill.UpdateSkillUIOverlay): the swap at 23:26:44.429 sent the
+  passive's and was instant. ics now toggles once, slot_table_hud_refresh_delay (0.1 s, ours) after the last table
+  change. The original's own trigger is not known; candidates on the wire: 0x207C (slot override, its last u32 = slot
+  to refresh) and 0x208C (Skill.UI_NotifySkillButtonUpdateIsSuppressed), never sent by ics.
+- **"Skill used" (P).** Scarab Scanner 0x34000454 calls SkillEcho 0x10000195 at its launch (S4) and nothing at the
+  detonation (S4 -> S3 on 0x1000001D); the tester remembers the passive starting at either. So the notice comes from
+  every taken activation (as ics did before anim-22, kit-audit-2.md 4); SkillEcho raises it only for a use whose
+  activation did not (a SkillEcho inside the activation event counts as the use's notice).
+- **The punch (C graph data).** Superman's graph: HeatVision_Finisher (121) runs the sub-machine 20:
+  HeatVision_Finisher_Loop (flight loop clip) -> on HeatVision_Loop_to_End -> HeatVision_Finisher_End (the punch
+  clip, skill_to_cosmetic at 0.1 s). Heat Vision S7 raises Finisher, S8 (dash arrived 0x100000C1) raises Loop_to_End
+  0x100003CA. S7's exit runs Vfx_Sup_Heat_Vision_Dash_Stop 0x10000B25 (sent at 23:22:12.170); the basic attack's 0x8D
+  at 12.420 ended its run (anim-23's rule). The target's TargetHit 0x10000223 with fx 0x1E000403 lived 12.033-12.749.
+- **The original's way (P, skill-animations-and-skins.md 3.1).** RunScriptlet / StartScriptlet / RaiseGraphEvent have
+  client halves that start runs through the local path (0x57C260; ctx+0x60 clear, so no 0x8D ends them) with
+  originator = the local player; a server 0x8D with that originator is dropped (0x6279D0 step 2). The original server
+  most probably replicated each champion's skill scripts to the client (0x200F / 0x200C, as ics does for status
+  scripts) and the copies played the visuals.
+- **0x2073 (experiment).** Exec 0x8B5B20: the object by the message's destination IID, then 0xA883F0(object, list).
+  Direct start (0xA22DA0: 0x6279D0 per entry, live run numbers skipped, no stop-all) only when object+0x110 equals
+  [0x1B759EC] (filled at run time); else the list goes to 0xA12D50's per-IID map. `diag --orders` logs both values.
+  `[ics] scriptlet_orders_event = "0x2073"` sends a champion's orders that way (no ride-along).
+- **Q explosion (open).** 0x34000489 S7: RunScriptlet Vfx_OnCollision on the explosion object 0x40000CD8 and on the
+  missile, DestroyEntity(SELF)[0.1, 1], DestroyEntity(explosion)[0.3, 0] (the flag's meaning not known). ics's
+  spawned_effect_scriptlets sends the missile's Vfx_OnInit 0.1 s after creation, after the collision on a short shot.
+- **Melee wings (open, P).** The To_Melee / To_Ranged entries (table 0x1D0005AD, pack 0xA0000201) name 0x19000D86
+  with 0x100000E3 / 0x100000E6 / 0x100000E2; their runs end at the next 0x8D in ics.
+
+## 0x2073 confirmed; the basic attack's facing and swing (2026-11-04, anim-25)
+
+- **0x2073's direct path (C, diag).** `diag --orders` (2026-11-04 00:51-00:56, logs diag1 / diag2.1 / diag2.2): at
+  every 0x8D list (0x627E20) on the champion (IID ..02) and the bots (..100 / ..101) the object's +0x110 = 0 and the
+  global 0x1B759EC = 0, so 0xA883F0 calls 0xA22DA0 directly for those objects: each entry through 0x6279D0, live run
+  numbers skipped, no stop-all. ics sends a champion's script-node scriptlets (labels of CastWorld.run_scriptlet)
+  as 0x2073 and keeps 0x8D for the server's own orders (P for the split; it follows skill-animations-and-skins.md 3.1:
+  the original's client copies of the skill scripts started those runs locally, where no 0x8D ends them).
+- **Basic attack facing (C, script).** The champions' basic attack scripts call FaceTarget($TargetIID)[1 0 0.15]
+  in their swing state (Blue Beetle 0x34000457 S1) and ReleaseFacing at its exit. World._attack_step turned the
+  champion on the server before casting, so CastWorld.face saw a turn under face_min_turn_degrees and sent no
+  facing: the client kept the old heading (shots with his back to the target).
+- **Walking during the swing (C data, P rule).** Blue Beetle's graph: Ranged_Basic_Left 104 / Right 115 (clip
+  triggers a_SkillHold 0.05, basicattack_to_basicattack 0.24 -> the Cosmetic state) and Basic_Attack_Melee 116 have
+  no Lua early-out; their Cosmetic states run onCosmeticEarlyOut / Combat_Locomotion_* (movement ends them). ics took
+  move orders at once during the swing (00:50:19.795 / .936 between start 19.676 and fire 19.975): the champion slid
+  while the clip played and the shot still left. Now a move ordered while the graph is in a state the basic attack's
+  script hooks waits for the state's exit (code 2), then runs. Who held it in the original (the server's order
+  system, P; the client buffers only on its action code / lock counter, full-combat-skills.md S3.7) is not known.
+
+## 0x2073 tried; the champion scriptlet delay (2026-11-04, anim-26)
+
+- **0x2073 in the game (C traffic, tester).** With the champions' script scriptlets sent as 0x2073 (anim-25) runs
+  were never ended early, and also never ended: Superman's Vfx_Sup_Heat_Vision_Eyes_Active (StartScriptlet, run 23)
+  stayed after its 0x11F (01:29:12.183, key and run right), and the basic attacks' streak runs stayed. 0x11F's exec
+  calls 0x57C4B0(.., key, mode, run, 0): with the last argument 0, 0x52D790 posts the stop signal 0xFFFFFF01 (a
+  definition's signal handlers; P that these loops have none) instead of 0x529EF0 (end list, attachments released),
+  which the 0x8D's stop-all uses (argument 1). The punch sound, the Q explosion and the melee wing glow stayed missing,
+  so runs ended early were not their cause. Default back to 0x8D.
+- **The champion scriptlet delay (C traffic).** A basic attack decided at 01:31:31.111 (the script's S1: StartCooldown,
+  FaceTarget, the swing's scriptlets) reached the client at .251: champion_scriptlet_delay 0.13 s plus a scheduler
+  tick. graph_feed_at_send feeds the server's graph at the send, so the hooks (shot, swing end) are as late as the
+  client's clip, while the cooldown counts from S1. The delay's reason (2026-10-21: a champion bundle re-creates the
+  object and cuts an animation) was found wrong (object-update-bundles.md, C). The sandbox now runs with 0 (P).
+- **The swing and movement (C data).** The basic attack's graph state ends at the shot (Blue Beetle: the clip's
+  basicattack_to_basicattack at 0.24 s, then the Cosmetic tail); onCosmeticEarlyOut lets movement end the tail. The
+  held move (anim-25) waited 31 ms at 01:31:31.534.
+
+## The beam's middle, the lost form swap, the explosion's flag (2026-11-04, anim-27)
+
+- **Superman's beam (C traffic).** Heat Vision 0x340003D6 S3 runs RunScriptlet(SELF)[0x10000ABE
+  Vfx_Sup_Heat_Vision_Active, 0x10000030 = target] (the beam) next to the held eyes 0x10000B94 and the target's
+  StartScriptlet 0x10000223 (fx 0x1E000389, the beam's end). In 4 of 13 casts the next step's orders (0x100001E3,
+  0x10000AB7, 0x10000AB9) went 8-11 ms later in a second 0x8D, which ended the beam (the held eyes and target end ride
+  or live on the target). Between them only vitals / modifier / status icon messages went out; they flushed the
+  waiting orders (anim-23's "any other message" rule). They now do not.
+- **The lost form swap (C traffic, P cause).** R 01:58:37.765: server melee, tables and the redraw sent, To_Melee +
+  graph event 0x10000405 in one order (.771, + the passive's held loop); .850 the passive's form restart
+  (0x11F + 0x10000BC6 in its own 0x8D). The tester then saw ranged and pressed R (52.375), which the server took as
+  melee -> ranged. Whether the client graph dropped Infiltraitor_Activate (or the .850 order's stop-all ended the run
+  before its action) is for diag --graph (0x2279D0 started, 0x2729A9 reaching the graph, 0x15BD43 / 0x15BD82 dropped /
+  queued).
+- **DestroyEntity's client half (C, 0x9B56D0).** 0x588A00(_HFSM_DestroyEntityAction 0x100001E0) on the object; if it
+  ran, 0x445840(object IID, delay = node f32 +0x24) posts the removal event 0xFA; then
+  _HFSM_DestroyEntityAction_Optional 0x10001128; flag byte +0x28 = 1: event 0x100000A1 (template 0x460BB0) with the
+  object's IID (parameter hash 0x2572644) to the creator's HFSM (0x991F60 source, 0xAA1A60, 0x96DE90). Energy Cannon's
+  explosion object uses [0.3, 0] (no notice), its missile [0.1, 1].
+- **The Q explosion (open).** Shown at 01:59:27.964, missing at 01:58:19 / 26 / 36: same spawn -> collision (110 ms)
+  -> removal (300 ms) timings and the same messages; only the run number grew past 127 (a 2-byte compact).
+
+## Energy Cannon's explosion (2026-11-04, anim-28)
+
+- **Where the explosion is (C, data).** Energy Cannon's missile 0x40000815 (script 0x34000489) spawns the explosion
+  object 0x40000CD8 at the collision (S1 SpawnEntity) and, 0.1 s later (S7), runs Vfx_OnCollision 0x10000016 on it and
+  on itself, then DestroyEntity(SELF)[0.1, 1] and DestroyEntity(explosion)[0.3, 0]. The explosion object's world
+  state 0x2E0009F0 / tables 0x1D000456, 0x1D0008DE: 0x1D0008DE (pack 0xA0000202) holds only Vfx_OnCollision = one
+  action type 0x11 (particle emitter on the object, client-scriptlets-graphs.md 1.6) 0x18000BDB, floats 40.0 / 60.0,
+  probability 1.0. The particle record 0x18000BDB (5 160 bytes, same pack) has 6 emitters with times 0.05-0.5 s. The
+  missile's own Vfx_OnCollision (table 0x1D0005C8) only stops its trail Vfx_OnInit 0x10000078 after 0.06 s.
+- **Game test 02:44-02:47 (C traffic).** 13 casts, shown in 5: the same messages, the same order, collision 110-128 ms
+  after the spawn, removal (0x3) 300-306 ms after the collision; the diag (budget: casts 1-4) shows the client
+  starting Vfx_OnCollision on both objects in shown and missing casts; the objects stood on the navmesh, casts 3 / 6 /
+  7 / 12 at the same spot (13.55, 59.2, 250.2) with both results.
+- **P:** the emitters need more than the 0.3 s the object lives on the client; how the original removed a destroyed
+  object (DestroyEntity's client half posts the 0xFA state change after the delay, 0x9B56D0) is not known. The
+  sandbox delays the network removal 1 s ([ics] destroy_network_linger) to test it.
+
+## The explosion after the linger, the first knockback, the W indicator (2026-11-04, anim-29)
+
+- **Explosion (C traffic, tester).** anim-28 kept the explosion object 0x40000CD8 on the client 1.3 s after its
+  Vfx_OnCollision (removal 0x3 "1 s after", 03:13:53.121 ...): 0 of 14 showed. With the removal at 0.3 s (the
+  script's) 5 of 13 had. So the type 0x11 emitter 0x18000BDB on the object is not seen while the object stays; what
+  the client does at the removal (or what else differs in the shown casts) is for `diag --particles` (the emitter's
+  start, 0x67F650) next to the removal times in traffic.log. The linger is off again.
+- **First knockback of a match (C log).** 02:41:21.704 Heat Vision S3, damage .706, the server started Gaslight
+  Batman's graph runtime (.705), the knockback status script 0x340003F8 entered .828 (0.12 s later; 3 ms in the
+  later casts), its end .182 (0.35 s; later casts 0.32 s). The tester saw a teleport-like push only that time. The
+  motion states were unlabelled (net.py logs label None as nothing); `[ics] log_forced_motion` labels them now.
+- **The W indicator (C traffic).** Scarab Scanner S4 (launch) runs SetSkillStatOverride 0x100000FA [this, field 14 =
+  5, field 16 = 1]; ics sent slot 2's table with targeting 0x1000003D = 5 (03:13:40.800), overlay 0x1000015A slot 2
+  on, and the HUD redraw (.916); at the drone's end (46.933) the table cleared. The client still drew the indicator
+  for the second press, so its targeting mode is not (only) the slot table's 0x1000003D. Open (pendência 16).
+
+## The explosion's emitter, the first knockback, the first R (2026-11-04, anim-30)
+
+- **The explosion's emitter starts but is not seen (C diag + C client rule).** `diag --particles` (action type 0x11,
+  execute 0x67F650; the particle record is the action's word +0x34): 0x18000BDB started on the client at 15:21:56
+  and 15:22:04 (Energy Cannon casts 1 and 2), neither seen by the tester; the tracer's 100-line budget ended the log
+  at 15:22:04 (PARTICLES now has 3000). client-movement.md 0 (C): a network object is placed only by its movement
+  states, and each physics tick replays the newest state whose time <= now - 0.1 s; a new object's only state (its
+  creation bundle, stamped now) is not used for 0.1 s. The explosion object 0x40000CD8 got Vfx_OnCollision 5 ms
+  (cast 1) or ~110 ms (the others) after its creation; the two shown (14, 15) got it 105 / 118 ms after. The emitter
+  attached to an object not placed yet does not show where the tester looks. ics now stamps a standing spawned
+  object's creation state 0.1 s earlier ([ics] spawn_state_backdate; 0.1 = the client's replay delay; with speed 0
+  the dead-reckoning adds nothing). Krizalid's spawned_effect_scriptlets sends a missile's Vfx_OnInit 0.1 s after its
+  creation, probably the same delay met another way.
+- **The first status of a kind costs a pack read (C log).** apply_status resolves a status record's script with
+  Data.status_script, whose _record builds the record list of the record's pack on first use (2.2 s cold for
+  0x48000A0F in a fresh process), on the game thread. Heat Vision's knockback status 0x340003F8 started 0.13 s after
+  the hit at the match's first E (15:25:48.684 -> .810), 3 ms in the later ones. ics/prewarm.py resolves, at each
+  champion's creation, the statuses its kit's ApplySkill nodes name (and their scripts', two levels).
+- **The knockback's length (C script).** 0x340003D6 S3: KnockbackDuration = max(KnockbackDistance - distance, 0.1)
+  / KnockbackSpeed; status 0x340003F8: to KnockbackDistance (stat 17 = 6 m) from Superman. 15:25:48: 0.7 m in 0.07 s
+  (the bot 5.3 m away, walking); 15:26:03: 3.15 m in 0.35 s. A short push is a quick hop by the data.
+- **The first R (C traffic, open).** 15:22:48.036: the melee slot tables at .149-.173, the rank toggle .278, the same
+  as the later swaps that showed at once; the melee icons 0x13001DE1 / DE6 / DFE / DFF live in pack 0xA0000202 with
+  the ranged ones. The tester saw them 5-6 s later the first time only: client side, to see with diag --ranks (the
+  HUD's refresh marks).
+- **Skill script copies (context).** World.mirror_skill_scripts sends the champion's skill scripts to the client as
+  0x200F (the original's probable way, skill-animations-and-skins.md 3.1); [ics] skill_script_mirror is off since
+  2026-10-23 22:24 (the client closed at load complete: access violation at rva 0x48BE3).
+
+## The first Q explosion (2026-11-05, anim-32)
+
+- **C log.** Energy Cannon's missile script 0x34000489 S1 starts CollisionDelayTimer, then SpawnEntity(0x40000CD8);
+  S1 -> S7 (Vfx_OnCollision) on the timer. At the match's first cast (16:12:51.015) the SpawnEntity read the class's
+  data for the first time (69 ms on the game thread), so the creation went at .084 and the collision 1 ms later; later
+  casts: creation at once, collision ~106 ms after. With anim-30's placement fix every cast but the first showed the
+  explosion. ics/prewarm.py now reads, at each champion's creation, the classes its kit's scripts name and walks their
+  scripts (0x40000815 -> 0x34000489 -> 0x40000CD8).

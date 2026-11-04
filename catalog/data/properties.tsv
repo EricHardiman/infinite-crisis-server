@@ -1768,7 +1768,7 @@ id	kind	kind_code	owner	meaning	notes
 0x10000030	iid	0x07	scriptlet variable	Scriptlet variable: target IID passed by RunScriptlet (e.g. the basic attack's shot).	 Scriptlet variable: the shot projectile's target IID (action type 2, 0x673280); sent for shot scriptlets (fase3-hc).
 0x10000038	0x14	0x14			
 0x10000039	int	0x10			
-0x1000003D	enum	0x08	skill	Targeting type	1 ground position, 5, 7, 14 an entity.
+0x1000003D	enum	0x08	skill	Targeting type	1 ground position, 5, 7, 14 an entity.; 13 a direction. SetSkillStatOverride 0x100000FA field 14 overrides it (anim-18)
 0x1000003E	string	0x0E	skill	(string)	Stolen Power data.
 0x1000003F	table	0x0B	skill record	Skill block (the slot collection's contents)	
 0x10000044	enum	0x08			
@@ -2032,7 +2032,7 @@ id	kind	kind_code	owner	meaning	notes
 0x1000029F	f32	0x09			
 0x100002A0	f32	0x09			
 0x100002A1	f32	0x09			
-0x100002A3	did	0x15	skill	Formula sheet / category	
+0x100002A3	did	0x15	skill	Formula sheet / category	SetSkillStatOverride 0x100000FA field 12 overrides it (Blue Beetle Q 0x48000154 / melee 0x48000156)
 0x100002A8	int	0x10			
 0x100002A9	int	0x10			
 0x100002AA	f32	0x09			
@@ -2075,7 +2075,7 @@ id	kind	kind_code	owner	meaning	notes
 0x100002FE	enum	0x08			
 0x100002FF	0x14	0x14			
 0x10000300	f32	0x09			
-0x10000302	did	0x15	skill	Skill icon (0x13...)	Read at the top level of a slot collection.; NOT an amplifier icon: the 17 'amplifier template icons' of fase3-if were the next records' values read past the amplifier's 5-entry record (2026-10-29, amplifier-icons.md)
+0x10000302	did	0x15	skill	Skill icon (0x13...)	Read at the top level of a slot collection.; NOT an amplifier icon: the 17 'amplifier template icons' of fase3-if were the next records' values read past the amplifier's 5-entry record (2026-10-29, amplifier-icons.md); SetSkillStatOverride 0x100000FA field 11 overrides it (anim-18)
 0x10000304	enum	0x08			
 0x10000309	int	0x10			
 0x1000030A	did	0x15			
@@ -2237,10 +2237,10 @@ id	kind	kind_code	owner	meaning	notes
 0x1000044D	iid	0x07			
 0x1000044E	f32	0x09			
 0x1000044F	f32	0x09			
-0x10000450	enum	0x0A			
+0x10000450	enum	0x0A		Attribute id (status modifier entry)	
 0x10000451	did	0x15			
 0x10000452	string	0x0E			
-0x10000453	enum	0x08			
+0x10000453	enum	0x08		Modifier op (6 set, 7, 9 add, 10 add percent)	
 0x10000456	int	0x10			
 0x10000459	bool	0x16			
 0x1000045A	string	0x0E			
@@ -2257,7 +2257,7 @@ id	kind	kind_code	owner	meaning	notes
 0x1000046B	bool	0x16			
 0x1000046D	iid	0x07			
 0x1000046E	table	0x0B			
-0x1000046F	array	0x0C			
+0x1000046F	array	0x0C	status	Attribute modifiers of a status record	Entries {0x10000450 attribute, 0x10000453 op, 0x100004C3 bool value | 0x100008A7 number}; 232 status records; the op-6 flags (Rooted, Stunned, Crippled ...) hold while the status lasts (anim-18, [ics] status_record_flags)
 0x10000475	enum	0x08			
 0x10000477	table	0x0B			
 0x10000478	array	0x0C	loadout	Recommended artifacts in buy order (0x10000477 {0x10000475, 0x10000694 artifact})	ics sends them as 0x2078; ics bots buy along it, a whole visit at base at once, an owned line's next tier first (bot_shop_plan, 2026-10-30)
@@ -2302,7 +2302,7 @@ id	kind	kind_code	owner	meaning	notes
 0x100004C0	bool	0x16			
 0x100004C1	f32	0x09			
 0x100004C2	int	0x10			
-0x100004C3	bool	0x16			
+0x100004C3	bool	0x16		Modifier value (bool, status modifier entry)	
 0x100004D1	string	0x0E			
 0x100004D2	f32	0x09	skill	Tooltip argument: per-rank value	
 0x100004D3	table	0x0B			
@@ -2693,7 +2693,7 @@ id	kind	kind_code	owner	meaning	notes
 0x1000077F	string	0x0E			
 0x10000780	int	0x10			
 0x10000785	u32	0x13			
-0x10000786	u32	0x13			
+0x10000786	u32	0x13			Atomic Joker's passive S2 sets it ($HealthLock) with 0x10000249 = false and 0x10000140 (regen): P a health lock (no damage below while set); not honoured by ics yet (anim-19)
 0x10000787	bool	0x16			
 0x10000788	enum	0x08			
 0x10000789	u32	0x13			
@@ -2946,12 +2946,12 @@ id	kind	kind_code	owner	meaning	notes
 0x100008E0	array	0x0C			
 0x100008E1	did	0x15			
 0x100008E2	did	0x15	champion definition	Stats record (0x40/0x49 pair): array 0x100008E0 of {0x10000100 stat, 0x100008DF value at level 1, 0x100008DE growth per level}	ics Data.champion_stats (fase3-fy)
-0x100008E3	table	0x0B	champion	Slot 0 skill (basic attack)	See Skill slots.
+0x100008E3	table	0x0B	champion	Slot 0 skill (basic attack)	See Skill slots.; Sent by ics when a script swaps or overrides the slot (anim-18, ics/skill_slots.py)
 0x100008E4	table	0x0B	champion	Slot 6 skill (Recall)	
 0x100008E5	table	0x0B	champion	Slot 10 skill (item)	
 0x100008E6	table	0x0B	champion	Slot 4 skill (R)	
 0x100008E7	table	0x0B	champion	Slot 11 skill (item)	
-0x100008E8	table	0x0B	champion	Slot 1 skill (Q)	Slot property table at VA 0x15EDA28.
+0x100008E8	table	0x0B	champion	Slot 1 skill (Q)	Slot property table at VA 0x15EDA28.; Sent by ics when a script swaps or overrides the slot (anim-18, ics/skill_slots.py)
 0x100008E9	table	0x0B	champion	Slot 12 skill (item)	
 0x100008EA	table	0x0B	champion	Slot 2 skill (W)	
 0x100008EB	table	0x0B	champion	Slot 13 skill (item)	

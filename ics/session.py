@@ -1133,7 +1133,7 @@ class Session:
                                    position=w.wire_position(w.champion), heading=w.champion.heading,
                                    speed=w.champion.speed, tele_seq=getattr(w.champion, "tele_seq", 1),
                                    second_seq=1 if w.in_world else 0,
-                                   properties=props)
+                                   properties=props, **w.tilt(w.champion))   # facing_offset: a facing lock (2026-11-03)
         if w.delta_mode():
             # 2026-10-28 15:00 (tester report 2026-10-28 15:00; object-update-bundles.md 11.4): the champion's full
             # bundle; its later updates are deltas against it ([ics] object_update_mode)
@@ -1237,13 +1237,14 @@ class Session:
                 else:
                     msg = w.motion_update(ent)
                     if msg is not None:
-                        self.user.send(msg if self.ic.get("bot_motion_only", False) else w.bundle(ent), None)
+                        self.user.send(msg if self.ic.get("bot_motion_only", False) else w.bundle(ent),
+                                       w.forced_motion_label(ent))
             elif ent.kind == "missile" and self.ic.get("missile_bundle_on_turn", True):
                 self._missile_motion(w, ent)
             elif delta:
                 w.update(ent, None)
             else:
-                self.user.send(w.bundle(ent), None)
+                self.user.send(w.bundle(ent), w.forced_motion_label(ent))
             m.last_sent = now
         if delta:
             # the idle full bundle (which removed the 0x6-only ids too) becomes a resync: the champion's movement state and
